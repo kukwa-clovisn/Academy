@@ -1,14 +1,15 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Graphic Design</router-link> |
+    <router-link to="/about">wed Developement</router-link> |
+    <router-link to="/nest">crytpocurrency</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -19,11 +20,14 @@ nav {
   padding: 30px;
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    color: #072e54;
+    font: 600 23px sans-serif;
+    text-transform: capitalize;
+    padding: 10px;
+    text-decoration: none;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #14bb70;
     }
   }
 }
