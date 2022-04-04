@@ -1,13 +1,16 @@
+<<<<<<< HEAD
 
 .DS_Store
 node_modules
 /dist
 assets/
 
+=======
+>>>>>>> 98674d0591cd8b483bd28a42acb0dbc22352eb85
 # local env files
 .env.local
 .env.*.local
-
+node_modules/
 # Log files
 npm-debug.log*
 yarn-debug.log*
