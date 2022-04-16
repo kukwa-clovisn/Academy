@@ -15,10 +15,10 @@
         </nav>
         <nav>
           <button class="landing-page-btn">
-            <router-link to="/" class="homeBtn">register</router-link>
+            <router-link to="/register" class="homeBtn">register</router-link>
           </button>
           <button class="clear landing-page-btn">
-            <router-link to="/" class="homeBtn">sign in</router-link>
+            <router-link to="/login" class="homeBtn">sign in</router-link>
           </button>
         </nav>
       </header>
@@ -32,7 +32,7 @@
           crypto currency and also how to trade with crypto and forex
         </p>
         <button class="landing-page-btn">
-          <router-link to="/" class="homeBtn">sign up</router-link>
+          <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
         <!-- <img src="../assets/ch1.png" id="homeImg" alt="crypto chart" /> -->
 
@@ -101,6 +101,32 @@
         </ul>
       </div>
     </div>
+    <div class="section-2">
+      <h2>Ever wondering how Cryptocurrencies work?</h2>
+      <p>
+        cryptocurrencies are decentralized and monitized currencies which
+        function as money online with no liquid value
+      </p>
+      <div class="video-div">
+        <div class="btc">
+          <img src="../assets/bitcoin.png" alt="" />
+          <h3>Bitcoin</h3>
+          <p>Digital decentralized currency</p>
+        </div>
+
+        <div class="video">
+          <iframe
+            width="545"
+            height="300"
+            src="https://www.youtube.com/embed/rYQgy8QDEBI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -116,9 +142,9 @@ export default {
 }
 .landing-page-btn {
   width: 150px;
-  height: 40px;
+  height: 45px;
   border: none;
-  background: rgb(14, 180, 16);
+  background: rgb(10, 109, 221);
   border-radius: 3px;
   display: block;
 
@@ -206,10 +232,10 @@ main {
 
       button.clear {
         background: transparent;
-        border: 1px solid rgb(14, 180, 16);
+        border: 1px solid rgb(245, 248, 250);
 
         .homeBtn {
-          color: rgb(14, 180, 16);
+          color: white;
         }
       }
     }
@@ -220,6 +246,7 @@ main {
     height: 83vh;
     position: relative;
     padding: 20px;
+    top: 20px;
 
     h1 {
       text-transform: capitalize;
@@ -236,7 +263,7 @@ main {
 
     button {
       width: 200px;
-      height: 45px;
+      height: 50px;
       margin: 30px auto;
       margin-bottom: 5px;
 
@@ -378,6 +405,73 @@ main {
           color: rgb(3, 177, 174);
         }
       }
+    }
+  }
+}
+
+.section-2 {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 20px;
+
+  h2 {
+    padding: 10px;
+    font: 700 30px "Poppins", sans-serif;
+  }
+  p {
+    width: 85vw;
+    margin: auto;
+    line-height: 30px;
+    font: 500 17px "Poppins", sans-serif;
+    padding: 10px;
+    word-spacing: 2px;
+  }
+
+  .video-div {
+    width: 90vw;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .btc {
+      width: 30%;
+      height: fit-content;
+
+      h3 {
+        color: rgb(5, 50, 173);
+      }
+
+      p {
+        color: rgb(3, 55, 123);
+        width: 100%;
+      }
+    }
+
+    img {
+      display: block;
+      width: 300px;
+      height: auto;
+      transform: rotateZ(7deg);
+    }
+  }
+
+  .video {
+    width: 70vw;
+    height: 80vh;
+    margin: auto;
+    background: url(../assets/blank-c.jpg);
+    background-size: 575px 440px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+    left: 100px;
+    top: 100px;
+    transform: rotateZ(10deg);
+    iframe {
+      position: absolute;
+      top: 12.5px;
+      left: 17px;
     }
   }
 }

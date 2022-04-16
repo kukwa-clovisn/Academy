@@ -2,13 +2,26 @@
   <router-view />
 </template>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+* {
+  transition: all 0.3s ease;
+}
+
+button,
+a,
+label {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.9);
+  }
 }
 
 nav a {
