@@ -31,6 +31,7 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
 
 nav {
   padding: 30px;
