@@ -1,9 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Graphic Design</router-link> |
-    <router-link to="/about">wed Developement</router-link> |
-    <router-link to="/nest">crytpocurrency</router-link>
-  </nav>
   <router-view />
 </template>
 
@@ -15,6 +10,27 @@
   text-align: center;
   color: #2c3e50;
 }
+* {
+  transition: all 0.3s ease;
+}
+
+button,
+a,
+label {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 
 nav {
   padding: 30px;
