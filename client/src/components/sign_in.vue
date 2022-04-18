@@ -86,7 +86,7 @@ main {
   background-attachment: fixed;
   background: linear-gradient(
     to bottom right,
-    rgb(9, 69, 149),
+    rgb(3, 47, 105),
     rgb(38, 38, 38)
   );
 
@@ -188,6 +188,7 @@ main {
         align-items: center;
         text-transform: capitalize;
         text-decoration: none;
+        font-size: 18px;
         color: white;
       }
     }

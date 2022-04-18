@@ -198,6 +198,7 @@ main {
         text-transform: capitalize;
         text-decoration: none;
         color: white;
+        font-size: 18px;
       }
     }
   }

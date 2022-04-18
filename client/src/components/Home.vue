@@ -216,7 +216,7 @@ main {
       }
 
       &:last-child {
-        width: 26vw;
+        width: 32vw;
       }
 
       .route {
@@ -228,6 +228,7 @@ main {
         text-transform: capitalize;
         text-decoration: none;
         color: white;
+        font-size: 18px;
       }
 
       button.clear {
