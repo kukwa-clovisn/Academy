@@ -127,6 +127,52 @@
         </div>
       </div>
     </div>
+    <div class="section-3">
+      <h1>What is <span>BITCOIN</span>??</h1>
+      <p>
+        Bitcoin is a decentralized digital currency, without a central bank or
+        single administrator, that can be sent from user to user on the
+        peer-to-peer bitcoin network without the need for intermediaries.
+        Transactions are verified by network nodes through cryptography and
+        recorded in a public distributed ledger called a blockchain. The
+        cryptocurrency was invented in 2008 by an unknown person or group of
+        people using the name Satoshi Nakamoto. The currency began use in 2009
+        when its implementation was released as open-source software. Bitcoins
+        are created as a reward for a process known as mining. They can be
+        exchanged for other currencies, products, and services. Bitcoin has been
+        criticized for its use in illegal transactions, the large amount of
+        electricity used by mining, price volatility, and thefts from exchanges.
+        Some investors and economists have characterized it as a speculative
+        bubble at various times
+      </p>
+      <h1>What is <span>cryptocurrency</span> ??</h1>
+      <p>
+        A cryptocurrency, crypto-currency, crypto, or coin is a digital currency
+        designed to work as a medium of exchange through a computer network that
+        is not reliant on any central authority, such as a government or bank,
+        to uphold or maintain it. Individual coin ownership records are stored
+        in a digital ledger, which is a computerized database using strong
+        cryptography to secure transaction records, to control the creation of
+        additional coins, and to verify the transfer of coin ownership. Despite
+        their name, cryptocurrencies are not considered to be currencies in the
+        traditional sense and while varying treatments have been applied to
+        them, including classification as commodities, securities, as well as
+        currencies, cryptocurrencies are generally viewed as a distinct asset
+        class in practice. Some crypto schemes use validators to maintain the
+        cryptocurrency. In a proof-of-stake model, owners put up their tokens as
+        collateral
+      </p>
+    </div>
+    <div class="illustration-1">
+      <h1>Want to learn how to be a profitable trader??</h1>
+      <button class="landing-page-btn">
+        <router-link to="/signup" class="homeBtn"
+          ><i class="fa fa-arrow-left" id="illustration-icon"></i> sign up and
+          Register</router-link
+        >
+      </button>
+      <img src="../assets/ch1.png" alt="btc chart" />
+    </div>
   </main>
 </template>
 
@@ -412,8 +458,8 @@ main {
 
 .section-2 {
   width: 100vw;
-  height: 100vh;
-  padding-top: 20px;
+  height: fit-content;
+  padding: 50px 10px;
 
   h2 {
     padding: 10px;
@@ -474,6 +520,55 @@ main {
       top: 12.5px;
       left: 17px;
     }
+  }
+}
+
+.section-3 {
+  width: 85vw;
+  margin: auto;
+  height: fit-content;
+  padding: 20px 5px;
+
+  h1 {
+    padding: 30px 10px;
+    font: 700 45px "Poppins", sans-serif;
+
+    span {
+      color: rgb(3, 3, 214);
+    }
+  }
+
+  p {
+    padding: 0;
+    font-family: serif;
+    line-height: 30px;
+    font-size: 19px;
+  }
+}
+
+.illustration-1 {
+  width: 100vw;
+  height: fit-content;
+
+  h1 {
+    width: 80vw;
+    margin: auto;
+    font: 800 50px "Poppins", sans-serif;
+    padding: 10px;
+  }
+
+  button {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    margin: 10px auto;
+  }
+
+  img {
+    display: block;
+    width: 80%;
+    height: auto;
+    margin: 10px auto;
   }
 }
 </style>
