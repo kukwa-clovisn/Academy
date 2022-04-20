@@ -14,13 +14,14 @@
           <router-link to="/" class="route">about</router-link>
           <router-link to="/" class="route">why crypto?</router-link>
           <router-link to="/" class="route">blog</router-link>
+          <router-link to="#contact-form" class="route">contact</router-link>
         </nav>
         <nav>
-          <button class="landing-page-btn">
-            <router-link to="/register" class="homeBtn">register</router-link>
-          </button>
-          <button class="clear landing-page-btn">
+          <button class="clear primary-btn">
             <router-link to="/login" class="homeBtn">sign in</router-link>
+          </button>
+          <button class="current primary-btn">
+            <router-link to="/register" class="homeBtn">register</router-link>
           </button>
         </nav>
       </header>
@@ -33,7 +34,7 @@
           this is a crypto trading website where you get to learn all about
           crypto currency and also how to trade with crypto and forex
         </p>
-        <button class="landing-page-btn">
+        <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
         <!-- <img src="../assets/ch1.png" id="homeImg" alt="crypto chart" /> -->
@@ -50,7 +51,67 @@
     <div class="section-1">
       <header>
         <h1>The World’s Largest And Fast Growing Technology</h1>
-        <p>Be the first to assimilatete this wonderful technology</p>
+        <h3>Be the first to assimilatete this wonderful technology</h3>
+        <p>
+          The Crypto & Forex market can be a very strategic and pretty dangerous
+          place for just anybody to rush in without knowledge. <br />
+          In the Crypto & Forex market, it is either you learn from experience
+          or you learn with experience and you might be wondering what tha means
+          well i will tell you. <br />
+          What you are going to be learning are strategies and ways that experts
+          have tried, tested and proven true and that will save you from loosing
+          you money in the crypto & forex market. This might sound a little bit
+          not true but as you dig deep into the cryptocurrency space, you will
+          get to understand that before anything, knowledge is most import and
+          like the saying goes
+          <span>invest in whatever will bring you profit</span>. Pay and learn
+          and be filled with the adequate knowledge need. Therr's always a price
+          to be paid for anything that is worth doing or worth investing in. All
+          you have to do is to pay the price today and rejoice tomorrow. Surely
+          you will be glad you did.
+        </p>
+        <div class="section-3-def">
+          <div class="def">
+            <h1>What is <span>BITCOIN</span>??</h1>
+            <p>
+              Bitcoin is a decentralized digital currency, without a central
+              bank or single administrator, that can be sent from user to user
+              on the peer-to-peer bitcoin network without the need for
+              intermediaries. Transactions are verified by network nodes through
+              cryptography and recorded in a public distributed ledger called a
+              blockchain. The cryptocurrency was invented in 2008 by an unknown
+              person or group of people using the name Satoshi Nakamoto. The
+              currency began use in 2009 when its implementation was released as
+              open-source software. Bitcoins are created as a reward for a
+              process known as mining. They can be exchanged for other
+              currencies, products, and services. Bitcoin has been criticized
+              for its use in illegal transactions, the large amount of
+              electricity used by mining, price volatility, and thefts from
+              exchanges. Some investors and economists have characterized it as
+              a speculative bubble at various times
+            </p>
+          </div>
+          <div class="def">
+            <h1>What is <span>cryptocurrency</span> ??</h1>
+            <p>
+              A cryptocurrency, crypto-currency, crypto, or coin is a digital
+              currency designed to work as a medium of exchange through a
+              computer network that is not reliant on any central authority,
+              such as a government or bank, to uphold or maintain it. Individual
+              coin ownership records are stored in a digital ledger, which is a
+              computerized database using strong cryptography to secure
+              transaction records, to control the creation of additional coins,
+              and to verify the transfer of coin ownership. Despite their name,
+              cryptocurrencies are not considered to be currencies in the
+              traditional sense and while varying treatments have been applied
+              to them, including classification as commodities, securities, as
+              well as currencies, cryptocurrencies are generally viewed as a
+              distinct asset class in practice. Some crypto schemes use
+              validators to maintain the cryptocurrency. In a proof-of-stake
+              model, owners put up their tokens as collateral
+            </p>
+          </div>
+        </div>
       </header>
       <div class="content">
         <h2>Cryptocurrencies | Prices Today!</h2>
@@ -59,7 +120,7 @@
             <span class="name">Bitcoin</span><span class="symbol">BTC</span
             ><span class="percentage">+1.00%</span>
             <span class="value">$40,290.18</span>
-            <button class="landing-page-btn">
+            <button class="primary-btn">
               <router-link to="#" class="homeBtn">trade</router-link>
             </button>
           </li>
@@ -68,7 +129,7 @@
             <span class="name">ethereum</span><span class="symbol">eth</span
             ><span class="percentage">+2.34%</span>
             <span class="value">$3,074.30</span>
-            <button class="landing-page-btn">
+            <button class="primary-btn">
               <router-link to="#" class="homeBtn">trade</router-link>
             </button>
           </li>
@@ -77,7 +138,7 @@
             <span class="name">dogecoin</span><span class="symbol">doge</span
             ><span class="percentage">+3.46%</span>
             <span class="value">$0.142228</span>
-            <button class="landing-page-btn">
+            <button class="primary-btn">
               <router-link to="#" class="homeBtn">trade</router-link>
             </button>
           </li>
@@ -86,7 +147,7 @@
             <span class="name">polkadot</span><span class="symbol">dot</span
             ><span class="percentage">+3.24%</span>
             <span class="value">$17.96</span>
-            <button class="landing-page-btn">
+            <button class="primary-btn">
               <router-link to="#" class="homeBtn">trade</router-link>
             </button>
           </li>
@@ -95,7 +156,7 @@
             <span class="name">cardano</span><span class="symbol">ada</span
             ><span class="percentage">+3.14%</span>
             <span class="value">$0.964214</span>
-            <button class="landing-page-btn">
+            <button class="primary-btn">
               <router-link to="#" class="homeBtn">trade</router-link>
             </button>
           </li>
@@ -105,7 +166,8 @@
     </div>
     <div class="social-sample">
       <div class="left-content">
-        <h2>Learning is quite fun</h2>
+        <h2>investing in yourself</h2>
+        <h4>Great men are men who are never scared of learning...</h4>
         <p>
           If you've come this far then you really are curious to learn know. Why
           not join the moving train now and start learning!!
@@ -127,7 +189,8 @@
       <h2>Ever wondering how Cryptocurrencies work?</h2>
       <p>
         cryptocurrencies are decentralized and monitized currencies which
-        function as money online with no liquid value
+        function as money online with no liquid value. Invest in knowledge today
+        and save yourself the stress tomorrow get to know more
       </p>
       <div class="video-div">
         <div class="btc">
@@ -148,42 +211,6 @@
           ></iframe>
         </div>
       </div>
-    </div>
-    <div class="section-3">
-      <h1>What is <span>BITCOIN</span>??</h1>
-      <p>
-        Bitcoin is a decentralized digital currency, without a central bank or
-        single administrator, that can be sent from user to user on the
-        peer-to-peer bitcoin network without the need for intermediaries.
-        Transactions are verified by network nodes through cryptography and
-        recorded in a public distributed ledger called a blockchain. The
-        cryptocurrency was invented in 2008 by an unknown person or group of
-        people using the name Satoshi Nakamoto. The currency began use in 2009
-        when its implementation was released as open-source software. Bitcoins
-        are created as a reward for a process known as mining. They can be
-        exchanged for other currencies, products, and services. Bitcoin has been
-        criticized for its use in illegal transactions, the large amount of
-        electricity used by mining, price volatility, and thefts from exchanges.
-        Some investors and economists have characterized it as a speculative
-        bubble at various times
-      </p>
-      <h1>What is <span>cryptocurrency</span> ??</h1>
-      <p>
-        A cryptocurrency, crypto-currency, crypto, or coin is a digital currency
-        designed to work as a medium of exchange through a computer network that
-        is not reliant on any central authority, such as a government or bank,
-        to uphold or maintain it. Individual coin ownership records are stored
-        in a digital ledger, which is a computerized database using strong
-        cryptography to secure transaction records, to control the creation of
-        additional coins, and to verify the transfer of coin ownership. Despite
-        their name, cryptocurrencies are not considered to be currencies in the
-        traditional sense and while varying treatments have been applied to
-        them, including classification as commodities, securities, as well as
-        currencies, cryptocurrencies are generally viewed as a distinct asset
-        class in practice. Some crypto schemes use validators to maintain the
-        cryptocurrency. In a proof-of-stake model, owners put up their tokens as
-        collateral
-      </p>
     </div>
     <div class="illustration-1">
       <Carousel />
@@ -269,7 +296,7 @@
         </div>
       </section>
     </div>
-    <div class="contact-form">
+    <div class="contact-form" id="contact-form">
       <h1>get in touch!</h1>
       <h6>
         We deal and handle many businesses that will interest you. Check out our
@@ -390,11 +417,11 @@ export default {
   left: 0;
 }
 
-.landing-page-btn {
+.primary-btn {
   width: 150px;
   height: 45px;
   border: none;
-  background: linear-gradient(to right, rgb(2, 49, 102), rgb(58, 141, 235));
+  background: rgb(185, 62, 130);
   border-radius: 3px;
   display: block;
 
@@ -458,13 +485,13 @@ main {
       align-items: center;
       width: 40vw;
       height: 100%;
-
+      padding: 0;
       &:last-child {
         width: 32vw;
       }
 
       .route {
-        width: 150px;
+        width: 200px;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -472,7 +499,15 @@ main {
         text-transform: capitalize;
         text-decoration: none;
         color: white;
-        font-size: 18px;
+        font-size: 16px;
+      }
+
+      .current {
+        background: white;
+
+        .homeBtn {
+          color: rgb(185, 62, 130);
+        }
       }
 
       button.clear {
@@ -578,14 +613,17 @@ main {
 .section-1 {
   width: 100vw;
   height: fit-content;
+  background: whitesmoke;
+  padding: 20px;
 
   header {
     width: 100%;
-    height: 50vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 10px;
     // background: linear-gradient(to bottom right, black, rgba(36, 107, 190, 1));
 
     h1 {
@@ -598,6 +636,12 @@ main {
       // color: white;
     }
 
+    h3 {
+      font: 500 30px "Poppins", sans-serif;
+      padding: 10px;
+      padding-bottom: 30px;
+    }
+
     p {
       width: 90%;
       margin: auto;
@@ -605,6 +649,37 @@ main {
       padding: 10px;
       padding-top: 0;
       // color: whitesmoke;
+    }
+
+    .section-3-def {
+      width: 95vw;
+      margin: auto;
+      height: fit-content;
+      padding: 20px 5px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .def {
+        width: 48%;
+        height: fit-content;
+        h1 {
+          padding: 10px;
+          font: 700 25px "Poppins", sans-serif;
+
+          span {
+            color: rgb(58, 141, 235);
+          }
+        }
+
+        p {
+          padding: 0;
+          font-family: serif;
+          line-height: 30px;
+          font-size: 18px;
+          text-align: left;
+        }
+      }
     }
   }
 
@@ -664,7 +739,7 @@ main {
 }
 
 .social-sample {
-  width: 80vw;
+  width: 85vw;
   height: 70vh;
   display: flex;
   justify-content: center;
@@ -672,10 +747,17 @@ main {
   margin: 10px auto;
   padding: 20px 5px;
   .left-content {
-    width: 40%;
+    width: 45%;
 
     h2 {
       padding: 10px;
+      padding-bottom: 3px;
+      font: 800 40px "poppins", sans-serif;
+      color: rgba(230, 101, 129, 1);
+    }
+    h4 {
+      font: 600 25px "Poppins", sans-serif;
+      padding-bottom: 10px;
     }
     p {
       padding: 10px;
@@ -786,29 +868,6 @@ main {
   }
 }
 
-.section-3 {
-  width: 85vw;
-  margin: auto;
-  height: fit-content;
-  padding: 20px 5px;
-
-  h1 {
-    padding: 30px 10px;
-    font: 700 45px "Poppins", sans-serif;
-
-    span {
-      color: rgb(58, 141, 235);
-    }
-  }
-
-  p {
-    padding: 0;
-    font-family: serif;
-    line-height: 30px;
-    font-size: 19px;
-  }
-}
-
 .illustration-1 {
   width: 100vw;
   height: 90vh;
@@ -874,7 +933,7 @@ main {
       margin: 25px auto;
       position: relative;
       border-radius: 3px;
-      background: rgb(58, 141, 235);
+      background: rgb(185, 62, 130);
       border: none;
 
       .route {
@@ -899,20 +958,20 @@ main {
 .courses-div {
   width: 100vw;
   height: fit-content;
-  // background: url(../assets/logo-w.jpeg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   padding-top: 30px;
   padding-bottom: 20px;
   position: relative;
+
+  .blur {
+    opacity: 0.3 !important;
+  }
 
   h1 {
     padding: 10px;
     text-transform: capitalize;
     font: 800 35px "Poppins", sans-serif;
     position: relative;
-    color: white;
+    color: rgb(17, 59, 116);
   }
 
   p {
@@ -921,7 +980,7 @@ main {
     padding-bottom: 40px;
     position: relative;
     margin: auto;
-    color: white;
+    color: rgb(17, 59, 116);
   }
 
   .courses {
@@ -1002,7 +1061,12 @@ main {
     rgba(11, 10, 67, 1),
     rgba(37, 109, 193, 1)
   );
-
+  background: linear-gradient(
+    to bottom right,
+    rgb(57, 7, 100),
+    rgb(185, 62, 130),
+    rgba(230, 101, 129, 1)
+  );
   h1 {
     padding: 20px;
     padding-bottom: 10px;
@@ -1044,7 +1108,12 @@ main {
 
       &:hover {
         border-radius: 5px;
-        background: rgba(230, 101, 129, 1);
+        background: white;
+
+        i,
+        p {
+          color: rgba(22, 54, 123, 1);
+        }
       }
     }
   }
@@ -1055,7 +1124,7 @@ main {
     background: white;
     margin: 10px auto;
     padding: 20px;
-    border-radius: 3px;
+    border-radius: 5px;
 
     h2 {
       padding: 10px;

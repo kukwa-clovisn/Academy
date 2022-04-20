@@ -88,6 +88,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+:root {
+  --primaryColor: white;
+  --secondaryColor: rgba(230, 101, 129, 1);
+  --tertiartyColor: rgba(65, 140, 228, 1);
+}
+
 main {
   width: 100vw;
   min-height: 100vh;
@@ -100,6 +106,13 @@ main {
     rgb(9, 69, 149),
     rgb(38, 38, 38)
   );
+  background: linear-gradient(
+    to bottom right,
+    rgb(57, 7, 100),
+    rgb(185, 62, 130),
+    rgba(230, 101, 129, 1)
+  );
+  background: rgb(31, 26, 26);
 
   .background {
     width: 100vw;
@@ -128,7 +141,7 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: rgb(9, 69, 149);
+      color: var(--secondaryColor);
       text-transform: capitalize;
       font: 700 20px "Poppins", sans-serif;
       text-decoration: none;
@@ -229,7 +242,6 @@ main {
       color: rgb(164, 165, 165);
       font: 500 27px "Russo One", sans-serif;
       padding: 10px;
-      //  padding-bottom: 2px;
       text-align: left;
       width: 730px;
       position: relative;
@@ -252,7 +264,6 @@ main {
         justify-content: center;
         align-items: center;
         background: linear-gradient(90deg, rgb(2, 61, 139), rgb(66, 152, 249));
-        //    background: linear-gradient(90deg, rgb(21, 55, 101), rgb(66, 152, 249));
 
         .welcome {
           width: 90%;
@@ -275,7 +286,7 @@ main {
             padding: 5px;
             background: linear-gradient(
               to bottom,
-              rgba(204, 149, 6, 1),
+              rgba(230, 101, 129, 1),
               rgba(255, 255, 255, 1)
             );
             background-clip: text;
@@ -291,9 +302,10 @@ main {
           button {
             width: 170px;
             height: 50px;
-            background: rgba(65, 140, 228, 1);
+            background: var(--tetiarycolor);
+            background: var(--secondaryColor);
             border: none;
-            box-shadow: 0 0 1px 0.5px white;
+            //   box-shadow: 0 0 1px 0.5px white;
             border-radius: 5px;
             margin-top: 20px;
 
@@ -343,7 +355,8 @@ main {
           padding: 10px;
           padding-bottom: 0;
           font: 700 40px "Poppins", sans-serif;
-          color: rgba(65, 140, 228, 1);
+          color: var(--tertiartyColor);
+          color: var(--secondaryColor);
         }
 
         .input {
@@ -402,7 +415,7 @@ main {
           margin: auto;
 
           p {
-            color: red;
+            color: rgba(230, 101, 129, 1);
             padding: 5px;
           }
         }
@@ -410,7 +423,8 @@ main {
         button {
           width: 87%;
           height: 50px;
-          background: rgba(65, 140, 228, 1);
+          background: var(--tertiartyColor);
+          background: var(--secondaryColor);
           color: white;
           font: 700 23px "Poppins", sans-serif;
           border: none;
