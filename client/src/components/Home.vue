@@ -6,25 +6,7 @@
         <a href="">email@gmail.com</a>
       </nav>
       <div id="blur"></div>
-      <header>
-        <nav class="logo-nav">
-          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
-        </nav>
-        <nav>
-          <router-link to="/" class="route">about</router-link>
-          <router-link to="/" class="route">why crypto?</router-link>
-          <router-link to="/" class="route">blog</router-link>
-          <a href="#contact" class="route">contact</a>
-        </nav>
-        <nav>
-          <button class="clear primary-btn">
-            <router-link to="/login" class="homeBtn">sign in</router-link>
-          </button>
-          <button class="current primary-btn">
-            <router-link to="/register" class="homeBtn">register</router-link>
-          </button>
-        </nav>
-      </header>
+      <Header />
       <div class="title">
         <h1>
           Advanced <br />
@@ -405,9 +387,10 @@
 
 <script>
 import Carousel from "./carousel.vue";
+import Header from "./header.vue";
 export default {
   name: "Home",
-  components: { Carousel },
+  components: { Header, Carousel },
 };
 </script>
 
@@ -481,66 +464,6 @@ main {
       color: white;
       text-decoration: none;
       font-size: 13px;
-    }
-  }
-
-  header {
-    width: 100%;
-    padding: 0 20px;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-
-    nav {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 40vw;
-      height: 100%;
-      padding: 0;
-      &:last-child {
-        width: 32vw;
-      }
-
-      .route {
-        width: 200px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-transform: capitalize;
-        text-decoration: none;
-        color: white;
-        font-size: 16px;
-      }
-
-      .current {
-        background: white;
-
-        .homeBtn {
-          color: $SecondaryColor;
-        }
-      }
-
-      button.clear {
-        background: transparent;
-        border: 1px solid rgb(245, 248, 250);
-
-        .homeBtn {
-          color: white;
-        }
-      }
-    }
-    .logo-nav {
-      width: 10vw;
-      background: transparent;
-
-      #logo {
-        width: 105px;
-        height: auto;
-      }
     }
   }
 
