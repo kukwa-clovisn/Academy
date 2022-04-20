@@ -92,7 +92,7 @@ export default {
 $primaryColor: rgb(255, 255, 255);
 $SecondaryColor: rgba(230, 101, 129, 1);
 $tertiaryColor: rgba(65, 140, 228, 1);
-
+$footerColor: rgb(51, 2, 69);
 main {
   width: 100vw;
   min-height: 100vh;
@@ -102,19 +102,6 @@ main {
   background-attachment: fixed;
 
   background: rgb(231, 231, 231);
-
-  .background {
-    width: 100vw;
-    height: 60vh;
-    background: linear-gradient(
-      to bottom right,
-      rgb(9, 69, 149),
-      rgb(38, 38, 38)
-    );
-    position: absolute;
-    top: 0vh;
-    right: 0;
-  }
 
   .landing-page-btn {
     width: 150px;
@@ -173,7 +160,7 @@ main {
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    background: black;
+    background: linear-gradient(to bottom right, black, $footerColor);
 
     nav {
       display: flex;
@@ -319,7 +306,7 @@ main {
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             padding: 10px;
-            font: 600 11px "Poppins", sans-serif;
+            font: 600 14px "Poppins", sans-serif;
             opacity: 0.8;
             text-transform: uppercase;
             transition: all 0.3s ease;
@@ -429,7 +416,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(216, 216, 216);
+    color: $footerColor;
   }
 }
 </style>

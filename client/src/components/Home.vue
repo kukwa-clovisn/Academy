@@ -169,15 +169,17 @@
         <h2>investing in yourself</h2>
         <h4>Great men are men who are never scared of learning...</h4>
         <p>
-          If you've come this far then you really are curious to learn know. Why
-          not join the moving train now and start learning!!
+          If you've come this far then you really are curious to learn. Why not
+          join the moving train now and start learning!!
         </p>
-        <button>
-          <router-link to="/signup" class="route">signup now</router-link>
-        </button>
-        <button>
-          <router-link to="/login" class="route">signin</router-link>
-        </button>
+        <div class="btns">
+          <button>
+            <router-link to="/signup" class="route">signup now!</router-link>
+          </button>
+          <button>
+            <router-link to="/login" class="route">signin</router-link>
+          </button>
+        </div>
       </div>
       <div class="right-content">
         <!-- <img src="../assets/male.jpeg" alt="" /> -->
@@ -193,12 +195,6 @@
         and save yourself the stress tomorrow get to know more
       </p>
       <div class="video-div">
-        <div class="btc">
-          <img src="../assets/bitcoin.png" alt="" />
-          <h3>Bitcoin</h3>
-          <p>Digital decentralized currency</p>
-        </div>
-
         <div class="video">
           <iframe
             width="545"
@@ -209,6 +205,16 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
+        </div>
+        <div class="left-video-div">
+          <h2>Real investment is investing in knowledge(learning)</h2>
+          <p>
+            Why not try out our courses prepared to see you through your
+            learning!
+          </p>
+          <button>
+            <router-link to="/signup" class="route">start learning</router-link>
+          </button>
         </div>
       </div>
     </div>
@@ -297,6 +303,8 @@
       </section>
     </div>
     <div class="contact-form" id="contact">
+      <div class="bubble"></div>
+      <div class="blur"></div>
       <h1>get in touch!</h1>
       <h6>
         We deal and handle many businesses that will interest you. Check out our
@@ -391,6 +399,7 @@
         </div>
       </form>
     </div>
+    <footer>&copy;copyright_codingHerald_2022</footer>
   </main>
 </template>
 
@@ -403,6 +412,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$primaryColor: rgb(255, 255, 255);
+$SecondaryColor: rgba(230, 101, 129, 1);
+$tertiaryColor: rgba(65, 140, 228, 1);
+$footerColor: rgb(51, 2, 69);
+
 * {
   transition: all 0.3s ease;
 }
@@ -421,7 +435,7 @@ export default {
   width: 150px;
   height: 45px;
   border: none;
-  background: rgb(185, 62, 130);
+  background: rgba(218, 121, 121, 1);
   border-radius: 3px;
   display: block;
 
@@ -506,7 +520,7 @@ main {
         background: white;
 
         .homeBtn {
-          color: rgb(185, 62, 130);
+          color: $SecondaryColor;
         }
       }
 
@@ -753,6 +767,7 @@ main {
       padding: 10px;
       padding-bottom: 3px;
       font: 800 40px "poppins", sans-serif;
+      text-transform: capitalize;
       color: rgba(230, 101, 129, 1);
     }
     h4 {
@@ -762,18 +777,34 @@ main {
     p {
       padding: 10px;
     }
-    button {
-      width: 200px;
-      height: 45px;
-      border-radius: 3px;
-      display: block;
-      margin: 10px auto;
-      border: none;
-      background: rgba(230, 101, 129, 1);
-      .route {
-        text-decoration: none;
-        text-transform: capitalize;
-        color: white;
+
+    .btns {
+      width: 100%;
+      height: fit-content;
+      padding: 10px;
+      // border: 1px solid red;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+
+      button {
+        width: 200px;
+        height: 45px;
+        border-radius: 3px;
+        display: block;
+        border: none;
+        background: rgba(230, 101, 129, 1);
+
+        &:last-child {
+          background: rgba(218, 121, 121, 1);
+        }
+        .route {
+          text-decoration: none;
+          text-transform: capitalize;
+          color: white;
+          font: 500 15px "Poppins", sans-serif;
+        }
       }
     }
   }
@@ -805,7 +836,7 @@ main {
   height: fit-content;
   padding: 50px 10px;
   position: relative;
-
+  margin-bottom: 50px;
   h2 {
     padding: 10px;
     font: 700 30px "Poppins", sans-serif;
@@ -823,28 +854,40 @@ main {
     width: 90vw;
     margin: 30px auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
-    .btc {
-      width: 30%;
+    .left-video-div {
+      width: 35%;
       height: fit-content;
+      padding: 20px;
+      position: relative;
+      left: -50px;
 
-      h3 {
-        color: rgb(5, 50, 173);
+      h2 {
+        color: $SecondaryColor;
+        text-transform: capitalize;
       }
 
       p {
         color: rgb(3, 55, 123);
         width: 100%;
       }
-    }
+      button {
+        width: 250px;
+        height: 45px;
+        border-radius: 3px;
+        border: none;
+        margin: 20px auto;
+        background: transparent;
+        box-shadow: 0 0 1px 2px $SecondaryColor;
 
-    img {
-      display: block;
-      width: 300px;
-      height: auto;
-      transform: rotateZ(7deg);
+        .route {
+          text-decoration: none;
+          color: $SecondaryColor;
+          text-transform: uppercase;
+        }
+      }
     }
   }
 
@@ -852,13 +895,14 @@ main {
     width: 70vw;
     height: 80vh;
     margin: auto;
+
     background: url(../assets/blank-c.jpg);
     background-size: 575px 440px;
     background-repeat: no-repeat;
     background-attachment: scroll;
     position: relative;
-    left: 100px;
-    top: 100px;
+    left: 20px;
+    top: 70px;
     transform: rotateZ(10deg);
     iframe {
       position: absolute;
@@ -1055,18 +1099,39 @@ main {
 .contact-form {
   width: 100vw;
   height: fit-content;
-  padding: 30px 5px 10px 5px;
-  background: linear-gradient(
-    to bottom right,
-    rgba(11, 10, 67, 1),
-    rgba(37, 109, 193, 1)
-  );
+  padding: 30px 5px 20px 5px;
+  position: relative;
   background: linear-gradient(
     to bottom right,
     rgb(57, 7, 100),
     rgb(185, 62, 130),
     rgba(230, 101, 129, 1)
   );
+
+  .bubble {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    opacity: 0.5;
+    left: 5%;
+  }
+
+  .blur {
+    position: absolute;
+    height: 50%;
+    top: 50%;
+    bottom: 0 !important;
+    left: 0;
+    overflow: hidden;
+    opacity: 1;
+    box-shadow: 3px 0 1px 2px white;
+    border-radius: 70% 10% 0 0;
+    background: linear-gradient(to right, rgb(202, 77, 130), rgb(141, 35, 145));
+  }
+
   h1 {
     padding: 20px;
     padding-bottom: 10px;
@@ -1087,7 +1152,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    position: relative;
     nav {
       width: 270px;
       height: 70px;
@@ -1122,6 +1187,7 @@ main {
     width: 900px;
     height: fit-content;
     background: white;
+    position: relative;
     margin: 10px auto;
     padding: 20px;
     border-radius: 5px;
@@ -1169,7 +1235,7 @@ main {
             align-items: center;
             border-radius: 3px;
             background: rgba(255, 251, 251, 1);
-            box-shadow: 0 0 0.5px 3px rgba(255, 251, 251, 1);
+            box-shadow: 0 0 0.3px 1px rgb(250, 240, 240);
 
             i {
               width: 15%;
@@ -1219,6 +1285,7 @@ main {
           background: rgba(255, 251, 251, 1);
           box-shadow: 0 0 0.5px 3px rgba(255, 251, 251, 1);
           border-radius: 3px;
+          box-shadow: 0 0 0.3px 1px rgb(250, 240, 240);
           outline: none;
 
           &:hover {

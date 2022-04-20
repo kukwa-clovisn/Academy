@@ -7,12 +7,13 @@
 
     <header>
       <nav class="logo-nav">
-        <img src="../assets/logo-w.jpeg" id="logo" alt="logo image" />
+        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
       </nav>
       <nav>
         <router-link to="/" class="route">about</router-link>
         <router-link to="/" class="route">why crypto?</router-link>
         <router-link to="/" class="route">blog</router-link>
+        <a href="/#contact" class="route">contact</a>
       </nav>
       <nav>
         <button class="landing-page-btn">
@@ -79,18 +80,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$primaryColor: rgb(255, 255, 255);
+$SecondaryColor: rgba(230, 101, 129, 1);
+$tertiaryColor: rgba(65, 140, 228, 1);
+$footerColor: rgb(51, 2, 69);
 main {
   width: 100vw;
-  min-height: 100vh;
-  background: rgb(227, 226, 226);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: linear-gradient(
-    to bottom right,
-    rgb(3, 47, 105),
-    rgb(38, 38, 38)
-  );
+  background: rgb(231, 231, 231);
 
   .background {
     width: 100vw;
@@ -119,7 +115,7 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: rgb(9, 69, 149);
+      color: $SecondaryColor;
       text-transform: capitalize;
       font: 700 20px "Poppins", sans-serif;
       text-decoration: none;
@@ -160,10 +156,7 @@ main {
     height: 14vh;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    top: 0;
+    background: linear-gradient(to bottom right, black, $footerColor);
 
     nav {
       display: flex;
@@ -171,6 +164,7 @@ main {
       align-items: center;
       width: 40vw;
       height: 100%;
+      padding: 0;
 
       &:last-child {
         width: 26vw;
@@ -184,8 +178,8 @@ main {
         align-items: center;
         text-transform: capitalize;
         text-decoration: none;
-        font-size: 18px;
-        color: white;
+        font-size: 15px;
+        color: $primaryColor;
       }
     }
 
@@ -213,13 +207,12 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 30px;
 
     h2 {
       color: rgb(164, 165, 165);
-      font: 500 27px "Russo One", sans-serif;
+      font: 500 27px "Poppins", sans-serif;
       padding: 10px;
-      //  padding-bottom: 2px;
       text-align: left;
       width: 730px;
       position: relative;
@@ -241,7 +234,7 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(90deg, rgb(2, 61, 139), rgb(66, 152, 249));
+        background: linear-gradient(to bottom right, rgb(95, 3, 129), black);
 
         .welcome {
           width: 90%;
@@ -264,7 +257,7 @@ main {
             padding: 5px;
             background: linear-gradient(
               to bottom,
-              rgba(204, 149, 6, 1),
+              $SecondaryColor,
               rgba(255, 255, 255, 1)
             );
             background-clip: text;
@@ -280,11 +273,12 @@ main {
           button {
             width: 170px;
             height: 50px;
-            background: rgba(65, 140, 228, 1);
+            background: $SecondaryColor;
             border: none;
             box-shadow: 0 0 1px 0.5px white;
             border-radius: 5px;
             margin-top: 20px;
+            background: transparent;
 
             .route {
               text-decoration: none;
@@ -293,7 +287,8 @@ main {
             }
 
             &:hover {
-              background: transparent;
+              box-shadow: none;
+              background: $SecondaryColor;
               transform: scale(0.9);
             }
           }
@@ -301,7 +296,7 @@ main {
             text-decoration: underline;
             background: linear-gradient(
               to bottom,
-              rgba(204, 149, 6, 1),
+              $SecondaryColor,
               rgba(255, 255, 255, 1)
             );
             background-clip: text;
@@ -332,7 +327,7 @@ main {
           padding: 10px;
           padding-bottom: 0;
           font: 700 40px "Poppins", sans-serif;
-          color: rgba(65, 140, 228, 1);
+          color: $SecondaryColor;
         }
 
         .input {
@@ -375,7 +370,7 @@ main {
         button {
           width: 88%;
           height: 50px;
-          background: rgba(65, 140, 228, 1);
+          background: $SecondaryColor;
           color: white;
           font: 700 23px "Poppins", sans-serif;
           border: none;
@@ -398,7 +393,7 @@ main {
               text-transform: capitalize;
               font: 500 16px "Poppins", sans-serif;
 
-              color: rgb(6, 99, 207);
+              color: rgba(113, 112, 112, 1);
               &:hover {
                 text-decoration: underline;
               }
@@ -415,7 +410,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(216, 216, 216);
+    color: $footerColor;
   }
 }
 </style>
