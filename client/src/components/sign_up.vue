@@ -6,7 +6,9 @@
     </div>
 
     <header>
-      <nav>logo here!</nav>
+      <nav class="logo-nav">
+        <img src="../assets/logo-w.jpeg" id="logo" alt="logo image" />
+      </nav>
       <nav>
         <router-link to="/" class="route">about</router-link>
         <router-link to="/" class="route">why crypto?</router-link>
@@ -164,12 +166,14 @@ main {
   header {
     width: 100%;
     padding: 5px 20px;
-    height: 12vh;
+    height: 14vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    //     background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 
     nav {
       display: flex;
@@ -177,13 +181,6 @@ main {
       align-items: center;
       width: 40vw;
       height: 100%;
-
-      &:first-child {
-        width: 20vw;
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
-      }
 
       &:last-child {
         width: 26vw;
@@ -201,15 +198,32 @@ main {
         font-size: 18px;
       }
     }
+
+    .logo-nav {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      overflow: hidden;
+      background: transparent;
+      position: relative;
+      left: 50px;
+      top: 5px;
+
+      #logo {
+        width: 105px;
+        height: auto;
+      }
+    }
   }
 
   .content {
     width: 100%;
-    height: 90vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 80px;
 
     h2 {
       color: rgb(164, 165, 165);
@@ -251,7 +265,7 @@ main {
 
           h1 {
             text-transform: capitalize;
-            font: 700 39px "Poppins", sans-serif;
+            font: 700 34px "Poppins", sans-serif;
             color: white;
           }
 
