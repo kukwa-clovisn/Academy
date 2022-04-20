@@ -12,6 +12,9 @@
   color: #3d566f;
   font-family: "Poppins", sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 * {
   transition: all 0.3s ease;
 }

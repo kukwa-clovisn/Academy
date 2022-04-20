@@ -14,7 +14,7 @@
           <router-link to="/" class="route">about</router-link>
           <router-link to="/" class="route">why crypto?</router-link>
           <router-link to="/" class="route">blog</router-link>
-          <router-link to="#contact-form" class="route">contact</router-link>
+          <a href="#contact" class="route">contact</a>
         </nav>
         <nav>
           <button class="clear primary-btn">
@@ -296,7 +296,7 @@
         </div>
       </section>
     </div>
-    <div class="contact-form" id="contact-form">
+    <div class="contact-form" id="contact">
       <h1>get in touch!</h1>
       <h6>
         We deal and handle many businesses that will interest you. Check out our

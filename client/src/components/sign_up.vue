@@ -7,12 +7,13 @@
 
     <header>
       <nav class="logo-nav">
-        <img src="../assets/logo-w.jpeg" id="logo" alt="logo image" />
+        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
       </nav>
       <nav>
         <router-link to="/" class="route">about</router-link>
         <router-link to="/" class="route">why crypto?</router-link>
         <router-link to="/" class="route">blog</router-link>
+        <a href="/#contact" class="route">contact</a>
       </nav>
       <nav>
         <button class="landing-page-btn">
@@ -88,11 +89,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-:root {
-  --primaryColor: white;
-  --secondaryColor: rgba(230, 101, 129, 1);
-  --tertiartyColor: rgba(65, 140, 228, 1);
-}
+$primaryColor: rgb(255, 255, 255);
+$SecondaryColor: rgba(230, 101, 129, 1);
+$tertiaryColor: rgba(65, 140, 228, 1);
 
 main {
   width: 100vw;
@@ -101,18 +100,8 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background: linear-gradient(
-    to bottom right,
-    rgb(9, 69, 149),
-    rgb(38, 38, 38)
-  );
-  background: linear-gradient(
-    to bottom right,
-    rgb(57, 7, 100),
-    rgb(185, 62, 130),
-    rgba(230, 101, 129, 1)
-  );
-  background: rgb(31, 26, 26);
+
+  background: rgb(231, 231, 231);
 
   .background {
     width: 100vw;
@@ -141,7 +130,7 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--secondaryColor);
+      color: $SecondaryColor;
       text-transform: capitalize;
       font: 700 20px "Poppins", sans-serif;
       text-decoration: none;
@@ -183,16 +172,15 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 1;
+    background: black;
 
     nav {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
       width: 40vw;
+      padding: 0;
       height: 100%;
 
       &:last-child {
@@ -207,8 +195,8 @@ main {
         align-items: center;
         text-transform: capitalize;
         text-decoration: none;
-        color: white;
-        font-size: 18px;
+        color: $primaryColor;
+        font-size: 16px;
       }
     }
 
@@ -236,11 +224,11 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 30px;
 
     h2 {
       color: rgb(164, 165, 165);
-      font: 500 27px "Russo One", sans-serif;
+      font: 500 27px "Poppins", sans-serif;
       padding: 10px;
       text-align: left;
       width: 730px;
@@ -248,8 +236,8 @@ main {
     }
 
     .form {
-      width: 730px;
-      height: 460px;
+      width: 800px;
+      height: 480px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -263,11 +251,11 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(90deg, rgb(2, 61, 139), rgb(66, 152, 249));
+        background: linear-gradient(to bottom right, rgb(95, 3, 129), black);
 
         .welcome {
           width: 90%;
-          height: 40%;
+          height: 50%;
           display: flex;
           justify-content: space-evenly;
           align-items: center;
@@ -301,13 +289,12 @@ main {
 
           button {
             width: 170px;
-            height: 50px;
-            background: var(--tetiarycolor);
-            background: var(--secondaryColor);
+            height: 50px !important;
             border: none;
-            //   box-shadow: 0 0 1px 0.5px white;
             border-radius: 5px;
-            margin-top: 20px;
+            margin: 20px;
+            background: transparent;
+            box-shadow: 0 0 0.5px 2px rgb(184, 183, 183);
 
             .route {
               text-decoration: none;
@@ -316,7 +303,8 @@ main {
             }
 
             &:hover {
-              background: transparent;
+              box-shadow: none;
+              background: $SecondaryColor;
               transform: scale(0.9);
             }
           }
@@ -355,8 +343,8 @@ main {
           padding: 10px;
           padding-bottom: 0;
           font: 700 40px "Poppins", sans-serif;
-          color: var(--tertiartyColor);
-          color: var(--secondaryColor);
+          color: $tertiaryColor;
+          color: $SecondaryColor;
         }
 
         .input {
@@ -423,8 +411,8 @@ main {
         button {
           width: 87%;
           height: 50px;
-          background: var(--tertiartyColor);
-          background: var(--secondaryColor);
+          background: $tertiaryColor;
+          background: $SecondaryColor;
           color: white;
           font: 700 23px "Poppins", sans-serif;
           border: none;
