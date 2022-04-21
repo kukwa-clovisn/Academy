@@ -12,7 +12,7 @@
     </nav>
     <nav class="bottom-nav">
       <nav class="logo-nav">
-        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
+        <img src="../assets/logo-b.svg" id="logo" alt="logo image" />
       </nav>
       <nav>
         <router-link to="/about" class="route">about</router-link>
