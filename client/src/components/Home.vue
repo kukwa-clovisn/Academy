@@ -1,16 +1,12 @@
 <template>
   <main>
     <div class="landing-page">
-      <nav class="topNav">
-        <a href="/">contact here</a>
-        <a href="">email@gmail.com</a>
-      </nav>
       <div id="blur"></div>
       <Header />
       <div class="title">
         <h1>
           Advanced <br />
-          crypto & forex Academy
+          crypto & forex community
         </h1>
         <p>
           this is a crypto trading website where you get to learn all about
@@ -449,23 +445,6 @@ main {
   background-repeat: no-repeat;
   overflow: hidden;
   margin: 0;
-
-  .topNav {
-    width: 100vw;
-    height: 7vh;
-    background: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: relative;
-
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 13px;
-    }
-  }
 
   .title {
     width: 100%;
@@ -1038,7 +1017,7 @@ main {
     background: white;
     position: absolute;
     top: 10%;
-    opacity: 0.5;
+    opacity: 0.2;
     left: 5%;
   }
 

@@ -60,7 +60,7 @@
         <div class="login">
           <div class="welcome">
             <h1>welcome again</h1>
-            <h3>advanced crypto & forex trading academy</h3>
+            <h3>advanced crypto & forex trading community</h3>
             <p>Crypto and Forex learning made easy and interesting.</p>
             <button>
               <router-link to="/signup" class="route">sign up</router-link>
@@ -83,23 +83,10 @@ export default {
 $primaryColor: rgb(255, 255, 255);
 $SecondaryColor: rgba(230, 101, 129, 1);
 $tertiaryColor: rgba(65, 140, 228, 1);
-$footerColor: rgb(51, 2, 69);
+$footerColor: rgb(30, 2, 40);
 main {
   width: 100vw;
   background: rgb(231, 231, 231);
-
-  .background {
-    width: 100vw;
-    height: 60vh;
-    background: linear-gradient(
-      to bottom right,
-      rgb(9, 69, 149),
-      rgb(38, 38, 38)
-    );
-    position: absolute;
-    top: 0vh;
-    right: 0;
-  }
 
   .landing-page-btn {
     width: 150px;
@@ -156,7 +143,7 @@ main {
     height: 14vh;
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(to bottom right, black, $footerColor);
+    background: black;
 
     nav {
       display: flex;
@@ -234,7 +221,11 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom right, rgb(95, 3, 129), black);
+        background: linear-gradient(
+          to bottom right,
+          rgb(51, 7, 69) 0%,
+          black 80%
+        );
 
         .welcome {
           width: 90%;

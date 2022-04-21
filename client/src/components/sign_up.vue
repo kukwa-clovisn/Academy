@@ -27,7 +27,7 @@
         <div class="login">
           <div class="welcome">
             <h1>welcome again</h1>
-            <h3>advanced crypto & forex trading academy</h3>
+            <h3>advanced crypto & forex trading community</h3>
             <p>Crypto and Forex learning made easy and interesting.</p>
             <button>
               <router-link to="/login" class="route">sign in</router-link>
@@ -160,7 +160,7 @@ main {
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    background: linear-gradient(to bottom right, black, $footerColor);
+    background: black;
 
     nav {
       display: flex;
@@ -238,7 +238,12 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom right, rgb(95, 3, 129), black);
+        background: linear-gradient(
+          to bottom right,
+          black 10%,
+
+          rgb(51, 7, 69) 100%
+        );
 
         .welcome {
           width: 90%;
@@ -275,13 +280,13 @@ main {
           }
 
           button {
-            width: 170px;
+            width: 200px;
             height: 50px !important;
             border: none;
             border-radius: 5px;
             margin: 20px;
             background: transparent;
-            box-shadow: 0 0 0.5px 2px rgb(184, 183, 183);
+            box-shadow: 0 0 0.5px 1px rgb(184, 183, 183);
 
             .route {
               text-decoration: none;
