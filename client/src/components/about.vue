@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="landing-page">
-      <div id="blur"></div>
+      <div class="blur"></div>
       <Header />
       <div class="title">
         <h1>
@@ -12,18 +12,10 @@
           this is a crypto trading website where you get to learn all about
           crypto currency and also how to trade with crypto and forex
         </p>
+        <h1 class="title-head">about crypto & forex</h1>
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
-        <!-- <img src="../assets/ch1.png" id="homeImg" alt="crypto chart" /> -->
-
-        <section>
-          <h2>running animation here!</h2>
-          <!-- <p>Get trusted signals for your trading</p>
-        <div>
-          <p>the future of Billionaires</p>
-        </div> -->
-        </section>
       </div>
     </div>
   </main>
@@ -42,10 +34,24 @@ export default {
 <style lang="scss" scoped>
 main {
   .landing-page {
-    background: url(../assets/social.jpg);
+    background: url(../assets/team.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    .title {
+      top: 60px;
+
+      h1 {
+        padding: 30px;
+        padding-bottom: 10px;
+      }
+      .title-head {
+        text-transform: uppercase;
+        color: rgb(222, 221, 221);
+        font: 600 30px "Poppins", sans-serif;
+      }
+    }
   }
 }
 </style>

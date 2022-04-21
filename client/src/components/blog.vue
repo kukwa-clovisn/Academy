@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="landing-page">
-      <div id="blur"></div>
+      <div class="blur"></div>
       <Header />
       <div class="title">
         <h1>
@@ -15,15 +15,7 @@
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
-        <!-- <img src="../assets/ch1.png" id="homeImg" alt="crypto chart" /> -->
-
-        <section>
-          <h2>running animation here!</h2>
-          <!-- <p>Get trusted signals for your trading</p>
-        <div>
-          <p>the future of Billionaires</p>
-        </div> -->
-        </section>
+        <h1 class="title-head">our blog stats</h1>
       </div>
     </div>
   </main>
@@ -46,6 +38,20 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    .title {
+      top: 50px;
+
+      h1 {
+        padding: 30px;
+        padding-bottom: 10px;
+      }
+      .title-head {
+        text-transform: uppercase;
+        color: rgb(222, 221, 221);
+        font: 600 30px "Poppins", sans-serif;
+      }
+    }
   }
 }
 </style>

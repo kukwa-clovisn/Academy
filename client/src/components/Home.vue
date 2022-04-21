@@ -98,51 +98,37 @@
             <span class="name">Bitcoin</span><span class="symbol">BTC</span
             ><span class="percentage">+1.00%</span>
             <span class="value">$40,290.18</span>
-            <button class="primary-btn">
-              <router-link to="#" class="homeBtn">trade</router-link>
-            </button>
           </li>
           <hr />
           <li>
             <span class="name">ethereum</span><span class="symbol">eth</span
             ><span class="percentage">+2.34%</span>
             <span class="value">$3,074.30</span>
-            <button class="primary-btn">
-              <router-link to="#" class="homeBtn">trade</router-link>
-            </button>
           </li>
           <hr />
           <li>
             <span class="name">dogecoin</span><span class="symbol">doge</span
             ><span class="percentage">+3.46%</span>
             <span class="value">$0.142228</span>
-            <button class="primary-btn">
-              <router-link to="#" class="homeBtn">trade</router-link>
-            </button>
           </li>
           <hr />
           <li>
             <span class="name">polkadot</span><span class="symbol">dot</span
             ><span class="percentage">+3.24%</span>
             <span class="value">$17.96</span>
-            <button class="primary-btn">
-              <router-link to="#" class="homeBtn">trade</router-link>
-            </button>
           </li>
           <hr />
           <li>
             <span class="name">cardano</span><span class="symbol">ada</span
             ><span class="percentage">+3.14%</span>
             <span class="value">$0.964214</span>
-            <button class="primary-btn">
-              <router-link to="#" class="homeBtn">trade</router-link>
-            </button>
           </li>
           <hr />
         </ul>
       </div>
     </div>
     <div class="social-sample">
+      <div class="blur"></div>
       <div class="left-content">
         <h2>investing in yourself</h2>
         <h4>Great men are men who are never scared of learning...</h4>
@@ -403,6 +389,18 @@ main {
   padding: 0;
   margin: 0;
 }
+.landing-page {
+  position: relative;
+  #blur {
+    width: 100%;
+    height: 100%;
+    background: rgb(31, 28, 45);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.85;
+  }
+}
 
 .section-1 {
   width: 100vw;
@@ -417,8 +415,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 10px;
-    // background: linear-gradient(to bottom right, black, rgba(36, 107, 190, 1));
 
     h1 {
       width: 90%;
@@ -426,8 +422,11 @@ main {
       padding: 10px;
       padding-bottom: 0;
       font: 800 60px "Poppins", sans-serif;
-      // text-align: right;
-      // color: white;
+
+      @media screen and (max-width: 830px) {
+        width: 98%;
+        font-size: 40px;
+      }
     }
 
     h3 {
@@ -453,6 +452,7 @@ main {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      flex-wrap: wrap;
 
       .def {
         width: 48%;
@@ -473,6 +473,22 @@ main {
           font-size: 18px;
           text-align: left;
         }
+
+        @media screen and (max-width: 1000px) {
+          width: 100%;
+          margin: 15px auto;
+
+          p {
+            text-align: center;
+          }
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
       }
     }
   }
@@ -491,6 +507,10 @@ main {
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media screen and (max-width: 490px) {
+        font-size: 25px;
+      }
     }
 
     ul {
@@ -527,6 +547,23 @@ main {
         .percentage {
           color: rgb(3, 177, 174);
         }
+        @media screen and (max-width: 400px) {
+          .symbol {
+            display: none;
+          }
+          .name,
+          .percentage,
+          .value {
+            font-size: 13px;
+          }
+        }
+        @media screen and (max-width: 300px) {
+          .name,
+          .percentage,
+          .value {
+            font-size: 10px;
+          }
+        }
       }
     }
   }
@@ -538,9 +575,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   margin: 10px auto;
   padding: 20px 5px;
+  .blur {
+    display: none;
+  }
   .left-content {
+    position: relative;
     width: 45%;
 
     h2 {
@@ -574,6 +616,7 @@ main {
         border-radius: 3px;
         display: block;
         border: none;
+        margin-top: 10px;
         background: rgba(230, 101, 129, 1);
 
         &:last-child {
@@ -585,6 +628,27 @@ main {
           color: white;
           font: 500 15px "Poppins", sans-serif;
         }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+
+      h4,
+      p {
+        color: white;
+      }
+    }
+    @media screen and (max-width: 460px) {
+      h2 {
+        font-size: 30px;
+      }
+
+      h4 {
+        font-size: 19px;
+      }
+      button {
+        margin-top: 20px;
       }
     }
   }
@@ -607,6 +671,21 @@ main {
         width: 100%;
         display: block;
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    background: url(../assets/group.jpeg);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    .blur {
+      display: block;
     }
   }
 }
@@ -632,6 +711,7 @@ main {
 
   .video-div {
     width: 90vw;
+    height: fit-content;
     margin: 30px auto;
     display: flex;
     justify-content: center;
@@ -647,13 +727,6 @@ main {
       background: rgb(163, 3, 180);
       opacity: 0.3;
       border-radius: 50%;
-      animation: turn 10s linear infinite alternate forwards;
-    }
-
-    @keyframes turn {
-      to {
-        transform: rotateY(360deg);
-      }
     }
 
     .left-video-div {
@@ -688,13 +761,33 @@ main {
         }
       }
     }
+
+    @media screen and (max-width: 1160px) {
+      width: 100vw;
+    }
+    @media screen and (max-width: 1050px) {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      .blur {
+        display: none;
+      }
+
+      .left-video-div {
+        width: 95%;
+        top: 0;
+        left: -2%;
+        margin: 10px auto;
+        padding: 0;
+        box-shadow: 2px 2px 1px 2px $SecondaryColor;
+      }
+    }
   }
 
   .video {
     width: 70vw;
     height: 80vh;
     margin: auto;
-
     background: url(../assets/blank-c.jpg);
     background-size: 575px 440px;
     background-repeat: no-repeat;
@@ -708,6 +801,33 @@ main {
       top: 12.5px;
       left: 17px;
     }
+
+    @media screen and (max-width: 829px) {
+      width: 100vw;
+      left: 0;
+    }
+    @media screen and (max-width: 670px) {
+      background: transparent;
+      transform: rotateZ(0deg);
+      height: 50vh;
+      width: 100vw;
+      margin: 10px auto;
+      padding: 0;
+      top: 0;
+      left: 0;
+      iframe {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    padding: 0;
   }
 }
 
@@ -735,6 +855,10 @@ main {
       padding: 10px;
       position: relative;
       color: rgb(213, 231, 251);
+
+      @media screen and (max-width: 535px) {
+        font-size: 30px;
+      }
     }
     ul {
       width: 100%;
@@ -766,6 +890,14 @@ main {
           color: white;
           transform: translateX(150px);
         }
+
+        @media screen and (max-width: 800px) {
+          width: 97%;
+          font-size: 14px;
+          &:hover {
+            transform: translateX(5px);
+          }
+        }
       }
     }
     button {
@@ -788,6 +920,9 @@ main {
         font-size: 22px;
       }
     }
+    @media screen and (max-width: 800px) {
+      width: 100vw;
+    }
   }
 
   img {
@@ -801,6 +936,7 @@ main {
 .courses-div {
   width: 100vw;
   height: fit-content;
+  padding: 0;
   padding-top: 30px;
   padding-bottom: 20px;
   position: relative;
@@ -830,20 +966,25 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     width: 90vw;
     padding: 10px;
     margin: auto;
     position: relative;
 
     .course {
-      width: 31%;
+      width: 335px;
+      height: 400px;
+      padding-bottom: 10px;
       background: white;
+      margin: 20px 20px;
       border-radius: 3px;
 
       .course-img {
         width: 100%;
         height: 180px;
         overflow: hidden;
+        margin-bottom: 5px;
         img {
           width: 100%;
           cursor: pointer;
@@ -870,6 +1011,7 @@ main {
         padding: 5px;
         line-height: 25px;
         width: 90%;
+        line-height: 26px;
         margin: auto;
         text-align: center;
         color: #3d566f;
@@ -880,7 +1022,8 @@ main {
         width: 85%;
         height: 50px;
         border-radius: 2px;
-        margin: 10px auto;
+        margin: 20px auto;
+        margin-bottom: 10px;
         border: none;
 
         background: rgba(230, 101, 129, 1);
@@ -891,6 +1034,14 @@ main {
           font: 600 18px "Poppins", sans-serif;
         }
       }
+      @media screen and (max-width: 338px) {
+        width: 100%;
+        height: 420px;
+      }
+    }
+    @media screen and (max-width: 450px) {
+      width: 100vw;
+      padding: 0;
     }
   }
 }
@@ -968,6 +1119,9 @@ main {
       p {
         padding: 0;
         color: rgb(219, 217, 217);
+        @media screen and (max-width: 393px) {
+          font-size: 8px;
+        }
       }
 
       &:hover {
@@ -977,6 +1131,30 @@ main {
         i,
         p {
           color: rgba(22, 54, 123, 1);
+        }
+      }
+    }
+    @media screen and (max-width: 860px) {
+      width: 95vw;
+      margin: auto;
+
+      nav {
+        width: 28%;
+
+        p {
+          font-size: 10px;
+        }
+        &:last-child {
+          width: 40%;
+        }
+        @media screen and (max-width: 323px) {
+          width: 35%;
+          &:first-child {
+            display: none;
+          }
+          &:last-child {
+            width: 60%;
+          }
         }
       }
     }
@@ -1093,6 +1271,15 @@ main {
           }
         }
       }
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+
+        .credentials,
+        .message {
+          width: 95%;
+          margin: auto;
+        }
+      }
     }
 
     .bottom-form {
@@ -1137,6 +1324,13 @@ main {
               color: rgba(230, 101, 129, 1);
             }
           }
+          @media screen and (max-width: 468px) {
+            width: 32%;
+            span {
+              font-size: 10px;
+              font-weight: 600;
+            }
+          }
         }
       }
     }
@@ -1168,7 +1362,23 @@ main {
           text-transform: capitalize;
         }
       }
+      @media screen and (max-width: 448px) {
+        flex-direction: column;
+
+        button {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
     }
+    @media screen and (max-width: 950px) {
+      width: 100vw;
+      margin: 0 !important;
+    }
+  }
+  @media screen and (max-width: 920px) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 </style>

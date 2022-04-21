@@ -63,8 +63,8 @@ export default {
   background-position-y: -150px;
 
   .carousel-image {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     animation: shake 7s linear infinite alternate forwards;
     position: relative;
     left: 0;

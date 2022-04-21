@@ -58,8 +58,8 @@ nav {
 .blur {
   width: 100%;
   height: 100%;
-  background: rgb(59, 59, 59);
-  opacity: 0.5;
+  background: rgb(31, 28, 45);
+  opacity: 0.7;
   position: absolute;
   top: 0;
   left: 0;
@@ -89,12 +89,13 @@ nav {
 .landing-page {
   width: 100vw;
   height: 100vh;
-  background: url(./assets/team.jpg);
+  background: url(./assets/social.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
   margin: 0;
+  position: relative;
 
   .title {
     width: 100%;

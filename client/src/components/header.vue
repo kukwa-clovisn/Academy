@@ -1,35 +1,55 @@
 <template>
-  <header>
-    <nav class="topNav">
-      <div class="left-topNav">
-        <a href="/"> <i class="fa-solid fa-phone icon"></i>+237682449347</a>
-      </div>
-      <div class="right-topNav">
-        <a href="">
-          <i class="fa-solid fa-envelope icon"></i>kcn.123.com@gmail.com</a
-        >
-      </div>
-    </nav>
-    <nav class="bottom-nav">
-      <nav class="logo-nav">
-        <img src="../assets/logo-b.svg" id="logo" alt="logo image" />
+  <main>
+    <header class="large-screen-header">
+      <nav class="topNav">
+        <div class="left-topNav">
+          <a href="/"> <i class="fa-solid fa-phone icon"></i>+237682449347</a>
+        </div>
+        <div class="right-topNav">
+          <a href="">
+            <i class="fa-solid fa-envelope icon"></i>kcn.123.com@gmail.com</a
+          >
+        </div>
       </nav>
-      <nav>
-        <router-link to="/about" class="route">about</router-link>
-        <router-link to="/why-us" class="route">why crypto?</router-link>
-        <router-link to="/blog" class="route">blog</router-link>
-        <a href="/#contact" class="route">contact</a>
+      <nav class="bottom-nav">
+        <nav class="logo-nav">
+          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
+        </nav>
+        <nav class="routes">
+          <router-link to="/about" class="route">about</router-link>
+          <router-link to="/why-us" class="route">why crypto?</router-link>
+          <router-link to="/blog" class="route">blog</router-link>
+          <a href="/#contact" class="route">contact</a>
+        </nav>
+        <nav>
+          <button class="clear primary-btn">
+            <router-link to="/login" class="homeBtn">sign in</router-link>
+          </button>
+          <button class="current primary-btn">
+            <router-link to="/register" class="homeBtn">register</router-link>
+          </button>
+        </nav>
       </nav>
-      <nav>
-        <button class="clear primary-btn">
-          <router-link to="/login" class="homeBtn">sign in</router-link>
-        </button>
-        <button class="current primary-btn">
-          <router-link to="/register" class="homeBtn">register</router-link>
-        </button>
+    </header>
+    <header class="small-screen-header">
+      <nav class="topNav">
+        <div class="left-topNav">
+          <a href="/"> <i class="fa-solid fa-phone icon"></i>+237682449347</a>
+        </div>
+        <div class="right-topNav">
+          <a href="">
+            <i class="fa-solid fa-envelope icon"></i>kcn.123.com@gmail.com</a
+          >
+        </div>
       </nav>
-    </nav>
-  </header>
+      <nav class="bottom-nav">
+        <nav class="logo-nav">
+          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
+        </nav>
+        <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
+      </nav>
+    </header>
+  </main>
 </template>
 
 <script>
@@ -108,6 +128,10 @@ header {
       padding: 0;
       &:last-child {
         width: 32vw;
+
+        @media screen and (max-width: 1000px) {
+          width: 40vw;
+        }
       }
 
       .route {
@@ -119,7 +143,11 @@ header {
         text-transform: capitalize;
         text-decoration: none;
         color: white;
-        font-size: 16px;
+        font-size: 14px;
+
+        @media screen and (max-width: 1060px) {
+          font-size: 12px;
+        }
       }
 
       .current {
@@ -139,6 +167,12 @@ header {
         }
       }
     }
+
+    .routes {
+      @media screen and (max-width: 1000px) {
+        width: 50vw;
+      }
+    }
     .logo-nav {
       width: 10vw;
       background: transparent;
@@ -147,6 +181,34 @@ header {
         width: 105px;
         height: auto;
         border-radius: 100%;
+      }
+    }
+  }
+}
+
+.small-screen-header {
+  display: none;
+}
+
+.large-screen-header {
+  @media screen and (max-width: 917px) {
+    display: none;
+  }
+}
+.small-screen-header {
+  @media screen and (max-width: 917px) {
+    display: block;
+
+    .bottom-nav {
+      padding: 0 10px;
+
+      .logo-nav {
+        margin-left: 20px;
+      }
+
+      .menu-bars {
+        color: white;
+        font-size: 40px;
       }
     }
   }

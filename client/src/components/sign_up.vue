@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- <div class="background"></div> -->
     <div class="c1">
       <img src="../assets/bitcoin.png" alt="BTC" />
     </div>
@@ -19,6 +18,24 @@
         <button class="landing-page-btn">
           <router-link to="/register" class="homeBtn">register</router-link>
         </button>
+      </nav>
+    </header>
+    <header class="small-screen-header">
+      <nav class="topNav">
+        <div class="left-topNav">
+          <a href="/"> <i class="fa-solid fa-phone icon"></i>+237682449347</a>
+        </div>
+        <div class="right-topNav">
+          <a href="">
+            <i class="fa-solid fa-envelope icon"></i>kcn.123.com@gmail.com</a
+          >
+        </div>
+      </nav>
+      <nav class="bottom-nav">
+        <nav class="logo-nav">
+          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
+        </nav>
+        <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
       </nav>
     </header>
     <div class="content">
@@ -200,6 +217,33 @@ main {
       #logo {
         width: 105px;
         height: auto;
+      }
+    }
+  }
+  .small-screen-header {
+    display: none;
+  }
+
+  .large-screen-header {
+    @media screen and (max-width: 917px) {
+      display: none;
+    }
+  }
+  .small-screen-header {
+    @media screen and (max-width: 917px) {
+      display: block;
+
+      .bottom-nav {
+        padding: 0 10px;
+
+        .logo-nav {
+          margin-left: 20px;
+        }
+
+        .menu-bars {
+          color: white;
+          font-size: 40px;
+        }
       }
     }
   }

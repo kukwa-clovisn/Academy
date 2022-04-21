@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="landing-page">
-      <div id="blur"></div>
+      <div class="blur"></div>
       <Header />
       <div class="title">
         <h1>
@@ -169,11 +169,9 @@ main {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    .blur {
-      opacity: 0.7;
-    }
+
     .title {
-      top: 0;
+      top: 50px;
 
       h1 {
         padding: 30px;
