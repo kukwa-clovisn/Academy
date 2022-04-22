@@ -114,6 +114,10 @@ nav {
       color: white;
       padding: 10px;
       padding-top: 75px;
+
+      &:last-child {
+        font-family: "Nunito sans", "Poppins", sans-serif;
+      }
       @media screen and (max-width: 385px) {
         font-size: 40px;
       }

@@ -323,7 +323,7 @@ main {
         li {
           list-style-type: none;
           text-transform: uppercase;
-          font: 700 30px "Poppins", sans-serif;
+          font: 700 30px "Nunito sans", "Poppins", sans-serif;
           text-align: left;
         }
 

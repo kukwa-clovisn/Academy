@@ -189,14 +189,16 @@ main {
 
     h1 {
       padding: 10px;
-      font: 700 50px "Noto sans", "Poppins", sans-serif;
+      font: 700 50px "Nunito sans", "Poppins", sans-serif;
       color: white;
       text-transform: capitalize;
       padding-top: 50px;
     }
     p {
-      width: 90%;
+      width: 97%;
+      font-family: "Noto sans", "Poppins", sans-serif;
       margin: auto;
+      line-height: 23px;
       padding: 20px 10px;
       color: rgb(166, 193, 206);
     }
@@ -231,7 +233,7 @@ main {
 
         h2 {
           text-transform: capitalize;
-          font: 500 30px "Noto sans", "Poppins", sans-serif;
+          font: 600 30px "Nunito sans", "Poppins", sans-serif;
           color: white;
         }
 
@@ -324,7 +326,7 @@ main {
 
           h3 {
             text-transform: uppercase;
-            font: 700 25px "Poppins", sans-serif;
+            font: 700 25px "Nunito sans", "Poppins", sans-serif;
             color: rgb(224, 225, 226);
 
             span {

@@ -382,7 +382,7 @@ $primaryColor: rgb(255, 255, 255);
 $SecondaryColor: rgba(230, 101, 129, 1);
 $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(51, 2, 69);
-
+$fallback: rgb(19, 37, 62);
 main {
   width: 100%;
   height: auto;
@@ -394,7 +394,7 @@ main {
   #blur {
     width: 100%;
     height: 100%;
-    background: rgb(31, 28, 45);
+    background: $fallback;
     position: absolute;
     top: 0;
     left: 0;
@@ -1051,6 +1051,7 @@ main {
   height: fit-content;
   padding: 30px 5px 20px 5px;
   position: relative;
+  margin-bottom: 0;
   background: linear-gradient(
     to bottom right,
     rgb(57, 7, 100),
@@ -1077,9 +1078,9 @@ main {
     left: 0;
     overflow: hidden;
     opacity: 1;
-    box-shadow: 3px 0 1px 2px white;
-    border-radius: 70% 10% 0 0;
-    background: linear-gradient(to right, rgb(202, 77, 130), rgb(141, 35, 145));
+    // box-shadow: 3px 0 1px 2px white;
+    border-radius: 70% 0 0 0;
+    background: linear-gradient(to right, rgb(45, 84, 138), $fallback);
   }
 
   h1 {
@@ -1380,5 +1381,12 @@ main {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+footer {
+  background: linear-gradient(to right, rgb(45, 84, 138), $fallback);
+  width: 100vw;
+  height: 10vh;
+  margin: 0;
 }
 </style>
