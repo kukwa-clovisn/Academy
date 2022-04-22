@@ -974,7 +974,7 @@ main {
 
     .course {
       width: 335px;
-      height: 400px;
+      height: 450px;
       padding-bottom: 10px;
       background: white;
       margin: 20px 20px;

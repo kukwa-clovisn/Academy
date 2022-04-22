@@ -13,7 +13,7 @@
       </nav>
       <nav class="bottom-nav">
         <nav class="logo-nav">
-          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
+          <img src="../assets/logo-w.jpeg" id="logo" alt="logo image" />
         </nav>
         <nav class="routes">
           <router-link to="/about" class="route">about</router-link>
@@ -63,6 +63,7 @@ $primaryColor: rgb(255, 255, 255);
 $SecondaryColor: rgba(230, 101, 129, 1);
 $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(51, 2, 69);
+$fallback: rgb(19, 37, 62);
 
 .primary-btn {
   width: 150px;
@@ -93,7 +94,7 @@ header {
   .topNav {
     width: 100vw;
     height: 7vh;
-    background: black;
+    background: $fallback;
     display: flex;
     justify-content: space-between;
     align-items: center;

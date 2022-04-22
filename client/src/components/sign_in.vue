@@ -90,10 +90,12 @@ $primaryColor: rgb(255, 255, 255);
 $SecondaryColor: rgba(230, 101, 129, 1);
 $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(30, 2, 40);
+$fallback: rgb(19, 37, 62);
 main {
   width: 100vw;
   min-height: 100vh;
   background: rgb(231, 231, 231);
+  background: $fallback;
 
   .landing-page-btn {
     width: 150px;
@@ -150,7 +152,7 @@ main {
     height: 14vh;
     display: flex;
     justify-content: space-between;
-    background: black;
+    background: $fallback;
 
     nav {
       display: flex;
@@ -283,8 +285,8 @@ main {
         align-items: center;
         background: linear-gradient(
           to bottom right,
-          rgb(51, 7, 69) 0%,
-          black 80%
+          rgb(38, 79, 129) 0%,
+          $fallback 80%
         );
 
         .welcome {
