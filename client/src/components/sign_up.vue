@@ -9,9 +9,9 @@
         <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
       </nav>
       <nav>
-        <router-link to="/" class="route">about</router-link>
-        <router-link to="/" class="route">why crypto?</router-link>
-        <router-link to="/" class="route">blog</router-link>
+        <router-link to="/about" class="route">about</router-link>
+        <router-link to="/why-us" class="route">why crypto?</router-link>
+        <router-link to="/blog" class="route">blog</router-link>
         <a href="/#contact" class="route">contact</a>
       </nav>
       <nav>
