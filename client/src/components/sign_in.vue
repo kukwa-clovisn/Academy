@@ -4,7 +4,7 @@
       <img src="../assets/bitcoin.png" alt="BTC" />
     </div>
 
-    <header>
+    <header class="large-screen-header">
       <nav class="logo-nav">
         <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
       </nav>
@@ -21,22 +21,11 @@
       </nav>
     </header>
     <header class="small-screen-header">
-      <nav class="topNav">
-        <div class="left-topNav">
-          <a href="/"> <i class="fa-solid fa-phone icon"></i>+237682449347</a>
-        </div>
-        <div class="right-topNav">
-          <a href="">
-            <i class="fa-solid fa-envelope icon"></i>kcn.123.com@gmail.com</a
-          >
-        </div>
+      <nav class="logo-nav">
+        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
       </nav>
-      <nav class="bottom-nav">
-        <nav class="logo-nav">
-          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
-        </nav>
-        <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
-      </nav>
+      <nav class="title"><a href="/">AC&FC</a></nav>
+      <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
     </header>
     <div class="content">
       <h2>sign in</h2>
@@ -103,6 +92,7 @@ $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(30, 2, 40);
 main {
   width: 100vw;
+  min-height: 100vh;
   background: rgb(231, 231, 231);
 
   .landing-page-btn {
@@ -184,6 +174,13 @@ main {
         text-decoration: none;
         font-size: 15px;
         color: $primaryColor;
+
+        @media screen and (max-width: 1154px) {
+          font-size: 13px;
+        }
+        @media screen and (max-width: 1021px) {
+          font-size: 11px;
+        }
       }
     }
 
@@ -214,31 +211,43 @@ main {
   }
   .small-screen-header {
     @media screen and (max-width: 917px) {
-      display: block;
+      display: flex;
 
-      .bottom-nav {
-        padding: 0 10px;
+      padding: 0 10px;
 
-        .logo-nav {
-          margin-left: 20px;
-        }
+      .logo-nav {
+        margin-left: 20px;
+      }
 
-        .menu-bars {
+      .title {
+        a {
+          text-decoration: none;
           color: white;
-          font-size: 40px;
+          font: 700 30px "Poppins", sans-serif;
+          text-transform: uppercase;
         }
+        @media screen and (max-width: 450px) {
+          display: none;
+        }
+      }
+
+      .menu-bars {
+        color: white;
+        font-size: 40px;
       }
     }
   }
 
   .content {
-    width: 100%;
+    width: 100vw;
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0;
     padding-top: 30px;
+    position: relative;
 
     h2 {
       color: rgb(164, 165, 165);
@@ -247,6 +256,13 @@ main {
       text-align: left;
       width: 730px;
       position: relative;
+
+      @media screen and (max-width: 730px) {
+        position: absolute;
+        left: 20px;
+        top: 30px;
+        padding-left: 50px;
+      }
     }
 
     .form {
@@ -403,7 +419,7 @@ main {
         }
 
         button {
-          width: 88%;
+          width: 89%;
           height: 50px;
           background: $SecondaryColor;
           color: white;
@@ -436,6 +452,68 @@ main {
           }
         }
       }
+      @media screen and (max-width: 810px) {
+        width: 100vw;
+      }
+      @media screen and (max-width: 769px) {
+        flex-direction: column;
+        height: fit-content;
+        .login {
+          display: none;
+        }
+        form {
+          width: 90%;
+          padding: 40px;
+          border-radius: 5px;
+
+          .input {
+            label {
+              font-size: 30px;
+              padding-bottom: 10px;
+            }
+            input {
+              height: 80px;
+            }
+            height: fit-content;
+            margin: 40px auto;
+          }
+
+          button {
+            height: 80px;
+            font-size: 25px;
+          }
+
+          .forget-password {
+            span {
+              .route {
+                font-size: 23px;
+                @media screen and (max-width: 420px) {
+                  font-size: 17px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 650px) {
+        form {
+          width: 100vw;
+          padding-left: 10px;
+          padding-right: 10px;
+
+          .input {
+            width: 99%;
+          }
+
+          button {
+            width: 99%;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      padding-top: 100px;
     }
   }
 

@@ -194,6 +194,9 @@ main {
       font: 700 45px "Poppins", sans-serif;
       text-transform: capitalize;
       padding: 20px;
+      @media screen and (max-width: 650px) {
+        font-size: 30px;
+      }
     }
 
     .logo-display {
@@ -238,6 +241,17 @@ main {
           }
         }
       }
+      @media screen and (max-width: 715px) {
+        .left-content {
+          display: none;
+        }
+        .right-content {
+          width: 100%;
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      width: 100vw;
     }
   }
 
@@ -247,6 +261,7 @@ main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     padding: 20px;
 
     .div-flex-content {
@@ -270,6 +285,16 @@ main {
           text-transform: capitalize;
           padding: 5px;
           font: 600 25px "Poppins", sans-serif;
+        }
+      }
+      @media screen and (max-width: 800px) {
+        width: 100vw;
+        margin-top: 20px;
+
+        .head {
+          img {
+            width: 70%;
+          }
         }
       }
     }

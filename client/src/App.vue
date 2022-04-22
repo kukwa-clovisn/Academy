@@ -111,6 +111,9 @@ nav {
       color: white;
       padding: 10px;
       padding-top: 75px;
+      @media screen and (max-width: 385px) {
+        font-size: 40px;
+      }
     }
 
     p {
