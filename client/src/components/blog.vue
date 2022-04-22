@@ -76,6 +76,70 @@
         <button><a href="/signup">start now!</a></button>
       </section>
     </div>
+    <div class="instructors">
+      <div class="instructors-div">
+        <div class="instructor">
+          <div class="img">
+            <img src="../assets/male.jpeg" alt="instructor" />
+          </div>
+          <div class="instructor-info">
+            <h3>instructor name <span>instructor field</span></h3>
+            <p>
+              The future belongs to those who believe in the beauty of their
+              dreams
+            </p>
+          </div>
+        </div>
+        <div class="instructor">
+          <div class="img">
+            <img src="../assets/male.jpeg" alt="instructor" />
+          </div>
+          <div class="instructor-info">
+            <h3>instructor name <span>instructor field</span></h3>
+            <p>
+              The future belongs to those who believe in the beauty of their
+              dreams
+            </p>
+          </div>
+        </div>
+        <div class="instructor">
+          <div class="img">
+            <img src="../assets/male.jpeg" alt="instructor" />
+          </div>
+          <div class="instructor-info">
+            <h3>instructor name <span>instructor field</span></h3>
+            <p>
+              The future belongs to those who believe in the beauty of their
+              dreams
+            </p>
+          </div>
+        </div>
+        <div class="instructor">
+          <div class="img">
+            <img src="../assets/male.jpeg" alt="instructor" />
+          </div>
+          <div class="instructor-info">
+            <h3>instructor name <span>instructor field</span></h3>
+            <p>
+              The future belongs to those who believe in the beauty of their
+              dreams
+            </p>
+          </div>
+        </div>
+        <div class="instructor">
+          <div class="img">
+            <img src="../assets/male.jpeg" alt="instructor" />
+          </div>
+          <div class="instructor-info">
+            <h3>instructor name <span>instructor field</span></h3>
+            <p>
+              The future belongs to those who believe in the beauty of their
+              dreams
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -219,6 +283,60 @@ main {
           justify-content: center;
           align-items: center;
           font: 500 19px "Poppins", sans-serif;
+        }
+      }
+    }
+  }
+
+  .instructors {
+    width: 100vw;
+    background: $fallback;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .instructors-div {
+      width: 90vw;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .instructor {
+        width: 300px;
+        height: 320px;
+        margin-bottom: 20px;
+        padding: 10px;
+        .img {
+          width: 150px;
+          height: 150px;
+          border-radius: 100%;
+          overflow: hidden;
+          margin: auto;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .instructor-info {
+          width: 100%;
+
+          h3 {
+            text-transform: uppercase;
+            font: 700 25px "Poppins", sans-serif;
+            color: rgb(224, 225, 226);
+
+            span {
+              text-transform: capitalize;
+              font-size: 20px;
+              color: rgb(165, 168, 170);
+            }
+          }
+
+          p {
+            color: rgb(126, 141, 144);
+          }
         }
       }
     }
