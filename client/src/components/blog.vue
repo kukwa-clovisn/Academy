@@ -14,17 +14,18 @@
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
-        <div class="research">
+        <form action="/" method="GET" class="research">
           <input
             type="search"
             name="search"
             id="search"
             placeholder="Search...."
+            required
           />
-          <button>
+          <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
+        </form>
       </div>
     </div>
     <div class="section-1">
