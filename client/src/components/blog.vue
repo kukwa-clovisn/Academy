@@ -28,9 +28,9 @@
       <div class="flex-div">
         <div class="flex-content">
           <div class="icon">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-chart-line"></i>
           </div>
-          <h2>our news update</h2>
+          <h2>recent news update</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
             dolores, odit repellat maxime iusto qui quo veritatis voluptate,
@@ -40,9 +40,9 @@
         </div>
         <div class="flex-content">
           <div class="icon">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-diagram-project"></i>
           </div>
-          <h2>our news update</h2>
+          <h2>bond</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
             dolores, odit repellat maxime iusto qui quo veritatis voluptate,
@@ -52,7 +52,7 @@
         </div>
         <div class="flex-content">
           <div class="icon">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-earth-oceania"></i>
           </div>
           <h2>our news update</h2>
           <p>

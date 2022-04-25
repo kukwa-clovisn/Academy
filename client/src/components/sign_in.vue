@@ -525,7 +525,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $footerColor;
+    color: rgb(202, 201, 201);
   }
 }
 </style>
