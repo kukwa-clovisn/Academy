@@ -6,16 +6,25 @@
       <div class="title">
         <h1>
           Advanced <br />
-          crypto & forex community
+          crypto & forex community blog
         </h1>
         <p>
-          this is a crypto trading website where you get to learn all about
-          crypto currency and also how to trade with crypto and forex
+          Read the latest updates, research, and articles by our crypto team
         </p>
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
-        <h1 class="title-head">our blog stats</h1>
+        <div class="research">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search...."
+          />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       </div>
     </div>
     <div class="section-1">
@@ -163,16 +172,52 @@ main {
     background-attachment: fixed;
 
     .title {
-      top: 50px;
+      top: 30px;
 
       h1 {
-        padding: 30px;
+        padding: 45px;
         padding-bottom: 10px;
       }
-      .title-head {
-        text-transform: uppercase;
+      p {
+        padding: 10px;
+        width: 90vw;
+        margin: auto;
         color: rgb(222, 221, 221);
-        font: 600 30px "Poppins", sans-serif;
+        font: 600 27px "Poppins", sans-serif;
+      }
+
+      .research {
+        width: 70vw;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+
+        input {
+          width: 80%;
+          height: 100%;
+          border: none;
+          outline: none;
+          border-radius: 30px 0 0 30px;
+          padding: 3px 0 3px 20px;
+        }
+        button {
+          width: 20%;
+          height: 100%;
+          margin: 0;
+          background: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          border-radius: 0 30px 30px 0;
+          padding: 3px 0 3px 0;
+
+          i {
+            font-size: 23px;
+          }
+        }
       }
     }
   }
