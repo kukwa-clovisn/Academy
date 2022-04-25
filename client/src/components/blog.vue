@@ -214,6 +214,10 @@ main {
           border-radius: 0 30px 30px 0;
           padding: 3px 0 3px 0;
 
+          &:hover {
+            transform: none;
+          }
+
           i {
             font-size: 23px;
           }
