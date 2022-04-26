@@ -59,6 +59,12 @@ const routes = [{
     component: function () {
       return import('../components/blog.vue')
     }
+  }, {
+    path: '/member',
+    name: 'Member',
+    component: function () {
+      return import('../components/member.vue')
+    }
   }
 ]
 
