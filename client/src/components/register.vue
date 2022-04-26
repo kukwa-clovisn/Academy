@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="landing-page" v-if="startProcess">
+    <div class="landing-page">
       <div class="blur"></div>
       <header><img src="../assets/logo-w.jpeg" alt="" /></header>
       <div class="title">
@@ -15,11 +15,34 @@
         <router-link to="/" class="hroute">back home</router-link>
       </div>
     </div>
+    <div class="blur stepone" v-if="stepOne"></div>
     <div class="step1" v-if="stepOne">
-      <h1>
-        register now! <br />
-        <a href="/">Home</a>
-      </h1>
+      <button class="close"><i class="fa-solid fa-xmark"></i></button>
+      <h3>
+        Make sure you sign up first before getting to register<a href="/signup"
+          >sign up</a
+        >
+      </h3>
+      <div class="steps">
+        <span class="current">step-1</span><span>step-2</span
+        ><span>step-3</span>
+      </div>
+      <form>
+        <div class="input">
+          <label for="email">sign up Email:</label>
+          <input type="email" name="email" id="email" placeholder="Email..." />
+        </div>
+        <div class="input">
+          <label for="password"> sign up password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password..."
+          />
+        </div>
+        <button type="submit">next</button>
+      </form>
     </div>
   </main>
 </template>
@@ -33,20 +56,19 @@ export default {
     Header,
   },
   setup() {
-    let startProcess = ref(true);
     let stepOne = ref(false);
 
     const startRegistration = () => {
-      startProcess.value = false;
       stepOne.value = true;
     };
 
-    return { startProcess, stepOne, startRegistration };
+    return { stepOne, startRegistration };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+$fallback: rgb(19, 37, 62);
 main {
   width: 100vw;
 
@@ -97,11 +119,108 @@ main {
     }
   }
 
+  .stepone {
+    opacity: 0.8;
+  }
+
   .step1 {
-    width: 100%;
-    height: 100vh;
-    background: rgb(231, 231, 231);
-    padding: 10px;
+    width: 550px;
+    height: 500px;
+    background: white;
+    padding: 20px;
+    position: fixed;
+    top: 6vh;
+    left: 27vw;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 30px;
+
+    .close {
+      border: none;
+      background: transparent;
+      margin-right: 20px;
+      display: block;
+      height: 30px;
+      width: 50px;
+      height: 40px;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    h3 {
+      padding: 10px;
+      padding-top: 20px;
+      font-size: 20px;
+
+      a {
+        margin-left: 15px;
+        color: rgb(184, 157, 2);
+      }
+    }
+
+    .steps {
+      width: 80%;
+      margin: 15px auto;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      span {
+        font: 600 23px "Nunito sans", sans-serif;
+        color: rgb(180, 178, 178);
+      }
+      .current {
+        color: rgb(7, 143, 71);
+      }
+    }
+
+    form {
+      width: 85%;
+      height: 65%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+
+      .input {
+        width: 100%;
+        height: fit-content;
+
+        label {
+          text-transform: capitalize;
+          display: block;
+          padding-bottom: 5px;
+          text-align: left;
+          padding-left: 15px;
+          font-size: 20px;
+          font-weight: 600;
+        }
+        input {
+          width: 100%;
+          height: 50px;
+          padding: 3px 10px 3px 20px;
+          border: none;
+          background: rgb(242, 242, 242);
+          border-radius: 30px;
+          outline: none;
+        }
+      }
+      button {
+        width: 100%;
+        height: 50px;
+        border-radius: 30px;
+        border: none;
+        background: $fallback;
+        color: white;
+        font: 600 23px "Poppins", sans-serif;
+        text-transform: capitalize;
+      }
+    }
   }
 }
 </style>
