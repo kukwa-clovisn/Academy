@@ -17,7 +17,9 @@
     </div>
     <div class="blur stepone" v-if="stepOne"></div>
     <div class="step1" v-if="stepOne">
-      <button class="close"><i class="fa-solid fa-xmark"></i></button>
+      <button class="close" @click="close()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
       <h3>
         Make sure you sign up first before getting to register<a href="/signup"
           >sign up</a
@@ -30,7 +32,13 @@
       <form>
         <div class="input">
           <label for="email">sign up Email:</label>
-          <input type="email" name="email" id="email" placeholder="Email..." />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email..."
+            required
+          />
         </div>
         <div class="input">
           <label for="password"> sign up password:</label>
@@ -39,6 +47,7 @@
             name="password"
             id="password"
             placeholder="Password..."
+            required
           />
         </div>
         <button type="submit">next</button>
@@ -62,7 +71,11 @@ export default {
       stepOne.value = true;
     };
 
-    return { stepOne, startRegistration };
+    const close = () => {
+      stepOne.value = false;
+    };
+
+    return { stepOne, startRegistration, close };
   },
 };
 </script>
