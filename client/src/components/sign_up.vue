@@ -41,7 +41,7 @@
             <router-link to="/" class="hroute">home</router-link>
           </div>
         </div>
-        <form action="/" method="post">
+        <form action="http://localhost:9002/signup" method="post">
           <h1>sign up</h1>
           <div class="input">
             <label for="username">Name:</label
@@ -57,7 +57,7 @@
             <label for="email">email:</label
             ><input
               type="email"
-              name="Email"
+              name="email"
               id="email"
               placeholder="Enter Email address...."
               required

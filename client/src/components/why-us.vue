@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="why-us">
-      <h1>importance and future of Cryptocurrencies and trading</h1>
+      <h1>importance and future of blockchain</h1>
       <div class="logo-display">
         <div class="left-content">
           <img src="../assets/logo-w.jpeg" alt="crypto & forex" />

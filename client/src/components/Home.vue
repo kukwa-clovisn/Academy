@@ -15,21 +15,89 @@
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
-        <!-- <img src="../assets/ch1.png" id="homeImg" alt="crypto chart" /> -->
 
         <section>
-          <h2>running animation here!</h2>
-          <!-- <p>Get trusted signals for your trading</p>
-        <div>
-          <p>the future of Billionaires</p>
-        </div> -->
+          <h2>There is a reason:</h2>
+          <div class="words">
+            <ul>
+              <li>you love music</li>
+              <li>you're love technology</li>
+              <li>you're love the blockchain</li>
+              <li>you love graphics & paper</li>
+            </ul>
+          </div>
         </section>
       </div>
+    </div>
+    <div class="courses-div" id="courses">
+      <div class="blur"></div>
+      <h1>Explore our top courses</h1>
+      <p>
+        Find out the best and outstanding courses in the area of your choice
+        with the best and experienced instructors online. Also get online
+        mentorship for your course of choice
+      </p>
+
+      <section class="courses">
+        <div class="course">
+          <div class="course-img">
+            <img src="../assets/ch1.png" alt="" />
+          </div>
+
+          <h3>one month</h3>
+          <h5>Learn about crypto & Forex</h5>
+          <p>
+            Start from a newbie into becomimg a profitable crypto trader in less
+            than no time. <br />
+            Register now to start your lessons
+          </p>
+          <button>
+            <router-link to="/register" class="route"
+              >Register now!</router-link
+            >
+          </button>
+        </div>
+        <div class="course">
+          <div class="course-img">
+            <img src="../assets/web-dev.jpg" alt="" />
+          </div>
+
+          <h3>three months</h3>
+          <h5>Learn web development</h5>
+          <p>
+            Have you ever thought of learning web development and it seems hard?
+            here we have everything made easy for you. <br />
+            register now to start your lessons
+          </p>
+          <button>
+            <router-link to="/register" class="route"
+              >register now!</router-link
+            >
+          </button>
+        </div>
+        <div class="course">
+          <div class="course-img">
+            <img src="../assets/graphic-design.jpg" alt="" />
+          </div>
+
+          <h3>one month</h3>
+          <h5>learn graphic design</h5>
+          <p>
+            Learn phone and computer design and how to use design apps in less
+            than a month. <br />
+            register now to start your lessons
+          </p>
+          <button>
+            <router-link to="/register" class="route"
+              >register now!</router-link
+            >
+          </button>
+        </div>
+      </section>
     </div>
     <div class="section-1">
       <header>
         <h1>The World’s Largest And Fast Growing Technology</h1>
-        <h3>Be the first to assimilatete this wonderful technology</h3>
         <p>
           The Crypto & Forex market can be a very strategic and pretty dangerous
           place for just anybody to rush in without knowledge. <br />
@@ -48,51 +116,8 @@
           you have to do is to pay the price today and rejoice tomorrow. Surely
           you will be glad you did.
         </p>
-        <div class="section-3-def">
-          <div class="def">
-            <h1>What is <span>BITCOIN</span>??</h1>
-            <p>
-              Bitcoin is a decentralized digital currency, without a central
-              bank or single administrator, that can be sent from user to user
-              on the peer-to-peer bitcoin network without the need for
-              intermediaries. Transactions are verified by network nodes through
-              cryptography and recorded in a public distributed ledger called a
-              blockchain. The cryptocurrency was invented in 2008 by an unknown
-              person or group of people using the name Satoshi Nakamoto. The
-              currency began use in 2009 when its implementation was released as
-              open-source software. Bitcoins are created as a reward for a
-              process known as mining. They can be exchanged for other
-              currencies, products, and services. Bitcoin has been criticized
-              for its use in illegal transactions, the large amount of
-              electricity used by mining, price volatility, and thefts from
-              exchanges. Some investors and economists have characterized it as
-              a speculative bubble at various times
-            </p>
-          </div>
-          <div class="def">
-            <h1>What is <span>cryptocurrency</span> ??</h1>
-            <p>
-              A cryptocurrency, crypto-currency, crypto, or coin is a digital
-              currency designed to work as a medium of exchange through a
-              computer network that is not reliant on any central authority,
-              such as a government or bank, to uphold or maintain it. Individual
-              coin ownership records are stored in a digital ledger, which is a
-              computerized database using strong cryptography to secure
-              transaction records, to control the creation of additional coins,
-              and to verify the transfer of coin ownership. Despite their name,
-              cryptocurrencies are not considered to be currencies in the
-              traditional sense and while varying treatments have been applied
-              to them, including classification as commodities, securities, as
-              well as currencies, cryptocurrencies are generally viewed as a
-              distinct asset class in practice. Some crypto schemes use
-              validators to maintain the cryptocurrency. In a proof-of-stake
-              model, owners put up their tokens as collateral
-            </p>
-          </div>
-        </div>
       </header>
       <div class="content">
-        <h2>Cryptocurrencies | Prices Today!</h2>
         <ul>
           <li>
             <span class="name">Bitcoin</span><span class="symbol">BTC</span
@@ -152,35 +177,14 @@
     </div>
 
     <div class="section-2">
-      <h2>Ever wondering how Cryptocurrencies work?</h2>
-      <p>
-        cryptocurrencies are decentralized and monitized currencies which
-        function as money online with no liquid value. Invest in knowledge today
-        and save yourself the stress tomorrow get to know more
-      </p>
       <div class="video-div">
-        <div class="blur"></div>
-        <div class="video">
-          <iframe
-            width="545"
-            height="300"
-            src="https://www.youtube.com/embed/rYQgy8QDEBI"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="left-video-div">
-          <h2>Real investment is investing in knowledge(learning)</h2>
-          <p>
-            Why not try out our courses prepared to see you through your
-            learning!
-          </p>
-          <button>
-            <router-link to="/signup" class="route">start learning</router-link>
-          </button>
-        </div>
+        <h2>Real investment is investing in knowledge(learning)</h2>
+        <p>
+          Why not try out our courses prepared to see you through your learning!
+        </p>
+        <button>
+          <router-link to="/signup" class="route">start learning</router-link>
+        </button>
       </div>
     </div>
     <div class="illustration-1">
@@ -201,72 +205,7 @@
         </button>
       </div>
     </div>
-    <div class="courses-div">
-      <div class="blur"></div>
-      <h1>courses & services</h1>
-      <p>
-        Find out the best and outstanding courses in the area of your choice
-        with the best and experienced instructors online. Also get online
-        mentorship for your course of choice
-      </p>
 
-      <section class="courses">
-        <div class="course">
-          <div class="course-img">
-            <img src="../assets/ch1.png" alt="" />
-          </div>
-
-          <h3>one month</h3>
-          <h5>Learn about crypto & Forex</h5>
-          <p>
-            Start from a newbie into becomimg a profitable crypto trader in less
-            than no time. <br />
-            Register now to start your lessons
-          </p>
-          <button>
-            <router-link to="/register" class="route"
-              >Register now!</router-link
-            >
-          </button>
-        </div>
-        <div class="course">
-          <div class="course-img">
-            <img src="../assets/web-dev.jpg" alt="" />
-          </div>
-
-          <h3>six months</h3>
-          <h5>Learn web development</h5>
-          <p>
-            Have you ever thought of learning web development and it seems hard?
-            here we have everything made easy for you. <br />
-            register now to start your lessons
-          </p>
-          <button>
-            <router-link to="/register" class="route"
-              >register now!</router-link
-            >
-          </button>
-        </div>
-        <div class="course">
-          <div class="course-img">
-            <img src="../assets/graphic-design.jpg" alt="" />
-          </div>
-
-          <h3>one month</h3>
-          <h5>learn graphic design</h5>
-          <p>
-            Learn phone and computer design and how to use design apps in less
-            than a month. <br />
-            register now to start your lessons
-          </p>
-          <button>
-            <router-link to="/register" class="route"
-              >register now!</router-link
-            >
-          </button>
-        </div>
-      </section>
-    </div>
     <div class="contact-form" id="contact">
       <div class="bubble"></div>
       <div class="blur"></div>
@@ -364,7 +303,43 @@
         </div>
       </form>
     </div>
-    <footer>&copy;copyright_codingHerald_2022</footer>
+    <div class="bitquery">
+      <div class="content-1">
+        <div class="left-div">
+          <img src="../assets/Group-1-1.png" alt="" />
+        </div>
+        <div class="right-div">
+          <h2>lorem ipsum dolor</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea omnis
+            dolorum eius laborum ut, eos et rem qui laudantium hic totam facilis
+            sequi, ratione adipisci cum incidunt nam. Voluptatem saepe
+            voluptatibus recusandae accusantium nobis impedit, natus
+            consequuntur vitae rem corporis enim, reprehenderit veniam mollitia
+            sunt porro quisquam eos ipsa architecto!
+          </p>
+          <button>learn more....</button>
+        </div>
+      </div>
+      <div class="content-2">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit beatae
+          et id dolor veritatis numquam hic nemo, nulla voluptas dignissimos
+          necessitatibus sint, animi porro expedita. Labore nulla ducimus rerum
+          iusto quisquam repellat dicta enim numquam dolor eligendi, nisi sequi
+          aperiam adipisci vitae, minima provident inventore perferendis tempore
+          dolorum aliquam consequuntur earum obcaecati. Repellendus, nulla?
+          Accusantium reprehenderit illo sit quibusdam, consequuntur odio
+          reiciendis tenetur? Aliquid debitis ad temporibus possimus commodi
+          sequi.
+        </p>
+        <button>get started</button>
+      </div>
+    </div>
+    <footer>
+      &copy;copyright_codingHerald_2022||<a href="/admin">admin</a>
+    </footer>
   </main>
 </template>
 
@@ -713,52 +688,30 @@ main {
     width: 90vw;
     height: fit-content;
     margin: 30px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
 
-    .blur {
-      width: 500px;
-      height: 500px;
-      position: absolute;
-      top: 0;
-      left: 55%;
-      background: rgb(163, 3, 180);
-      opacity: 0.3;
-      border-radius: 50%;
+    h2 {
+      color: $SecondaryColor;
+      text-transform: capitalize;
     }
 
-    .left-video-div {
-      width: 35%;
-      height: fit-content;
-      padding: 20px;
-      position: relative;
-      left: -50px;
+    p {
+      color: rgb(3, 55, 123);
+      width: 100%;
+    }
+    button {
+      width: 250px;
+      height: 45px;
+      border-radius: 3px;
+      border: none;
+      margin: 20px auto;
+      background: transparent;
+      box-shadow: 0 0 1px 2px $SecondaryColor;
 
-      h2 {
+      .route {
+        text-decoration: none;
         color: $SecondaryColor;
-        text-transform: capitalize;
-      }
-
-      p {
-        color: rgb(3, 55, 123);
-        width: 100%;
-      }
-      button {
-        width: 250px;
-        height: 45px;
-        border-radius: 3px;
-        border: none;
-        margin: 20px auto;
-        background: transparent;
-        box-shadow: 0 0 1px 2px $SecondaryColor;
-
-        .route {
-          text-decoration: none;
-          color: $SecondaryColor;
-          text-transform: uppercase;
-        }
+        text-transform: uppercase;
       }
     }
 
@@ -769,60 +722,6 @@ main {
       flex-direction: column;
       margin: 0;
       padding: 0;
-      .blur {
-        display: none;
-      }
-
-      .left-video-div {
-        width: 95%;
-        top: 0;
-        left: -2%;
-        margin: 10px auto;
-        padding: 0;
-        box-shadow: 2px 2px 1px 2px $SecondaryColor;
-      }
-    }
-  }
-
-  .video {
-    width: 70vw;
-    height: 80vh;
-    margin: auto;
-    background: url(../assets/blank-c.jpg);
-    background-size: 575px 440px;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    position: relative;
-    left: 20px;
-    top: 70px;
-    transform: rotateZ(10deg);
-    iframe {
-      position: absolute;
-      top: 12.5px;
-      left: 17px;
-    }
-
-    @media screen and (max-width: 829px) {
-      width: 100vw;
-      left: 0;
-    }
-    @media screen and (max-width: 670px) {
-      background: transparent;
-      transform: rotateZ(0deg);
-      height: 50vh;
-      width: 100vw;
-      margin: 10px auto;
-      padding: 0;
-      top: 0;
-      left: 0;
-      iframe {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin: auto;
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 
@@ -1383,10 +1282,100 @@ main {
   }
 }
 
+.bitquery {
+  width: 100vw;
+  height: fit-content;
+
+  .content-1 {
+    width: 96vw;
+    height: 65vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    .left-div {
+      width: 40%;
+      height: 100%;
+      overflow: hidden;
+      img {
+        display: block;
+        width: 90%;
+        margin: auto;
+        height: auto;
+      }
+    }
+
+    .right-div {
+      width: 58%;
+      height: 100%;
+      padding: 20px;
+
+      h2 {
+        padding: 10px;
+        font: 600 24px "Nunito sans", sans-serif;
+        text-transform: capitalize;
+      }
+      p {
+        font: 500 17px "Poppins", sans-serif;
+        padding: 10px;
+      }
+
+      button {
+        width: 200px;
+        height: 50px;
+        background: radial-gradient($SecondaryColor, $fallback);
+        border: 2px double $SecondaryColor;
+        color: $primaryColor;
+        border-radius: 3px;
+        text-transform: capitalize;
+        margin: 15px auto;
+        font: 600 19px "Nunito sans", sans-serif;
+      }
+    }
+  }
+  .content-2 {
+    width: 90vw;
+    height: fit-content;
+    margin: auto;
+    padding: 20px;
+
+    h1 {
+      padding: 10px;
+      font: 700 30px "Poppins", sans-serif;
+      text-transform: capitalize;
+    }
+    p {
+      padding: 10px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    button {
+      width: 200px;
+      height: 50px;
+      background: $SecondaryColor;
+      border: 2px double $SecondaryColor;
+      color: $primaryColor;
+      border-radius: 3px;
+      text-transform: capitalize;
+      margin: 15px auto;
+      font: 600 19px "Nunito sans", sans-serif;
+    }
+  }
+}
+
 footer {
   background: linear-gradient(to right, rgb(45, 84, 138), $fallback);
   width: 100vw;
   height: 10vh;
   margin: 0;
+  color: rgb(185, 182, 182);
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $SecondaryColor;
+  }
 }
 </style>

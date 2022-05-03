@@ -65,6 +65,12 @@ const routes = [{
     component: function () {
       return import('../components/member.vue')
     }
+  }, {
+    path: '/admin',
+    name: 'Admin',
+    component: function () {
+      return import('../components/admin.vue')
+    }
   }
 ]
 

@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("morgan");
+const mongoose = require('mongoose')
 
 const app = express();
 
@@ -31,10 +32,15 @@ app.use(
      })
 );
 
+// database connect and models
+const connectDb = require('./connectDB/connectDB');
+connectDb(mongo_uri);
+
 //  Route paths
+const signupRoute = require('./routes/signup')
 
 // getting Routes
-
+app.use('/signup', signupRoute);
 
 // exporting the app.
 module.exports = app;

@@ -56,7 +56,7 @@ const onError = (error) => {
                process.exit(1);
                break;
           case "EADDRINUSE":
-               console.error(bind + " is already is use ___codingHerald.net___");
+               console.error(bind + " is already is use ___codingHerald___");
                process.exit(1);
                break;
           default:
@@ -79,7 +79,7 @@ const onListening = () => {
      let addr = server.address();
      let bind = typeof addr === "string" ? "Pipe " + addr : "Pipe " + addr.port;
      debug("Listening on " + bind);
-     console.log("codingHerald Listening on http://localhost:" + port);
+     console.log("codingHerald: app Listening on http://localhost:" + port);
 };
 
 server.on("listening", onListening);

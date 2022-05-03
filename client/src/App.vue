@@ -162,18 +162,55 @@ nav {
       justify-content: center;
       align-items: center;
       color: white;
-      animation: run 2s linear infinite alternate forwards;
+
+      h2 {
+        border: 1px solid white;
+        width: 300px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        color: $fallback;
+        border-radius: 10px 0 10px 0;
+      }
+      .words {
+        width: 300px;
+        height: 40px;
+        border-bottom: 1px solid white;
+        position: relative;
+        overflow: hidden;
+
+        ul {
+          width: 100%;
+          height: 40px;
+          position: relative;
+          top: 0;
+          animation: change 10s steps(4) infinite;
+
+          li {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            list-style-type: none;
+            text-transform: capitalize;
+            text-align: left;
+            padding: 0 10px;
+            font-family: "Nunito sans", sans-serif;
+          }
+        }
+      }
     }
   }
 
-  @keyframes run {
+  @keyframes change {
     from {
-      left: 0;
-      opacity: 1;
+      top: 0;
     }
     to {
-      left: 60vw;
-      opacity: 0;
+      top: -160px;
     }
   }
 
