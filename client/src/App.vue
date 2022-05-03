@@ -224,4 +224,19 @@ nav {
     background: black;
   }
 }
+
+.to-landing-page {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background: $fallback;
+  position: fixed;
+  right: 30px;
+  bottom: 100px;
+  z-index: 1;
+
+  i {
+    color: white;
+  }
+}
 </style>

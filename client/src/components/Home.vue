@@ -337,6 +337,7 @@
         <button>get started</button>
       </div>
     </div>
+    <span class="to-landing-page"><i class="fa-solid chevron-up"></i></span>
     <footer>
       &copy;copyright_codingHerald_2022||<a href="/admin">admin</a>
     </footer>
@@ -394,7 +395,7 @@ main {
     h1 {
       width: 90%;
       margin: auto;
-      padding: 10px;
+      padding: 20px;
       padding-bottom: 0;
       font: 800 60px "Poppins", sans-serif;
 
@@ -404,19 +405,11 @@ main {
       }
     }
 
-    h3 {
-      font: 500 30px "Poppins", sans-serif;
-      padding: 10px;
-      padding-bottom: 30px;
-    }
-
     p {
       width: 90%;
-      margin: auto;
-      // text-align: right;
+      margin: 30px auto;
       padding: 10px;
       padding-top: 0;
-      // color: whitesmoke;
     }
 
     .section-3-def {
@@ -470,28 +463,12 @@ main {
 
   .content {
     width: 100%;
-    h2 {
-      padding: 20px;
-      text-transform: capitalize;
-      font: 600 35px "Poppins", sans-serif;
-      background: linear-gradient(
-        to bottom,
-        rgba(14, 180, 16, 1),
-        rgba(129, 115, 46, 1)
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      @media screen and (max-width: 490px) {
-        font-size: 25px;
-      }
-    }
+    margin: 30px auto;
 
     ul {
       width: 80vw;
       height: fit-content;
-      margin: auto;
+      margin: 20px auto;
 
       li {
         width: 100%;
