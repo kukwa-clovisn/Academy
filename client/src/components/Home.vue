@@ -44,7 +44,7 @@
             <img src="../assets/ch1.png" alt="" />
           </div>
 
-          <h3>one month</h3>
+          <h3>one month <span class="open">open</span></h3>
           <h5>Learn about crypto & Forex</h5>
           <p>
             Start from a newbie into becomimg a profitable crypto trader in less
@@ -70,9 +70,7 @@
             register now to start your lessons
           </p>
           <button>
-            <router-link to="/register" class="route"
-              >register now!</router-link
-            >
+            <router-link to="#" class="route">register now!</router-link>
           </button>
         </div>
         <div class="course">
@@ -88,12 +86,32 @@
             register now to start your lessons
           </p>
           <button>
-            <router-link to="/register" class="route"
-              >register now!</router-link
-            >
+            <router-link to="#" class="route">register now!</router-link>
           </button>
         </div>
       </section>
+      <div class="blur show-notify-me"></div>
+      <div class="notify-me">
+        <form>
+          <button class="close" type="button">&times;</button>
+          <h2>oooops sorry! this course is not yet opened</h2>
+          <p>Do you want to get notified when the course is open??</p>
+          <div class="notify-btns">
+            <button class="no">no</button>
+            <button class="yes">yes</button>
+          </div>
+          <div class="notify-info">
+            <input
+              type="email"
+              name="notify-email"
+              id="notify-email"
+              placeholder="Please enter your email address...."
+              required
+            />
+            <button type="submit">submit</button>
+          </div>
+        </form>
+      </div>
     </div>
     <div class="course-expo">
       <div class="img">
@@ -210,7 +228,6 @@
         </div>
       </div>
       <div class="right-content">
-        <!-- <img src="../assets/male.jpeg" alt="" /> -->
         <div class="img"><img src="../assets/group.jpeg" alt="" /></div>
       </div>
     </div>
@@ -999,13 +1016,22 @@ main {
         position: relative;
 
         span {
-          color: $tertiaryColor;
+          width: 100px;
+          height: 40px;
+          border-radius: 0 10px 0 10px;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           position: absolute;
           right: 0;
           top: 0;
           padding: 2px;
           background: $SecondaryColor;
           font-size: 14px;
+        }
+        .open {
+          background: $fallback;
         }
       }
 
@@ -1051,6 +1077,104 @@ main {
     @media screen and (max-width: 450px) {
       width: 100vw;
       padding: 0;
+    }
+  }
+
+  .notify-me {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 500px;
+      height: 430px;
+      background: white;
+      border-radius: 5px;
+      padding: 20px;
+      position: relative;
+
+      .close {
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 20px;
+        top: 5px;
+        font-size: 30px;
+        font-weight: 800;
+        color: $fallback;
+      }
+
+      h2 {
+        padding: 20px 10px;
+        font: 600 19px "Nunito sans", sans-serif;
+        color: $SecondaryColor;
+      }
+
+      p {
+        width: 90%;
+        text-align: center;
+        padding: 10px;
+        font: 500 20px "poppins", sans-serif;
+      }
+
+      .notify-btns {
+        width: 90%;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px auto;
+
+        button {
+          width: 200px;
+          height: 50px;
+          border-radius: 3px;
+          border: none;
+          background: $SecondaryColor;
+          font: 700 20px "Nunito sans", sans-serif;
+          color: rgb(205, 203, 203);
+          text-transform: uppercase;
+        }
+        .yes {
+          background: $fallback;
+        }
+      }
+
+      .notify-info {
+        width: 90%;
+        margin: 20px auto;
+
+        input {
+          display: block;
+          width: 100%;
+          border: none;
+          box-shadow: 0 0 1px 2px $SecondaryColor;
+          outline: none;
+          padding: 3px 10px 3px 20px;
+          border-radius: 3px;
+          height: 45px;
+          margin: 20px auto;
+        }
+
+        button {
+          display: block;
+          width: 100%;
+          height: 50px;
+          border-radius: 3px;
+          border: none;
+          background: $SecondaryColor;
+          font: 700 20px "Nunito sans", sans-serif;
+          color: rgb(232, 231, 231);
+          text-transform: uppercase;
+        }
+      }
     }
   }
 }
