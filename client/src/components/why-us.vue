@@ -139,7 +139,13 @@
       </ul>
     </div>
     <div class="why-learn">
-      <h3>why learn from us??</h3>
+      <div class="blur"></div>
+      <h3>
+        Learn with freedom <br />
+        <span>anywhere, anytime...</span>
+      </h3>
+      <p>learn a skill today and brighten your future</p>
+      <button><a href="/courses"> start a course</a></button>
     </div>
   </main>
 </template>
@@ -338,14 +344,55 @@ main {
   }
 
   .why-learn {
-    width: 80vw;
-    margin: auto;
+    width: 100vw;
+    height: fit-content;
+    margin: 20px auto;
     padding: 20px;
+    background: url(../assets/bg.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .blur {
+      background: $baseColor;
+      opacity: 0.9;
+    }
 
     h3 {
-      font: 600 30px "Poppins", sans-serif;
+      font: 700 35px "Poppins", sans-serif;
       padding: 10px;
+      padding-top: 20px;
       text-transform: capitalize;
+      color: white;
+      position: relative;
+
+      span {
+        font-size: 50px;
+      }
+    }
+
+    p {
+      padding: 20px;
+      color: rgb(180, 179, 179);
+      position: relative;
+    }
+
+    button {
+      width: 400px;
+      height: 70px;
+      border: none;
+      border-radius: 10px;
+      position: relative;
+      margin: 20px auto;
+      background: $SecondaryColor;
+
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        font: 700 30px "Nunito sans", sans-serif;
+        color: white;
+      }
     }
   }
 }
