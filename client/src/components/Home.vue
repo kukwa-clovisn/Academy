@@ -90,7 +90,7 @@
           </button>
         </div>
       </section>
-      <div class="blur show-notify-me"></div>
+      <div class="dull show-notify-me"></div>
       <div class="notify-me">
         <form>
           <button class="close" type="button">&times;</button>
@@ -1080,12 +1080,24 @@ main {
     }
   }
 
+  .dull {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.9;
+    background: $fallback;
+  }
+
   .notify-me {
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     background: transparent;
     display: flex;
     justify-content: center;
@@ -1098,6 +1110,7 @@ main {
       border-radius: 5px;
       padding: 20px;
       position: relative;
+      z-index: 1;
 
       .close {
         border: none;
