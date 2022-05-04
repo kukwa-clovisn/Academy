@@ -57,7 +57,7 @@
             >
           </button>
         </div>
-        <div class="course">
+        <div class="course" @click="Notification()">
           <div class="course-img">
             <img src="../assets/web-dev.jpg" alt="" />
           </div>
@@ -73,7 +73,7 @@
             <router-link to="#" class="route">register now!</router-link>
           </button>
         </div>
-        <div class="course">
+        <div class="course" @click="Notification()">
           <div class="course-img">
             <img src="../assets/graphic-design.jpg" alt="" />
           </div>
@@ -90,17 +90,23 @@
           </button>
         </div>
       </section>
-      <div class="dull show-notify-me"></div>
-      <div class="notify-me">
+      <div class="dull show-notify-me" v-if="closeNotify"></div>
+      <div class="notify-me" v-if="closeNotify">
         <form>
-          <button class="close" type="button">&times;</button>
+          <button class="close" type="button" @click="closeNotificationPage()">
+            &times;
+          </button>
           <h2>oooops sorry! this course is not yet opened</h2>
           <p>Do you want to get notified when the course is open??</p>
-          <div class="notify-btns">
-            <button class="no">no</button>
-            <button class="yes">yes</button>
+          <div class="notify-btns" v-if="closeNotifybtns">
+            <button class="no" @click="closeNotificationPage()" type="button">
+              no
+            </button>
+            <button class="yes" @click="openNotification()" type="button">
+              yes
+            </button>
           </div>
-          <div class="notify-info">
+          <div class="notify-info" v-if="openNotify">
             <input
               type="email"
               name="notify-email"
@@ -404,11 +410,49 @@
 </template>
 
 <script>
+import { ref } from "vue";
 import Carousel from "./carousel.vue";
 import Header from "./header.vue";
 export default {
   name: "Home",
   components: { Header, Carousel },
+
+  setup() {
+    const closeNotify = ref(false);
+    const openNotify = ref(false);
+    const closeNotifybtns = ref(false);
+
+    function Notification() {
+      closeNotify.value = true;
+      closeNotifybtns.value = true;
+    }
+
+    function closeNotificationPage() {
+      closeNotify.value = false;
+      closeNotifybtns.value = false;
+      openNotify.value = false;
+    }
+
+    function openNotification() {
+      openNotify.value = true;
+      closeNotifybtns.value = false;
+    }
+
+    function closeNotification() {
+      openNotify.value = false;
+      closeNotify.value = true;
+    }
+
+    return {
+      openNotify,
+      closeNotify,
+      closeNotifybtns,
+      openNotification,
+      closeNotificationPage,
+      closeNotification,
+      Notification,
+    };
+  },
 };
 </script>
 
@@ -1105,7 +1149,7 @@ main {
 
     form {
       width: 500px;
-      height: 430px;
+      height: fit-content;
       background: white;
       border-radius: 5px;
       padding: 20px;
