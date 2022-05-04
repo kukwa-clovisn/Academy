@@ -231,10 +231,17 @@ nav {
   border-radius: 3px;
   background: $fallback;
   position: fixed;
-  right: 30px;
-  bottom: 100px;
+  right: 20px;
+  bottom: 50px;
   z-index: 1;
-
+  a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   i {
     color: white;
   }

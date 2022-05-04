@@ -21,8 +21,8 @@
           <div class="words">
             <ul>
               <li>you love music</li>
-              <li>you're love technology</li>
-              <li>you're love the blockchain</li>
+              <li>you love technology</li>
+              <li>you love the blockchain</li>
               <li>you love graphics & paper</li>
             </ul>
           </div>
@@ -62,7 +62,7 @@
             <img src="../assets/web-dev.jpg" alt="" />
           </div>
 
-          <h3>three months</h3>
+          <h3>three months <span>locked</span></h3>
           <h5>Learn web development</h5>
           <p>
             Have you ever thought of learning web development and it seems hard?
@@ -80,7 +80,7 @@
             <img src="../assets/graphic-design.jpg" alt="" />
           </div>
 
-          <h3>one month</h3>
+          <h3>one month <span>locked</span></h3>
           <h5>learn graphic design</h5>
           <p>
             Learn phone and computer design and how to use design apps in less
@@ -94,6 +94,45 @@
           </button>
         </div>
       </section>
+    </div>
+    <div class="course-expo">
+      <div class="img">
+        <img src="../assets/team.jpg" alt="" />
+      </div>
+      <div class="expo">
+        <div class="expo-level">
+          <h3>beginners</h3>
+          <div class="content">
+            <p>
+              Basics and fundamentals of the Blockchain and the essentials
+              therein.
+            </p>
+            <button>
+              <a href="/signup"><i class="fa-solid fa-arrow-right"></i></a>
+            </button>
+          </div>
+        </div>
+        <div class="expo-level">
+          <h3>intermediates</h3>
+          <div class="content">
+            <p>Trading strategies and market structures</p>
+            <button>
+              <a href="/signup"><i class="fa-solid fa-arrow-right"></i></a>
+            </button>
+          </div>
+        </div>
+        <div class="expo-level">
+          <h3>Advanced</h3>
+          <div class="content">
+            <p>
+              Risk management and ways to become a profitable trader and more.
+            </p>
+            <button>
+              <a href="/signup"><i class="fa-solid fa-arrow-right"></i></a>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="section-1">
       <header>
@@ -185,6 +224,40 @@
         <button>
           <router-link to="/signup" class="route">start learning</router-link>
         </button>
+      </div>
+    </div>
+    <div class="bitquery">
+      <div class="content-1">
+        <div class="left-div">
+          <img src="../assets/Group-1-1.png" alt="" />
+        </div>
+        <div class="right-div">
+          <h2>lorem ipsum dolor</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea omnis
+            dolorum eius laborum ut, eos et rem qui laudantium hic totam facilis
+            sequi, ratione adipisci cum incidunt nam. Voluptatem saepe
+            voluptatibus recusandae accusantium nobis impedit, natus
+            consequuntur vitae rem corporis enim, reprehenderit veniam mollitia
+            sunt porro quisquam eos ipsa architecto!
+          </p>
+          <button>learn more....</button>
+        </div>
+      </div>
+      <div class="content-2">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit beatae
+          et id dolor veritatis numquam hic nemo, nulla voluptas dignissimos
+          necessitatibus sint, animi porro expedita. Labore nulla ducimus rerum
+          iusto quisquam repellat dicta enim numquam dolor eligendi, nisi sequi
+          aperiam adipisci vitae, minima provident inventore perferendis tempore
+          dolorum aliquam consequuntur earum obcaecati. Repellendus, nulla?
+          Accusantium reprehenderit illo sit quibusdam, consequuntur odio
+          reiciendis tenetur? Aliquid debitis ad temporibus possimus commodi
+          sequi.
+        </p>
+        <button>get started</button>
       </div>
     </div>
     <div class="illustration-1">
@@ -303,41 +376,10 @@
         </div>
       </form>
     </div>
-    <div class="bitquery">
-      <div class="content-1">
-        <div class="left-div">
-          <img src="../assets/Group-1-1.png" alt="" />
-        </div>
-        <div class="right-div">
-          <h2>lorem ipsum dolor</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea omnis
-            dolorum eius laborum ut, eos et rem qui laudantium hic totam facilis
-            sequi, ratione adipisci cum incidunt nam. Voluptatem saepe
-            voluptatibus recusandae accusantium nobis impedit, natus
-            consequuntur vitae rem corporis enim, reprehenderit veniam mollitia
-            sunt porro quisquam eos ipsa architecto!
-          </p>
-          <button>learn more....</button>
-        </div>
-      </div>
-      <div class="content-2">
-        <h1>Lorem ipsum dolor sit amet.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit beatae
-          et id dolor veritatis numquam hic nemo, nulla voluptas dignissimos
-          necessitatibus sint, animi porro expedita. Labore nulla ducimus rerum
-          iusto quisquam repellat dicta enim numquam dolor eligendi, nisi sequi
-          aperiam adipisci vitae, minima provident inventore perferendis tempore
-          dolorum aliquam consequuntur earum obcaecati. Repellendus, nulla?
-          Accusantium reprehenderit illo sit quibusdam, consequuntur odio
-          reiciendis tenetur? Aliquid debitis ad temporibus possimus commodi
-          sequi.
-        </p>
-        <button>get started</button>
-      </div>
-    </div>
-    <span class="to-landing-page"><i class="fa-solid chevron-up"></i></span>
+
+    <span class="to-landing-page"
+      ><a href="/"><i class="fa-solid arrow-up"></i></a
+    ></span>
     <footer>
       &copy;copyright_codingHerald_2022||<a href="/admin">admin</a>
     </footer>
@@ -375,6 +417,86 @@ main {
     top: 0;
     left: 0;
     opacity: 0.85;
+  }
+}
+
+.course-expo {
+  width: 100vw;
+  height: 99vh;
+  background: $fallback;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .img {
+    width: 45%;
+    border-radius: 10px 0 10px 0;
+    transform: rotateZ(10deg);
+    box-shadow: 3px 3px 2px 1px rgb(171, 171, 171);
+
+    img {
+      width: 90%;
+      height: auto;
+      border-radius: 20px 0 20px 0;
+    }
+  }
+
+  .expo {
+    width: 50%;
+    padding: 10px;
+
+    .expo-level {
+      margin-bottom: 20px;
+      margin-left: 10px;
+      padding-left: 10px;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 50px;
+        height: 3px;
+        border-radius: 0 30px 30px 0;
+        background: $SecondaryColor;
+        position: absolute;
+        top: -5px;
+        left: 10px;
+      }
+      h3 {
+        text-align: left;
+        font: 600 15px "Nunito sans", sans-serif;
+        text-transform: uppercase;
+        padding: 5px;
+        color: $SecondaryColor;
+      }
+
+      .content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          text-align: left;
+          font: 700 23px "Poppins", sans-serif;
+          width: 80%;
+          color: rgb(212, 211, 211);
+          border: 1px soid white;
+        }
+        button {
+          width: 70px;
+          height: 50px;
+          transform: rotateZ(30deg);
+          background: $SecondaryColor;
+          border: none;
+          border-radius: 0 2px 2px 0;
+
+          a {
+            color: white;
+            font-size: 20px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -874,6 +996,17 @@ main {
         color: rgba(230, 101, 129, 1);
         text-transform: capitalize;
         text-align: left;
+        position: relative;
+
+        span {
+          color: $tertiaryColor;
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 2px;
+          background: $SecondaryColor;
+          font-size: 14px;
+        }
       }
 
       h5 {
