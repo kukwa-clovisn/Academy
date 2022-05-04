@@ -352,7 +352,7 @@ main {
     margin: 20px auto;
     margin-bottom: 0;
     padding: 20px;
-    background: url(../assets/bg.png);
+    background: url(../assets/l.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;

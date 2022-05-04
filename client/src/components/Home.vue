@@ -403,9 +403,7 @@
     <span class="to-landing-page"
       ><a href="/"><i class="fa-solid arrow-up"></i></a
     ></span>
-    <footer>
-      &copy;copyright_codingHerald_2022||<a href="/admin">admin</a>
-    </footer>
+    <Footer />
   </main>
 </template>
 
@@ -413,9 +411,10 @@
 import { ref } from "vue";
 import Carousel from "./carousel.vue";
 import Header from "./header.vue";
+import Footer from "./footer.vue";
 export default {
   name: "Home",
-  components: { Header, Carousel },
+  components: { Header, Carousel, Footer },
 
   setup() {
     const closeNotify = ref(false);
