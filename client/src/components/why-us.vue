@@ -141,21 +141,24 @@
     <div class="why-learn">
       <div class="blur"></div>
       <h3>
-        Learn with freedom <br />
-        <span>anywhere, anytime...</span>
+        Learn with freedom and ease <br />
+        <span>Anywhere, Anytime...</span>
       </h3>
       <p>learn a skill today and brighten your future</p>
-      <button><a href="/courses"> start a course</a></button>
+      <button><a href="/#courses"> start a course</a></button>
     </div>
+    <Footer />
   </main>
 </template>
 
 <script>
 import Header from "./header.vue";
+import Footer from "./footer.vue";
 export default {
   name: "Why-us",
   components: {
     Header,
+    Footer,
   },
 };
 </script>
@@ -347,6 +350,7 @@ main {
     width: 100vw;
     height: fit-content;
     margin: 20px auto;
+    margin-bottom: 0;
     padding: 20px;
     background: url(../assets/bg.png);
     background-size: cover;
@@ -360,27 +364,26 @@ main {
     }
 
     h3 {
-      font: 700 35px "Poppins", sans-serif;
+      font: 700 23px "Poppins", sans-serif;
       padding: 10px;
       padding-top: 20px;
-      text-transform: capitalize;
       color: white;
       position: relative;
 
       span {
-        font-size: 50px;
+        font-size: 55px;
       }
     }
 
     p {
-      padding: 20px;
-      color: rgb(180, 179, 179);
+      padding: 21px;
+      color: rgb(218, 215, 215);
       position: relative;
     }
 
     button {
       width: 400px;
-      height: 70px;
+      height: 100px;
       border: none;
       border-radius: 10px;
       position: relative;
@@ -388,10 +391,25 @@ main {
       background: $SecondaryColor;
 
       a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-decoration: none;
         text-transform: capitalize;
         font: 700 30px "Nunito sans", sans-serif;
         color: white;
+      }
+
+      &:hover {
+        box-shadow: 0 0 2px 1px white;
+        background: transparent;
+        transform: none;
+
+        a {
+          color: $SecondaryColor;
+        }
       }
     }
   }
