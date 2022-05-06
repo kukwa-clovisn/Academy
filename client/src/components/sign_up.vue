@@ -97,6 +97,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { reactive } from "vue";
 import Footer from "./footer.vue";
 export default {
@@ -113,19 +114,21 @@ export default {
     function signup() {
       console.log(data.username, data.password, data.email, data.notify);
 
-      fetch("http://localhost:9002/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors",
-        body: {
-          username: data.username,
-          email: data.email,
-          password: data.password,
-          notify: data.notify,
-        },
-      })
+      axios
+        .post(
+          "http://localhost:9002/signup",
+          {
+            username: data.username,
+            email: data.email,
+            password: data.password,
+            notify: data.notify,
+          },
+          {
+            Headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((res) => res.json)
         .then((res) => console.log(res));
     }
