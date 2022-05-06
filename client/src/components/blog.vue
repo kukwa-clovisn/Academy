@@ -150,15 +150,18 @@
         </div>
       </div>
     </div>
+    <Footer />
   </main>
 </template>
 
 <script>
 import Header from "./header.vue";
+import Footer from "./footer.vue";
 export default {
   name: "Blog",
   components: {
     Header,
+    Footer,
   },
 };
 </script>

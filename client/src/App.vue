@@ -91,7 +91,7 @@ nav {
 
 .landing-page {
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
   background: url(./assets/social.jpg);
   background-attachment: fixed;
   background-size: cover;
@@ -102,7 +102,7 @@ nav {
 
   .title {
     width: 100%;
-    height: 83vh;
+    height: fit-content;
     position: relative;
     margin: auto;
     padding: 20px;

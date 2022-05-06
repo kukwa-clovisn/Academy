@@ -401,7 +401,7 @@
     </div>
 
     <span class="to-landing-page"
-      ><a href="/"><i class="fa-solid arrow-up"></i></a
+      ><a href="/"><i class="fa-solid fa-circle-arrow-up"></i></a
     ></span>
     <Footer />
   </main>
@@ -494,6 +494,10 @@ main {
     transform: rotateZ(10deg);
     box-shadow: 3px 3px 2px 1px rgb(171, 171, 171);
 
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+
     img {
       width: 90%;
       height: auto;
@@ -504,6 +508,10 @@ main {
   .expo {
     width: 50%;
     padding: 10px;
+
+    @media screen and (max-width: 800px) {
+      width: 95%;
+    }
 
     .expo-level {
       margin-bottom: 20px;
@@ -1193,6 +1201,7 @@ main {
           height: 50px;
           border-radius: 3px;
           border: none;
+          margin: 20px auto;
           background: $SecondaryColor;
           font: 700 20px "Nunito sans", sans-serif;
           color: rgb(205, 203, 203);
@@ -1589,6 +1598,10 @@ main {
       width: 40%;
       height: 100%;
       overflow: hidden;
+
+      @media screen and (max-width: 720px) {
+        display: none;
+      }
       img {
         display: block;
         width: 90%;
@@ -1601,6 +1614,10 @@ main {
       width: 58%;
       height: 100%;
       padding: 20px;
+
+      @media screen and (max-width: 720px) {
+        width: 100%;
+      }
 
       h2 {
         padding: 10px;

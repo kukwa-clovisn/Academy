@@ -41,13 +41,14 @@
             <router-link to="/" class="hroute">home</router-link>
           </div>
         </div>
-        <form action="http://localhost:9002/signup" method="post">
+        <form @submit.prevent="signup">
           <h1>sign up</h1>
           <div class="input">
             <label for="username">Name:</label
             ><input
               type="text"
               name="username"
+              v-model="data.username"
               id="username"
               placeholder="Enter username...."
               required
@@ -59,6 +60,7 @@
               type="email"
               name="email"
               id="email"
+              v-model="data.email"
               placeholder="Enter Email address...."
               required
             />
@@ -68,13 +70,19 @@
             ><input
               type="password"
               name="password"
+              v-model="data.password"
               id="password"
               placeholder="Enter Password...."
               required
             />
           </div>
           <div class="notification">
-            <input type="checkbox" name="notify" id="notify" />
+            <input
+              type="checkbox"
+              name="notify"
+              v-model="data.notify"
+              id="notify"
+            />
             <label for="notify">get email notifications</label>
           </div>
           <div class="errormsg">
@@ -84,13 +92,46 @@
         </form>
       </div>
     </div>
-    <footer>&copy;copyright_CodingHerald_2022</footer>
+    <Footer />
   </main>
 </template>
 
 <script>
+import { reactive } from "vue";
+import Footer from "./footer.vue";
 export default {
   name: "Sign_up",
+  components: { Footer },
+  setup() {
+    let data = reactive({
+      username: "",
+      password: "",
+      email: "",
+      notify: "",
+    });
+
+    function signup() {
+      console.log(data.username, data.password, data.email, data.notify);
+
+      fetch("http://localhost:9002/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: {
+          username: data.username,
+          email: data.email,
+          password: data.password,
+          notify: data.notify,
+        },
+      })
+        .then((res) => res.json)
+        .then((res) => console.log(res));
+    }
+
+    return { data, signup };
+  },
 };
 </script>
 
@@ -263,6 +304,7 @@ main {
     flex-direction: column;
     padding: 0;
     padding-top: 30px;
+    padding-bottom: 50px;
     position: relative;
 
     h2 {
@@ -533,15 +575,6 @@ main {
     @media screen and (max-width: 768px) {
       padding-top: 100px;
     }
-  }
-
-  footer {
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(202, 201, 201);
   }
 }
 </style>

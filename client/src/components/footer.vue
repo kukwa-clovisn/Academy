@@ -1,21 +1,25 @@
 <template>
-  <footer>
+  <div class="footer">
     <div class="blur"></div>
-    <div class="content">
+    <div class="footer-content">
       <div class="left-content">
         <h1>acfc</h1>
         <h4>Advanced Crypto and Forex Community</h4>
+        <h6>Building the future</h6>
       </div>
       <div class="right-content">
         <ul>
-          <li>why crypto?</li>
-          <li>courses</li>
-          <li>contact us</li>
+          <li><a href="/signup">sign up</a></li>
+          <li><a href="/login">sign in</a></li>
+          <li><a href="/register">register</a></li>
+          <li><a href="/why-us"> why crypto?</a></li>
+          <li><a href="/#courses"> courses</a></li>
+          <li><a href="/#contact">contact us</a></li>
         </ul>
       </div>
     </div>
     <p>&copy;copyright_codingHerald_2022</p>
-  </footer>
+  </div>
 </template>
 
 <script>
@@ -26,13 +30,15 @@ export default {
 
 <style lang="scss" scoped>
 $baseColor: #072e54;
-footer {
+
+.footer {
   width: 100vw;
-  height: 55vh;
+  height: fit-content;
+  padding: 30px 20px;
   background: url(../assets/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: fixed;
   position: relative;
 
   .blur {
@@ -40,7 +46,7 @@ footer {
     opacity: 0.9;
   }
 
-  .content {
+  .footer-content {
     width: 90vw;
     height: fit-content;
     margin: auto;
@@ -61,6 +67,16 @@ footer {
         font: 900 60px "Russo One", sans-serif;
         position: relative;
         z-index: 1;
+        color: rgb(229, 233, 236);
+        letter-spacing: 3px;
+      }
+
+      h4 {
+        color: rgb(195, 202, 210);
+      }
+
+      h6 {
+        color: rgb(137, 156, 171);
       }
     }
 
@@ -78,16 +94,29 @@ footer {
         flex-wrap: wrap;
 
         li {
-          width: 230px;
-          height: 60px;
+          width: 200px;
+          height: 75px;
           list-style-type: none;
 
           a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-decoration: none;
             text-transform: capitalize;
             color: rgb(190, 190, 190);
           }
         }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+
+      .left-content,
+      .right-content {
+        width: 100%;
       }
     }
   }

@@ -26,6 +26,7 @@ module.exports = {
           }
 
           let newEmail = req.body.email;
+          console.log(req.body)
 
           let newUser = capitalizeUserName(req.body.username);
 

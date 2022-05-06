@@ -13,7 +13,7 @@
       </nav>
       <nav class="bottom-nav">
         <nav class="logo-nav">
-          <img src="../assets/logo-w.jpeg" id="logo" alt="logo image" />
+          <span>AC <i>&</i> FC</span>
         </nav>
         <nav class="routes">
           <router-link to="/#courses" class="route">courses</router-link>
@@ -42,19 +42,60 @@
           >
         </div>
       </nav>
-      <nav class="bottom-nav">
+      <nav class="bottom-nav" v-if="noDropdown">
         <nav class="logo-nav">
-          <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
+          <span>ac <i>&</i> fc</span>
         </nav>
-        <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
+        <nav class="menu-bars">
+          <button @click="menuFunction()">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </nav>
+      </nav>
+      <nav class="bottom-nav menu-nav" v-if="onDropdown">
+        <nav class="logo-nav">
+          <span>ac <i>&</i> fc</span>
+        </nav>
+        <nav class="menu-bars">
+          <button @click="closeDropdown()">&times;</button>
+        </nav>
+      </nav>
+      <nav class="menu-dropdown" v-if="onDropdown">
+        <ul>
+          <li><a href="/#courses">courses</a></li>
+          <li><a href="/signup">sign up</a></li>
+          <li><a href="/login">sign in</a></li>
+          <li><a href="/register">register</a></li>
+          <li><a href="/why-us">why crypto?</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/about">about us</a></li>
+          <li><a href="/#contact">contact</a></li>
+        </ul>
       </nav>
     </header>
   </main>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   name: "Header",
+  setup() {
+    let onDropdown = ref(false);
+    let noDropdown = ref(true);
+
+    function menuFunction() {
+      onDropdown.value = true;
+      noDropdown.value = false;
+    }
+
+    function closeDropdown() {
+      onDropdown.value = false;
+      noDropdown.value = true;
+    }
+
+    return { onDropdown, noDropdown, menuFunction, closeDropdown };
+  },
 };
 </script>
 
@@ -113,8 +154,9 @@ header {
     }
   }
   .bottom-nav {
-    width: 100vw;
+    width: 95vw;
     padding: 0 20px;
+    margin: auto;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -178,12 +220,35 @@ header {
       width: 10vw;
       background: transparent;
 
-      #logo {
-        width: 105px;
-        height: auto;
-        border-radius: 100%;
+      span {
+        display: flex;
+        box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
+        border-radius: 10px 0 10px 0;
+        padding: 10px;
+        transform: rotateZ(10deg);
+        text-transform: uppercase;
+        font: 800 35px "Russo One", sans-serif;
+        background: linear-gradient(
+          to bottom,
+          $SecondaryColor 20%,
+          $tertiaryColor,
+          $primaryColor
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        i {
+          font-size: 23px;
+          padding: 0;
+          margin: 0;
+        }
       }
     }
+  }
+  .menu-nav {
+    width: 90vw;
+    margin: auto;
   }
 }
 
@@ -202,14 +267,67 @@ header {
 
     .bottom-nav {
       padding: 0 10px;
+      position: relative;
 
       .logo-nav {
-        margin-left: 20px;
+        margin-left: 40px;
       }
 
       .menu-bars {
-        color: white;
+        width: 100px;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+      }
+
+      button {
+        box-shadow: 3px 3px;
+        width: 100px;
+        height: 50px;
+        background: transparent;
+        border: none;
         font-size: 40px;
+        color: white;
+        box-shadow: none;
+
+        i {
+          color: white;
+          font-size: 40px;
+        }
+      }
+    }
+
+    .menu-dropdown {
+      width: 100%;
+      height: fit-content;
+      padding: 20px;
+
+      ul {
+        width: 100%;
+        height: fit-content;
+
+        li {
+          list-style-type: none;
+          width: 90%;
+          height: 50px;
+
+          margin: 10px auto;
+          // box-shadow: 2px 2px 2px 0.2px white;
+          border-bottom: 1px solid white;
+          list-style-position: outside;
+          color: white;
+
+          a {
+            text-decoration: none;
+            text-transform: capitalize;
+            color: $primaryColor;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+          }
+        }
       }
     }
   }
