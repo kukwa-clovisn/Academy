@@ -38,9 +38,11 @@ connectDb(mongo_uri);
 
 //  Route paths
 const signupRoute = require('./routes/signup')
+const signinRoute = require('./routes/signin')
 
 // getting Routes
 app.use('/signup', signupRoute);
+app.use('/signin', signinRoute)
 
 // exporting the app.
 module.exports = app;

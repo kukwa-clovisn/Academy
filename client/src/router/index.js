@@ -71,6 +71,12 @@ const routes = [{
     component: function () {
       return import('../components/admin.vue')
     }
+  }, {
+    path: '/course_intro',
+    name: 'Course_intro',
+    component: function () {
+      return import('../components/course_intro.vue')
+    }
   }
 ]
 

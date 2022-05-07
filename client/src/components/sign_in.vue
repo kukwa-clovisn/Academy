@@ -7,7 +7,7 @@
     <div class="content">
       <h2>sign in</h2>
       <div class="form">
-        <form action="/" method="post">
+        <form @submit.prevent="signin">
           <h1>sign in</h1>
           <div class="input">
             <label for="username">Name:</label
@@ -15,6 +15,7 @@
               type="text"
               name="username"
               id="username"
+              v-model="user.username"
               placeholder="Enter username...."
               required
             />
@@ -25,12 +26,13 @@
               type="password"
               name="password"
               id="password"
+              v-model="user.password"
               placeholder="Enter Password...."
               required
             />
           </div>
-          <div class="errormsg">
-            <p>error message here!</p>
+          <div class="errormsg" v-if="user.errormsg">
+            <p>{{ user.msg }}</p>
           </div>
           <button type="submit">sign in</button>
           <div class="forget-password">
@@ -57,6 +59,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
 import Header from "./header.vue";
 import Footer from "./footer.vue";
 export default {
@@ -64,6 +69,71 @@ export default {
   components: {
     Header,
     Footer,
+  },
+
+  setup() {
+    const router = useRouter();
+
+    let user = reactive({
+      username: "",
+      password: "",
+      msg: "",
+      errormsg: "",
+    });
+
+    /**
+     * creating a log in validation and authentication
+     */
+    const signin = async () => {
+      try {
+        await fetch("http://localhost:9002/signin", {
+          method: "Post",
+          headers: {
+            // "Access-Control-Request-Headers": "Authorization",
+            // Authorization: "Bearer secretToken",
+            "Content-type": "application/json",
+          },
+          // credentials: "include",
+          body: JSON.stringify({
+            username: user.username,
+            password: user.password,
+          }),
+        })
+          .then((res) => res.json())
+          .then(async (res) => {
+            console.log(res);
+            user.errormsg = true;
+            user.msg = res.msg;
+
+            if (!res.token) {
+              user.msg = res.msg;
+              user.errormsg = true;
+              return;
+            }
+
+            let config = {
+              headers: {
+                Authorization: `Bearer ${res.token}`,
+              },
+            };
+            // await fetch('http://localhost:9001/login/token/' + `${req.id}`)
+            await axios("http://localhost:9002/signin", config).then((res) => {
+              console.log(res);
+
+              localStorage.setItem("token", JSON.stringify(res.data._id));
+
+              router.push({
+                name: "Course_intro",
+                params: { id: `${res.data._id}` },
+              });
+            });
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    return { user, signin };
   },
 };
 </script>
