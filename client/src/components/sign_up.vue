@@ -3,30 +3,8 @@
     <div class="c1">
       <img src="../assets/bitcoin.png" alt="BTC" />
     </div>
+    <Header />
 
-    <header class="large-screen-header">
-      <nav class="logo-nav">
-        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
-      </nav>
-      <nav>
-        <router-link to="/about" class="route">about</router-link>
-        <router-link to="/why-us" class="route">why crypto?</router-link>
-        <router-link to="/blog" class="route">blog</router-link>
-        <a href="/#contact" class="route">contact</a>
-      </nav>
-      <nav>
-        <button class="landing-page-btn">
-          <router-link to="/register" class="homeBtn">register</router-link>
-        </button>
-      </nav>
-    </header>
-    <header class="small-screen-header">
-      <nav class="logo-nav">
-        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
-      </nav>
-      <nav class="title"><a href="/">AC&FC</a></nav>
-      <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
-    </header>
     <div class="content">
       <h2>sign up now!</h2>
       <div class="form">
@@ -76,17 +54,8 @@
               required
             />
           </div>
-          <div class="notification">
-            <input
-              type="checkbox"
-              name="notify"
-              v-model="data.notify"
-              id="notify"
-            />
-            <label for="notify">get email notifications</label>
-          </div>
-          <div class="errormsg">
-            <p>error message here!</p>
+          <div class="errormsg" v-if="data.errormsg">
+            <p>{{ data.msg }}</p>
           </div>
           <button type="submit">sign up</button>
         </form>
@@ -99,38 +68,49 @@
 <script>
 import axios from "axios";
 import { reactive } from "vue";
+import Header from "./header.vue";
 import Footer from "./footer.vue";
 export default {
   name: "Sign_up",
-  components: { Footer },
+  components: { Footer, Header },
   setup() {
     let data = reactive({
       username: "",
       password: "",
       email: "",
-      notify: "",
+      errormsg: false,
+      msg: "",
     });
 
     function signup() {
-      console.log(data.username, data.password, data.email, data.notify);
-
-      axios
-        .post(
-          "http://localhost:9002/signup",
-          {
-            username: data.username,
-            email: data.email,
-            password: data.password,
-            notify: data.notify,
-          },
-          {
-            Headers: {
-              "Content-Type": "application/json",
+      if (data.username != "" && data.password.length > 4) {
+        data.msg = "processing....";
+        data.errormsg = true;
+        axios
+          .post(
+            "http://localhost:9002/signup",
+            {
+              username: data.username,
+              email: data.email,
+              password: data.password,
             },
-          }
-        )
-        .then((res) => res.json)
-        .then((res) => console.log(res));
+            {
+              Headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          )
+
+          .then((res) => {
+            data.msg = res.data.msg;
+            console.log(res);
+          });
+      } else {
+        data.errormsg = true;
+        console.log("invalid password");
+
+        data.msg = "invalid password";
+      }
     }
 
     return { data, signup };
@@ -146,7 +126,7 @@ $footerColor: rgb(51, 2, 69);
 $fallback: rgb(19, 37, 62);
 main {
   width: 100vw;
-  min-height: 100vh;
+  height: fit-content;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -199,102 +179,6 @@ main {
   @keyframes turn {
     to {
       transform: rotateZ(360deg) translateY(150px);
-    }
-  }
-
-  header {
-    width: 100%;
-    padding: 5px 20px;
-    height: 14vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-    background: $fallback;
-
-    nav {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 40vw;
-      padding: 0;
-      height: 100%;
-
-      &:last-child {
-        width: 26vw;
-      }
-
-      .route {
-        width: 150px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-transform: capitalize;
-        text-decoration: none;
-        color: $primaryColor;
-        font-size: 16px;
-
-        @media screen and (max-width: 1154px) {
-          font-size: 13px;
-        }
-        @media screen and (max-width: 1021px) {
-          font-size: 11px;
-        }
-      }
-    }
-
-    .logo-nav {
-      width: 70px;
-      height: 70px;
-      border-radius: 100%;
-      overflow: hidden;
-      background: transparent;
-      position: relative;
-      left: 50px;
-      top: 5px;
-
-      #logo {
-        width: 105px;
-        height: auto;
-      }
-    }
-  }
-  .small-screen-header {
-    display: none;
-  }
-
-  .large-screen-header {
-    @media screen and (max-width: 917px) {
-      display: none;
-    }
-  }
-  .small-screen-header {
-    @media screen and (max-width: 917px) {
-      display: flex;
-
-      padding: 0 10px;
-
-      .logo-nav {
-        margin-left: 20px;
-      }
-
-      .title {
-        a {
-          text-decoration: none;
-          color: white;
-          font: 700 30px "Poppins", sans-serif;
-          text-transform: uppercase;
-        }
-        @media screen and (max-width: 450px) {
-          display: none;
-        }
-      }
-
-      .menu-bars {
-        color: white;
-        font-size: 40px;
-      }
     }
   }
 
@@ -444,13 +328,14 @@ main {
 
         .input {
           width: 90%;
-          height: 70px;
-          margin: 10px auto;
+          height: 80px;
+          margin: 15px auto;
 
           label {
             width: 100%;
             display: block;
             text-align: left;
+            padding-bottom: 3px;
             text-transform: capitalize;
             font: 550 20px "Poppins", sans-serif;
             color: rgba(113, 112, 112, 1);
@@ -459,7 +344,7 @@ main {
           input {
             display: block;
             width: 98%;
-            height: 43px;
+            height: 50px;
             padding: 3px 10px 3px 20px;
             font: 500 17px "Poppins", sans-serif;
             outline: none;

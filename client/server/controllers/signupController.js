@@ -28,6 +28,15 @@ module.exports = {
           let newEmail = req.body.email;
           console.log(req.body)
 
+          if (req.body.password.length < 4) {
+               console.log(
+                    'invalid password'
+               )
+               return res.status(401).json({
+                    msg: "invalid password"
+               })
+          }
+
           let newUser = capitalizeUserName(req.body.username);
 
           /**
@@ -63,15 +72,11 @@ module.exports = {
 
                                    if (data) {
                                         console.log(data)
-                                        let resp = {
-                                             username: data.username,
-                                             email: data.email,
-                                             notify: data.notify
-                                        }
 
-                                        res.status(401).json({
-                                             msg: `user email ${req.body.email} already has an account.`,
-                                             data: resp
+
+                                        res.json({
+                                             msg: `user email ${req.body.email} already has an account.`
+
                                         })
                                         return console.log(`email ${req.body.email} already has an account.`)
                                    }
@@ -113,7 +118,7 @@ module.exports = {
                                    } = user;
 
                                    //     storing user in database
-                                   // await signupUserModel.create(user);
+                                   await signupUserModel.create(user);
 
                                    /**
                                     * return a response with the user data

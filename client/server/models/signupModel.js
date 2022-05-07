@@ -13,13 +13,9 @@ const signupUserSchema = new mongoose.Schema({
      password: {
           type: String,
           required: true
-     },
-     notify: {
-          type: Boolean,
-          require: true
      }
 }, {
-     collection: 'signup-clients'
+     collection: 'signup_clients'
 })
 
 const signupUserModel = mongoose.model('signupUserSchema', signupUserSchema)

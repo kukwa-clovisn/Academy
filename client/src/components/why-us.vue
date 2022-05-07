@@ -178,9 +178,12 @@ main {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    height: fit-content;
+    padding-bottom: 20px;
 
     .title {
-      top: 50px;
+      top: 30px;
+      height: fit-content;
 
       h1 {
         padding: 30px;

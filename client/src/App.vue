@@ -33,6 +33,10 @@ label {
   }
 }
 
+button:active {
+  transform: scale(0.8);
+}
+
 nav a {
   font-weight: bold;
   color: #2c3e50;

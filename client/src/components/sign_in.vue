@@ -3,30 +3,7 @@
     <div class="c1">
       <img src="../assets/bitcoin.png" alt="BTC" />
     </div>
-
-    <header class="large-screen-header">
-      <nav class="logo-nav">
-        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
-      </nav>
-      <nav>
-        <router-link to="/about" class="route">about</router-link>
-        <router-link to="/why-us" class="route">why crypto?</router-link>
-        <router-link to="/blog" class="route">blog</router-link>
-        <a href="/#contact" class="route">contact</a>
-      </nav>
-      <nav>
-        <button class="landing-page-btn">
-          <router-link to="/register" class="homeBtn">register</router-link>
-        </button>
-      </nav>
-    </header>
-    <header class="small-screen-header">
-      <nav class="logo-nav">
-        <img src="../assets/logo-b.jpeg" id="logo" alt="logo image" />
-      </nav>
-      <nav class="title"><a href="/">AC&FC</a></nav>
-      <nav class="menu-bars"><i class="fa-solid fa-bars"></i></nav>
-    </header>
+    <Header />
     <div class="content">
       <h2>sign in</h2>
       <div class="form">
@@ -55,7 +32,7 @@
           <div class="errormsg">
             <p>error message here!</p>
           </div>
-          <button type="submit">sign up</button>
+          <button type="submit">sign in</button>
           <div class="forget-password">
             <span
               ><router-link to="/" class="route">forget password?</router-link>
@@ -75,13 +52,19 @@
         </div>
       </div>
     </div>
-    <footer>&copy;copyright_CodingHerald_2022</footer>
+    <Footer />
   </main>
 </template>
 
 <script>
+import Header from "./header.vue";
+import Footer from "./footer.vue";
 export default {
   name: "Sign_in",
+  components: {
+    Header,
+    Footer,
+  },
 };
 </script>
 
@@ -93,7 +76,7 @@ $footerColor: rgb(30, 2, 40);
 $fallback: rgb(19, 37, 62);
 main {
   width: 100vw;
-  min-height: 100vh;
+  height: fit-content;
   background: rgb(231, 231, 231);
   background: $fallback;
 
@@ -146,100 +129,6 @@ main {
     }
   }
 
-  header {
-    width: 100%;
-    padding: 5px 20px;
-    height: 14vh;
-    display: flex;
-    justify-content: space-between;
-    background: $fallback;
-
-    nav {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 40vw;
-      height: 100%;
-      padding: 0;
-
-      &:last-child {
-        width: 26vw;
-      }
-
-      .route {
-        width: 150px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-transform: capitalize;
-        text-decoration: none;
-        font-size: 15px;
-        color: $primaryColor;
-
-        @media screen and (max-width: 1154px) {
-          font-size: 13px;
-        }
-        @media screen and (max-width: 1021px) {
-          font-size: 11px;
-        }
-      }
-    }
-
-    .logo-nav {
-      width: 70px;
-      height: 70px;
-      border-radius: 100%;
-      overflow: hidden;
-      background: transparent;
-      position: relative;
-      left: 50px;
-      top: 5px;
-
-      #logo {
-        width: 105px;
-        height: auto;
-      }
-    }
-  }
-  .small-screen-header {
-    display: none;
-  }
-
-  .large-screen-header {
-    @media screen and (max-width: 917px) {
-      display: none;
-    }
-  }
-  .small-screen-header {
-    @media screen and (max-width: 917px) {
-      display: flex;
-
-      padding: 0 10px;
-
-      .logo-nav {
-        margin-left: 20px;
-      }
-
-      .title {
-        a {
-          text-decoration: none;
-          color: white;
-          font: 700 30px "Poppins", sans-serif;
-          text-transform: uppercase;
-        }
-        @media screen and (max-width: 450px) {
-          display: none;
-        }
-      }
-
-      .menu-bars {
-        color: white;
-        font-size: 40px;
-      }
-    }
-  }
-
   .content {
     width: 100vw;
     height: fit-content;
@@ -248,7 +137,9 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 0;
+    margin: 0;
     padding-top: 30px;
+    padding-bottom: 30px;
     position: relative;
 
     h2 {
@@ -517,15 +408,6 @@ main {
     @media screen and (max-width: 768px) {
       padding-top: 100px;
     }
-  }
-
-  footer {
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(202, 201, 201);
   }
 }
 </style>
