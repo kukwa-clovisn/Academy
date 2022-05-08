@@ -1,6 +1,6 @@
 <template>
   <main>
-    <header>
+    <header v-if="crypto.showCourseIntro">
       <nav class="logo">
         <span>AC <i>& </i>FC</span>
       </nav>
@@ -19,13 +19,153 @@
         <a href="/register">register</a>
       </nav>
     </header>
-    <div class="course-intro">
+    <div class="course-intro" v-if="crypto.showCourseIntro">
       <h1>courses</h1>
       <p>Before you strive to earn, learn. Knowledge is never wasted!</p>
-      <h3>what we offer...</h3>
+      <section>
+        <h2>There is a reason:</h2>
+        <div class="words">
+          <ul>
+            <li>you love music</li>
+            <li>you love technology</li>
+            <li>you love the blockchain</li>
+            <li>you love graphics & paper</li>
+          </ul>
+        </div>
+      </section>
+      <h3>Our different courses</h3>
+
       <div class="course-choice">
-        <button>crytpocurrency</button><button>forex</button
-        ><button>web developement</button><button>graphic design</button>
+        <button @click="showCryptoCourses()">crytpocurrency</button
+        ><button>forex</button><button>web developement</button
+        ><button>graphic design</button>
+      </div>
+    </div>
+    <div class="crypto-courses" v-if="crypto.courses">
+      <button class="back" @click="showCourseIntroPage()">
+        <i class="fa-solid fa-arrow-left"></i>back
+      </button>
+      <h2>Learn cryptocurrency today!</h2>
+      <h4>what you'll learn:</h4>
+      <ul>
+        <div class="list">
+          <li>intro and basics of cryptocurrency</li>
+          <li>Different ways to invest in cryptocurrency</li>
+          <li>How to buy coins</li>
+          <li>How to swap coins</li>
+          <li>cryptocurrency apps</li>
+          <li>how to follow coins in cryptocurrency</li>
+        </div>
+        <div class="img">
+          <img src="../assets/phone-a.jpg" alt="" />
+        </div>
+      </ul>
+      <h2>Tutorials point</h2>
+      <div class="courses">
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
       </div>
     </div>
     <Footer />
@@ -34,7 +174,7 @@
 
 <script>
 import Footer from "./footer.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, reactive } from "vue";
 import { useRouter, useRoute } from "vue-router";
 export default {
   name: "Course_intro",
@@ -44,18 +184,28 @@ export default {
   setup() {
     const router = useRouter();
     const route = useRoute();
-
-    console.log(route.params);
-
-    let getFromLocalStorage = ref(localStorage.getItem("token"));
+    let crypto = reactive({
+      courses: false,
+      showCourseIntro: true,
+    });
 
     onMounted(() => {
       if (!route.params.id) {
         router.push("/login");
       }
-      console.log(getFromLocalStorage.value);
     });
-    return {};
+
+    const showCryptoCourses = () => {
+      crypto.courses = true;
+      crypto.showCourseIntro = false;
+    };
+
+    const showCourseIntroPage = () => {
+      crypto.courses = false;
+      crypto.showCourseIntro = true;
+    };
+
+    return { crypto, showCryptoCourses, showCourseIntroPage };
   },
 };
 </script>
@@ -91,19 +241,25 @@ main {
         list-style-type: none;
         width: 200px;
         height: 60px;
-      }
 
-      a {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        text-decoration: none;
-        text-transform: uppercase;
-        font: 600 19px "Poppins", sans-serif;
-        color: $primaryColor;
+        a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          text-decoration: none;
+          text-transform: uppercase;
+          font: 600 19px "Poppins", sans-serif;
+          color: $primaryColor;
+        }
+        @media screen and (max-width: 1110px) {
+          width: 140px;
+          a {
+            font-size: 13px;
+          }
+        }
       }
     }
 
@@ -141,15 +297,29 @@ main {
           margin: 0;
         }
       }
+
+      @media screen and (max-width: 1050px) {
+        width: 130px;
+      }
     }
   }
   .register {
     a {
       width: 200px;
       height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: white;
       color: $baseColor;
       border-radius: 0 10px 0 10px;
+    }
+
+    @media screen and (max-width: 930px) {
+      a {
+        width: 130px;
+        font-size: 16px;
+      }
     }
   }
 
@@ -157,13 +327,18 @@ main {
     width: 90vw;
     margin: 20px auto;
     height: fit-content;
-    padding: 20px;
+    padding: 10px;
+    padding-top: 50px;
 
     h1 {
       font: 800 65px "Nunito sans", sans-serif;
       text-transform: uppercase;
       padding: 20px;
       color: rgb(239, 236, 236);
+
+      @media screen and (max-width: 560px) {
+        font-size: 45px;
+      }
     }
 
     p {
@@ -171,11 +346,63 @@ main {
       color: rgb(165, 165, 165);
     }
 
+    section {
+      width: 100%;
+      height: auto;
+      display: block;
+      height: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      margin-top: 30px;
+
+      h2 {
+        border: 1px solid white;
+        width: 300px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        color: $fallback;
+        border-radius: 10px 0 10px 0;
+      }
+      .words {
+        width: 300px;
+        height: 40px;
+        border-bottom: 1px solid white;
+        position: relative;
+        overflow: hidden;
+
+        ul {
+          width: 100%;
+          height: 40px;
+          position: relative;
+          top: 0;
+          animation: change 10s steps(4) infinite;
+
+          li {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            list-style-type: none;
+            text-transform: capitalize;
+            text-align: left;
+            padding: 0 10px;
+            font-family: "Nunito sans", sans-serif;
+          }
+        }
+      }
+    }
+
     h3 {
       text-transform: capitalize;
       color: rgb(209, 208, 208);
-      font: 600 20px "Poppins", sans-serif;
-      padding: 10px;
+      font: 600 23px "Poppins", sans-serif;
+      padding: 20px;
       margin-top: 70px;
     }
 
@@ -192,12 +419,160 @@ main {
         width: 230px;
         height: 100px;
         margin-bottom: 23px;
+        margin-right: 13px;
         color: rgb(225, 238, 252);
         border: none;
         border-radius: 10px 0 10px 0;
         font: 700 20px "Russo One", sans-serif;
         text-transform: capitalize;
         background: radial-gradient(rgb(120, 148, 165), $baseColor);
+      }
+    }
+  }
+
+  .crypto-courses {
+    width: 100vw;
+    height: fit-content;
+    padding: 20px;
+    padding-top: 30px;
+    background: white;
+    position: relative;
+
+    .back {
+      width: 70px;
+      height: 40px;
+      background: $baseColor;
+      border: none;
+      border-radius: 3px;
+      color: white;
+      text-transform: capitalize;
+      position: absolute;
+      top: 20px;
+      left: 50px;
+    }
+
+    h2 {
+      padding: 20px;
+      font: 600 45px "Poppins", sans-serif;
+    }
+
+    h4 {
+      padding: 20px;
+      font: 500 30px "Poppins", sans-serif;
+    }
+
+    ul {
+      width: 80%;
+      margin: 10px auto;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 10px auto;
+
+      .list {
+        width: 40%;
+
+        li {
+          list-style-type: square;
+          text-align: left;
+          height: 50px;
+          margin-bottom: 5px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            color: $SecondaryColor;
+            transform: scale(1.1);
+          }
+        }
+      }
+      .img {
+        width: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .courses {
+      width: 90vw;
+      height: fit-content;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .tutorial {
+        width: 300px;
+        height: fit-content;
+        margin-right: 20px;
+        margin-bottom: 50px;
+        box-shadow: 0 3px 2px 1px rgb(203, 203, 203);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        .video {
+          width: 100%;
+          height: 160px;
+
+          video {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .video-title {
+          width: 100%;
+          padding: 15px;
+          padding-top: 35px;
+          position: relative;
+
+          .free-course {
+            width: 60px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            color: $primaryColor;
+            background: $SecondaryColor;
+            border-radius: 10px 0 0 10px;
+            box-shadow: 0 0 2px 1px rgb(221, 218, 218);
+          }
+
+          h3 {
+            padding: 10px;
+            font: 550 16px "Nunito sans", sans-serif;
+            text-align: left;
+          }
+
+          button {
+            width: 70%;
+            height: 40px;
+            margin: 10px auto;
+            background: $SecondaryColor;
+            color: $primaryColor;
+            border: none;
+            border-radius: 5px;
+            text-transform: capitalize;
+          }
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+        &:active {
+          transform: scale(0.9);
+        }
       }
     }
   }
