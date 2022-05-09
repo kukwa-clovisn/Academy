@@ -62,7 +62,7 @@
       </ul>
       <h2>Tutorials point</h2>
       <div class="courses">
-        <div class="tutorial">
+        <div class="tutorial" @click="getCourse(1)">
           <div class="video">
             <video
               src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
@@ -309,6 +309,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Footer from "./footer.vue";
 import { onMounted, ref, reactive } from "vue";
 import { useRouter, useRoute } from "vue-router";
@@ -345,7 +346,12 @@ export default {
       crypto.showCourseIntro = true;
     };
 
-    return { link, crypto, showCryptoCourses, showCourseIntroPage };
+    const getCourse = (courseId) => {
+      console.log(courseId);
+      axios("http://localhost:9002/course").then((res) => console.log(res));
+    };
+
+    return { link, crypto, showCryptoCourses, showCourseIntroPage, getCourse };
   },
 };
 </script>
