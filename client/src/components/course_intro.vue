@@ -48,6 +48,7 @@
       <h2>Learn cryptocurrency today!</h2>
       <h4>what you'll learn:</h4>
       <ul>
+        <div class="blur"></div>
         <div class="list">
           <li>intro and basics of cryptocurrency</li>
           <li>Different ways to invest in cryptocurrency</li>
@@ -258,7 +259,7 @@
         </div>
       </div>
     </div>
-    <div class="single-tutorial">
+    <div class="single-tutorial course-1">
       <h1>How to buy cryptocurrency with the Binance mobile (phone) app.</h1>
       <h3>tutorial objectives:</h3>
       <ul>
@@ -303,6 +304,26 @@
           controls
         ></video>
       </div>
+      <p>how to buy crypto with the binance mobile (phone) app <sup>*</sup></p>
+      <div class="question">
+        <label for="question">ask question(s) or leave a comment:</label>
+        <textarea
+          name="question"
+          id="question"
+          cols="30"
+          rows="10"
+          placeholder="Ask question(s) or leave a comment...."
+          required
+        ></textarea>
+        <button>submit</button>
+      </div>
+    </div>
+    <div class="single-tutorial course-2">
+      <h1>how to use the Binance app on mobile(Phone)</h1>
+      <h3>tutorial objectives:</h3>
+      <ul>
+        <li>have Binance app installed in your phone</li>
+      </ul>
     </div>
     <Footer />
   </main>
@@ -557,7 +578,7 @@ main {
       margin: 20px auto;
       height: fit-content;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       flex-wrap: wrap;
 
@@ -583,6 +604,11 @@ main {
     padding-top: 30px;
     background: white;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+      padding-top: 50px;
+    }
 
     .back {
       width: 70px;
@@ -614,9 +640,16 @@ main {
       justify-content: space-evenly;
       align-items: center;
       padding: 10px auto;
+      position: relative;
+
+      .blur {
+        display: none;
+      }
 
       .list {
         width: 40%;
+        position: relative;
+        padding: 20px;
 
         li {
           list-style-type: square;
@@ -641,6 +674,32 @@ main {
           height: auto;
           border-radius: 5px;
           cursor: pointer;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 100vw;
+        background: url(../assets/phone-a.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: scroll;
+
+        .blur {
+          display: block;
+          opacity: 0.9;
+        }
+
+        .img {
+          display: none;
+        }
+
+        .list {
+          width: 95%;
+          padding-left: 10px;
+          li {
+            color: $primaryColor;
+            font-weight: 600;
+          }
         }
       }
     }
@@ -726,9 +785,10 @@ main {
 
   .single-tutorial {
     width: 100vw;
+    margin: 5px auto;
     height: fit-content;
-    padding: 20px 100px;
-    background: white;
+    padding: 20px;
+    background: whitesmoke;
 
     h1 {
       padding: 20px;
@@ -777,11 +837,61 @@ main {
       width: 100%;
       height: fit-content;
       margin: 60px auto;
+      margin-bottom: 20px;
 
       video {
         width: 90%;
         height: auto;
         margin: auto;
+      }
+    }
+
+    .question {
+      width: 90vw;
+      margin: auto;
+      height: fit-content;
+      padding: 10px;
+
+      label {
+        padding: 10px;
+        text-align: left;
+        display: block;
+        width: 100%;
+        text-transform: capitalize;
+        font: 600 23px "Poppins", sans-serif;
+      }
+
+      textarea {
+        width: 100%;
+        height: 300px;
+        border: none;
+        outline: none;
+        font-weight: 500;
+        color: $baseColor;
+        box-shadow: 0 0 2px 1px rgb(238, 238, 238);
+        padding: 20px;
+        background: white;
+      }
+
+      button {
+        display: block;
+        width: 60%;
+        height: 60px;
+        border: none;
+        background: $baseColor;
+        color: $primaryColor;
+        border-radius: 30px;
+        margin: 15px auto;
+        text-transform: capitalize;
+        font: 600 20px "Nunito sans", sans-serif;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 20px 10px;
+
+      h1 {
+        font-size: 30px;
       }
     }
   }

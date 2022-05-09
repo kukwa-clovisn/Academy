@@ -22,6 +22,6 @@ const courseSchema = new mongoose.Schema({
      collection: 'courses'
 })
 
-const signupUserModel = mongoose.model('courseSchema', courseSchema)
+const courseModel = mongoose.model('courseSchema', courseSchema)
 
-module.exports = signupUserModel;
+module.exports = courseModel;

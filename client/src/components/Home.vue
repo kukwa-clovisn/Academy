@@ -239,51 +239,54 @@
     </div>
 
     <div class="section-2">
-      <div class="video-div">
-        <h2>Real investment is investing in knowledge(learning)</h2>
-        <p>
-          Why not try out our courses prepared to see you through your learning!
-        </p>
-        <button>
-          <router-link to="/signup" class="route">start learning</router-link>
-        </button>
-      </div>
+      <h2>Real investment is investing in knowledge(learning)</h2>
+      <p>
+        Why not try out our courses prepared to see you through your learning!
+      </p>
+      <button>
+        <router-link to="/signup" class="route">start learning</router-link>
+      </button>
     </div>
     <div class="bitquery">
-      <div class="content-1">
+      <div class="content">
         <div class="left-div">
-          <img src="../assets/Group-1-1.png" alt="" />
+          <h1><sup>*</sup> Learning from the best <sup>*</sup></h1>
+          <p>
+            Learning can really be awesome expecially when you learn from an
+            experienced and well structured source. We provide valid and timely
+            lessons that you need in order to change your world.
+          </p>
+
+          <h2>experience</h2>
+          <p>
+            In the world and field of technology nothing really counts as much
+            as experience. Having adequate experience in the field is what we
+            offer. We teach with experience and we offer you the experience you
+            need to take of in the field you desire.
+          </p>
+          <h2>practise</h2>
+          <p>
+            Learning practically so far has been proven the best method of
+            learning. Not only do we offer you the course but we offer you the
+            reality of what you are in for. The highest achievement in learning
+            is being able to apply and use what you've learnt in your daily life
+            and that's our goal and target.
+          </p>
+          <h2>application</h2>
+          <p>
+            It is needless to learn a skill that won't be of help to you or that
+            won't be solving a problem in your life. We offer applicable ways to
+            use our courses in solving your problems or in polishing your skill
+            or in advancing in your field. We don't only teach you what should
+            know, we show you what to do and make sure you do it.
+          </p>
         </div>
         <div class="right-div">
-          <h2>lorem ipsum dolor</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea omnis
-            dolorum eius laborum ut, eos et rem qui laudantium hic totam facilis
-            sequi, ratione adipisci cum incidunt nam. Voluptatem saepe
-            voluptatibus recusandae accusantium nobis impedit, natus
-            consequuntur vitae rem corporis enim, reprehenderit veniam mollitia
-            sunt porro quisquam eos ipsa architecto!
-          </p>
-          <button>learn more....</button>
+          <img src="../assets/Group-1-1.png" alt="" />
         </div>
       </div>
-      <div class="content-2">
-        <h1>Lorem ipsum dolor sit amet.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit beatae
-          et id dolor veritatis numquam hic nemo, nulla voluptas dignissimos
-          necessitatibus sint, animi porro expedita. Labore nulla ducimus rerum
-          iusto quisquam repellat dicta enim numquam dolor eligendi, nisi sequi
-          aperiam adipisci vitae, minima provident inventore perferendis tempore
-          dolorum aliquam consequuntur earum obcaecati. Repellendus, nulla?
-          Accusantium reprehenderit illo sit quibusdam, consequuntur odio
-          reiciendis tenetur? Aliquid debitis ad temporibus possimus commodi
-          sequi.
-        </p>
-        <button>get started</button>
-      </div>
     </div>
-    <div class="illustration-1">
+    <!-- <div class="illustration-1">
       <Carousel />
       <div class="blur"></div>
       <div class="illustration-content">
@@ -300,7 +303,7 @@
           >
         </button>
       </div>
-    </div>
+    </div> -->
 
     <div class="contact-form" id="contact">
       <div class="bubble"></div>
@@ -409,12 +412,12 @@
 
 <script>
 import { ref } from "vue";
-import Carousel from "./carousel.vue";
+// import Carousel from "./carousel.vue";
 import Header from "./header.vue";
 import Footer from "./footer.vue";
 export default {
   name: "Home",
-  components: { Header, Carousel, Footer },
+  components: { Header, Footer },
 
   setup() {
     const closeNotify = ref(false);
@@ -461,6 +464,7 @@ $SecondaryColor: rgba(230, 101, 129, 1);
 $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(51, 2, 69);
 $fallback: rgb(19, 37, 62);
+$baseColor: #072e54;
 main {
   width: 100%;
   height: auto;
@@ -833,63 +837,46 @@ main {
 }
 
 .section-2 {
-  width: 100vw;
+  width: 97vw;
+  margin: 20px auto;
   height: fit-content;
-  padding: 50px 10px;
+  padding: 20px;
   position: relative;
   margin-bottom: 50px;
+
   h2 {
-    padding: 10px;
+    padding: 15px;
     font: 700 30px "Poppins", sans-serif;
+    text-transform: capitalize;
   }
+
   p {
-    width: 85vw;
-    margin: auto;
-    line-height: 30px;
-    font: 500 17px "Poppins", sans-serif;
-    padding: 10px;
-    word-spacing: 2px;
+    color: rgb(3, 55, 123);
+    width: 100%;
+  }
+  button {
+    width: 250px;
+    height: 45px;
+    border-radius: 3px;
+    border: none;
+    margin: 20px auto;
+    background: transparent;
+    box-shadow: 0 0 1px 2px $SecondaryColor;
+
+    .route {
+      text-decoration: none;
+      color: $SecondaryColor;
+      text-transform: uppercase;
+    }
   }
 
-  .video-div {
-    width: 90vw;
-    height: fit-content;
-    margin: 30px auto;
-    position: relative;
-
-    h2 {
-      color: $SecondaryColor;
-      text-transform: capitalize;
-    }
-
-    p {
-      color: rgb(3, 55, 123);
-      width: 100%;
-    }
-    button {
-      width: 250px;
-      height: 45px;
-      border-radius: 3px;
-      border: none;
-      margin: 20px auto;
-      background: transparent;
-      box-shadow: 0 0 1px 2px $SecondaryColor;
-
-      .route {
-        text-decoration: none;
-        color: $SecondaryColor;
-        text-transform: uppercase;
-      }
-    }
-
-    @media screen and (max-width: 1160px) {
-      width: 100vw;
-    }
-    @media screen and (max-width: 1050px) {
-      flex-direction: column;
-      margin: 0;
-      padding: 0;
-    }
+  @media screen and (max-width: 1160px) {
+    width: 100vw;
+  }
+  @media screen and (max-width: 1050px) {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
   }
 
   @media screen and (max-width: 680px) {
@@ -1584,90 +1571,71 @@ main {
 .bitquery {
   width: 100vw;
   height: fit-content;
+  padding: 20px;
+  background: $fallback;
 
-  .content-1 {
+  .content {
     width: 96vw;
-    height: 65vh;
+    height: fit-content;
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: auto;
 
     .left-div {
-      width: 40%;
-      height: 100%;
-      overflow: hidden;
-
-      @media screen and (max-width: 720px) {
-        display: none;
-      }
-      img {
-        display: block;
-        width: 90%;
-        margin: auto;
-        height: auto;
-      }
-    }
-
-    .right-div {
       width: 58%;
-      height: 100%;
+      height: fit-content;
       padding: 20px;
 
       @media screen and (max-width: 720px) {
         width: 100%;
       }
 
+      h1 {
+        font: 900 40px "Nunito sans", "Poppins", sans-serif;
+        padding: 10px;
+        color: white;
+        text-align: left;
+        text-transform: capitalize;
+
+        sup {
+          color: $SecondaryColor;
+        }
+      }
+
       h2 {
         padding: 10px;
-        font: 600 24px "Nunito sans", sans-serif;
+        font: 700 26px "Nunito sans", sans-serif;
         text-transform: capitalize;
+        text-align: left;
+        color: rgb(231, 228, 228);
+        color: $SecondaryColor;
       }
       p {
-        font: 500 17px "Poppins", sans-serif;
+        font: 400 15px "Poppins", sans-serif;
         padding: 10px;
-      }
-
-      button {
-        width: 200px;
-        height: 50px;
-        background: radial-gradient($SecondaryColor, $fallback);
-        border: 2px double $SecondaryColor;
-        color: $primaryColor;
-        border-radius: 3px;
-        text-transform: capitalize;
-        margin: 15px auto;
-        font: 600 19px "Nunito sans", sans-serif;
+        text-align: left;
+        color: rgb(243, 242, 242);
+        line-height: 25px;
       }
     }
-  }
-  .content-2 {
-    width: 90vw;
-    height: fit-content;
-    margin: auto;
-    padding: 20px;
 
-    h1 {
-      padding: 10px;
-      font: 700 30px "Poppins", sans-serif;
-      text-transform: capitalize;
-    }
-    p {
-      padding: 10px;
-      font-family: "Poppins", sans-serif;
-    }
+    .right-div {
+      width: 40%;
+      height: 100%;
+      overflow: hidden;
+      padding-top: 120px;
 
-    button {
-      width: 200px;
-      height: 50px;
-      background: $SecondaryColor;
-      border: 2px double $SecondaryColor;
-      color: $primaryColor;
-      border-radius: 3px;
-      text-transform: capitalize;
-      margin: 15px auto;
-      font: 600 19px "Nunito sans", sans-serif;
+      @media screen and (max-width: 720px) {
+        display: none;
+      }
+      img {
+        display: block;
+        width: 100%;
+        margin: auto;
+        height: auto;
+      }
     }
   }
 }
