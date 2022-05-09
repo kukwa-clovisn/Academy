@@ -61,7 +61,6 @@
         </form>
       </div>
     </div>
-    <Footer />
   </main>
 </template>
 
@@ -69,10 +68,9 @@
 import axios from "axios";
 import { reactive } from "vue";
 import Header from "./header.vue";
-import Footer from "./footer.vue";
 export default {
   name: "Sign_up",
-  components: { Footer, Header },
+  components: { Header },
   setup() {
     let data = reactive({
       username: "",

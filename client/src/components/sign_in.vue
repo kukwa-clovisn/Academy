@@ -54,7 +54,6 @@
         </div>
       </div>
     </div>
-    <Footer />
   </main>
 </template>
 
@@ -63,12 +62,10 @@ import axios from "axios";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import Header from "./header.vue";
-import Footer from "./footer.vue";
 export default {
   name: "Sign_in",
   components: {
     Header,
-    Footer,
   },
 
   setup() {
