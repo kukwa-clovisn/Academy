@@ -71,7 +71,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>the history and emergence of BITCOIN</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -84,7 +84,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>what are cryptocurrencies and how they relate</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -97,7 +97,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>how to use the Binance app on mobile (smart phone)</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -110,7 +110,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>how to install and use the Trust wallet</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -123,7 +123,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>how to use the Blockchain wallet</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -136,7 +136,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>how to swap and transfer coins to and from the Trust wallet</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -149,7 +149,7 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>howt to become a verified Binance user</h3>
             <button>start tutorial</button>
           </div>
         </div>
@@ -162,10 +162,146 @@
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>howt to buy cryptocurrency on Binance Mobile (phone) App</h3>
+            <h3>Different trading methods in Binance</h3>
             <button>start tutorial</button>
           </div>
         </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>how to place a trade in Binance</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>coin market cap tutorial</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>how to use pancake swap</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>how to use cryptopanic and get crypto news</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>what is gate.io?</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video
+              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+              controls
+            ></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>
+              Different crypto apps in which you can hold long term coins in
+            </h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial">
+          <div class="video">
+            <video :src="link" controls></video>
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>how to verify your gate.io account</h3>
+            <button>start tutorial</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="single-tutorial">
+      <h1>How to buy cryptocurrency with the Binance mobile (phone) app.</h1>
+      <h3>tutorial objectives:</h3>
+      <ul>
+        <li>install the binance app</li>
+        <li>create an account</li>
+        <li>learn to navigate to the crypto of choice</li>
+        <li>learn how to actually but the cryto of choice</li>
+      </ul>
+      <h2>1. How to have binance installed in your mobile phone</h2>
+      <p>
+        Carrying out this tutorial you need to have an android or at least a
+        smart phone that can accesss the playstore and also run some internet
+        operations without any problem.
+      </p>
+      <p>
+        To install the binance app on your smart phone, get to your phone and
+        head straight to the playstore in your smart phone and next your search
+        "Binance app" you will find many different options or choices of the
+        binance app to download you download the verified version of the Binance
+        app and hit install and thats pretty all for the installation process.
+        <br />
+        After the app has been installed, you hit open and it'll take you
+        directly to the binance app.
+      </p>
+      <p>
+        Now if you're already a binance user, then you don't need to go about
+        reinstalling it again if you already have it installed.
+      </p>
+      <h2>2. Creating a Binance account</h2>
+      <p>
+        Now after the installation process have been successfully completed, you
+        to have an account a Binance account so to create one you follow the
+        steps outlined below to become a Binance user.
+      </p>
+      <h5>
+        This is just a summary you can go back to the courses and take the
+        tutorial on how to use the Binance app on smart phone
+      </h5>
+      <div class="video">
+        <video
+          src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+          controls
+        ></video>
       </div>
     </div>
     <Footer />
@@ -189,6 +325,10 @@ export default {
       showCourseIntro: true,
     });
 
+    const link = ref(
+      "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
+    );
+
     onMounted(() => {
       if (!route.params.id) {
         router.push("/login");
@@ -205,7 +345,7 @@ export default {
       crypto.showCourseIntro = true;
     };
 
-    return { crypto, showCryptoCourses, showCourseIntroPage };
+    return { link, crypto, showCryptoCourses, showCourseIntroPage };
   },
 };
 </script>
@@ -551,8 +691,9 @@ main {
 
           h3 {
             padding: 10px;
-            font: 550 16px "Nunito sans", sans-serif;
+            font: 500 16px "Nunito sans", sans-serif;
             text-align: left;
+            text-transform: capitalize;
           }
 
           button {
@@ -573,6 +714,68 @@ main {
         &:active {
           transform: scale(0.9);
         }
+      }
+    }
+  }
+
+  .single-tutorial {
+    width: 100vw;
+    height: fit-content;
+    padding: 20px 100px;
+    background: white;
+
+    h1 {
+      padding: 20px;
+      font: 800 50px "Nunito sans", sans-serif;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font: 600 25px "Nunito sans", sans-serif;
+      text-transform: capitalize;
+      text-align: left;
+      padding: 10px;
+    }
+
+    h3 {
+      text-transform: capitalize;
+      font: 600 30px "Poppins", sans-serif;
+      text-align: left;
+      padding: 10px;
+    }
+
+    h5 {
+      font: 600 25px "Nunito sans", sans-serif;
+      text-align: left;
+    }
+
+    p {
+      font: 400 16px "Poppins", sans-serif;
+      text-align: left;
+      padding: 10px;
+      line-height: 30px;
+    }
+
+    ul {
+      width: 100%;
+      padding: 10px;
+
+      li {
+        list-style-type: decimal;
+        height: 50px;
+        text-align: left;
+      }
+    }
+
+    .video {
+      width: 100%;
+      height: fit-content;
+      margin: 60px auto;
+
+      video {
+        width: 90%;
+        height: auto;
+        margin: auto;
       }
     }
   }
