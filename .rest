@@ -1,10 +1,9 @@
-POST http://localhost:9002/signup
+POST http://localhost:9002/signin
 Content-Type: application/json
 
 {
-     "username":"kukwa clovis",
-     "password":"kldfjalkdfa",
-     "email":"kflskf@gmail.com"
+     "username": "kukwa clovis ngong",
+     "password": "herald"
 }
 
 ###

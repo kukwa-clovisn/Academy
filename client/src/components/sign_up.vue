@@ -66,12 +66,15 @@
 
 <script>
 import axios from "axios";
+import { useRouter } from "vue-router";
 import { reactive } from "vue";
 import Header from "./header.vue";
 export default {
   name: "Sign_up",
   components: { Header },
   setup() {
+    const router = useRouter();
+
     let data = reactive({
       username: "",
       password: "",
@@ -102,6 +105,15 @@ export default {
           .then((res) => {
             data.msg = res.data.msg;
             console.log(res);
+            if (res.statusText === "OK") {
+              router.push({
+                name: "Sign_in",
+                params: {
+                  username: `${res.data.response.username}`,
+                },
+              });
+            }
+            console.log(res.statusText);
           });
       } else {
         data.errormsg = true;

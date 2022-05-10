@@ -242,7 +242,8 @@ main {
 
     h1 {
       padding: 10px;
-      font: 700 50px "Nunito sans", "Poppins", sans-serif;
+      font: 500 50px "Nunito sans", "Poppins", sans-serif;
+      font-family: "Jacques Francois Shadow", cursive;
       color: white;
       text-transform: capitalize;
       padding-top: 50px;

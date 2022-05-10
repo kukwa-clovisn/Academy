@@ -93,22 +93,6 @@ module.exports = {
 
                                    console.log(registeredName);
 
-                                   if (req.body.notify === undefined) {
-                                        user = {
-                                             username: registeredName,
-                                             email: req.body.email,
-                                             password: userKey,
-                                             notify: false
-                                        }
-                                   } else {
-                                        user = {
-                                             username: registeredName,
-                                             email: req.body.email,
-                                             password: userKey,
-                                             notify: true
-                                        }
-                                   }
-
                                    // defining user to be stored in database
 
 
@@ -118,14 +102,14 @@ module.exports = {
                                    } = user;
 
                                    //     storing user in database
-                                   await signupUserModel.create(user);
+                                   // await signupUserModel.create(user);
 
                                    /**
                                     * return a response with the user data
                                     */
-                                   res.json({
+                                   res.status(200).json({
                                         msg: "user successfully signed up. signup successful",
-                                        data: response,
+                                        response,
                                    });
 
                                    return console.log("user:", user);

@@ -12,6 +12,15 @@ const createUserToken = (data) => {
      )
 }
 
+const createUserRefreshToken = (data) => {
+     return jwt.sign({
+               id: data.id,
+               username: data.username,
+               email: data.email
+          },
+          process.env.user_login_refresh_token)
+}
+
 
 const verifyUserToken = async (userToken) => {
      try {
@@ -30,5 +39,6 @@ const verifyUserToken = async (userToken) => {
 
 module.exports = {
      createUserToken,
+     createUserRefreshToken,
      verifyUserToken
 };

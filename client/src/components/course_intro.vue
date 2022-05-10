@@ -21,6 +21,9 @@
     </header>
     <div class="course-intro" v-if="crypto.showCourseIntro">
       <h1>courses</h1>
+      <p>
+        Welcome <span>{{ crypto.courseUser }}!</span>
+      </p>
       <p>Before you strive to earn, learn. Knowledge is never wasted!</p>
       <section>
         <h2>There is a reason:</h2>
@@ -273,12 +276,24 @@
       </h4>
       <ul>
         <h3>tutorial objectives:</h3>
-        <li><span>1</span> Install the binance app</li>
-        <li><span>2</span> Create an account</li>
-        <li><span>3</span> Learn to navigate to the crypto of choice</li>
-        <li><span>4</span> Learn how to actually but the cryto of choice</li>
+        <li>
+          <a href="#a1"><span>1</span> Install the binance app</a>
+        </li>
+        <li>
+          <a href="#a2"><span>2</span> Create an account</a>
+        </li>
+        <li>
+          <a href="#a3"
+            ><span>3</span> Learn to navigate to the crypto of choice</a
+          >
+        </li>
+        <li>
+          <a href="#a4"
+            ><span>4</span> Learn how to actually but the cryto of choice</a
+          >
+        </li>
       </ul>
-      <h2>
+      <h2 id="a1">
         <span>1.</span> How to have binance installed in your mobile phone
       </h2>
       <p>
@@ -300,7 +315,7 @@
         Now if you're already a binance user, then you don't need to go about
         reinstalling it again if you already have it installed.
       </p>
-      <h2><span>2.</span> Creating a Binance account</h2>
+      <h2 id="a2"><span>2.</span> Creating a Binance account</h2>
       <p>
         Now after the installation process have been successfully completed, you
         need to have an account a Binance account so to create one you follow
@@ -344,10 +359,20 @@
       </h4>
       <ul>
         <h3>tutorial objectives:</h3>
-        <li><span>1</span> Have Binance app installed in your phone</li>
-        <li><span>2</span>Create a Binance account</li>
-        <li><span>3</span>Learn different parts of the app</li>
-        <li><span>4</span>Binance app basics</li>
+        <li>
+          <a href="#b1"
+            ><span>1</span> Have Binance app installed in your phone</a
+          >
+        </li>
+        <li>
+          <a href="#b2"><span>2</span>Create a Binance account</a>
+        </li>
+        <li>
+          <a href="#b3"><span>3</span>Learn different parts of the app</a>
+        </li>
+        <li>
+          <a href="#b4"><span>4</span>Binance app basics</a>
+        </li>
       </ul>
       <h2>Binance</h2>
       <p>
@@ -355,7 +380,7 @@
         worldwide, created in 2017 by Changpeng Zhao. Binance offers trading,
         exchange services and more in the cryptocurrency or Blockchain space.
       </p>
-      <h2>
+      <h2 id="b1">
         <span>1.</span> How to have binance installed in your mobile phone
       </h2>
       <p>
@@ -377,7 +402,7 @@
         Now if you're already a binance user, then you don't need to go about
         reinstalling it again if you already have it installed.
       </p>
-      <h2><span>2.</span> Creating a Binance account</h2>
+      <h2 id="b2"><span>2.</span> Creating a Binance account</h2>
       <p>
         Now after the installation process have been successfully completed, you
         need to have an account a Binance account so to create one you follow
@@ -422,19 +447,33 @@ export default {
   setup() {
     const router = useRouter();
     const route = useRoute();
+
     let crypto = reactive({
       courses: false,
       showCourseIntro: true,
+      courseUser: route.params.courseUser,
     });
 
     const link = ref(
       "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
     );
 
+    const refreshpage = () => {
+      axios
+        .post("/token", route.params.token, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => console.log(res));
+    };
+
     onMounted(() => {
-      if (!route.params.id) {
+      console.log(route.params);
+      if (!route.params.token || route.params.token == null) {
         router.push("/login");
       }
+      setInterval(refreshpage, 30000);
     });
 
     const showCryptoCourses = () => {
@@ -464,6 +503,10 @@ $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(51, 2, 69);
 $baseColor: #072e54;
 $fallback: rgb(19, 37, 62);
+
+html {
+  scroll-behavior: smooth;
+}
 main {
   width: 100vw;
   background: linear-gradient(to bottom, rgb(169, 70, 91), $baseColor);
@@ -591,6 +634,19 @@ main {
     p {
       padding: 10px;
       color: rgb(165, 165, 165);
+
+      span {
+        color: $tertiaryColor;
+        font: 800 23px "Nunito Sans", sans-serif;
+        background: linear-gradient(
+          to bottom,
+          $primaryColor 20%,
+          $tertiaryColor
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
 
     section {
@@ -670,7 +726,7 @@ main {
         color: rgb(225, 238, 252);
         border: none;
         border-radius: 10px 0 10px 0;
-        font: 700 20px "Russo One", sans-serif;
+        font: 700 20px "Nunito Sans", sans-serif;
         text-transform: capitalize;
         background: radial-gradient(rgb(120, 148, 165), $baseColor);
       }
@@ -977,11 +1033,17 @@ main {
         list-style-type: none;
         height: 50px;
         margin-bottom: 10px;
-        text-align: left;
-        color: $primaryColor;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+
+        a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          text-align: left;
+          color: $primaryColor;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
 
         span {
           width: 40px;

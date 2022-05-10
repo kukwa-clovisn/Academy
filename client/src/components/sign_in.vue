@@ -60,7 +60,7 @@
 <script>
 import axios from "axios";
 import { reactive } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import Header from "./header.vue";
 export default {
   name: "Sign_in",
@@ -70,9 +70,10 @@ export default {
 
   setup() {
     const router = useRouter();
+    const route = useRoute();
 
     let user = reactive({
-      username: "",
+      username: route.params.username,
       password: "",
       msg: "",
       errormsg: "",
@@ -102,7 +103,7 @@ export default {
             user.errormsg = true;
             user.msg = res.msg;
 
-            if (!res.token) {
+            if (!res.accessToken) {
               user.msg = res.msg;
               user.errormsg = true;
               return;
@@ -110,18 +111,21 @@ export default {
 
             let config = {
               headers: {
-                Authorization: `Bearer ${res.token}`,
+                Authorization: `Bearer ${res.accessToken}`,
               },
             };
             // await fetch('http://localhost:9001/login/token/' + `${req.id}`)
-            await axios("http://localhost:9002/signin", config).then((res) => {
+            await axios("signin", config).then((res) => {
               console.log(res);
 
-              localStorage.setItem("token", JSON.stringify(res.data._id));
+              localStorage.setItem("accessToken", JSON.stringify(res.data._id));
 
               router.push({
                 name: "Course_intro",
-                params: { id: `${res.data._id}` },
+                params: {
+                  token: `${res.data.token}`,
+                  courseUser: `${res.data.user.username}`,
+                },
               });
             });
           });

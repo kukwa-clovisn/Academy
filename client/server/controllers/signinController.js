@@ -23,7 +23,6 @@ module.exports = {
                     msg: "Unauthorized user!"
                })
           }
-          console.log(token)
           jwt.verify(token, process.env.user_login_token, (err, data) => {
                if (err) {
                     console.log(err)
@@ -36,7 +35,10 @@ module.exports = {
                }, (err, user) => {
                     if (err) return res.status(500).json(err);
 
-                    res.json(user);
+                    res.json({
+                         user,
+                         token
+                    });
                     return;
                }).select('-password')
 
@@ -77,12 +79,14 @@ module.exports = {
                          return console.log('unauthorized user. incorrect password')
                     }
 
-                    let jwt = userToken.createUserToken(req.body);
-                    // console.log(jwt)
-
+                    let accessToken = userToken.createUserToken(req.body);
+                    let refreshToken = userToken.createUserRefreshToken(req.body);
+                    console.log(accessToken)
+                    console.log(refreshToken)
                     return res.status(200).json({
                          msg: "log in successful",
-                         token: jwt
+                         accessToken,
+                         refreshToken
                     })
 
                } catch (err) {
