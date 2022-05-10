@@ -260,15 +260,27 @@
       </div>
     </div>
     <div class="single-tutorial course-1">
+      <header>
+        <nav class="logo">
+          <span>AC <i>& </i>FC</span>
+        </nav>
+        <nav class="free"><i>free</i></nav>
+      </header>
       <h1>How to buy cryptocurrency with the Binance mobile (phone) app.</h1>
-      <h3>tutorial objectives:</h3>
+      <h4>
+        master course <br />
+        by: codingHerald
+      </h4>
       <ul>
-        <li>install the binance app</li>
-        <li>create an account</li>
-        <li>learn to navigate to the crypto of choice</li>
-        <li>learn how to actually but the cryto of choice</li>
+        <h3>tutorial objectives:</h3>
+        <li><span>1</span> Install the binance app</li>
+        <li><span>2</span> Create an account</li>
+        <li><span>3</span> Learn to navigate to the crypto of choice</li>
+        <li><span>4</span> Learn how to actually but the cryto of choice</li>
       </ul>
-      <h2>1. How to have binance installed in your mobile phone</h2>
+      <h2>
+        <span>1.</span> How to have binance installed in your mobile phone
+      </h2>
       <p>
         Carrying out this tutorial you need to have an android or at least a
         smart phone that can accesss the playstore and also run some internet
@@ -288,11 +300,11 @@
         Now if you're already a binance user, then you don't need to go about
         reinstalling it again if you already have it installed.
       </p>
-      <h2>2. Creating a Binance account</h2>
+      <h2><span>2.</span> Creating a Binance account</h2>
       <p>
         Now after the installation process have been successfully completed, you
-        to have an account a Binance account so to create one you follow the
-        steps outlined below to become a Binance user.
+        need to have an account a Binance account so to create one you follow
+        the steps outlined below to become a Binance user.
       </p>
       <h5>
         This is just a summary you can go back to the courses and take the
@@ -319,11 +331,79 @@
       </div>
     </div>
     <div class="single-tutorial course-2">
+      <header>
+        <nav class="logo">
+          <span>AC <i>& </i>FC</span>
+        </nav>
+        <nav class="free"><i>free</i></nav>
+      </header>
       <h1>how to use the Binance app on mobile(Phone)</h1>
-      <h3>tutorial objectives:</h3>
+      <h4>
+        master course <br />
+        by: codingHerald
+      </h4>
       <ul>
-        <li>have Binance app installed in your phone</li>
+        <h3>tutorial objectives:</h3>
+        <li><span>1</span> Have Binance app installed in your phone</li>
+        <li><span>2</span>Create a Binance account</li>
+        <li><span>3</span>Learn different parts of the app</li>
+        <li><span>4</span>Binance app basics</li>
       </ul>
+      <h2>Binance</h2>
+      <p>
+        Binance is the upgrowing largest cryptocurrency exchange platform
+        worldwide, created in 2017 by Changpeng Zhao. Binance offers trading,
+        exchange services and more in the cryptocurrency or Blockchain space.
+      </p>
+      <h2>
+        <span>1.</span> How to have binance installed in your mobile phone
+      </h2>
+      <p>
+        Carrying out this tutorial you need to have an android or at least a
+        smart phone that can accesss the playstore and also run some internet
+        operations without any problem.
+      </p>
+      <p>
+        To install the binance app on your smart phone, get to your phone and
+        head straight to the playstore in your smart phone and next your search
+        "Binance app" you will find many different options or choices of the
+        binance app to download you download the verified version of the Binance
+        app and hit install and thats pretty all for the installation process.
+        <br />
+        After the app has been installed, you hit open and it'll take you
+        directly to the binance app.
+      </p>
+      <p>
+        Now if you're already a binance user, then you don't need to go about
+        reinstalling it again if you already have it installed.
+      </p>
+      <h2><span>2.</span> Creating a Binance account</h2>
+      <p>
+        Now after the installation process have been successfully completed, you
+        need to have an account a Binance account so to create one you follow
+        the steps outlined below to become a Binance user.
+      </p>
+      <div class="pic">
+        <div class="blur"></div>
+        <h1>Binance on mobile (phone)</h1>
+
+        <p>World’s largest cryptocurrency exchange platform</p>
+        <h3>
+          learn now and maximize the services provided by the Binance team.
+        </h3>
+      </div>
+      <div class="question">
+        <label for="question">ask question(s) or leave a comment:</label>
+        <textarea
+          name="question"
+          id="question"
+          cols="30"
+          rows="10"
+          placeholder="Ask question(s) or leave a comment...."
+          required
+        ></textarea>
+        <button>submit</button>
+      </div>
     </div>
     <Footer />
   </main>
@@ -787,12 +867,56 @@ main {
     width: 100vw;
     margin: 5px auto;
     height: fit-content;
-    padding: 20px;
+    padding: 20px 0;
     background: whitesmoke;
+
+    header {
+      width: 80vw;
+      margin: 20px auto;
+
+      .logo {
+        background: transparent;
+        transform: none;
+
+        span {
+          transform: none;
+          box-shadow: 0 2px 2px 1px $SecondaryColor;
+        }
+      }
+
+      .free {
+        i {
+          width: 150px;
+          height: 45px;
+          background: $baseColor;
+          color: rgb(201, 201, 201);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 30px;
+          font-size: 21px;
+        }
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+      position: relative;
+      width: 95%;
+      margin: auto;
+    }
 
     h1 {
       padding: 20px;
-      font: 800 50px "Nunito sans", sans-serif;
+      margin: 30px auto;
+      margin-top: 80px;
+      font: 800 50px "Nunito Sans", "Poppins", sans-serif;
       text-transform: uppercase;
     }
 
@@ -801,12 +925,33 @@ main {
       text-transform: capitalize;
       text-align: left;
       padding: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      span {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        border-radius: 100%;
+        background: $SecondaryColor;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     h3 {
       text-transform: capitalize;
       font: 600 30px "Poppins", sans-serif;
       text-align: left;
+      padding: 10px;
+      color: white;
+    }
+
+    h4 {
+      font: 600 19px "Poppins", sans-serif;
       padding: 10px;
     }
 
@@ -819,17 +964,60 @@ main {
       font: 400 16px "Poppins", sans-serif;
       text-align: left;
       padding: 10px;
+      padding-left: 30px;
       line-height: 30px;
     }
 
     ul {
       width: 100%;
-      padding: 10px;
+      padding: 20px;
+      background: $baseColor;
 
       li {
-        list-style-type: decimal;
+        list-style-type: none;
         height: 50px;
+        margin-bottom: 10px;
         text-align: left;
+        color: $primaryColor;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        span {
+          width: 40px;
+          height: 40px;
+          margin-right: 15px;
+          border-radius: 100%;
+          background: $tertiaryColor;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .pic {
+      width: 100vw;
+      height: 100vh;
+      padding: 10px;
+      background: url(../assets/lap.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: scroll;
+      position: relative;
+
+      h1 {
+        position: relative;
+        color: $primaryColor;
+      }
+      h3 {
+        text-align: center;
+        position: relative;
+      }
+      p {
+        text-align: center;
+        position: relative;
+        color: $primaryColor;
       }
     }
 
