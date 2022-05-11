@@ -1,4 +1,5 @@
 const signupUserModel = require("../models/signupModel");
+const tokenModel = require("../models/tokenModel");
 
 
 const capitalizeUserName = require('../middlewares/capitalize')
@@ -17,6 +18,7 @@ module.exports = {
                bearer,
                token
           ] = authHeader.split(" ");
+          console.log(token)
 
           if (token === null) {
                return res.status(401).json({
@@ -29,6 +31,7 @@ module.exports = {
                     return res.status(500).json(err)
                }
 
+
                let userName = capitalizeUserName(data.username)
                signupUserModel.findOne({
                     username: userName
@@ -39,6 +42,7 @@ module.exports = {
                          user,
                          token
                     });
+
                     return;
                }).select('-password')
 
@@ -78,16 +82,42 @@ module.exports = {
 
                          return console.log('unauthorized user. incorrect password')
                     }
-
                     let accessToken = userToken.createUserToken(req.body);
                     let refreshToken = userToken.createUserRefreshToken(req.body);
-                    console.log(accessToken)
-                    console.log(refreshToken)
-                    return res.status(200).json({
-                         msg: "log in successful",
-                         accessToken,
-                         refreshToken
+
+                    let authenticatedUser = {
+                         username: data.username,
+                         token: refreshToken
+                    }
+
+                    tokenModel.findOne({
+                         "username": data.username
+                    }, async (err, result) => {
+                         if (err) return res.status(401).json(err)
+
+                         if (!result) {
+                              await tokenModel.create(authenticatedUser);
+
+                              return res.status(200).json({
+                                   msg: "log in successful",
+                                   accessToken,
+                                   refreshToken
+                              })
+                         }
+                         console.log("result:", result)
+                         await tokenModel.findByIdAndUpdate(result.id,
+                              authenticatedUser
+                         )
+
+
+                         return res.status(200).json({
+                              msg: "log in successful",
+                              accessToken,
+                              username: data.username,
+                              refreshToken
+                         })
                     })
+
 
                } catch (err) {
                     res.status(403).json(err);

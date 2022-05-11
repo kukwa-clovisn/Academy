@@ -60,7 +60,7 @@ module.exports = {
                          /**
                           * checking if a user already exist with the same email
                           */
-                         await signupUserModel.findOne({
+                         signupUserModel.findOne({
                               email: newEmail
                          }, async (err, data) => {
                               try {
@@ -91,7 +91,7 @@ module.exports = {
                                    let userKey = await hashFunc(req.body.password);
 
 
-                                   console.log(registeredName);
+                                   // console.log(registeredName);
 
                                    // defining user to be stored in database
 
@@ -99,7 +99,14 @@ module.exports = {
                                    let {
                                         password,
                                         ...response
-                                   } = user;
+                                   } = req.body;
+
+                                   let user = {
+                                        username: registeredName,
+                                        email: req.body.email,
+                                        password: userKey
+                                   }
+
 
                                    //     storing user in database
                                    // await signupUserModel.create(user);
@@ -112,7 +119,6 @@ module.exports = {
                                         response,
                                    });
 
-                                   return console.log("user:", user);
                               } catch (err) {
 
                                    console.log(err)

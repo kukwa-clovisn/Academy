@@ -7,4 +7,22 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9002/course
+GET http://localhost:9002/signin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imt1a3dhIGNsb3ZpcyBuZ29uZyIsImlhdCI6MTY1MjIwNjM2MSwiZXhwIjoxNjUyMjA2MzkxfQ.GXAnhFdY82VgU64QKmwRlVWnlAPmW7eKZ9SODBlPpU4
+###
+POST http://localhost:9002/token
+Content-Type: application/json
+
+{
+     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imt1a3dhIGNsb3ZpcyBuZ29uZyIsImlhdCI6MTY1MjIwMjc3N30.jpCZU0Uyw8qrnPLfUzh3nGlRhAaQC836pw3dz8mDccE"
+}
+
+###
+POST http://localhost:9002/signup
+Content-Type: application/json
+
+{
+     "username": "kdjfakdf fjlkdf",
+     "password": "fkdjfk;",
+     "email":"dfkff@gmail.com"
+}

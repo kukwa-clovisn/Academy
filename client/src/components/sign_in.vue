@@ -91,7 +91,7 @@ export default {
             // Authorization: "Bearer secretToken",
             "Content-type": "application/json",
           },
-          // credentials: "include",
+
           body: JSON.stringify({
             username: user.username,
             password: user.password,
@@ -109,25 +109,25 @@ export default {
               return;
             }
 
-            let config = {
-              headers: {
-                Authorization: `Bearer ${res.accessToken}`,
+            localStorage.setItem("accessToken", res.accessToken);
+
+            axios.defaults.headers.common[
+              "Authorization"
+            ] = `Bearer ${res.refreshToken}`;
+
+            router.push({
+              name: "Course_intro",
+              params: {
+                courseUser: res.username,
+                accessToken: res.accessToken,
               },
-            };
-            // await fetch('http://localhost:9001/login/token/' + `${req.id}`)
-            await axios("signin", config).then((res) => {
-              console.log(res);
-
-              localStorage.setItem("accessToken", JSON.stringify(res.data._id));
-
-              router.push({
-                name: "Course_intro",
-                params: {
-                  token: `${res.data.token}`,
-                  courseUser: `${res.data.user.username}`,
-                },
-              });
             });
+
+            // let config = {
+            //   headers: {
+            //     Authorization: `Bearer ${res.accessToken}`,
+            //   },
+            // };
           });
       } catch (err) {
         console.log(err);

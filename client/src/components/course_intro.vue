@@ -437,7 +437,7 @@
 <script>
 import axios from "axios";
 import Footer from "./footer.vue";
-import { onMounted, ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 export default {
   name: "Course_intro",
@@ -458,21 +458,23 @@ export default {
       "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
     );
 
+    let config = {
+      headers: {
+        Authorization: `Bearer ${route.params.accessToken}`,
+      },
+    };
+
     const refreshpage = () => {
-      axios
-        .post("/token", route.params.token, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => console.log(res));
+      if (!route.params.accessToken || route.params.accessToken == null) {
+        router.push({
+          name: "Sign_in",
+        });
+      }
+
+      axios("/signin", config).then((res) => console.log(res));
     };
 
     onMounted(() => {
-      console.log(route.params);
-      if (!route.params.token || route.params.token == null) {
-        router.push("/login");
-      }
       setInterval(refreshpage, 30000);
     });
 
