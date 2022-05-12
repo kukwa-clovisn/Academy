@@ -451,7 +451,7 @@ export default {
     let crypto = reactive({
       courses: false,
       showCourseIntro: true,
-      courseUser: route.params.courseUser,
+      courseUser: "",
     });
 
     const link = ref(
@@ -474,14 +474,12 @@ export default {
             name: "Sign_in",
           });
         } else {
-          let response = await axios("/signin", config);
+          let response = await axios("/token", config);
 
-          console.log(response.headers);
-
-          if (response == null) {
-            console.log("no resp");
+          if (response === null) {
+            router.push("/login");
           } else {
-            console.log("response", response);
+            crypto.courseUser = response.data.user.username;
           }
         }
       } catch (err) {

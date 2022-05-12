@@ -85,7 +85,7 @@ const routes = [{
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       };
-      axios('/signin', config).then(res => {
+      axios('/token', config).then(res => {
         console.log(res)
 
         if (res.data.err || res.data.expiredAt) {
