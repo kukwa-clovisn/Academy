@@ -113,7 +113,7 @@ export default {
 
             axios.defaults.headers.common[
               "Authorization"
-            ] = `Bearer ${res.refreshToken}`;
+            ] = `Bearer ${res.accessToken}`;
 
             router.push({
               name: "Course_intro",

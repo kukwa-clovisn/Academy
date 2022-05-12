@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
   createRouter,
   createWebHistory
@@ -76,6 +77,31 @@ const routes = [{
     name: 'Course_intro',
     component: function () {
       return import('../components/course_intro.vue')
+    },
+    beforeEnter: (to, from, next) => {
+      // let token = localStorage.getItem('accessToken')
+      let config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      };
+      axios('/signin', config).then(res => {
+        console.log(res)
+
+        if (res.data.err || res.data.expiredAt) {
+
+          next("/login")
+        } else {
+          next()
+        }
+      })
+      // if (response.user) {
+      //   // ...conditions to check before getting into the route
+      //   next();
+      // } else {
+      //   next('/login')
+      // }
+
     }
   }
 ]

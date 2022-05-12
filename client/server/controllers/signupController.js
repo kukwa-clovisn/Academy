@@ -1,10 +1,10 @@
 const signupUserModel = require("../models/signupModel");
 
-// const bcrypt = require("bcrypt");
-
 const hashFunc = require('../middlewares/hash');
 
 const capitalizeUserName = require('../middlewares/capitalize');
+
+const userToken = require('../utils/jwt')
 
 const {
      validationResult
@@ -26,7 +26,6 @@ module.exports = {
           }
 
           let newEmail = req.body.email;
-          console.log(req.body)
 
           if (req.body.password.length < 4) {
                console.log(
@@ -81,32 +80,27 @@ module.exports = {
                                         return console.log(`email ${req.body.email} already has an account.`)
                                    }
 
-                                   // capitalizing the username
-                                   let registeredName = capitalizeUserName(req.body.username);
-
                                    /**
                                     * hashing password
                                     */
 
                                    let userKey = await hashFunc(req.body.password);
 
+                                   /**
+                                    * creating a unigue token for every signed up user
+                                    */
 
-                                   // console.log(registeredName);
+                                   let refreshToken = userToken.createUserRefreshToken(req.body);
 
                                    // defining user to be stored in database
 
-
-                                   let {
-                                        password,
-                                        ...response
-                                   } = req.body;
-
                                    let user = {
-                                        username: registeredName,
+                                        username: newUser,
                                         email: req.body.email,
-                                        password: userKey
+                                        password: userKey,
+                                        token: refreshToken
                                    }
-
+                                   console.log(user);
 
                                    //     storing user in database
                                    // await signupUserModel.create(user);
@@ -116,7 +110,6 @@ module.exports = {
                                     */
                                    res.status(200).json({
                                         msg: "user successfully signed up. signup successful",
-                                        response,
                                    });
 
                               } catch (err) {
@@ -124,7 +117,7 @@ module.exports = {
                                    console.log(err)
                                    return res.status(403).json(err);
                               }
-                         })
+                         }).select('-password')
                     } catch (err) {
                          return console.log(err)
                     }

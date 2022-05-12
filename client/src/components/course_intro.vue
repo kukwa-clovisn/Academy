@@ -460,22 +460,37 @@ export default {
 
     let config = {
       headers: {
-        Authorization: `Bearer ${route.params.accessToken}`,
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     };
 
-    const refreshpage = () => {
-      if (!route.params.accessToken || route.params.accessToken == null) {
-        router.push({
-          name: "Sign_in",
-        });
-      }
+    const refreshpage = async () => {
+      try {
+        if (
+          !localStorage.getItem("accessToken") ||
+          localStorage.getItem("accessToken") == null
+        ) {
+          router.push({
+            name: "Sign_in",
+          });
+        } else {
+          let response = await axios("/signin", config);
 
-      axios("/signin", config).then((res) => console.log(res));
+          console.log(response.headers);
+
+          if (response == null) {
+            console.log("no resp");
+          } else {
+            console.log("response", response);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     onMounted(() => {
-      setInterval(refreshpage, 30000);
+      refreshpage();
     });
 
     const showCryptoCourses = () => {
