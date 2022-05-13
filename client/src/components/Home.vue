@@ -52,9 +52,7 @@
             Register now to start your lessons
           </p>
           <button>
-            <router-link to="/register" class="route"
-              >Register now!</router-link
-            >
+            <router-link to="/login" class="route">Start course</router-link>
           </button>
         </div>
         <div class="course" @click="Notification()">
@@ -70,7 +68,7 @@
             register now to start your lessons
           </p>
           <button>
-            <router-link to="#" class="route">register now!</router-link>
+            <router-link to="#" class="route">Start course</router-link>
           </button>
         </div>
         <div class="course" @click="Notification()">
@@ -86,7 +84,7 @@
             register now to start your lessons
           </p>
           <button>
-            <router-link to="#" class="route">register now!</router-link>
+            <router-link to="#" class="route">Start course</router-link>
           </button>
         </div>
       </section>

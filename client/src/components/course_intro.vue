@@ -313,10 +313,12 @@
         </div>
       </div>
     </div>
-    <div class="single-tutorial course-1">
+    <div class="single-tutorial course-1" v-if="crypto.course1">
       <header>
         <nav class="logo">
-          <span>AC <i>& </i>FC</span>
+          <span title="World of Technology and more">
+            AdvancedTechAcademy
+          </span>
         </nav>
         <nav class="free"><i>free</i></nav>
       </header>
@@ -396,10 +398,12 @@
         <button>submit</button>
       </div>
     </div>
-    <div class="single-tutorial course-2">
+    <div class="single-tutorial course-2" v-if="crypto.course2">
       <header>
         <nav class="logo">
-          <span>AC <i>& </i>FC</span>
+          <span title="World of Technology and more">
+            AdvancedTechAcademy
+          </span>
         </nav>
         <nav class="free"><i>free</i></nav>
       </header>
@@ -481,7 +485,7 @@
         <button>submit</button>
       </div>
     </div>
-    <Footer />
+    <Footer v-if="crypto.courses" />
   </main>
 </template>
 
@@ -502,6 +506,8 @@ export default {
     let crypto = reactive({
       courses: false,
       showCourseIntro: true,
+      course1: false,
+      course2: false,
       courseUser: "",
       profileMenu: false,
       hideProfile: true,
@@ -851,7 +857,7 @@ main {
           align-items: center;
 
           i {
-            font-size: 25px;
+            font-size: 20px;
           }
         }
 
@@ -1013,12 +1019,16 @@ main {
         height: 100px;
         margin-bottom: 23px;
         margin-right: 13px;
-        color: rgb(225, 238, 252);
+        color: $col;
         border: none;
         border-radius: 10px 0 10px 0;
         font: 700 20px "Nunito Sans", sans-serif;
         text-transform: capitalize;
-        background: radial-gradient(rgb(120, 148, 165), $baseColor);
+        background: rgb(230, 251, 240);
+
+        &:hover {
+          background: whitesmoke;
+        }
       }
     }
   }
@@ -1221,26 +1231,58 @@ main {
       margin: 20px auto;
 
       .logo {
-        background: transparent;
-        transform: none;
+        width: 300px;
+        height: 90px;
+        border-radius: 0 0 10px 10px;
+        cursor: pointer;
 
         span {
-          transform: none;
-          box-shadow: 0 2px 2px 1px $SecondaryColor;
+          display: flex;
+          box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
+          border-radius: 10px 0 10px 0;
+          padding: 10px;
+          font: 700 20px "Nunito Sans", sans-serif;
+          background: linear-gradient(
+            to bottom,
+            $SecondaryColor 20%,
+            $tertiaryColor,
+            $primaryColor
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          i {
+            font-size: 23px;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        @media screen and (max-width: 1050px) {
+          width: 130px;
         }
       }
 
       .free {
+        display: flex;
+        box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
+        border-radius: 10px 0 10px 0;
+        padding: 10px;
+        font: 700 20px "Nunito Sans", sans-serif;
+        background: linear-gradient(
+          to bottom,
+          $SecondaryColor 20%,
+          $tertiaryColor,
+          $primaryColor
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         i {
-          width: 150px;
-          height: 45px;
-          background: $baseColor;
-          color: rgb(201, 201, 201);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 30px;
-          font-size: 21px;
+          font-size: 23px;
+          padding: 0;
+          margin: 0;
         }
       }
     }
