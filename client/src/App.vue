@@ -9,7 +9,6 @@
 
 $fallback: rgb(19, 37, 62);
 #app {
-  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

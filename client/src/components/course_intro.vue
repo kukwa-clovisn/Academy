@@ -2,23 +2,65 @@
   <main>
     <header v-if="crypto.showCourseIntro">
       <nav class="logo">
-        <span>AC <i>& </i>FC</span>
+        <span title="World of Technology and more"> AdvancedTechAcademy </span>
       </nav>
       <nav>
         <li>
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/about">About Us</a>
-        </li>
-        <li>
           <a href="/#contact">contact us</a>
         </li>
       </nav>
-      <nav class="register">
-        <a href="/register">register</a>
+      <nav class="profile" :title="'User:' + crypto.courseUser">
+        <span>
+          <i class="fa-solid fa-user"></i>
+        </span>
+        <p>{{ crypto.courseUser }}</p>
       </nav>
     </header>
+    <div class="profile-menu">
+      <button class="profile-menu-button">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+      <nav class="logo">
+        <span title="World of Technology and more"> AdvancedTechAcademy </span>
+      </nav>
+      <div class="profile-header">
+        <span>
+          <i class="fa-solid fa-user"></i>
+        </span>
+        <p>
+          {{ crypto.courseUser }} <br />
+          <i> realtech@gmail.com</i>
+        </p>
+      </div>
+      <div class="profile-items">
+        <li>
+          <span><i class="fa-solid fa-bitcoin-sign"></i></span>
+          <p>cryptocurrency</p>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-chart-line"></i></span>
+          <p>Forex</p>
+        </li>
+        <li>
+          <span>
+            <i class="fa-brands fa-sketch"></i>
+          </span>
+          <p>Graphic design</p>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-code"></i></span>
+          <p>Web developement</p>
+        </li>
+        <li>
+          <button>
+            <i class="fa-solid fa-power-off"></i><span> sign out</span>
+          </button>
+        </li>
+      </div>
+    </div>
     <div class="course-intro" v-if="crypto.showCourseIntro">
       <h1>courses</h1>
       <p>
@@ -458,11 +500,11 @@ export default {
       "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
     );
 
-    let config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    };
+    // let config = {
+    //   headers: {
+    //     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    //   },
+    // };
 
     const refreshpage = async () => {
       try {
@@ -474,7 +516,7 @@ export default {
             name: "Sign_in",
           });
         } else {
-          let response = await axios("/token", config);
+          let response = await axios("/token");
 
           if (response === null) {
             router.push("/login");
@@ -518,6 +560,7 @@ $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(51, 2, 69);
 $baseColor: #072e54;
 $fallback: rgb(19, 37, 62);
+$col: #3d566f;
 
 html {
   scroll-behavior: smooth;
@@ -555,8 +598,8 @@ main {
           align-items: center;
           padding: 10px;
           text-decoration: none;
-          text-transform: uppercase;
-          font: 600 19px "Poppins", sans-serif;
+          text-transform: capitalize;
+          font: 500 15px "Poppins", sans-serif;
           color: $primaryColor;
         }
         @media screen and (max-width: 1110px) {
@@ -569,13 +612,9 @@ main {
     }
 
     .logo {
-      width: 190px;
+      width: 300px;
       height: 90px;
-      border: 1px solid white;
-      background: $baseColor;
-      transform: rotateZ(-10deg);
       border-radius: 0 0 10px 10px;
-      border: none;
       cursor: pointer;
 
       span {
@@ -583,9 +622,7 @@ main {
         box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
         border-radius: 10px 0 10px 0;
         padding: 10px;
-        transform: rotateZ(15deg);
-        text-transform: uppercase;
-        font: 800 35px "Russo One", sans-serif;
+        font: 700 20px "Nunito Sans", sans-serif;
         background: linear-gradient(
           to bottom,
           $SecondaryColor 20%,
@@ -607,23 +644,207 @@ main {
         width: 130px;
       }
     }
-  }
-  .register {
-    a {
+
+    .profile {
       width: 200px;
-      height: 60px;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: white;
-      color: $baseColor;
-      border-radius: 0 10px 0 10px;
+      background: transparent;
+      position: relative;
+      right: 5%;
+      cursor: pointer;
+
+      span {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        border-radius: 100%;
+        justify-content: center;
+        align-items: center;
+        background: rgb(191, 191, 191);
+
+        i {
+          font-size: 21px;
+        }
+      }
+      p {
+        width: 60%;
+        padding-left: 10px;
+        font: 600 15px "Nunito Sans", "Poppins", sans-serif;
+        color: white;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .profile-menu {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: white;
+
+    .profile-menu-button {
+      width: 70px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      margin: 0;
+      background: transparent;
+
+      i {
+        font-size: 27px;
+        color: $col;
+      }
     }
 
-    @media screen and (max-width: 930px) {
-      a {
+    .logo {
+      width: 300px;
+      height: 70px;
+      border-radius: 0 0 10px 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        display: flex;
+        box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
+        border-radius: 10px 0 10px 0;
+        padding: 10px;
+        font: 700 20px "Nunito Sans", sans-serif;
+        background: linear-gradient(
+          to bottom,
+          $SecondaryColor 20%,
+          $tertiaryColor,
+          $primaryColor
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        i {
+          font-size: 23px;
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      @media screen and (max-width: 1050px) {
         width: 130px;
-        font-size: 16px;
+      }
+    }
+
+    .profile-header {
+      width: 100%;
+      height: 17vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: whitesmoke;
+
+      span {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        border-radius: 100%;
+        justify-content: center;
+        align-items: center;
+        background: #3d566f;
+        cursor: pointer;
+
+        i {
+          font-size: 21px;
+          color: white;
+        }
+      }
+      p {
+        width: 60%;
+        padding-left: 10px;
+        font: 600 15px "Poppins", sans-serif;
+        color: $fallback;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        line-height: 30px;
+        color: $col;
+
+        i {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .profile-items {
+      width: 100%;
+      height: fit-content;
+
+      li {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 5px auto;
+        height: 60px;
+        cursor: pointer;
+
+        span {
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            font-size: 25px;
+          }
+        }
+
+        p {
+          width: 70%;
+          text-transform: capitalize;
+          text-align: left;
+        }
+
+        button {
+          background: transparent;
+          width: 100%;
+          height: 50px;
+          margin: auto;
+          border: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          i {
+            font-size: 25px;
+            color: #3d566f;
+          }
+
+          span {
+            width: 70%;
+            justify-content: flex-start;
+            border-radius: 0;
+            font: 500 17px "Poppins", sans-serif;
+            text-align: left;
+            color: #3d566f;
+            text-transform: capitalize;
+          }
+        }
+
+        &:hover {
+          transform: scale(0.9) translateX(10px);
+        }
       }
     }
   }
