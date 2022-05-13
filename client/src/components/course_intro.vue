@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main :class="{ squeeze: crypto.profileMenu }">
     <header v-if="crypto.showCourseIntro">
       <nav class="logo">
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
@@ -12,17 +12,26 @@
           <a href="/#contact">contact us</a>
         </li>
       </nav>
-      <nav class="profile" :title="'User:' + crypto.courseUser">
+      <button
+        class="profile-menu-button"
+        v-if="crypto.profileMenu"
+        @click="hideProfileMenu()"
+      >
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+      <nav
+        class="profile"
+        :title="'User:' + crypto.courseUser"
+        v-if="crypto.hideProfile"
+        @click="showProfileMenu()"
+      >
         <span>
-          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-bars"></i>
         </span>
         <p>{{ crypto.courseUser }}</p>
       </nav>
     </header>
-    <div class="profile-menu">
-      <button class="profile-menu-button">
-        <i class="fa-solid fa-bars-staggered"></i>
-      </button>
+    <div class="profile-menu" v-if="crypto.profileMenu">
       <nav class="logo">
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
       </nav>
@@ -36,7 +45,7 @@
         </p>
       </div>
       <div class="profile-items">
-        <li>
+        <li @click="showCryptoCourses()">
           <span><i class="fa-solid fa-bitcoin-sign"></i></span>
           <p>cryptocurrency</p>
         </li>
@@ -494,6 +503,8 @@ export default {
       courses: false,
       showCourseIntro: true,
       courseUser: "",
+      profileMenu: false,
+      hideProfile: true,
     });
 
     const link = ref(
@@ -533,6 +544,16 @@ export default {
       refreshpage();
     });
 
+    const showProfileMenu = () => {
+      crypto.profileMenu = true;
+      crypto.hideProfile = false;
+    };
+
+    const hideProfileMenu = () => {
+      crypto.profileMenu = false;
+      crypto.hideProfile = true;
+    };
+
     const showCryptoCourses = () => {
       crypto.courses = true;
       crypto.showCourseIntro = false;
@@ -548,7 +569,15 @@ export default {
       axios("http://localhost:9002/course").then((res) => console.log(res));
     };
 
-    return { link, crypto, showCryptoCourses, showCourseIntroPage, getCourse };
+    return {
+      link,
+      crypto,
+      showProfileMenu,
+      hideProfileMenu,
+      showCryptoCourses,
+      showCourseIntroPage,
+      getCourse,
+    };
   },
 };
 </script>
@@ -573,7 +602,7 @@ main {
   background-size: cover;
 
   header {
-    width: 98vw;
+    width: 98%;
     height: fit-content;
     margin: auto;
     display: flex;
@@ -645,6 +674,37 @@ main {
       }
     }
 
+    .profile-menu-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 1px 0 0 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      margin: 0;
+      background: white;
+      position: fixed;
+      right: 290px;
+      top: 40px;
+      z-index: 1;
+      animation: slice-in 0.3s linear forwards;
+
+      i {
+        font-size: 27px;
+        color: $col;
+      }
+    }
+
+    @keyframes slice-in {
+      from {
+        right: -400px;
+      }
+      to {
+        right: 303px;
+      }
+    }
+
     .profile {
       width: 200px;
       height: 40px;
@@ -660,13 +720,12 @@ main {
         width: 40px;
         height: 40px;
         display: flex;
-        border-radius: 100%;
         justify-content: center;
         align-items: center;
-        background: rgb(191, 191, 191);
-
+        background: transparent;
         i {
           font-size: 21px;
+          color: white;
         }
       }
       p {
@@ -689,26 +748,12 @@ main {
     right: 0;
     z-index: 1;
     background: white;
-
-    .profile-menu-button {
-      width: 70px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      margin: 0;
-      background: transparent;
-
-      i {
-        font-size: 27px;
-        color: $col;
-      }
-    }
+    box-shadow: 0 -3px 2pxz 0.5px whitesmoke;
+    animation: slide-in 0.3s 1 linear forwards;
 
     .logo {
       width: 300px;
-      height: 70px;
+      height: 90px;
       border-radius: 0 0 10px 10px;
       cursor: pointer;
       display: flex;
@@ -849,8 +894,17 @@ main {
     }
   }
 
+  @keyframes slide-in {
+    from {
+      right: -400px;
+    }
+    to {
+      right: 0;
+    }
+  }
+
   .course-intro {
-    width: 90vw;
+    width: 90%;
     margin: 20px auto;
     height: fit-content;
     padding: 10px;
@@ -946,7 +1000,7 @@ main {
     }
 
     .course-choice {
-      width: 90vw;
+      width: 90%;
       margin: 20px auto;
       height: fit-content;
       display: flex;
@@ -970,7 +1024,7 @@ main {
   }
 
   .crypto-courses {
-    width: 100vw;
+    width: 100%;
     height: fit-content;
     padding: 20px;
     padding-top: 30px;
@@ -1050,7 +1104,7 @@ main {
       }
 
       @media screen and (max-width: 768px) {
-        width: 100vw;
+        width: 100%;
         background: url(../assets/phone-a.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -1077,7 +1131,7 @@ main {
     }
 
     .courses {
-      width: 90vw;
+      width: 90%;
       height: fit-content;
       margin: auto;
       padding: 20px;
@@ -1156,14 +1210,14 @@ main {
   }
 
   .single-tutorial {
-    width: 100vw;
+    width: 100%;
     margin: 5px auto;
     height: fit-content;
     padding: 20px 0;
     background: whitesmoke;
 
     header {
-      width: 80vw;
+      width: 80%;
       margin: 20px auto;
 
       .logo {
@@ -1295,7 +1349,7 @@ main {
     }
 
     .pic {
-      width: 100vw;
+      width: 100%;
       height: 100vh;
       padding: 10px;
       background: url(../assets/lap.jpg);
@@ -1333,7 +1387,7 @@ main {
     }
 
     .question {
-      width: 90vw;
+      width: 90%;
       margin: auto;
       height: fit-content;
       padding: 10px;
@@ -1381,5 +1435,9 @@ main {
       }
     }
   }
+}
+
+main.squeeze {
+  width: 75vw;
 }
 </style>

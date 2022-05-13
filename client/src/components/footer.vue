@@ -32,7 +32,7 @@ export default {
 $baseColor: #072e54;
 
 .footer {
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   padding: 30px 20px;
   background: url(../assets/bg.png);
@@ -47,7 +47,7 @@ $baseColor: #072e54;
   }
 
   .footer-content {
-    width: 90vw;
+    width: 90%;
     height: fit-content;
     margin: auto;
     display: flex;
