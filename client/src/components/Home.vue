@@ -463,6 +463,10 @@ $tertiaryColor: rgba(65, 140, 228, 1);
 $footerColor: rgb(51, 2, 69);
 $fallback: rgb(19, 37, 62);
 $baseColor: #072e54;
+
+html {
+  scroll-behavior: smooth;
+}
 main {
   width: 100%;
   height: auto;
