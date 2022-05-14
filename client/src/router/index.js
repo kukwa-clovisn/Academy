@@ -70,9 +70,23 @@ const routes = [{
     path: '/admin',
     name: 'Admin',
     component: function () {
-      return import('../components/admin.vue')
-    }
-  }, {
+      return import('../views/admin.vue')
+    },
+    children: [{
+      path: '/admin/blog',
+      name: 'AdminBlog',
+      component: function () {
+        return import('../views/adminBlog.vue')
+      }
+    }, {
+      path: '/admin/crypto',
+      name: 'AdminCrypto',
+      component: function () {
+        return import('../views/adminCrypto.vue')
+      }
+    }]
+  },
+  {
     path: '/course_intro',
     name: 'Course_intro',
     component: function () {

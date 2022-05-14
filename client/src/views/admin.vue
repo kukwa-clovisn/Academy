@@ -36,11 +36,13 @@
       <div class="profile-items">
         <li>
           <span><i class="fa-solid fa-pen"></i></span>
-          <p>blog post</p>
+          <router-link to="/admin/blog" class="route">blog post</router-link>
         </li>
         <li>
           <span><i class="fa-solid fa-bitcoin-sign"></i></span>
-          <p>cryptocurrency</p>
+          <router-link to="/admin/crypto" class="route"
+            >cryptocurrency</router-link
+          >
         </li>
         <li>
           <span><i class="fa-solid fa-chart-line"></i></span>
@@ -58,7 +60,7 @@
         </li>
       </div>
     </div>
-    <div class="fa">router outlets here</div>
+    <router-view></router-view>
   </main>
 </template>
 
@@ -278,7 +280,8 @@ main {
           }
         }
 
-        p {
+        .route {
+          text-decoration: none;
           width: 70%;
           text-transform: capitalize;
           text-align: left;
