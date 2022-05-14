@@ -3,7 +3,7 @@ const courseController = require('../controllers/courseController')
 
 const router = express.Router()
 
-router.get('/', courseController);
-
+router.get('/:id', courseController.get);
+router.post('/', courseController.post)
 
 module.exports = router;

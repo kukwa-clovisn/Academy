@@ -19,3 +19,18 @@ Content-Type: application/json
      "password": "restuser;",
      "email":"rest@gmail.com"
 }
+
+###
+POST http://localhost:9002/course
+Content-Type: application/json
+
+     {
+          "name": "cryptocurrency",
+          "title": "The history and emergence of BITCOIN",
+          "videoUrl": "How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4",
+          "free": true
+     }
+
+
+###
+     GET  http://localhost:9002/course/kfalkfadf

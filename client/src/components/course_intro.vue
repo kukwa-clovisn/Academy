@@ -1,6 +1,6 @@
 <template>
   <main :class="{ squeeze: crypto.profileMenu }">
-    <header v-if="crypto.showCourseIntro">
+    <header>
       <nav class="logo">
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
       </nav>
@@ -41,7 +41,7 @@
         </span>
         <p>
           {{ crypto.courseUser }} <br />
-          <i> realtech@gmail.com</i>
+          <i :title="crypto.courseUserEmail">{{ crypto.courseUserEmail }}</i>
         </p>
       </div>
       <div class="profile-items">
@@ -117,212 +117,58 @@
       </ul>
       <h2>Tutorials point</h2>
       <div class="courses">
-        <div class="tutorial" @click="getCourse(1)">
+        <div
+          class="tutorial"
+          @click="getCourse(course.courseId)"
+          v-for="course in crypto.courseList"
+          :key="course.courseId"
+        >
           <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
+            <video :src="course.videoUrl" controls></video>
           </div>
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
-            <h3>the history and emergence of BITCOIN</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>what are cryptocurrencies and how they relate</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to use the Binance app on mobile (smart phone)</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to install and use the Trust wallet</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to use the Blockchain wallet</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to swap and transfer coins to and from the Trust wallet</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>howt to become a verified Binance user</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>Different trading methods in Binance</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to place a trade in Binance</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>coin market cap tutorial</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to use pancake swap</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to use cryptopanic and get crypto news</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>what is gate.io?</h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video
-              src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-              controls
-            ></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>
-              Different crypto apps in which you can hold long term coins in
-            </h3>
-            <button>start tutorial</button>
-          </div>
-        </div>
-        <div class="tutorial">
-          <div class="video">
-            <video :src="link" controls></video>
-          </div>
-          <div class="video-title">
-            <span class="free-course"><i>free</i></span>
-            <h3>how to verify your gate.io account</h3>
+            <h3>{{ course.courseTitle }}</h3>
             <button>start tutorial</button>
           </div>
         </div>
       </div>
     </div>
     <div class="single-tutorial course-1" v-if="crypto.course1">
-      <header>
+      <!-- <header v-if="crypto.showCourseIntro">
         <nav class="logo">
           <span title="World of Technology and more">
             AdvancedTechAcademy
           </span>
         </nav>
-        <nav class="free"><i>free</i></nav>
-      </header>
-      <h1>How to buy cryptocurrency with the Binance mobile (phone) app.</h1>
+        <nav>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/#contact">contact us</a>
+          </li>
+        </nav>
+        <button
+          class="profile-menu-button"
+          v-if="crypto.profileMenu"
+          @click="hideProfileMenu()"
+        >
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <nav
+          class="profile"
+          :title="'User:' + crypto.courseUser"
+          v-if="crypto.hideProfile"
+          @click="showProfileMenu()"
+        >
+          <span>
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <p>{{ crypto.courseUser }}</p>
+        </nav>
+      </header> -->
+      <h1>{{ crypto.title }}</h1>
       <h4>
         master course <br />
         by: codingHerald
@@ -379,12 +225,9 @@
         tutorial on how to use the Binance app on smart phone
       </h5>
       <div class="video">
-        <video
-          src="client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-          controls
-        ></video>
+        <video :src="crypto.url" controls></video>
       </div>
-      <p>how to buy crypto with the binance mobile (phone) app <sup>*</sup></p>
+      <p>{{ crypto.title }} <sup>*</sup></p>
       <div class="question">
         <label for="question">ask question(s) or leave a comment:</label>
         <textarea
@@ -399,14 +242,39 @@
       </div>
     </div>
     <div class="single-tutorial course-2" v-if="crypto.course2">
-      <header>
+      <!-- <header v-if="crypto.showCourseIntro">
         <nav class="logo">
           <span title="World of Technology and more">
             AdvancedTechAcademy
           </span>
         </nav>
-        <nav class="free"><i>free</i></nav>
-      </header>
+        <nav>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/#contact">contact us</a>
+          </li>
+        </nav>
+        <button
+          class="profile-menu-button"
+          v-if="crypto.profileMenu"
+          @click="hideProfileMenu()"
+        >
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <nav
+          class="profile"
+          :title="'User:' + crypto.courseUser"
+          v-if="crypto.hideProfile"
+          @click="showProfileMenu()"
+        >
+          <span>
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <p>{{ crypto.courseUser }}</p>
+        </nav>
+      </header> -->
       <h1>how to use the Binance app on mobile(Phone)</h1>
       <h4>
         master course <br />
@@ -509,13 +377,42 @@ export default {
       course1: false,
       course2: false,
       courseUser: "",
+      courseUserEmail: "",
       profileMenu: false,
       hideProfile: true,
+      title: "",
+      url: "",
+      courseList: [
+        {
+          courseId: "1flklad8daoi",
+          courseTitle: "how to learn about crypto coures 1",
+          videoUrl:
+            "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4",
+          free: true,
+        },
+        {
+          courseId: "8ajjdf8af9a",
+          courseTitle: "how to learn about crypto 2",
+          videoUrl:
+            "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4",
+          free: true,
+        },
+        {
+          courseId: "fja9ajf3jfa8",
+          courseTitle: "how to learn about crypto 3",
+          videoUrl:
+            "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4",
+          free: true,
+        },
+        {
+          courseId: "3kdlfk8fka",
+          courseTitle: "how to learn about crypto 4",
+          videoUrl:
+            "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4",
+          free: true,
+        },
+      ],
     });
-
-    const link = ref(
-      "client\src\assets\videos\How To Buy Cryptocurrency on Binance Mobile (Phone) App.mp4"
-    );
 
     // let config = {
     //   headers: {
@@ -539,6 +436,7 @@ export default {
             router.push("/login");
           } else {
             crypto.courseUser = response.data.user.username;
+            crypto.courseUserEmail = response.data.user.email;
           }
         }
       } catch (err) {
@@ -563,6 +461,8 @@ export default {
     const showCryptoCourses = () => {
       crypto.courses = true;
       crypto.showCourseIntro = false;
+      crypto.course1 = false;
+      crypto.course2 = false;
     };
 
     const showCourseIntroPage = () => {
@@ -572,11 +472,15 @@ export default {
 
     const getCourse = (courseId) => {
       console.log(courseId);
-      axios("http://localhost:9002/course").then((res) => console.log(res));
+      axios("/course/" + `${courseId}`).then((res) => {
+        crypto.title = res.data.title;
+        crypto.url = "client/src/assets/videos/" + res.data.videoUrl;
+        crypto.courses = false;
+        crypto.course1 = true;
+      });
     };
 
     return {
-      link,
       crypto,
       showProfileMenu,
       hideProfileMenu,
@@ -602,6 +506,7 @@ html {
 }
 main {
   width: 100vw;
+  margin: 0;
   background: linear-gradient(to bottom, rgb(169, 70, 91), $baseColor);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -623,7 +528,7 @@ main {
       li {
         list-style-type: none;
         width: 200px;
-        height: 60px;
+        height: 50px;
 
         a {
           width: 100%;
@@ -754,7 +659,7 @@ main {
     right: 0;
     z-index: 1;
     background: white;
-    box-shadow: 0 -3px 2pxz 0.5px whitesmoke;
+    box-shadow: 0 3px 2px 1px rgb(220, 219, 219);
     animation: slide-in 0.3s 1 linear forwards;
 
     .logo {
@@ -1039,7 +944,7 @@ main {
     padding: 20px;
     padding-top: 30px;
     background: white;
-    position: relative;
+    z-index: 0.4;
 
     @media screen and (max-width: 768px) {
       padding: 0;
@@ -1055,7 +960,7 @@ main {
       color: white;
       text-transform: capitalize;
       position: absolute;
-      top: 20px;
+      top: 120px;
       left: 50px;
     }
 
@@ -1225,67 +1130,6 @@ main {
     height: fit-content;
     padding: 20px 0;
     background: whitesmoke;
-
-    header {
-      width: 80%;
-      margin: 20px auto;
-
-      .logo {
-        width: 300px;
-        height: 90px;
-        border-radius: 0 0 10px 10px;
-        cursor: pointer;
-
-        span {
-          display: flex;
-          box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
-          border-radius: 10px 0 10px 0;
-          padding: 10px;
-          font: 700 20px "Nunito Sans", sans-serif;
-          background: linear-gradient(
-            to bottom,
-            $SecondaryColor 20%,
-            $tertiaryColor,
-            $primaryColor
-          );
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-
-          i {
-            font-size: 23px;
-            padding: 0;
-            margin: 0;
-          }
-        }
-
-        @media screen and (max-width: 1050px) {
-          width: 130px;
-        }
-      }
-
-      .free {
-        display: flex;
-        box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
-        border-radius: 10px 0 10px 0;
-        padding: 10px;
-        font: 700 20px "Nunito Sans", sans-serif;
-        background: linear-gradient(
-          to bottom,
-          $SecondaryColor 20%,
-          $tertiaryColor,
-          $primaryColor
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        i {
-          font-size: 23px;
-          padding: 0;
-          margin: 0;
-        }
-      }
-    }
 
     h1,
     h2,
