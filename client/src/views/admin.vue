@@ -97,7 +97,8 @@ $adminCol: rgb(21, 55, 101);
 
 main {
   width: 100vw;
-  background: white;
+  min-height: 100vh;
+  background: rgb(231, 231, 232);
   padding-top: 16vh;
 
   header {
