@@ -4,7 +4,7 @@
       <nav class="logo">
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
       </nav>
-      <nav>
+      <nav class="routes">
         <li>
           <a href="/">Home</a>
         </li>
@@ -62,6 +62,14 @@
         <li>
           <span><i class="fa-solid fa-code"></i></span>
           <p>Web developement</p>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-phone"></i></span>
+          <p>contact us</p>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-house"></i></span>
+          <p>home</p>
         </li>
         <li>
           <button>
@@ -463,6 +471,8 @@ export default {
       crypto.showCourseIntro = false;
       crypto.course1 = false;
       crypto.course2 = false;
+      crypto.profileMenu = false;
+      crypto.hideProfile = true;
     };
 
     const showCourseIntroPage = () => {
@@ -552,7 +562,7 @@ main {
     }
 
     .logo {
-      width: 300px;
+      width: fit-content;
       height: 90px;
       border-radius: 0 0 10px 10px;
       cursor: pointer;
@@ -578,10 +588,6 @@ main {
           padding: 0;
           margin: 0;
         }
-      }
-
-      @media screen and (max-width: 1050px) {
-        width: 130px;
       }
     }
 
@@ -649,6 +655,44 @@ main {
         text-overflow: ellipsis;
       }
     }
+
+    @media screen and (max-width: 1055px) {
+      width: 100%;
+
+      nav li {
+        width: fit-content;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      width: 95%;
+      margin: auto;
+      padding: 0;
+      .routes {
+        display: none;
+      }
+
+      .profile {
+        width: 30%;
+      }
+    }
+
+    @media screen and (max-width: 570px) {
+      width: 100%;
+      justify-content: space-between;
+
+      .logo {
+        margin: 0;
+
+        span {
+          font-size: 15px;
+        }
+      }
+
+      .profile {
+        font-size: 13px;
+      }
+    }
   }
 
   .profile-menu {
@@ -663,7 +707,7 @@ main {
     animation: slide-in 0.3s 1 linear forwards;
 
     .logo {
-      width: 300px;
+      width: fit-content;
       height: 90px;
       border-radius: 0 0 10px 10px;
       cursor: pointer;
@@ -692,10 +736,6 @@ main {
           padding: 0;
           margin: 0;
         }
-      }
-
-      @media screen and (max-width: 1050px) {
-        width: 130px;
       }
     }
 
@@ -750,7 +790,7 @@ main {
         align-items: center;
         width: 80%;
         margin: 5px auto;
-        height: 60px;
+        height: 45px;
         cursor: pointer;
 
         span {
@@ -802,6 +842,14 @@ main {
           transform: scale(0.9) translateX(10px);
         }
       }
+    }
+
+    @media screen and (max-width: 770px) {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: fit-content;
+      padding: 15px;
     }
   }
 
@@ -1325,5 +1373,27 @@ main {
 
 main.squeeze {
   width: 75vw;
+  header {
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 770px) {
+    width: 100vw;
+
+    header {
+      justify-content: flex-start;
+
+      @keyframes slice-in {
+        to {
+          top: 30px;
+          right: 30px;
+        }
+      }
+    }
+
+    .profile-menu .logo {
+      display: none;
+    }
+  }
 }
 </style>
