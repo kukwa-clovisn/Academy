@@ -3,6 +3,18 @@
     <h1>write a blog!</h1>
     <form @submit.prevent="postBlog()">
       <div class="input">
+        <label for="author">author:</label
+        ><textarea
+          name="author"
+          id="author"
+          cols="30"
+          rows="10"
+          v-model="post.author"
+          placeholder="Author's name"
+          required
+        ></textarea>
+      </div>
+      <div class="input">
         <label for="title"> post title:</label>
         <textarea
           name="title"
@@ -76,6 +88,7 @@ export default {
   name: "AdminBlog",
   setup() {
     const post = reactive({
+      author: "",
       title: "",
       subTitle: "",
       message: "",
@@ -87,7 +100,7 @@ export default {
 
     function postBlog() {
       axios
-        .post("/blog", post, {
+        .post("/admin/blog", post, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -152,7 +165,7 @@ main {
     .input {
       width: 100%;
       height: fit-content;
-      margin: 30px auto;
+      margin: 20px auto;
       padding: 20px;
 
       label {

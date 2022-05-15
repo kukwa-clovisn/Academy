@@ -33,4 +33,23 @@ Content-Type: application/json
 
 
 ###
-     GET  http://localhost:9002/course/kfalkfadf
+     POST http://localhost:9002/admin/blog
+     Content-Type: application/json
+
+     {
+  "title": "a post or blog title",
+  "subTitle": "a post sub title",
+  "message": "the message from a post",
+  "tags": "crypto,forex,blockchain"
+}
+
+###
+POST http://localhost:9002/admin/auth
+Content-Type: application/json
+
+
+{
+     "username": "kukwa clovis ngong",
+     "email": "kukwaclovisngong3@gmail.comhgg",
+     "password": "adminkcn"
+}

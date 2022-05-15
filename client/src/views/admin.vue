@@ -1,18 +1,10 @@
 <template>
-  <main :class="{ squeeze: admin.shrink }">
+  <main :class="{ squeeze: shrink }">
     <header>
-      <button
-        class="profile-menu-button"
-        @click="shrinkPage()"
-        v-if="admin.shrink"
-      >
+      <button class="profile-menu-button" @click="shrinkPage()" v-if="shrink">
         <i class="fa-solid fa-bars-staggered"></i>
       </button>
-      <button
-        class="profile-menu-button"
-        @click="expandPage()"
-        v-if="!admin.shrink"
-      >
+      <button class="profile-menu-button" @click="expandPage()" v-if="!shrink">
         <i class="fa-solid fa-bars-staggered"></i>
       </button>
       <nav class="logo">
@@ -23,14 +15,14 @@
         <a href="/">home</a>
       </nav>
     </header>
-    <div class="profile-menu" v-if="admin.shrink">
+    <div class="profile-menu" v-if="shrink">
       <div class="profile-header">
         <span>
           <i class="fa-solid fa-user"></i>
         </span>
-        <p>
-          admin name <br />
-          <i>admin email</i>
+        <p :title="adminResponse.name + '\n' + adminResponse.email">
+          {{ adminResponse.name }}<br />
+          <i>{{ adminResponse.email }}</i>
         </p>
       </div>
       <div class="profile-items">
@@ -82,27 +74,134 @@
         </router-link>
       </div>
     </div>
+    <div class="authentication" v-if="auth">
+      <form @submit.prevent="authAdmin()">
+        <div class="auth">
+          <label for="admin-name">name:</label>
+          <input
+            type="text"
+            name="username"
+            id="admin-name"
+            v-model="admin.username"
+            placeholder="Admin Name..."
+            required
+          />
+        </div>
+        <div class="auth">
+          <label for="admin-email">admin email:</label>
+          <input
+            type="email"
+            name="email"
+            id="admin-email"
+            v-model="admin.email"
+            placeholder="Admin Email..."
+            required
+          />
+        </div>
+        <div class="auth">
+          <label for="password">passcode:</label
+          ><input
+            type="password"
+            name="password"
+            id="passcode"
+            v-model="admin.password"
+            placeholder="Secret key..."
+            required
+          />
+        </div>
+        <button type="submit">access page</button>
+        <div class="not-admin">
+          <a href="/">i'm not an admin</a><a href="/">home</a>
+        </div>
+      </form>
+      <div class="error" v-if="authError">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span>error: Access Denied.</span>
+      </div>
+    </div>
     <router-view></router-view>
   </main>
 </template>
 
 <script>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import axios from "axios";
 export default {
   name: "Admin",
   setup() {
+    const shrink = ref(true);
+
     const admin = reactive({
-      shrink: true,
+      username: "",
+      email: "",
+      password: "",
     });
+
+    let adminResponse = reactive({
+      name: "",
+      email: "",
+    });
+
+    const auth = ref(true);
+    const authError = ref(false);
+
     const shrinkPage = () => {
-      admin.shrink = false;
+      shrink.value = false;
     };
 
     const expandPage = () => {
-      admin.shrink = true;
+      shrink.value = true;
     };
 
-    return { admin, shrinkPage, expandPage };
+    async function authAdmin() {
+      try {
+        let response = await axios.post("/admin/auth", admin, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response || response.statusText !== "OK") {
+          auth.value = true;
+          authError.value = true;
+          alert("dfklaf");
+          setTimeout(post_error, 3000);
+        } else {
+          auth.value = false;
+          adminResponse.name = response.data.username;
+          adminResponse.email = response.data.email;
+        }
+
+        console.log(response);
+
+        admin.username = "";
+        admin.email = "";
+        admin.password = "";
+      } catch (err) {
+        console.log(err);
+        auth.value = true;
+        authError.value = true;
+        setTimeout(post_error, 3000);
+        admin.username = "";
+        admin.email = "";
+        admin.password = "";
+      }
+    }
+
+    function post_error() {
+      authError.value = false;
+    }
+
+    return {
+      admin,
+      auth,
+      authError,
+      shrink,
+      adminResponse,
+      shrinkPage,
+      expandPage,
+      authAdmin,
+    };
   },
 };
 </script>
@@ -364,6 +463,139 @@ main {
     }
     to {
       left: 0;
+    }
+  }
+
+  .authentication {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $fallback;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      width: 550px;
+      height: fit-content;
+      background: white;
+      border-radius: 5px;
+      padding: 20px;
+
+      .auth {
+        width: 100%;
+        height: 50px;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        label {
+          text-transform: capitalize;
+          text-align: left;
+          width: 30%;
+          color: $col;
+        }
+        input {
+          width: 70%;
+          height: 100%;
+          border: none;
+          outline: none;
+          background: whitesmoke;
+          color: $col;
+          padding: 3px 10px;
+          border-radius: 3px;
+        }
+      }
+
+      p {
+        color: red;
+      }
+      button {
+        width: 100%;
+        padding: 0 10px;
+        height: 50px;
+        margin: 10px auto;
+        background: $SecondaryColor;
+        color: white;
+        text-transform: capitalize;
+        border: none;
+        border-radius: 3px;
+      }
+
+      .not-admin {
+        width: 100%;
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          text-transform: capitalize;
+          color: $col;
+          font: 500 13px "Poppins", sans-serif;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      @media screen and (max-width: 570px) {
+        width: 98%;
+        .auth {
+          height: fit-content;
+          flex-direction: column;
+
+          label,
+          input {
+            width: 100%;
+            height: 35%;
+          }
+          input {
+            height: 60px;
+          }
+        }
+      }
+    }
+
+    .error {
+      width: fit-content;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: red;
+      border-radius: 4px;
+      padding: 20px;
+      position: fixed;
+      left: 40vw;
+      top: 25vh;
+      z-index: 1;
+      animation: pop 2s linear alternate forwards;
+
+      i {
+        font-size: 30px;
+        margin-right: 10px;
+        color: white;
+      }
+
+      span {
+        color: white;
+      }
+    }
+
+    @keyframes pop {
+      from {
+        top: 10vh;
+      }
+      to {
+        top: 25vh;
+      }
     }
   }
 }

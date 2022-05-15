@@ -41,14 +41,14 @@ const signupRoute = require('./routes/signup')
 const signinRoute = require('./routes/signin')
 const courseRoute = require('./routes/course')
 const tokenRoute = require('./routes/token')
-const blogRoute = require('./routes/blog')
+const adminRoute = require('./routes/admin')
 
 // getting Routes
 app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
 app.use('/course', courseRoute);
 app.use('/token', tokenRoute);
-app.use('/blog', blogRoute);
+app.use('/admin', adminRoute);
 
 // exporting the app.
 module.exports = app;

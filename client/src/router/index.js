@@ -67,7 +67,7 @@ const routes = [{
       return import('../components/member.vue')
     }
   }, {
-    path: '/admin',
+    path: '/admin/blog',
     name: 'Admin',
     component: function () {
       return import('../views/admin.vue')
