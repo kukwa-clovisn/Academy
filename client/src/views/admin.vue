@@ -19,7 +19,7 @@
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
       </nav>
 
-      <nav>
+      <nav class="large-screen-only">
         <a href="/">home</a>
       </nav>
     </header>
@@ -74,6 +74,12 @@
             <p>view posts</p>
           </li>
         </router-link>
+        <router-link to="/" class="small-screen-only">
+          <li>
+            <span><i class="fa-solid fa-house"></i></span>
+            <p>home</p>
+          </li>
+        </router-link>
       </div>
     </div>
     <router-view></router-view>
@@ -116,6 +122,7 @@ main {
   min-height: 100vh;
   background: rgb(231, 231, 232);
   padding-top: 16vh;
+  overflow-x: hidden;
 
   header {
     width: 100%;
@@ -128,6 +135,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 
     .profile-menu-button {
       width: 50px;
@@ -183,15 +191,26 @@ main {
       font: 500 16px "Poppins", sans-serif;
       text-transform: capitalize;
     }
+
+    @media screen and (max-width: 500px) {
+      padding: 0 10px;
+      flex-direction: row-reverse;
+      .large-screen-only {
+        display: none;
+      }
+      .logo span {
+        font-size: 15px;
+      }
+    }
   }
 
   .profile-menu {
-    width: 230px;
+    width: 19vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    // z-index: ;
     background: $adminCol;
     box-shadow: 0 3px 2px 1px rgb(220, 219, 219);
     animation: slide-in 0.2s 1 linear alternate forwards;
@@ -281,6 +300,10 @@ main {
         color: white;
       }
 
+      .small-screen-only {
+        display: none;
+      }
+
       li {
         list-style-type: none;
         display: flex;
@@ -310,6 +333,19 @@ main {
         &:hover {
           background: rgb(69, 89, 114);
         }
+
+        @media screen and (max-width: 1000px) {
+          span i,
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .small-screen-only {
+          display: flex;
+        }
       }
     }
 
@@ -336,7 +372,15 @@ main.squeeze {
   width: 81vw;
   float: right;
   header {
-    width: 81vw;
+    width: 81%;
+  }
+
+  @media screen and (max-width: 770px) {
+    width: 100vw;
+
+    header {
+      width: 100%;
+    }
   }
 }
 </style>

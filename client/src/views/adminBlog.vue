@@ -199,9 +199,10 @@ main {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin: auto;
 
       button {
-        width: 300px;
+        width: 50%;
         height: 50px;
         border: none;
         background: $SecondaryColor;
@@ -217,6 +218,15 @@ main {
         text-align: right;
         width: 100px;
         color: $SecondaryColor;
+      }
+    }
+
+    @media screen and (max-width: 855px) {
+      width: 100%;
+
+      .input,
+      .btns {
+        width: 90%;
       }
     }
   }
