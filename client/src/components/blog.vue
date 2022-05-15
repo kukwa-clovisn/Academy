@@ -41,12 +41,7 @@
             <i class="fa-solid fa-chart-line"></i>
           </div>
           <h2>recent news update</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
-            dolores, odit repellat maxime iusto qui quo veritatis voluptate,
-            ipsam corrupti sed accusamus odio porro eaque nam nostrum maiores?
-            Deserunt, molestiae!
-          </p>
+          <p>We upload recent and valid news here as often as possible.</p>
         </div>
         <div class="flex-content">
           <div class="icon">
@@ -54,10 +49,9 @@
           </div>
           <h2>bond</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
-            dolores, odit repellat maxime iusto qui quo veritatis voluptate,
-            ipsam corrupti sed accusamus odio porro eaque nam nostrum maiores?
-            Deserunt, molestiae!
+            We upload news and updates from reliable sources. We are linked to
+            sources that provide valid and reliable information in addition to
+            our research and studies.
           </p>
         </div>
         <div class="flex-content">
@@ -66,10 +60,8 @@
           </div>
           <h2>our news update</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
-            dolores, odit repellat maxime iusto qui quo veritatis voluptate,
-            ipsam corrupti sed accusamus odio porro eaque nam nostrum maiores?
-            Deserunt, molestiae!
+            We're international, we're worldwide we aren't limited to a certain
+            area as long as what we have is of value we bring it to you.
           </p>
         </div>
       </div>
@@ -86,7 +78,23 @@
         <button><a href="/signup">start now!</a></button>
       </section>
     </div>
-    <div class="instructors">
+    <div class="posts">
+      <div class="post">
+        <h1 class="title">post title</h1>
+        <h3 class="sub-title">sadfub tittle here</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas culpa
+          necessitatibus amet repellendus reprehenderit suscipit maxime
+          reiciendis ad explicabo. Quasi consequatur aut, nemo dolorem in ut
+          officiis voluptatum voluptates? Ea deserunt eius dicta natus
+          perspiciatis magnam qui minima laborum pariatur recusandae quia
+          inventore consectetur sequi minus, laboriosam consequatur hic soluta.
+        </p>
+        <h5 class="tags">#crypto #forex</h5>
+      </div>
+    </div>
+
+    <!-- <div class="instructors">
       <div class="instructors-div">
         <div class="instructor">
           <div class="img">
@@ -149,7 +157,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <Footer />
   </main>
 </template>
@@ -340,6 +348,32 @@ main {
           align-items: center;
           font: 500 19px "Poppins", sans-serif;
         }
+      }
+    }
+  }
+
+  .posts {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    background: $fallback;
+
+    .post {
+      width: 90%;
+      height: fit-content;
+      padding: 20px;
+      margin: 10px auto;
+      border-radius: 5px;
+      background: rgb(244, 244, 244);
+
+      .title {
+        font: 800 35px "Nunito sans", sans-serif;
+        text-transform: capitalize;
+        padding: 10px;
+      }
+
+      .sub-title {
+        font: 500 18px "Poppins", sans-serif;
       }
     }
   }

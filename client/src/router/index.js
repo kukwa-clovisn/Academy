@@ -84,6 +84,12 @@ const routes = [{
       component: function () {
         return import('../views/adminCrypto.vue')
       }
+    }, {
+      path: '/admin/closed',
+      name: 'AdminEmpty',
+      component: function () {
+        return import('../views/adminEmpty.vue')
+      }
     }]
   },
   {

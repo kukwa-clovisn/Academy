@@ -34,30 +34,46 @@
         </p>
       </div>
       <div class="profile-items">
-        <li>
-          <span><i class="fa-solid fa-pen"></i></span>
-          <router-link to="/admin/blog" class="route">blog post</router-link>
-        </li>
-        <li>
-          <span><i class="fa-solid fa-bitcoin-sign"></i></span>
-          <router-link to="/admin/crypto" class="route"
-            >cryptocurrency</router-link
-          >
-        </li>
-        <li>
-          <span><i class="fa-solid fa-chart-line"></i></span>
-          <p>Forex</p>
-        </li>
-        <li>
-          <span>
-            <i class="fa-brands fa-sketch"></i>
-          </span>
-          <p>Graphic design</p>
-        </li>
-        <li>
-          <span><i class="fa-solid fa-code"></i></span>
-          <p>Web developement</p>
-        </li>
+        <router-link to="/admin/blog" class="route">
+          <li>
+            <span><i class="fa-solid fa-pen"></i></span>
+            <p>blog post</p>
+          </li></router-link
+        >
+
+        <router-link to="/admin/crypto" class="route">
+          <li>
+            <span><i class="fa-solid fa-bitcoin-sign"></i></span>
+            <p>cryptocurrency</p>
+          </li></router-link
+        >
+        <router-link to="/admin/closed" class="route">
+          <li>
+            <span><i class="fa-solid fa-chart-line"></i></span>
+            <p>Forex</p>
+          </li>
+        </router-link>
+
+        <router-link to="/admin/closed" class="route">
+          <li>
+            <span>
+              <i class="fa-brands fa-sketch"></i>
+            </span>
+            <p>Graphic design</p>
+          </li>
+        </router-link>
+        <router-link to="/admin/closed" class="route">
+          <li>
+            <span><i class="fa-solid fa-code"></i></span>
+            <p>Web developement</p>
+          </li>
+        </router-link>
+        <router-link to="/blog">
+          <li>
+            <span><i class="fa-solid fa-blog"></i></span>
+            <p>view posts</p>
+          </li>
+        </router-link>
       </div>
     </div>
     <router-view></router-view>
@@ -257,6 +273,14 @@ main {
       width: 100%;
       height: fit-content;
 
+      .route {
+        text-decoration: none;
+        width: 100%;
+        text-transform: capitalize;
+        text-align: left;
+        color: white;
+      }
+
       li {
         list-style-type: none;
         display: flex;
@@ -268,24 +292,18 @@ main {
         cursor: pointer;
 
         span {
-          width: 40px;
-          height: 40px;
-          border-radius: 100%;
+          width: 28%;
           display: flex;
           justify-content: center;
           align-items: center;
-
           i {
             font-size: 20px;
             color: white;
           }
         }
-
-        .route {
-          text-decoration: none;
-          width: 70%;
-          text-transform: capitalize;
+        p {
           text-align: left;
+          width: 70%;
           color: white;
         }
 

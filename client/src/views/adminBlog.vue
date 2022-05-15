@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1>write a blog!</h1>
-    <form>
+    <form @submit.prevent="postBlog()">
       <div class="input">
         <label for="title"> post title:</label>
         <textarea
@@ -9,6 +9,7 @@
           id="title"
           cols="30"
           rows="10"
+          v-model="post.title"
           required
           placeholder="Post Title..."
         ></textarea>
@@ -20,6 +21,7 @@
           id="sub-title"
           cols="30"
           rows="10"
+          v-model="post.subTitle"
           required
           placeholder="sub title "
         ></textarea>
@@ -31,6 +33,7 @@
           id="message"
           cols="30"
           rows="10"
+          v-model="post.message"
           required
           placeholder="write message here..."
         ></textarea>
@@ -42,6 +45,7 @@
           id="tags"
           cols="30"
           rows="10"
+          v-model="post.tags"
           required
           placeholder="Enter tags here...."
         ></textarea>
@@ -51,6 +55,14 @@
         ><button type="reset">cancel</button>
       </div>
     </form>
+    <div class="done" v-if="success">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>post successfully uploaded.</span>
+    </div>
+    <div class="error" v-if="postError">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span>error: post not uploaded.</span>
+    </div>
     <footer>
       <i class="fa-solid fa-copyright"></i>coding <span>Herald</span>2022
     </footer>
@@ -58,8 +70,53 @@
 </template>
 
 <script>
+import axios from "axios";
+import { reactive, ref } from "vue";
 export default {
   name: "AdminBlog",
+  setup() {
+    const post = reactive({
+      title: "",
+      subTitle: "",
+      message: "",
+      tags: "",
+    });
+
+    let success = ref(false);
+    let postError = ref(false);
+
+    function postBlog() {
+      axios
+        .post("/blog", post, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          post.title = "";
+          post.subTitle = "";
+          post.message = "";
+          post.tags = "";
+          if (res.statusText === "OK") {
+            success.value = true;
+            setTimeout(pop, 3000);
+          } else {
+            error.value = true;
+            setTimeout(post_error, 3000);
+          }
+        });
+    }
+
+    function pop() {
+      success.value = false;
+    }
+    function post_error() {
+      postError.value = false;
+    }
+
+    return { success, postError, post, postBlog };
+  },
 };
 </script>
 
@@ -161,6 +218,49 @@ main {
         width: 100px;
         color: $SecondaryColor;
       }
+    }
+  }
+
+  .done,
+  .error {
+    width: fit-content;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(71, 243, 151);
+    border-radius: 4px;
+    padding: 20px;
+    position: fixed;
+    left: 40vw;
+    top: 25vh;
+    z-index: 1;
+    animation: pop 2s linear alternate forwards;
+
+    i {
+      font-size: 30px;
+      margin-right: 10px;
+      color: white;
+    }
+
+    span {
+      color: black;
+    }
+  }
+
+  .error {
+    background: red;
+    span {
+      color: white;
+    }
+  }
+
+  @keyframes pop {
+    from {
+      top: 10vh;
+    }
+    to {
+      top: 25vh;
     }
   }
 

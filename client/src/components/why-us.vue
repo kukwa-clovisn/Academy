@@ -42,7 +42,7 @@
     <div class="div-flex">
       <div class="div-flex-content">
         <div class="head">
-          <img src="../assets/logo-w.jpeg" alt="" />
+          <i class="fa-solid fa-hand-fist"></i>
         </div>
         <div class="bottom">
           <h3>realibility</h3>
@@ -54,7 +54,7 @@
       </div>
       <div class="div-flex-content">
         <div class="head">
-          <img src="../assets/logo-w.jpeg" alt="" />
+          <i class="fa-solid fa-arrow-trend-up"></i>
         </div>
         <div class="bottom">
           <h3>sustainability</h3>
@@ -66,7 +66,7 @@
       </div>
       <div class="div-flex-content">
         <div class="head">
-          <img src="../assets/logo-w.jpeg" alt="" />
+          <i class="fa-solid fa-fingerprint"></i>
         </div>
         <div class="bottom">
           <h3>uniqueness</h3>
@@ -282,11 +282,15 @@ main {
 
       .head {
         width: 100%;
-        height: 190px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
 
-        img {
-          width: 100%;
+        i {
+          font-size: 90px;
+          color: $primeColor;
         }
       }
       .bottom {
