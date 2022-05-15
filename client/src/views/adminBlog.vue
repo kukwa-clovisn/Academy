@@ -59,7 +59,7 @@
           rows="10"
           v-model="post.tags"
           required
-          placeholder="Enter tags here...."
+          placeholder="Seperate each tag with a comma(,)...."
         ></textarea>
       </div>
       <div class="btns">

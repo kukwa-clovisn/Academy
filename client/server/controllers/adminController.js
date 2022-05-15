@@ -1,4 +1,5 @@
 const adminModel = require('../models/adminModel');
+const postModel = require('../models/postModel');
 
 const capitalizeName = require('../middlewares/capitalize');
 const verifyToken = require('../middlewares/verifyHash')
@@ -52,9 +53,28 @@ module.exports = {
 
           })
      },
-     blog: (req, res) => {
-          console.log(req.body);
-          return res.json(req.body);
+     blog: async (req, res) => {
+          try {
+               console.log(req.body);
+               let author = capitalizeName(req.body.author)
+               let tags = req.body.tags;
+               tags = tags.split(',');
+
+               let post = {
+                    author,
+                    title: req.body.title,
+                    subTitle: req.body.subTitle,
+                    message: req.body.message,
+                    tags
+               }
+
+               // await postModel.create(post)
+
+               return res.json(post);
+          } catch (err) {
+               throw err;
+          }
+
      },
      course: (req, res) => {
           console.log(req.body)

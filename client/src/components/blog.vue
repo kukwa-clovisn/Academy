@@ -14,11 +14,12 @@
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>
-        <form action="/" method="GET" class="research">
+        <form @submit.prevent="searchPosts()" class="research">
           <input
             type="search"
             name="search"
             id="search"
+            v-model="post.title"
             placeholder="Search...."
             required
           />
@@ -78,7 +79,7 @@
         <button><a href="/signup">start now!</a></button>
       </section>
     </div>
-    <div class="posts">
+    <div class="posts" id="posts">
       <div class="post">
         <h1 class="title">post title</h1>
         <h3 class="sub-title">sadfub tittle here</h3>
@@ -91,6 +92,7 @@
           inventore consectetur sequi minus, laboriosam consequatur hic soluta.
         </p>
         <h5 class="tags">#crypto #forex</h5>
+        <p class="author">author: author naem</p>
       </div>
     </div>
 
@@ -163,6 +165,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import { reactive, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import Header from "./header.vue";
 import Footer from "./footer.vue";
 export default {
@@ -170,6 +175,36 @@ export default {
   components: {
     Header,
     Footer,
+  },
+  setup() {
+    const router = useRouter();
+
+    const post = reactive({
+      title: "",
+    });
+
+    async function getPosts() {
+      try {
+        let response = await axios("/post");
+        console.log(response);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    onMounted(() => {
+      getPosts();
+    });
+
+    function searchPosts() {
+      let posts = axios("/post/" + `${post.title}`);
+      post.title = "";
+      router.push("#posts");
+
+      console.log(posts);
+    }
+
+    return { post, searchPosts };
   },
 };
 </script>
@@ -361,7 +396,7 @@ main {
     .post {
       width: 90%;
       height: fit-content;
-      padding: 20px;
+      padding: 25px;
       margin: 10px auto;
       border-radius: 5px;
       background: rgb(244, 244, 244);
@@ -374,6 +409,18 @@ main {
 
       .sub-title {
         font: 500 18px "Poppins", sans-serif;
+      }
+      h5 {
+        text-align: left;
+      }
+      p {
+        text-align: left;
+      }
+      .author {
+        text-align: left;
+        text-transform: uppercase;
+        padding: 10px;
+        font: 600 15px "Poppins", sans-serif;
       }
     }
   }

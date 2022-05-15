@@ -7,8 +7,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9002/token
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlc3QiLCJpYXQiOjE2NTIzNzE1NDcsImV4cCI6MTY1MjM3MTU2N30.7t-woSA1ARy9PCuRMt2ja7jeDXUcQGDi2gV8wl--YC8
+GET http://localhost:9002/post
 
 ###
 POST http://localhost:9002/signup
@@ -37,6 +36,7 @@ Content-Type: application/json
      Content-Type: application/json
 
      {
+"author": "coding herald",
   "title": "a post or blog title",
   "subTitle": "a post sub title",
   "message": "the message from a post",

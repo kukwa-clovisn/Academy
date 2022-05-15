@@ -18,7 +18,10 @@ const postSchema = new mongoose.Schema({
           type: Boolean,
           required: true
      },
-     date: Date.now()
+     date: {
+          type: String,
+          required: true
+     }
 }, {
      collection: 'posts'
 })
