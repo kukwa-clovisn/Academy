@@ -68,13 +68,13 @@
             <p>Web developement</p>
           </li>
         </router-link>
-        <router-link to="/blog">
+        <router-link to="/blog" class="route">
           <li>
             <span><i class="fa-solid fa-blog"></i></span>
             <p>view posts</p>
           </li>
         </router-link>
-        <router-link to="/" class="small-screen-only">
+        <router-link to="/" class="small-screen-only route">
           <li>
             <span><i class="fa-solid fa-house"></i></span>
             <p>home</p>
