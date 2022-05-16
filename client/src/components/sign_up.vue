@@ -54,11 +54,18 @@
               required
             />
           </div>
-          <div class="errormsg" v-if="data.errormsg">
-            <p>{{ data.msg }}</p>
-          </div>
           <button type="submit">sign up</button>
         </form>
+      </div>
+      <div class="response-div">
+        <div class="done" v-if="success">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>{{ data.msg }}</span>
+        </div>
+        <div class="error" v-if="postError">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>{{ data.msg }}</span>
+        </div>
       </div>
     </div>
   </main>
@@ -67,7 +74,7 @@
 <script>
 import axios from "axios";
 import { useRouter } from "vue-router";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import Header from "./header.vue";
 export default {
   name: "Sign_up",
@@ -79,14 +86,29 @@ export default {
       username: "",
       password: "",
       email: "",
-      errormsg: false,
       msg: "",
     });
 
+    let success = ref(false);
+    let postError = ref(false);
+    let username = ref("");
+
+    function pop() {
+      success.value = false;
+
+      router.push({
+        name: "Sign_in",
+        params: {
+          username: `${username.value}`,
+        },
+      });
+    }
+    function post_error() {
+      postError.value = false;
+    }
+
     function signup() {
       if (data.username != "" && data.password.length > 4) {
-        data.msg = "processing....";
-        data.errormsg = true;
         axios
           .post(
             "http://localhost:9002/signup",
@@ -101,29 +123,38 @@ export default {
               },
             }
           )
-
           .then((res) => {
-            data.msg = res.data.msg;
+            data.msg = "pending....";
+            success.value = true;
             console.log(res);
             if (res.statusText === "OK") {
-              router.push({
-                name: "Sign_in",
-                params: {
-                  username: `${res.data.response.username}`,
-                },
-              });
+              success.value = true;
+              data.msg = res.data.msg;
+              username.value = res.data.username;
+              setTimeout(pop, 3000);
             }
-            console.log(res.statusText);
+          })
+          .catch((err) => {
+            if (err) {
+              console.log("err", err);
+              postError.value = true;
+              data.msg = err.response.data.msg;
+
+              return setTimeout(post_error, 3000);
+            }
+            console.log(err);
           });
       } else {
-        data.errormsg = true;
-        console.log("invalid password");
-
-        data.msg = "invalid password";
+        postError.value = true;
+        data.msg = "invalid input(s)";
+        setTimeout(post_error, 3000);
       }
+      data.username = "";
+      data.email = "";
+      data.password = "";
     }
 
-    return { data, signup };
+    return { postError, success, data, signup };
   },
 };
 </script>
@@ -470,6 +501,60 @@ main {
         }
       }
     }
+
+    .response-div {
+      width: 90%;
+      height: fit-content;
+      position: fixed;
+      left: 5%;
+      top: 5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .done,
+    .error {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgb(71, 243, 151);
+      border-radius: 4px;
+      padding: 20px;
+      z-index: 1;
+      position: relative;
+      animation: pop 1s linear alternate forwards;
+
+      i {
+        font-size: 30px;
+        margin-right: 10px;
+        color: white;
+      }
+
+      span {
+        color: black;
+        white-space: pre-wrap;
+      }
+    }
+
+    .error {
+      background: $SecondaryColor;
+      span {
+        color: white;
+      }
+    }
+
+    @keyframes pop {
+      from {
+        top: 0;
+      }
+      to {
+        top: 15vh;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       padding-top: 100px;
     }

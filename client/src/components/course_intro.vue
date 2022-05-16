@@ -71,11 +71,6 @@
           <span><i class="fa-solid fa-house"></i></span>
           <p>home</p>
         </li>
-        <li>
-          <button>
-            <i class="fa-solid fa-power-off"></i><span> sign out</span>
-          </button>
-        </li>
       </div>
     </div>
     <div class="course-intro" v-if="crypto.showCourseIntro">
@@ -428,28 +423,23 @@ export default {
     //   },
     // };
 
-    const refreshpage = async () => {
-      try {
-        if (
-          !localStorage.getItem("accessToken") ||
-          localStorage.getItem("accessToken") == null
-        ) {
-          router.push({
-            name: "Sign_in",
-          });
-        } else {
-          let response = await axios("/token");
-
-          if (response === null) {
-            router.push("/login");
-          } else {
-            crypto.courseUser = response.data.user.username;
-            crypto.courseUserEmail = response.data.user.email;
-          }
-        }
-      } catch (err) {
-        console.log(err);
+    const refreshpage = () => {
+      console.log("fakdfjladf");
+      if (
+        !localStorage.getItem("accessToken") ||
+        localStorage.getItem("accessToken") == null
+      ) {
+        return router.push("/login");
       }
+      axios("/token")
+        .then((res) => {
+          console.log(res);
+          crypto.courseUser = res.data.user.username;
+          crypto.courseUserEmail = res.data.user.email;
+        })
+        .catch((err) => {
+          router.push("/login");
+        });
     };
 
     onMounted(() => {

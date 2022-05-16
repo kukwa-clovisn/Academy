@@ -105,22 +105,20 @@ const routes = [{
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       };
+      console.log('wandas', localStorage.getItem('accessToken'))
       axios('/token', config).then(res => {
         console.log(res)
 
-        if (res.data.err || res.data.expiredAt) {
-
-          next("/login")
-        } else {
+        if (res.statusText === "OK") {
           next()
+        } else {
+          next('/login')
         }
+      }).catch(err => {
+        // console.log("err", err)
+        next('/login')
       })
-      // if (response.user) {
-      //   // ...conditions to check before getting into the route
-      //   next();
-      // } else {
-      //   next('/login')
-      // }
+      console.log('hdfl')
 
     }
   }

@@ -2,10 +2,10 @@
   <main :class="{ squeeze: shrink }">
     <header>
       <button class="profile-menu-button" @click="shrinkPage()" v-if="shrink">
-        <i class="fa-solid fa-bars-staggered"></i>
+        <i class="fa-solid fa-align-left"></i>
       </button>
       <button class="profile-menu-button" @click="expandPage()" v-if="!shrink">
-        <i class="fa-solid fa-bars-staggered"></i>
+        <i class="fa-solid fa-align-right"></i>
       </button>
       <nav class="logo">
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
@@ -140,6 +140,7 @@ export default {
     let adminResponse = reactive({
       name: "",
       email: "",
+      status: "",
     });
 
     const auth = ref(true);
@@ -154,38 +155,31 @@ export default {
     };
 
     async function authAdmin() {
-      try {
-        let response = await axios.post("/admin/auth", admin, {
+      axios
+        .post("/admin/auth", admin, {
           headers: {
             "Content-Type": "application/json",
           },
-        });
-
-        if (!response || response.statusText !== "OK") {
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.statusText === "OK") {
+            auth.value = false;
+            adminResponse.name = res.data.username;
+            adminResponse.email = res.data.email;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
           auth.value = true;
           authError.value = true;
-          alert("dfklaf");
+          adminResponse.status = err.response.data.msg;
           setTimeout(post_error, 3000);
-        } else {
-          auth.value = false;
-          adminResponse.name = response.data.username;
-          adminResponse.email = response.data.email;
-        }
+        });
 
-        console.log(response);
-
-        admin.username = "";
-        admin.email = "";
-        admin.password = "";
-      } catch (err) {
-        console.log(err);
-        auth.value = true;
-        authError.value = true;
-        setTimeout(post_error, 3000);
-        admin.username = "";
-        admin.email = "";
-        admin.password = "";
-      }
+      admin.username = "";
+      admin.email = "";
+      admin.password = "";
     }
 
     function post_error() {
@@ -569,14 +563,14 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: red;
+      background: $SecondaryColor;
       border-radius: 4px;
       padding: 20px;
       position: fixed;
       left: 40vw;
       top: 25vh;
       z-index: 1;
-      animation: pop 2s linear alternate forwards;
+      animation: pop 1s linear alternate forwards;
 
       i {
         font-size: 30px;

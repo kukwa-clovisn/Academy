@@ -12,7 +12,6 @@ const refreshTokenAuth = (req, res) => {
           bearer,
           token
      ] = authHeader.split(" ");
-     console.log(token)
 
      if (token === null) {
           return res.status(401).json({
@@ -20,17 +19,11 @@ const refreshTokenAuth = (req, res) => {
           })
      }
      jwt.verify(token, process.env.user_login_token, (err, data) => {
-          if (err) {
-               console.log(err)
+          if (err) return res.status(403).json(err)
 
-               return res.json(err)
-          }
-
-          if (!data) {
-               return res.status(403).json({
-                    msg: "token expired"
-               })
-          }
+          if (!data) return res.status(403).json({
+               msg: "token expired"
+          })
 
 
           let userName = capitalizeUserName(data.username)
@@ -39,12 +32,10 @@ const refreshTokenAuth = (req, res) => {
           }, (err, user) => {
                if (err) return res.status(500).json(err);
 
-               res.json({
+               return res.status(200).json({
                     user
                });
-
-               return;
-          }).select('-password').select('-token')
+          }).select('-password')
 
      })
 

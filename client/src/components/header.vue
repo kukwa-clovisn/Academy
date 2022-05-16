@@ -3,10 +3,12 @@
     <header class="large-screen-header">
       <nav class="topNav">
         <div class="left-topNav">
-          <a href="/"> <i class="fa-solid fa-phone icon"></i>+237682449347</a>
+          <a href="/#contact">
+            <i class="fa-solid fa-phone icon"></i>+237682449347</a
+          >
         </div>
         <div class="right-topNav">
-          <a href="">
+          <a href="/#contact">
             <i class="fa-solid fa-envelope icon"></i>kcn.123.com@gmail.com</a
           >
         </div>

@@ -18,41 +18,32 @@ module.exports = {
           }, async (err, data) => {
                try {
 
-                    if (err) {
-                         res.status(403).json(err)
-                         return console.log(err)
-                    }
+                    if (err) return res.status(401)
 
                     // id the user is not logged in,
-                    if (!data) {
-                         console.log(`user ${findUser} has no account`)
-                         return res.status(401).json({
-                              msg: `user ${findUser} has no account.`
-                         })
-                    }
+                    if (!data) return res.status(403).json({
+                         msg: `user ${findUser} has no account.`
+                    })
 
                     // if data, compare password,
                     let result = await verifyToken(req.body.password, data.password, findUser);
 
-                    if (!result) {
-                         res.status(401).json({
-                              msg: 'unauthorized user. incorrect password'
-                         })
-
-                         return console.log('unauthorized user. incorrect password')
-                    }
+                    if (!result) return res.status(403).json({
+                         msg: 'unauthorized user. incorrect password'
+                    })
 
                     let accessToken = userToken.createUserToken(req.body);
 
                     return res.status(200).json({
-                         msg: "log in successful",
+                         username: data.username,
+                         msg: "redirecting to course page...",
                          accessToken,
                          refreshToken: data.token
                     })
 
                } catch (err) {
-                    res.status(403).json(err);
-                    return console.log(err)
+                    return res.status(403).json(err);
+
                }
           })
      }

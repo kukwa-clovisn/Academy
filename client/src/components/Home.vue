@@ -325,7 +325,7 @@
           <p>kukwaclovisngong3@gmail.com</p>
         </nav>
       </div>
-      <form action="post">
+      <form @submit.prevent="contactMe()">
         <h2>contact us!</h2>
         <div class="top-form">
           <div class="credentials">
@@ -337,6 +337,7 @@
                   type="text"
                   name="name"
                   id="name"
+                  v-model="contact.username"
                   placeholder="Enter name..."
                   required
                 />
@@ -350,20 +351,22 @@
                   type="email"
                   name="email"
                   id="email"
+                  v-model="contact.email"
                   placeholder="Enter Email.."
                   required
                 />
               </div>
             </div>
             <div class="input">
-              <label for="phone">Phone:</label>
+              <label for="subject">subject:</label>
               <div class="input-field">
-                <i class="fa-solid fa-mobile-screen-button"></i
+                <i class="fa-solid fa-file-word"></i
                 ><input
-                  type="number"
-                  name="phone"
+                  type="text"
+                  name="number"
                   id="phone"
-                  placeholder="Enter Phone number..."
+                  v-model="contact.number"
+                  placeholder="Enter whatsapp contact..."
                   required
                 />
               </div>
@@ -376,6 +379,7 @@
               id="message"
               cols="30"
               rows="10"
+              v-model="contact.message"
               placeholder="Your message here!"
               required
             ></textarea>
@@ -401,6 +405,19 @@
       </form>
     </div>
 
+    <div class="done" v-if="response.success">
+      <i class="fa-solid fa-circle-check"></i>
+      <span
+        >Email sent. <br />
+        our team will get back to you via email or contact <br />Advanced Tech
+        Academy</span
+      >
+    </div>
+    <div class="error" v-if="response.failed">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span>error: Email not sent.</span>
+    </div>
+
     <span class="to-landing-page"
       ><a href="/"><i class="fa-solid fa-circle-arrow-up"></i></a
     ></span>
@@ -409,8 +426,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
-// import Carousel from "./carousel.vue";
+import { reactive, ref } from "vue";
+import axios from "axios";
 import Header from "./header.vue";
 import Footer from "./footer.vue";
 export default {
@@ -421,6 +438,18 @@ export default {
     const closeNotify = ref(false);
     const openNotify = ref(false);
     const closeNotifybtns = ref(false);
+
+    const contact = reactive({
+      username: "",
+      email: "",
+      number: "",
+      message: "",
+    });
+
+    let response = reactive({
+      success: false,
+      failed: false,
+    });
 
     function Notification() {
       closeNotify.value = true;
@@ -443,7 +472,41 @@ export default {
       closeNotify.value = true;
     }
 
+    function contactMe() {
+      axios
+        .post("/admin/contact", contact, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+
+          if (res.statusText === "OK") {
+            response.success = true;
+            setTimeout(pop, 3000);
+          }
+          contact.username = "";
+          contact.email = "";
+          contact.number = "";
+          contact.message = "";
+        })
+        .catch((err) => {
+          response.failed = true;
+          setTimeout(post_error, 3000);
+        });
+    }
+
+    function pop() {
+      response.success = false;
+    }
+    function post_error() {
+      response.failed = false;
+    }
+
     return {
+      contact,
+      response,
       openNotify,
       closeNotify,
       closeNotifybtns,
@@ -451,6 +514,7 @@ export default {
       closeNotificationPage,
       closeNotification,
       Notification,
+      contactMe,
     };
   },
 };
@@ -1567,6 +1631,49 @@ main {
   @media screen and (max-width: 920px) {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+.done,
+.error {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(71, 243, 151);
+  border-radius: 4px;
+  padding: 20px;
+  position: fixed;
+  left: 35vw;
+  top: 25vh;
+  z-index: 1;
+  animation: pop 1s linear alternate forwards;
+
+  i {
+    font-size: 30px;
+    margin-right: 10px;
+    color: white;
+  }
+
+  span {
+    color: black;
+  }
+}
+
+.error {
+  background: red;
+  span {
+    color: white;
+  }
+}
+
+@keyframes pop {
+  from {
+    top: 10vh;
+  }
+  to {
+    top: 25vh;
   }
 }
 

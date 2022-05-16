@@ -53,13 +53,23 @@
           </div>
         </div>
       </div>
+      <div class="response-div">
+        <div class="done" v-if="user.success">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>{{ user.msg }}</span>
+        </div>
+        <div class="error" v-if="user.failed">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>{{ user.msg }}</span>
+        </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import axios from "axios";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import Header from "./header.vue";
 export default {
@@ -72,67 +82,69 @@ export default {
     const router = useRouter();
     const route = useRoute();
 
+    let username = ref("");
+    let token = ref("");
+
     let user = reactive({
       username: route.params.username,
       password: "",
       msg: "",
-      errormsg: "",
+      success: false,
+      failed: false,
     });
 
     /**
      * creating a log in validation and authentication
      */
-    const signin = async () => {
-      try {
-        await fetch("http://localhost:9002/signin", {
-          method: "Post",
-          headers: {
-            // "Access-Control-Request-Headers": "Authorization",
-            // Authorization: "Bearer secretToken",
-            "Content-type": "application/json",
-          },
-
-          body: JSON.stringify({
+    const signin = () => {
+      axios
+        .post(
+          "http://localhost:9002/signin",
+          {
             username: user.username,
             password: user.password,
-          }),
+          },
+          {
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          localStorage.setItem("accessToken", res.data.accessToken);
+
+          axios.defaults.headers.common[
+            "Authorization"
+          ] = `Bearer ${res.data.accessToken}`;
+
+          username.value = res.data.username;
+          token.value = res.data.accessToken;
+          user.success = true;
+          user.msg = res.data.msg;
+
+          setTimeout(pop, 3000);
         })
-          .then((res) => res.json())
-          .then(async (res) => {
-            console.log(res);
-            user.errormsg = true;
-            user.msg = res.msg;
-
-            if (!res.accessToken) {
-              user.msg = res.msg;
-              user.errormsg = true;
-              return;
-            }
-
-            localStorage.setItem("accessToken", res.accessToken);
-
-            axios.defaults.headers.common[
-              "Authorization"
-            ] = `Bearer ${res.accessToken}`;
-
-            router.push({
-              name: "Course_intro",
-              params: {
-                courseUser: res.username,
-                accessToken: res.accessToken,
-              },
-            });
-
-            // let config = {
-            //   headers: {
-            //     Authorization: `Bearer ${res.accessToken}`,
-            //   },
-            // };
-          });
-      } catch (err) {
-        console.log(err);
-      }
+        .catch((err) => {
+          user.msg = err.response.data.msg;
+          user.failed = true;
+          setTimeout(post_error, 3000);
+        });
     };
+
+    function pop() {
+      user.success = false;
+
+      router.push({
+        name: "Course_intro",
+        params: {
+          courseUser: username.value,
+          accessToken: token.value,
+        },
+      });
+    }
+    function post_error() {
+      user.failed = false;
+    }
 
     return { user, signin };
   },
@@ -474,6 +486,59 @@ main {
             width: 99%;
           }
         }
+      }
+    }
+
+    .response-div {
+      width: 90%;
+      height: fit-content;
+      position: fixed;
+      left: 5%;
+      top: 5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .done,
+    .error {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgb(71, 243, 151);
+      border-radius: 4px;
+      padding: 20px;
+      z-index: 1;
+      position: relative;
+      animation: pop 1s linear alternate forwards;
+
+      i {
+        font-size: 30px;
+        margin-right: 10px;
+        color: white;
+      }
+
+      span {
+        color: white;
+        white-space: pre-wrap;
+      }
+    }
+
+    .error {
+      background: $SecondaryColor;
+      span {
+        color: white;
+      }
+    }
+
+    @keyframes pop {
+      from {
+        top: 0;
+      }
+      to {
+        top: 15vh;
       }
     }
     @media screen and (max-width: 768px) {
