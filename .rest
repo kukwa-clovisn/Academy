@@ -44,12 +44,12 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:9002/admin/auth
+POST http://localhost:9002/admin/add
 Content-Type: application/json
 
 
 {
      "username": "kukwa clovis ngong",
      "email": "kukwaclovisngong3@gmail.comhgg",
-     "password": "adminkcn"
+     "password": "237atechkcn"
 }

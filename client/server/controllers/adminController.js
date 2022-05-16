@@ -29,7 +29,7 @@ module.exports = {
                }
 
                // await adminModel.create(admin);
-               //  res.json(admin);
+               // res.json(admin);
 
           } catch (err) {
                console.log(err)
@@ -65,7 +65,7 @@ module.exports = {
           adminModel.findOne({
                "username": adminName
           }, async (err, data) => {
-               if (err) return res.status(401);
+               if (err) return res.status(401).json(err);
 
                if (!data) return res.status(403).json({
                     msg: "Access Denied!"
