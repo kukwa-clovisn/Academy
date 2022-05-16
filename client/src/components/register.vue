@@ -2,17 +2,53 @@
   <main>
     <div class="landing-page">
       <div class="blur"></div>
-      <header><img src="../assets/logo-w.jpeg" alt="" /></header>
-      <div class="title">
-        <h1>
-          welcome to <br />
-          <span>Advanced crypto & forex trading community</span>
-        </h1>
-        <p>Be among the first to explore our well analysed courses</p>
-        <button class="primary-btn" @click="startRegistration()">
-          start registration
-        </button>
-        <router-link to="/" class="hroute">back home</router-link>
+      <div class="left-content">
+        <h1>courses</h1>
+        <li>
+          <span><i class="fa-solid fa-bitcoin-sign"></i></span>
+          <p>cryptocurrency</p>
+        </li>
+
+        <li>
+          <span><i class="fa-solid fa-chart-line"></i></span>
+          <p>Forex</p>
+        </li>
+
+        <li>
+          <span>
+            <i class="fa-brands fa-sketch"></i>
+          </span>
+          <p>Graphic design</p>
+        </li>
+
+        <li>
+          <span><i class="fa-solid fa-code"></i></span>
+          <p>Web developement</p>
+        </li>
+        <p>register to get access to our pro courses</p>
+      </div>
+      <div class="right-content">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="title">
+          <nav class="logo">
+            <span title="World of Technology and more">
+              AdvancedTechAcademy
+            </span>
+          </nav>
+          <h1>
+            welcome to <br />
+            <span>Advanced Tech Academy</span>
+          </h1>
+          <p>Be among the first to explore our well analysed courses</p>
+          <button class="primary-btn" @click="startRegistration()">
+            start registration
+          </button>
+          <router-link to="/" class="hroute">back home</router-link>
+          <footer>
+            <i class="fa-solid fa-copyright"></i>Advancedtechacademy_2022
+          </footer>
+        </div>
       </div>
     </div>
     <div class="blur stepone" v-if="stepOne"></div>
@@ -81,53 +117,184 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$primaryColor: rgb(255, 255, 255);
+$SecondaryColor: rgba(230, 101, 129, 1);
+$tertiaryColor: rgba(65, 140, 228, 1);
+$footerColor: rgb(51, 2, 69);
+$baseColor: #072e54;
 $fallback: rgb(19, 37, 62);
+$col: #3d566f;
+$adminCol: rgb(21, 55, 101);
 main {
   width: 100vw;
 
   .landing-page {
+    height: 100vh;
     background: url(../assets/group.jpeg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    header {
-      width: 150px;
-      height: 100px;
-      margin: 30px auto;
-      border-radius: 3px;
-      overflow: hidden;
-      position: relative;
-      img {
-        width: 100%;
-        height: auto;
-      }
+    .blur {
+      opacity: 0.6;
     }
-    .title {
-      width: 90vw;
-      margin: auto;
-      top: 0;
+
+    .left-content {
+      // position: relative;
+      width: 35%;
+      height: 100%;
+      background: url(../assets/register-background.jpeg) no-repeat fixed;
+      background-size: cover;
+      background-position-y: bottom;
 
       h1 {
-        padding-top: 5px;
+        color: white;
+        padding: 20px;
+        font: 700 40px "Poppin", sans-serif;
+      }
+
+      li {
+        width: 100%;
+        height: fit-content;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+
+        i {
+          width: 60px;
+          height: 60px;
+          font-size: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: white;
+          padding: 10px;
+          color: $col;
+          border-radius: 7px;
+        }
+
+        p {
+          color: white;
+          width: 78%;
+          text-align: left;
+          font: 600 25px "Poppins", sans-serif;
+        }
+      }
+    }
+
+    .right-content {
+      width: 65%;
+      height: 100%;
+      background: white;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // z-index: 1;
+
+      .c1 {
+        width: 100%;
+        height: 61vh;
+        border-radius: 30%;
+        position: absolute;
+        left: 0;
+        top: 17%;
+        box-shadow: 0 -3px 1.5px 1px $fallback;
+        background: $col;
+        opacity: 0.5;
+      }
+
+      .c2 {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        position: absolute;
+        bottom: 5%;
+        right: 10%;
+        // background: $SecondaryColor;
+      }
+
+      .logo {
+        width: fit-content;
+        height: 90px;
+        margin: 20px auto;
+        border-radius: 0 0 10px 10px;
+        cursor: pointer;
+
+        span {
+          display: flex;
+          box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
+          border-radius: 10px 0 10px 0;
+          padding: 10px;
+          font: 700 40px "Nunito Sans", sans-serif;
+          background: linear-gradient(
+            to bottom,
+            $SecondaryColor 20%,
+            $tertiaryColor,
+            $primaryColor
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          i {
+            font-size: 23px;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .title {
+      width: 100%;
+      height: fit-content;
+      margin: auto;
+      h1 {
+        padding: 20px;
+        margin-top: 50px;
+        color: $col;
+        font: 500 25px "Poppins", sans-serif;
+
+        span {
+          color: $col;
+          font: 700 30px "Jacques Francois Shadow", cursive;
+        }
       }
       button {
-        width: 300px;
+        width: 350px;
         text-transform: capitalize;
-        height: 55px;
+        height: 60px;
         color: white;
+        border-radius: 7px;
+        margin-top: 35px;
         font: 600 20px "Poppins", sans-serif;
+
+        &:hover {
+          background: $SecondaryColor;
+          border: none;
+        }
       }
 
       .hroute {
         text-decoration: none;
         text-transform: capitalize;
         color: rgb(156, 154, 154);
+        padding: 10px;
 
         &:hover {
           text-decoration: underline;
           transform: scale(0.9);
         }
+      }
+      footer {
+        margin-top: 40px;
+        margin-bottom: 0;
       }
     }
   }
