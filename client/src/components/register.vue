@@ -25,7 +25,10 @@
           <span><i class="fa-solid fa-code"></i></span>
           <p>Web developement</p>
         </li>
-        <p>register to get access to our pro courses</p>
+        <h4>
+          register to get access to our pro courses
+          <i class="fa-solid fa-hand-point-right"></i>
+        </h4>
       </div>
       <div class="right-content">
         <div class="c1"></div>
@@ -127,10 +130,12 @@ $col: #3d566f;
 $adminCol: rgb(21, 55, 101);
 main {
   width: 100vw;
+  padding: 0;
+  margin: 0;
 
   .landing-page {
     height: 100vh;
-    background: url(../assets/group.jpeg);
+    overflow-y: scroll;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -139,7 +144,7 @@ main {
     align-items: center;
 
     .blur {
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
     .left-content {
@@ -149,11 +154,14 @@ main {
       background: url(../assets/register-background.jpeg) no-repeat fixed;
       background-size: cover;
       background-position-y: bottom;
+      padding: 20px 5px 10px 10px;
 
       h1 {
         color: white;
         padding: 20px;
         font: 700 40px "Poppin", sans-serif;
+        position: relative;
+        border-bottom: 1px double rgb(221, 221, 221);
       }
 
       li {
@@ -164,6 +172,7 @@ main {
         justify-content: space-between;
         align-items: center;
         list-style-type: none;
+        position: relative;
 
         i {
           width: 60px;
@@ -183,6 +192,33 @@ main {
           width: 78%;
           text-align: left;
           font: 600 25px "Poppins", sans-serif;
+          text-transform: capitalize;
+        }
+
+        &:hover {
+          cursor: pointer;
+          p {
+            font-size: 20px;
+          }
+        }
+
+        @media screen and (max-width: 960px) {
+          i {
+            font-size: 20px;
+          }
+          p {
+            font-size: 15px;
+            width: 65%;
+          }
+        }
+      }
+
+      h4 {
+        position: relative;
+        color: whitesmoke;
+        margin-top: 40px;
+        i {
+          color: yellow;
         }
       }
     }
@@ -190,7 +226,7 @@ main {
     .right-content {
       width: 65%;
       height: 100%;
-      background: white;
+      background: rgb(243, 247, 249);
       position: relative;
       display: flex;
       justify-content: center;
@@ -247,6 +283,10 @@ main {
             padding: 0;
             margin: 0;
           }
+
+          @media screen and (max-width: 890px) {
+            font-size: 30px;
+          }
         }
       }
     }
@@ -284,7 +324,7 @@ main {
       .hroute {
         text-decoration: none;
         text-transform: capitalize;
-        color: rgb(156, 154, 154);
+        color: $col;
         padding: 10px;
 
         &:hover {
@@ -295,6 +335,78 @@ main {
       footer {
         margin-top: 40px;
         margin-bottom: 0;
+      }
+    }
+
+    @media screen and (max-width: 821px) {
+      flex-direction: column-reverse;
+      padding: 0;
+      justify-content: flex-end;
+      height: fit-content;
+
+      .left-content {
+        width: 100%;
+        height: 50vh;
+
+        li {
+          p {
+            font-size: 20px;
+          }
+        }
+
+        h4 {
+          margin-top: 10px;
+        }
+
+        @media screen and (max-width: 450px) {
+          height: fit-content;
+        }
+      }
+      .right-content {
+        width: 100%;
+        padding-bottom: 25px;
+        height: 50vh;
+        margin: 0;
+        .c1 {
+          top: 0%;
+          height: 50vh;
+        }
+
+        h1 {
+          margin: 0;
+        }
+
+        @media screen and (max-width: 650px) {
+          height: fit-content;
+          .c1 {
+            border-radius: 10%;
+          }
+        }
+        @media screen and (max-width: 450px) {
+          .c1 {
+            height: 60vh;
+
+            @media screen and (max-width: 410px) {
+              height: 65vh;
+            }
+          }
+          .logo span {
+            font-size: 20px;
+          }
+          button {
+            width: 95%;
+          }
+
+          @media screen and (max-width: 300px) {
+            .logo span {
+              font-size: 15px;
+            }
+            h1 {
+              font-size: 20px;
+              margin: 0;
+            }
+          }
+        }
       }
     }
   }
