@@ -93,7 +93,7 @@ module.exports = {
                                    console.log(user);
 
                                    //     storing user in database
-                                   // await signupUserModel.create(user);
+                                   await signupUserModel.create(user);
 
                                    const request = mailjet
                                         .post("send", {
