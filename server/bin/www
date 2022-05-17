@@ -72,6 +72,19 @@ server.listen(port);
 server.on("error", onError);
 
 /**
+ * for app production
+ */
+
+if (process.env.NODE_ENV === 'production') {
+     app.use(express.static(__dirname + '/public/'));
+
+     // handling client page routing
+     app.get(/.*/, (req, res) => {
+          res.sendFile(__dirname + '/public/index.html');
+     })
+}
+
+/**
  * Event listerner for a successful HTTP server "listening" event.
  */
 
@@ -79,7 +92,7 @@ const onListening = () => {
      let addr = server.address();
      let bind = typeof addr === "string" ? "Pipe " + addr : "Pipe " + addr.port;
      debug("Listening on " + bind);
-     console.log("codingHerald: app Listening on http://localhost:" + port);
+     console.log("advancedtechacademy: connected....");
 };
 
 server.on("listening", onListening);

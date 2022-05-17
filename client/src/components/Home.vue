@@ -426,7 +426,7 @@
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import axios from "axios";
 import Header from "./header.vue";
 import Footer from "./footer.vue";
@@ -451,10 +451,26 @@ export default {
       failed: false,
     });
 
-    function Notification() {
-      closeNotify.value = true;
-      closeNotifybtns.value = true;
-    }
+    const getCrypto = async () => {
+      await axios(
+        "https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers",
+        {
+          headers: {
+            "X-CMC_PRO_API_KEY": "45d78416-a1ca-4740-a47a-a94b0f27aad5",
+          },
+        }
+      )
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    };
+
+    onMounted(() => {
+      getCrypto();
+    }),
+      function Notification() {
+        closeNotify.value = true;
+        closeNotifybtns.value = true;
+      };
 
     function closeNotificationPage() {
       closeNotify.value = false;

@@ -103,22 +103,6 @@
         <i class="fa-solid fa-arrow-left"></i>back
       </button>
       <h2>Learn cryptocurrency today!</h2>
-      <h4>what you'll learn:</h4>
-      <ul>
-        <div class="blur"></div>
-        <div class="list">
-          <li>intro and basics of cryptocurrency</li>
-          <li>Different ways to invest in cryptocurrency</li>
-          <li>How to buy coins</li>
-          <li>How to swap coins</li>
-          <li>cryptocurrency apps</li>
-          <li>how to follow coins in cryptocurrency</li>
-        </div>
-        <div class="img">
-          <img src="../assets/phone-a.jpg" alt="" />
-        </div>
-      </ul>
-      <h2>Tutorials point</h2>
       <div class="courses">
         <div
           class="tutorial"
@@ -228,7 +212,15 @@
         tutorial on how to use the Binance app on smart phone
       </h5>
       <div class="video">
-        <video :src="crypto.url" controls></video>
+        <iframe
+          width="560"
+          height="auto"
+          src="https://www.youtube.com/embed/pEPLLQToLxU"
+          title="Binance for beginners on mobile(phone)"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
       <p>{{ crypto.title }} <sup>*</sup></p>
       <div class="question">
@@ -334,6 +326,17 @@
         need to have an account a Binance account so to create one you follow
         the steps outlined below to become a Binance user.
       </p>
+      <div class="video">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/BdWCVKINwKc"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
       <div class="pic">
         <div class="blur"></div>
         <h1>Binance on mobile (phone)</h1>
@@ -1303,9 +1306,9 @@ main {
       margin: 60px auto;
       margin-bottom: 20px;
 
-      video {
+      iframe {
         width: 90%;
-        height: auto;
+        height: 80vh;
         margin: auto;
       }
     }
