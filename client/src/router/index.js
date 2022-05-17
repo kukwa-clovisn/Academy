@@ -105,9 +105,8 @@ const routes = [{
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       };
-      console.log('wandas', localStorage.getItem('accessToken'))
+
       axios('api/token', config).then(res => {
-        console.log(res)
 
         if (res.statusText === "OK") {
           next()
@@ -115,10 +114,8 @@ const routes = [{
           next('/login')
         }
       }).catch(err => {
-        // console.log("err", err)
         next('/login')
       })
-      console.log('hdfl')
 
     }
   }
