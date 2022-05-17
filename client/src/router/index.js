@@ -93,7 +93,7 @@ const routes = [{
     }]
   },
   {
-    path: '/course_intro',
+    path: '/course',
     name: 'Course_intro',
     component: function () {
       return import('../courses/course_intro.vue')
@@ -119,12 +119,12 @@ const routes = [{
 
     },
     children: [{
-        path: '/crypto',
+        path: '/course/crypto',
         name: 'Crypto_course',
         component: () => import('../courses/crypto_course.vue')
       },
       {
-        path: '/forex',
+        path: '/course/forex',
         name: 'Forex_course',
         component: function () {
           return import('../courses/forex_course.vue')
