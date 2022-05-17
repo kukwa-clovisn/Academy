@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
      devServer: {
-          Proxy: {
+          proxy: {
                '/api': {
                     target: 'http://localhost:9002'
                }

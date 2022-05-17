@@ -106,7 +106,7 @@ const routes = [{
         },
       };
       console.log('wandas', localStorage.getItem('accessToken'))
-      axios('/token', config).then(res => {
+      axios('api/token', config).then(res => {
         console.log(res)
 
         if (res.statusText === "OK") {

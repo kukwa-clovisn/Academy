@@ -431,7 +431,7 @@ export default {
       ) {
         return router.push("/login");
       }
-      axios("/api/token")
+      axios("api/token")
         .then((res) => {
           console.log(res);
           crypto.courseUser = res.data.user.username;
@@ -472,7 +472,7 @@ export default {
 
     const getCourse = (courseId) => {
       console.log(courseId);
-      axios("/api/course/" + `${courseId}`).then((res) => {
+      axios("api/course/" + `${courseId}`).then((res) => {
         crypto.title = res.data.title;
         crypto.url = "client/src/assets/videos/" + res.data.videoUrl;
         crypto.courses = false;
