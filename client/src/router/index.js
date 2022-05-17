@@ -96,7 +96,7 @@ const routes = [{
     path: '/course_intro',
     name: 'Course_intro',
     component: function () {
-      return import('../components/course_intro.vue')
+      return import('../courses/course_intro.vue')
     },
     beforeEnter: (to, from, next) => {
       // let token = localStorage.getItem('accessToken')
@@ -117,7 +117,20 @@ const routes = [{
         next('/login')
       })
 
-    }
+    },
+    children: [{
+        path: '/crypto',
+        name: 'Crypto_course',
+        component: () => import('../courses/crypto_course.vue')
+      },
+      {
+        path: '/forex',
+        name: 'Forex_course',
+        component: function () {
+          return import('../courses/forex_course.vue')
+        }
+      }
+    ]
   }
 ]
 

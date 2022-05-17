@@ -49,7 +49,7 @@
           <span><i class="fa-solid fa-bitcoin-sign"></i></span>
           <p>cryptocurrency</p>
         </li>
-        <li>
+        <li @click="showForexCourses()">
           <span><i class="fa-solid fa-chart-line"></i></span>
           <p>Forex</p>
         </li>
@@ -154,6 +154,17 @@
           <div class="video-title">
             <span class="free-course"><i>free</i></span>
             <h3>Five(5) free crypto apps to use</h3>
+
+            <button>start tutorial</button>
+          </div>
+        </div>
+        <div class="tutorial" @click="getCourse6()">
+          <div class="video">
+            <img src="../assets/phone-c.jpg" alt="" />
+          </div>
+          <div class="video-title">
+            <span class="free-course"><i>free</i></span>
+            <h3>How to buy and hold coins for long using bitrue</h3>
 
             <button>start tutorial</button>
           </div>
@@ -375,6 +386,37 @@
       </div>
       <Contact />
     </div>
+    <div class="single-tutorial" v-if="crypto.course6">
+      <h1>How to buy and hold coins for long with bitrue</h1>
+      <h4>
+        master course <br />
+        by: AdvancedTechAcademy
+      </h4>
+      <ul>
+        <h3>tutorial objectives:</h3>
+        <li>
+          <a href="#f1"><span>1</span> bitrue app</a>
+        </li>
+        <li>
+          <a href="#f2"><span>2</span>overview</a>
+        </li>
+        <li>
+          <a href="#f3"><span>2</span>how to buy coins in bitrue</a>
+        </li>
+      </ul>
+      <div class="video">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/mLyffo89BSs"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <Contact />
+    </div>
 
     <Footer v-if="crypto.courses" />
   </main>
@@ -404,6 +446,7 @@ export default {
       course3: false,
       course4: false,
       course5: false,
+      course6: false,
       courseUser: "",
       courseUserEmail: "",
       profileMenu: false,
@@ -459,6 +502,7 @@ export default {
       crypto.course3 = false;
       crypto.course4 = false;
       crypto.course5 = false;
+      crypto.course6 = false;
       crypto.profileMenu = false;
       crypto.hideProfile = true;
     };
@@ -493,6 +537,11 @@ export default {
       crypto.course5 = true;
     }
 
+    function getCourse6() {
+      crypto.courses = false;
+      crypto.course6 = true;
+    }
+
     return {
       crypto,
       showProfileMenu,
@@ -504,6 +553,7 @@ export default {
       getCourse3,
       getCourse4,
       getCourse5,
+      getCourse6,
     };
   },
 };
@@ -1020,11 +1070,13 @@ main {
     }
 
     h2 {
-      padding: 20px;
-      font: 600 45px "Poppins", sans-serif;
+      text-transform: capitalize;
+      padding: 30px 20px;
+      font: 600 50px "Poppins", sans-serif;
     }
 
     h4 {
+      text-transform: capitalize;
       padding: 20px;
       font: 500 30px "Poppins", sans-serif;
     }
