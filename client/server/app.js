@@ -45,12 +45,12 @@ const adminRoute = require('./routes/admin')
 const postRoute = require('./routes/post')
 
 // getting Routes
-app.use('/signup', signupRoute);
-app.use('/signin', signinRoute);
-app.use('/course', courseRoute);
-app.use('/token', tokenRoute);
-app.use('/admin', adminRoute);
-app.use('/post', postRoute);
+app.use('/api/signup', signupRoute);
+app.use('/api/signin', signinRoute);
+app.use('/api/course', courseRoute);
+app.use('/api/token', tokenRoute);
+app.use('/api/admin', adminRoute);
+app.use('/api/post', postRoute);
 
 // exporting the app.
 module.exports = app;

@@ -185,7 +185,7 @@ export default {
 
     async function getPosts() {
       try {
-        let response = await axios("/post");
+        let response = await axios("/api/post");
         console.log(response);
       } catch (err) {
         console.log(err);
@@ -197,7 +197,7 @@ export default {
     });
 
     function searchPosts() {
-      let posts = axios("/post/" + `${post.title}`);
+      let posts = axios("/api/post/" + `${post.title}`);
       post.title = "";
       router.push("#posts");
 

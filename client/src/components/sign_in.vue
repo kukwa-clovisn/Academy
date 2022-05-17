@@ -99,7 +99,7 @@ export default {
     const signin = () => {
       axios
         .post(
-          "http://localhost:9002/signin",
+          "/api/signin",
           {
             username: user.username,
             password: user.password,

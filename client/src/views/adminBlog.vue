@@ -100,7 +100,7 @@ export default {
 
     function postBlog() {
       axios
-        .post("/admin/blog", post, {
+        .post("/api/admin/blog", post, {
           headers: {
             "Content-Type": "application/json",
           },

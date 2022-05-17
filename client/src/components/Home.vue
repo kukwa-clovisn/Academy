@@ -474,7 +474,7 @@ export default {
 
     function contactMe() {
       axios
-        .post("/admin/contact", contact, {
+        .post("/api/admin/contact", contact, {
           headers: {
             "Content-Type": "application/json",
           },

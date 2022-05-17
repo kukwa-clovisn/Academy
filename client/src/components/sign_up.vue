@@ -111,7 +111,7 @@ export default {
       if (data.username != "" && data.password.length > 4) {
         axios
           .post(
-            "http://localhost:9002/signup",
+            "/api/signup",
             {
               username: data.username,
               email: data.email,

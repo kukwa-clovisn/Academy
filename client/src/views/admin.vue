@@ -156,7 +156,7 @@ export default {
 
     async function authAdmin() {
       axios
-        .post("/admin/auth", admin, {
+        .post("/api/admin/auth", admin, {
           headers: {
             "Content-Type": "application/json",
           },
