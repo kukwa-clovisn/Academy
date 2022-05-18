@@ -37,7 +37,9 @@
           <button type="submit">sign in</button>
           <div class="forget-password">
             <span
-              ><router-link to="/" class="route">forget password?</router-link>
+              ><router-link to="/forget_password" class="route"
+                >forget password?</router-link
+              >
             </span>
             <span><router-link to="/" class="route">home</router-link></span>
           </div>

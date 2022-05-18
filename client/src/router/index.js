@@ -61,10 +61,10 @@ const routes = [{
       return import('../components/blog.vue')
     }
   }, {
-    path: '/member',
-    name: 'Member',
+    path: '/forget_password',
+    name: 'Forget_password',
     component: function () {
-      return import('../components/member.vue')
+      return import('../components/forget_password.vue')
     }
   }, {
     path: '/admin/blog',
@@ -129,6 +129,14 @@ const routes = [{
         component: function () {
           return import('../courses/forex_course.vue')
         }
+      }, {
+        path: '/course/web',
+        name: 'Web_course',
+        component: () => import('../courses/web_course.vue')
+      }, {
+        path: '/course/graphic',
+        name: 'Graphic',
+        component: () => import('../courses/graphic_course.vue')
       }
     ]
   }

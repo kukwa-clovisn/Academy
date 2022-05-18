@@ -55,7 +55,7 @@
             <router-link to="/login" class="route">Start course</router-link>
           </button>
         </div>
-        <div class="course" @click="Notification()">
+        <div class="course">
           <div class="course-img">
             <img src="../assets/web-dev.jpg" alt="" />
           </div>
@@ -68,10 +68,10 @@
             register now to start your lessons
           </p>
           <button>
-            <router-link to="#" class="route">Start course</router-link>
+            <router-link to="/login" class="route">Start course</router-link>
           </button>
         </div>
-        <div class="course" @click="Notification()">
+        <div class="course">
           <div class="course-img">
             <img src="../assets/graphic-design.jpg" alt="" />
           </div>
@@ -84,7 +84,7 @@
             register now to start your lessons
           </p>
           <button>
-            <router-link to="#" class="route">Start course</router-link>
+            <router-link to="/login" class="route">Start course</router-link>
           </button>
         </div>
       </section>
@@ -178,40 +178,6 @@
           you will be glad you did.
         </p>
       </header>
-      <div class="content">
-        <ul>
-          <li>
-            <span class="name">Bitcoin</span><span class="symbol">BTC</span
-            ><span class="percentage">+1.00%</span>
-            <span class="value">$40,290.18</span>
-          </li>
-          <hr />
-          <li>
-            <span class="name">ethereum</span><span class="symbol">eth</span
-            ><span class="percentage">+2.34%</span>
-            <span class="value">$3,074.30</span>
-          </li>
-          <hr />
-          <li>
-            <span class="name">dogecoin</span><span class="symbol">doge</span
-            ><span class="percentage">+3.46%</span>
-            <span class="value">$0.142228</span>
-          </li>
-          <hr />
-          <li>
-            <span class="name">polkadot</span><span class="symbol">dot</span
-            ><span class="percentage">+3.24%</span>
-            <span class="value">$17.96</span>
-          </li>
-          <hr />
-          <li>
-            <span class="name">cardano</span><span class="symbol">ada</span
-            ><span class="percentage">+3.14%</span>
-            <span class="value">$0.964214</span>
-          </li>
-          <hr />
-        </ul>
-      </div>
     </div>
     <div class="social-sample">
       <div class="blur"></div>
@@ -284,25 +250,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="illustration-1">
-      <Carousel />
-      <div class="blur"></div>
-      <div class="illustration-content">
-        <h1>Want to learn....</h1>
-        <ul>
-          <li>how to be a profitable trader??</li>
-          <li>web development</li>
-          <li>graphic design</li>
-        </ul>
-        <button>
-          <router-link to="/signup" class="route"
-            ><i class="fa fa-arrow-right" id="illustration-icon"></i> sign up
-            and Register</router-link
-          >
-        </button>
-      </div>
-    </div> -->
-
     <div class="contact-form" id="contact">
       <div class="bubble"></div>
       <div class="blur"></div>
@@ -404,18 +351,19 @@
         </div>
       </form>
     </div>
-
-    <div class="done" v-if="response.success">
-      <i class="fa-solid fa-circle-check"></i>
-      <span
-        >Email sent. <br />
-        our team will get back to you via email or contact <br />Advanced Tech
-        Academy</span
-      >
-    </div>
-    <div class="error" v-if="response.failed">
-      <i class="fa-solid fa-circle-exclamation"></i>
-      <span>error: Email not sent.</span>
+    <div class="response">
+      <div class="done" v-if="response.success">
+        <i class="fa-solid fa-circle-check"></i>
+        <span
+          >Email sent. <br />
+          our team will get back to you via email or contact <br />Advanced Tech
+          Academy</span
+        >
+      </div>
+      <div class="error" v-if="response.failed">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span>error: Email not sent.</span>
+      </div>
     </div>
 
     <span class="to-landing-page"
@@ -426,7 +374,7 @@
 </template>
 
 <script>
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref } from "vue";
 import axios from "axios";
 import Header from "./header.vue";
 import Footer from "./footer.vue";
@@ -451,26 +399,18 @@ export default {
       failed: false,
     });
 
-    const getCrypto = async () => {
-      await axios(
-        "https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers",
-        {
-          headers: {
-            "X-CMC_PRO_API_KEY": "45d78416-a1ca-4740-a47a-a94b0f27aad5",
-          },
-        }
-      )
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
-    };
-
-    onMounted(() => {
-      getCrypto();
-    }),
-      function Notification() {
-        closeNotify.value = true;
-        closeNotifybtns.value = true;
-      };
+    // const getCrypto = async () => {
+    //   await axios(
+    //     "https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers",
+    //     {
+    //       headers: {
+    //         "X-CMC_PRO_API_KEY": "45d78416-a1ca-4740-a47a-a94b0f27aad5",
+    //       },
+    //     }
+    //   )
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err));
+    // };
 
     function closeNotificationPage() {
       closeNotify.value = false;
@@ -529,7 +469,6 @@ export default {
       openNotification,
       closeNotificationPage,
       closeNotification,
-      Notification,
       contactMe,
     };
   },
@@ -1648,6 +1587,14 @@ main {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.response {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .done,

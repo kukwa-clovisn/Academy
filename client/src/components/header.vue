@@ -14,11 +14,14 @@
         </div>
       </nav>
       <nav class="bottom-nav">
-        <nav class="logo-nav">
+        <!-- <nav class="logo-nav">
           <span>AC <i>&</i> FC</span>
+        </nav> -->
+        <nav class="logo-nav">
+          <img src="../assets/logo-white.jpg" alt="" />
         </nav>
         <nav class="routes">
-          <router-link to="/#courses" class="route">courses</router-link>
+          <router-link to="/course" class="route">courses</router-link>
           <router-link to="/why-us" class="route">why crypto?</router-link>
           <router-link to="/blog" class="route">blog</router-link>
           <a href="/#contact" class="route">contact</a>
@@ -46,7 +49,7 @@
       </nav>
       <nav class="bottom-nav" v-if="noDropdown">
         <nav class="logo-nav">
-          <span>ac <i>&</i> fc</span>
+          <img src="../assets/logo-white.jpg" alt="" />
         </nav>
         <nav class="menu-bars">
           <button @click="menuFunction()">
@@ -161,6 +164,7 @@ header {
     margin: auto;
     height: 10vh;
     display: flex;
+    background: transparent;
     justify-content: space-between;
     align-items: center;
 
@@ -221,6 +225,13 @@ header {
     .logo-nav {
       width: 10vw;
       background: transparent;
+
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        background: transparent;
+      }
 
       span {
         display: flex;

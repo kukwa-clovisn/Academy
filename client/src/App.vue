@@ -7,7 +7,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400;600;700;900&family=Nunito+Sans:ital,wght@0,300;0,600;0,700;0,900;1,300;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap");
 
+$primaryColor: rgb(255, 255, 255);
+$SecondaryColor: rgba(230, 101, 129, 1);
+$tertiaryColor: rgba(65, 140, 228, 1);
+$footerColor: rgb(51, 2, 69);
+$baseColor: #072e54;
 $fallback: rgb(19, 37, 62);
+$col: #3d566f;
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -248,6 +255,308 @@ nav {
   }
   i {
     color: white;
+  }
+}
+
+#main {
+  width: 100%;
+
+  .courses-div {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    padding-top: 30px;
+    background: white;
+    z-index: 0.4;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+      padding-top: 50px;
+    }
+
+    h2 {
+      text-transform: capitalize;
+      padding: 30px 20px;
+      font: 600 50px "Poppins", sans-serif;
+    }
+
+    h4 {
+      text-transform: capitalize;
+      padding: 20px;
+      font: 500 30px "Poppins", sans-serif;
+    }
+
+    .courses {
+      width: 90%;
+      height: fit-content;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .tutorial {
+        width: 450px;
+        height: fit-content;
+        margin-right: 40px;
+        margin-bottom: 50px;
+        border-radius: 7px;
+        box-shadow: 0 0 2px 1px $col;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        .video {
+          width: 100%;
+          height: 190px;
+          overflow: hidden;
+
+          img {
+            width: auto;
+            height: 100%;
+          }
+          .fullwidth {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .video-title {
+          width: 100%;
+          min-height: 200px;
+          padding: 15px;
+          padding-top: 35px;
+          position: relative;
+          background: $baseColor;
+
+          .free-course {
+            width: 60px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            color: $primaryColor;
+            background: $SecondaryColor;
+            border-radius: 10px 0 0 10px;
+          }
+
+          h3 {
+            padding: 10px;
+            font: 600 20px "Poppins", sans-serif;
+            text-align: left;
+            text-transform: capitalize;
+            color: white;
+
+            span {
+              color: $tertiaryColor;
+              font-size: 20px;
+              text-transform: uppercase;
+              display: block;
+              padding: 3px;
+            }
+          }
+          p {
+            color: rgb(188, 188, 188);
+          }
+
+          button {
+            width: 80%;
+            height: 45px;
+            margin: 10px auto;
+            background: $SecondaryColor;
+            color: $primaryColor;
+            border: none;
+            border-radius: 5px;
+            text-transform: capitalize;
+          }
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+
+      @media screen and (max-width: 1172px) {
+        justify-content: center;
+
+        .tutorial {
+          width: 90%;
+
+          .video {
+            height: fit-content;
+          }
+
+          .video-title {
+            height: 300px;
+            button {
+              height: 55px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .single-tutorial {
+    width: 100%;
+    margin: 5px auto;
+    height: fit-content;
+    padding: 20px 0;
+    background: white;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+      position: relative;
+      width: 95%;
+      margin: auto;
+    }
+
+    .return {
+      color: $tertiaryColor;
+      text-decoration: none;
+      padding: 10px;
+      font: 600 20px "Poppins", sans-serif;
+    }
+
+    .logo {
+      width: auto;
+      height: fit-content;
+      margin: auto;
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+      }
+    }
+
+    h1 {
+      padding: 20px;
+      margin: 30px auto;
+      font: 800 50px "Nunito Sans", "Poppins", sans-serif;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font: 600 25px "Nunito sans", sans-serif;
+      text-transform: capitalize;
+      text-align: left;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      span {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+        border-radius: 100%;
+        background: $SecondaryColor;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    h3 {
+      text-transform: capitalize;
+      font: 600 30px "Poppins", sans-serif;
+      text-align: left;
+      padding: 10px;
+      color: white;
+    }
+
+    h4 {
+      font: 600 19px "Poppins", sans-serif;
+      padding: 10px;
+      color: $col;
+
+      a {
+        display: block;
+        color: $SecondaryColor;
+      }
+    }
+
+    h5 {
+      font: 600 25px "Nunito sans", sans-serif;
+      text-align: left;
+    }
+
+    p {
+      font: 400 16px "Poppins", sans-serif;
+      text-align: left;
+      padding: 10px;
+      padding-left: 30px;
+      line-height: 30px;
+    }
+
+    ul {
+      width: 100%;
+      padding: 20px;
+      background: $baseColor;
+
+      li {
+        list-style-type: none;
+        height: 50px;
+        margin-bottom: 10px;
+
+        a {
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          text-align: left;
+          color: $primaryColor;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+        }
+
+        span {
+          width: 40px;
+          height: 40px;
+          margin-right: 15px;
+          border-radius: 100%;
+          background: $tertiaryColor;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .video {
+      width: 100%;
+      height: fit-content;
+      margin: 60px auto;
+      margin-bottom: 20px;
+
+      iframe {
+        width: 90%;
+        height: 80vh;
+        margin: auto;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 20px 10px;
+
+      h1 {
+        font-size: 30px;
+      }
+    }
   }
 }
 </style>

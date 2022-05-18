@@ -1,7 +1,7 @@
 <template>
   <main :class="{ squeeze: crypto.profileMenu }">
     <header>
-      <nav class="logo">
+      <nav class="logo" @click="toHome()">
         <span title="World of Technology and more"> AdvancedTechAcademy </span>
       </nav>
       <nav class="routes">
@@ -33,7 +33,7 @@
     </header>
     <div class="profile-menu" v-if="crypto.profileMenu">
       <nav class="logo">
-        <span title="World of Technology and more"> AdvancedTechAcademy </span>
+        <img src="../assets/logo-white.jpg" alt="" />
       </nav>
       <div class="profile-header">
         <span>
@@ -53,13 +53,13 @@
           <span><i class="fa-solid fa-chart-line"></i></span>
           <p>Forex</p>
         </li>
-        <li>
+        <li @click="showGraphicCourses()">
           <span>
             <i class="fa-brands fa-sketch"></i>
           </span>
           <p>Graphic design</p>
         </li>
-        <li>
+        <li @click="showWebCourses()">
           <span><i class="fa-solid fa-code"></i></span>
           <p>Web developement</p>
         </li>
@@ -67,9 +67,9 @@
           <span><i class="fa-solid fa-phone"></i></span>
           <p>contact us</p>
         </li>
-        <li>
-          <span><i class="fa-solid fa-house"></i></span>
-          <p>home</p>
+        <li @click="toCourses()">
+          <span><i class="fa-solid fa-book"></i></span>
+          <p>courses</p>
         </li>
       </div>
     </div>
@@ -95,7 +95,8 @@
       <div class="course-choice">
         <button @click="showCryptoCourses()">crytpocurrency</button
         ><button @click="showForexCourses()">forex</button
-        ><button>web developement</button><button>graphic design</button>
+        ><button @click="showWebCourses()">web developement</button
+        ><button @click="showGraphicCourses()">graphic design</button>
       </div>
     </div>
     <router-view></router-view>
@@ -143,6 +144,10 @@ export default {
       refreshpage();
     });
 
+    function toHome() {
+      router.push("/");
+    }
+
     const showProfileMenu = () => {
       crypto.profileMenu = true;
       crypto.hideProfile = false;
@@ -156,6 +161,7 @@ export default {
     const showCourseIntroPage = () => {
       crypto.courses = false;
       crypto.showCourseIntro = true;
+      route.params.closeIntro = true;
     };
 
     function showCryptoCourses() {
@@ -168,13 +174,32 @@ export default {
       crypto.showCourseIntro = false;
     }
 
+    function showWebCourses() {
+      router.push("/course/web");
+      crypto.showCourseIntro = false;
+    }
+
+    function showGraphicCourses() {
+      router.push("/course/graphic");
+      crypto.showCourseIntro = false;
+    }
+
+    function toCourses() {
+      router.push("/course");
+      crypto.showCourseIntro = true;
+    }
+
     return {
       crypto,
+      toHome,
       showProfileMenu,
       hideProfileMenu,
       showCourseIntroPage,
       showCryptoCourses,
       showForexCourses,
+      showWebCourses,
+      showGraphicCourses,
+      toCourses,
     };
   },
 };
@@ -385,35 +410,19 @@ main {
     animation: slide-in 0.3s 1 linear forwards;
 
     .logo {
-      width: fit-content;
-      height: 90px;
+      width: 100%;
+      height: fit-content;
       border-radius: 0 0 10px 10px;
+      padding: 0;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      span {
-        display: flex;
-        box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
-        border-radius: 10px 0 10px 0;
-        padding: 10px;
-        font: 700 20px "Nunito Sans", sans-serif;
-        background: linear-gradient(
-          to bottom,
-          $SecondaryColor 20%,
-          $tertiaryColor,
-          $primaryColor
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        i {
-          font-size: 23px;
-          padding: 0;
-          margin: 0;
-        }
+      img {
+        width: 110px;
+        height: 110px;
+        margin: 0;
       }
     }
 
