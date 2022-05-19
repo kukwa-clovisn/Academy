@@ -2,6 +2,7 @@ client
 node_modules
 # local env files
 .env.local
+ .env
 .env.*.local
 node_modules/
 assets/videos
