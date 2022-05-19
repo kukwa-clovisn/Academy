@@ -71,6 +71,19 @@ const onError = (error) => {
 server.listen(port);
 server.on("error", onError);
 
+
+
+/**
+ * Event listerner for a successful HTTP server "listening" event.
+ */
+
+const onListening = () => {
+     let addr = server.address();
+     let bind = typeof addr === "string" ? "Pipe " + addr : "Pipe " + addr.port;
+     debug("Listening on " + bind);
+     console.log("advancedtechacademy: connected....");
+};
+
 /**
  * for app production
  */
@@ -84,15 +97,5 @@ if (process.env.NODE_ENV === 'production') {
      })
 }
 
-/**
- * Event listerner for a successful HTTP server "listening" event.
- */
-
-const onListening = () => {
-     let addr = server.address();
-     let bind = typeof addr === "string" ? "Pipe " + addr : "Pipe " + addr.port;
-     debug("Listening on " + bind);
-     console.log("advancedtechacademy: connected....");
-};
 
 server.on("listening", onListening);
