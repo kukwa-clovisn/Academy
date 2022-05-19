@@ -21,4 +21,5 @@ pnpm-debug.log*
 *.sw?
 
 #ignoring the cliet folder
-client/
+client
+node_modules
