@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkclient"]=self["webpackChunkclient"]||[]).push([[620],{5620:function(n,e,r){r.r(e),r.d(e,{default:function(){return l}});var t=r(6252);function u(n,e,r,u,c,a){return(0,t.wg)(),(0,t.iD)("h1",null,"admin crypto page")}var c={name:"AdminCrypto"},a=r(3744);const i=(0,a.Z)(c,[["render",u]]);var l=i}}]);
-//# sourceMappingURL=620.3bdde121.js.map
