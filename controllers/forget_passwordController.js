@@ -2,11 +2,6 @@ const userModel = require('../models/signupModel');
 
 const jwt = require('jsonwebtoken');
 
-const hasdFunc = require('../middlewares/hash')
-
-const {
-     getMaxListeners
-} = require('../models/signupModel');
 const hashFunc = require('../middlewares/hash');
 
 const mailjet = require('node-mailjet')
@@ -59,7 +54,7 @@ module.exports = {
                               }],
                               "Subject": "Advanced Tech Academy",
                               "TextPart": "<h1>Password Reset</h1>",
-                              "HTMLPart": `<h1> Hello ${data.username}</h1> <p>You've made a request to reset your password</p> <p>this is your password reset token which expires after 60s(one minute) <br /> <p><a> ${verificationToken}</a></p>  <br /> Don't share the token with anyone or risk loosing your account. <br /> <a href="http://localhost:9003">advancedtechacademy.com</a>.</p>`,
+                              "HTMLPart": `<h1> Hello ${data.username}</h1> <p>You've made a request to reset your password</p> <p>this is your password reset token which expires after 60s(one minute) <br /> <p><a> ${verificationToken}</a></p>  <br /> Don't share the token with anyone or risk loosing your account. <br /> <a href="https://advancedtechacademy.herokuapp.com">advancedtechacademy.com</a>.</p>`,
                               "CustomID": "AppGettingStartedTest"
                          }]
                     })
@@ -95,8 +90,6 @@ module.exports = {
           for (let i = 0; i < 5; i++) {
                sentBackToken += receivedToken[i];
           }
-
-
 
           if (token !== sentBackToken) return res.status(403).json({
                msg: "wrong token"

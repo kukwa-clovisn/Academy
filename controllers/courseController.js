@@ -6,18 +6,6 @@ const mailjet = require('node-mailjet')
 
 const get = (req, res) => {
 
-     // courseModel.findOne({
-     //      id: req.params.courseId
-     // }, (err, data) => {
-     //      if (err) return res.status(401)
-
-     //      if (!data) return res.status(403).json({
-     //           msg: "Course doesn't exist"
-     //      })
-
-     //      return res.status(200).json(data)
-     // })
-
      console.log(req.params)
 
      let data = {

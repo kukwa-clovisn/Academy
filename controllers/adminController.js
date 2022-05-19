@@ -28,8 +28,8 @@ module.exports = {
                     admin: true
                }
 
-               // await adminModel.create(admin);
-               // res.json(admin);
+               await adminModel.create(admin);
+               res.status(200).json(admin);
 
           } catch (err) {
                console.log(err)
@@ -98,7 +98,7 @@ module.exports = {
                     "Messages": [{
                          "From": {
                               "Email": "kukwaclovisngong3@gmail.com",
-                              "Name": "kukwa clovis"
+                              "Name": "Advanced Tech Academy"
                          },
                          "To": [{
                               "Email": "kukwaclovisngong3@gmail.com",
