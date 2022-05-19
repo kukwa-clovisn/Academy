@@ -35,7 +35,7 @@ $baseColor: #072e54;
   width: 100%;
   height: fit-content;
   padding: 30px 20px;
-  background: url(../assets/bg.png);
+  background: url(../assets/forex-blue.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

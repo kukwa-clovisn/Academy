@@ -359,7 +359,7 @@ main {
     margin: 20px auto;
     margin-bottom: 0;
     padding: 20px;
-    background: url(../assets/l.png);
+    background: url(../assets/learn-b.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
