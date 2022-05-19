@@ -606,6 +606,10 @@ main {
         background: white;
         color: $fallback;
         border-radius: 10px 0 10px 0;
+
+        @media screen and (max-width: 768px) {
+          font-size: 15px;
+        }
       }
       .words {
         width: 300px;

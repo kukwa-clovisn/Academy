@@ -278,6 +278,10 @@ nav {
       text-transform: capitalize;
       padding: 30px 20px;
       font: 600 50px "Poppins", sans-serif;
+
+      @media screen and (max-width: 768px) {
+        font-size: 30px;
+      }
     }
 
     h4 {
@@ -383,17 +387,15 @@ nav {
       }
 
       @media screen and (max-width: 1172px) {
+        width: 100%;
         justify-content: center;
 
         .tutorial {
           width: 90%;
-
-          .video {
-            height: fit-content;
-          }
+          margin: 50px auto;
 
           .video-title {
-            height: 300px;
+            // height: 300px;
             button {
               height: 55px;
             }
@@ -547,11 +549,16 @@ nav {
         width: 90%;
         height: 80vh;
         margin: auto;
+        border-radius: 2px;
+
+        @media screen and (max-width: 768px) {
+          width: 90%;
+        }
       }
     }
 
     @media screen and (max-width: 768px) {
-      padding: 20px 10px;
+      padding: 20px 5px;
 
       h1 {
         font-size: 30px;

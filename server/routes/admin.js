@@ -13,6 +13,4 @@ router.post('/contact', adminController.contact);
 
 router.post('/blog', adminController.blog);
 
-router.post('/course', adminController.course);
-
 module.exports = router;

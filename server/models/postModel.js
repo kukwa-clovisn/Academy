@@ -15,8 +15,12 @@ const postSchema = new mongoose.Schema({
           required: true
      },
      message: {
-          type: Boolean,
+          type: String,
           required: true
+     },
+     tags: {
+          type: Array,
+          required: false,
      },
      date: {
           type: String,

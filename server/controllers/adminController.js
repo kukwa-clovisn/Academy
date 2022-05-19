@@ -133,19 +133,18 @@ module.exports = {
                     title: req.body.title,
                     subTitle: req.body.subTitle,
                     message: req.body.message,
-                    tags
+                    tags,
+                    date: new Date()
                }
 
-               // await postModel.create(post)
+               console.log(post)
+
+               await postModel.create(post)
 
                return res.json(post);
           } catch (err) {
                throw err;
           }
 
-     },
-     course: (req, res) => {
-          console.log(req.body)
-          return res.json(req.body)
      }
 }

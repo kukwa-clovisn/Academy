@@ -33,7 +33,7 @@
           </li></router-link
         >
 
-        <router-link to="/admin/crypto" class="route">
+        <router-link to="/admin/closed" class="route">
           <li>
             <span><i class="fa-solid fa-bitcoin-sign"></i></span>
             <p>cryptocurrency</p>

@@ -35,9 +35,7 @@
         <div class="c2"></div>
         <div class="title">
           <nav class="logo">
-            <span title="World of Technology and more">
-              AdvancedTechAcademy
-            </span>
+            <img src="../assets/logo-white.jpg" alt="" />
           </nav>
           <h1>
             welcome to <br />
@@ -235,58 +233,27 @@ main {
 
       .c1 {
         width: 100%;
-        height: 61vh;
+        height: 50vh;
         border-radius: 30%;
         position: absolute;
         left: 0;
-        top: 17%;
+        bottom: -2%;
         box-shadow: 0 -3px 1.5px 1px $fallback;
         background: $col;
-        opacity: 0.5;
-      }
-
-      .c2 {
-        width: 200px;
-        height: 200px;
-        border-radius: 100%;
-        position: absolute;
-        bottom: 5%;
-        right: 10%;
-        // background: $SecondaryColor;
+        opacity: 0.2;
       }
 
       .logo {
-        width: fit-content;
-        height: 90px;
+        border: 3px solid red;
+        width: 100%;
+        height: 200px;
         margin: 20px auto;
+        padding: 0;
         border-radius: 0 0 10px 10px;
         cursor: pointer;
 
-        span {
-          display: flex;
-          box-shadow: 0 2px 1px 1px rgb(200, 200, 200);
-          border-radius: 10px 0 10px 0;
-          padding: 10px;
-          font: 700 40px "Nunito Sans", sans-serif;
-          background: linear-gradient(
-            to bottom,
-            $SecondaryColor 20%,
-            $tertiaryColor,
-            $primaryColor
-          );
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-
-          i {
-            font-size: 23px;
-            padding: 0;
-            margin: 0;
-          }
-
-          @media screen and (max-width: 890px) {
-            font-size: 30px;
-          }
+        img {
+          height: 100%;
         }
       }
     }
@@ -297,7 +264,7 @@ main {
       margin: auto;
       h1 {
         padding: 20px;
-        margin-top: 50px;
+        margin-top: 10px;
         color: $col;
         font: 500 25px "Poppins", sans-serif;
 

@@ -6,13 +6,13 @@
       <div class="title">
         <h1>
           Advanced <br />
-          crypto & forex community
+          Tech Academy
         </h1>
         <p>
           this is a crypto trading website where you get to learn all about
           crypto currency and also how to trade with crypto and forex
         </p>
-        <h1 class="title-head">why choose Crypto & Forex??</h1>
+        <!-- <h1 class="title-head">why choose Crypto & Forex??</h1> -->
         <button class="primary-btn">
           <router-link to="/signup" class="homeBtn">sign up</router-link>
         </button>

@@ -31,7 +31,7 @@
             <router-link to="/login" class="homeBtn">sign in</router-link>
           </button>
           <button class="current primary-btn">
-            <router-link to="/register" class="homeBtn">register</router-link>
+            <router-link to="/signup" class="homeBtn">register</router-link>
           </button>
         </nav>
       </nav>
@@ -48,7 +48,7 @@
         </div>
       </nav>
       <nav class="bottom-nav" v-if="noDropdown">
-        <nav class="logo-nav">
+        <nav class="logo-nav" @click="toHome()">
           <img src="../assets/logo-white.jpg" alt="" />
         </nav>
         <nav class="menu-bars">
@@ -70,7 +70,7 @@
           <li><a href="/#courses">courses</a></li>
           <li><a href="/signup">sign up</a></li>
           <li><a href="/login">sign in</a></li>
-          <li><a href="/register">register</a></li>
+          <li><a href="/signup">register</a></li>
           <li><a href="/why-us">why crypto?</a></li>
           <li><a href="/blog">blog</a></li>
           <li><a href="/about">about us</a></li>
@@ -82,10 +82,12 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 export default {
   name: "Header",
   setup() {
+    const router = useRouter();
     let onDropdown = ref(false);
     let noDropdown = ref(true);
 
@@ -99,7 +101,11 @@ export default {
       noDropdown.value = true;
     }
 
-    return { onDropdown, noDropdown, menuFunction, closeDropdown };
+    function toHome() {
+      router.push("/");
+    }
+
+    return { onDropdown, noDropdown, menuFunction, closeDropdown, toHome };
   },
 };
 </script>
@@ -231,6 +237,7 @@ header {
         height: 80px;
         border-radius: 100%;
         background: transparent;
+        cursor: pointer;
       }
 
       span {

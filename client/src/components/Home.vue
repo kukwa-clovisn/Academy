@@ -60,7 +60,7 @@
             <img src="../assets/web-dev.jpg" alt="" />
           </div>
 
-          <h3>three months <span>locked</span></h3>
+          <h3>three months <span>open</span></h3>
           <h5>Learn web development</h5>
           <p>
             Have you ever thought of learning web development and it seems hard?
@@ -76,7 +76,7 @@
             <img src="../assets/graphic-design.jpg" alt="" />
           </div>
 
-          <h3>one month <span>locked</span></h3>
+          <h3>one month <span>open</span></h3>
           <h5>learn graphic design</h5>
           <p>
             Learn phone and computer design and how to use design apps in less

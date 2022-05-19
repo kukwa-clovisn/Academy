@@ -6,7 +6,7 @@
       <div class="title">
         <h1>
           Advanced <br />
-          crypto & forex community blog
+          Tech Academy
         </h1>
         <p>
           Read the latest updates, research, and articles by our crypto team
@@ -29,7 +29,7 @@
         </form>
       </div>
     </div>
-    <div class="section-1">
+    <div class="section-1" v-if="post.open">
       <h1>Advanced crypto & forex trading community blog</h1>
       <p>
         Here we update our latest news titles and all that has to do with our
@@ -67,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div class="section-2">
+    <div class="section-2" v-if="post.open">
       <section>
         <h2>want to get life changing updates??</h2>
         <p>
@@ -80,86 +80,22 @@
       </section>
     </div>
     <div class="posts" id="posts">
-      <div class="post">
-        <h1 class="title">post title</h1>
-        <h3 class="sub-title">sadfub tittle here</h3>
+      <header>
+        <a href="/blog">return</a> <button @click="getPosts()">All Posts</button
+        ><button @click="searchPosts()">Filter Post(s)</button>
+      </header>
+      <div class="post" v-for="post in post.postArr" :key="post.id">
+        <h1 class="title">{{ post.title }}</h1>
+        <h3 class="sub-title">{{ post.subTitle }}</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas culpa
-          necessitatibus amet repellendus reprehenderit suscipit maxime
-          reiciendis ad explicabo. Quasi consequatur aut, nemo dolorem in ut
-          officiis voluptatum voluptates? Ea deserunt eius dicta natus
-          perspiciatis magnam qui minima laborum pariatur recusandae quia
-          inventore consectetur sequi minus, laboriosam consequatur hic soluta.
+          {{ post.message }}
         </p>
-        <h5 class="tags">#crypto #forex</h5>
-        <p class="author">author: author naem</p>
+        <h5 class="tags">
+          <span v-for="tag in post.tags" :key="tag.id">#{{ tag }}</span>
+        </h5>
+        <p class="author">author:{{ post.author }}</p>
       </div>
     </div>
-
-    <!-- <div class="instructors">
-      <div class="instructors-div">
-        <div class="instructor">
-          <div class="img">
-            <img src="../assets/male.jpeg" alt="instructor" />
-          </div>
-          <div class="instructor-info">
-            <h3>instructor name <span>instructor field</span></h3>
-            <p>
-              The future belongs to those who believe in the beauty of their
-              dreams
-            </p>
-          </div>
-        </div>
-        <div class="instructor">
-          <div class="img">
-            <img src="../assets/male.jpeg" alt="instructor" />
-          </div>
-          <div class="instructor-info">
-            <h3>instructor name <span>instructor field</span></h3>
-            <p>
-              The future belongs to those who believe in the beauty of their
-              dreams
-            </p>
-          </div>
-        </div>
-        <div class="instructor">
-          <div class="img">
-            <img src="../assets/male.jpeg" alt="instructor" />
-          </div>
-          <div class="instructor-info">
-            <h3>instructor name <span>instructor field</span></h3>
-            <p>
-              The future belongs to those who believe in the beauty of their
-              dreams
-            </p>
-          </div>
-        </div>
-        <div class="instructor">
-          <div class="img">
-            <img src="../assets/male.jpeg" alt="instructor" />
-          </div>
-          <div class="instructor-info">
-            <h3>instructor name <span>instructor field</span></h3>
-            <p>
-              The future belongs to those who believe in the beauty of their
-              dreams
-            </p>
-          </div>
-        </div>
-        <div class="instructor">
-          <div class="img">
-            <img src="../assets/male.jpeg" alt="instructor" />
-          </div>
-          <div class="instructor-info">
-            <h3>instructor name <span>instructor field</span></h3>
-            <p>
-              The future belongs to those who believe in the beauty of their
-              dreams
-            </p>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <Footer />
   </main>
 </template>
@@ -181,15 +117,18 @@ export default {
 
     const post = reactive({
       title: "",
+      postArr: [],
+      open: true,
     });
 
-    async function getPosts() {
-      try {
-        let response = await axios("/api/post");
-        console.log(response);
-      } catch (err) {
-        console.log(err);
-      }
+    function getPosts() {
+      axios("api/post")
+        .then((res) => {
+          console.log(res);
+          post.postArr = res.data;
+          console.log(post.postArr);
+        })
+        .catch((err) => console.log(err.status));
     }
 
     onMounted(() => {
@@ -197,11 +136,14 @@ export default {
     });
 
     function searchPosts() {
-      let posts = axios("/api/post/" + `${post.title}`);
+      axios("api/post/" + `${post.title}`)
+        .then((res) => {
+          post.postArr = res.data;
+          post.open = false;
+        })
+        .catch((err) => console.log(res));
       post.title = "";
       router.push("#posts");
-
-      console.log(posts);
     }
 
     return { post, searchPosts };
@@ -304,12 +246,14 @@ main {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       width: 90vw;
 
       .flex-content {
         width: 350px;
         height: 400px;
         border-radius: 5px;
+        margin: 10px;
         padding: 20px;
         background: rgb(22, 46, 76);
 
@@ -337,6 +281,15 @@ main {
         p {
           padding: 10px;
           color: rgb(194, 194, 194);
+        }
+
+        @media screen and(max-width: 1250px) {
+          width: 400px;
+
+          @media screen and (max-width: 935px) {
+            width: 90%;
+            margin: 20px auto;
+          }
         }
       }
     }
@@ -393,6 +346,28 @@ main {
     padding: 20px;
     background: $fallback;
 
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button,
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        text-transform: capitalize;
+        width: 100px;
+        height: 40px;
+        border: none;
+        border-radius: 3px;
+        background: white;
+        color: $fallback;
+        margin: 10px 20px;
+      }
+    }
+
     .post {
       width: 90%;
       height: fit-content;
@@ -422,59 +397,9 @@ main {
         padding: 10px;
         font: 600 15px "Poppins", sans-serif;
       }
-    }
-  }
 
-  .instructors {
-    width: 100vw;
-    background: $fallback;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .instructors-div {
-      width: 90vw;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-
-      .instructor {
-        width: 300px;
-        height: 320px;
-        margin-bottom: 20px;
-        padding: 10px;
-        .img {
-          width: 150px;
-          height: 150px;
-          border-radius: 100%;
-          overflow: hidden;
-          margin: auto;
-
-          img {
-            width: 100%;
-          }
-        }
-
-        .instructor-info {
-          width: 100%;
-
-          h3 {
-            text-transform: uppercase;
-            font: 700 25px "Nunito sans", "Poppins", sans-serif;
-            color: rgb(224, 225, 226);
-
-            span {
-              text-transform: capitalize;
-              font-size: 20px;
-              color: rgb(165, 168, 170);
-            }
-          }
-
-          p {
-            color: rgb(126, 141, 144);
-          }
-        }
+      @media screen and (max-width: 650px) {
+        width: 98%;
       }
     }
   }

@@ -19,14 +19,23 @@ module.exports = {
                if (err) return res.status(401)
 
                if (!data) return res.status(200).json({
-                    msg: `no post with title: ${req.body.title}`
+                    msg: `no posts`
                })
 
-               let posts = data.map(post => post.title.includes(req.params.title))
+               console.log(data)
 
-               console.log(posts);
+               let lists = []
 
-               return res.status(200).json(posts);
+               let posts = data.map(post => {
+                    if (post.title.includes(req.params.title)) return lists.push(post);
+
+               })
+
+               console.log(lists)
+
+               return res.status(200).json(lists)
+
+
           })
      }
 }

@@ -5,7 +5,7 @@
     </div>
 
     <div class="form">
-      <form @submit.prevent="updatePassword()">
+      <form @submit.prevent="updatePassword()" v-if="user.step1">
         <h1>Atech acadmey</h1>
         <div class="input">
           <label for="email"> email:</label>
@@ -18,7 +18,43 @@
             required
           />
         </div>
-        <div class="input" v-if="user.isChange">
+        <button type="submit">submit</button>
+      </form>
+      <form @submit.prevent="verifyToken()" v-if="user.step2">
+        <h1>Atech acadmey</h1>
+        <span>{{ user.count }}</span>
+        <div class="input">
+          <label for="password">token:</label>
+          <input
+            type="text"
+            name="newPassword"
+            id="newPassword"
+            v-model="user.token"
+            placeholder="Enter token sent to your email..."
+            required
+          />
+        </div>
+        <p>
+          A token has been sent to your email with the token. check your spam if
+          you can't find it
+        </p>
+        <button type="submit">submit</button>
+        <a href="/forget_password" class="a">back</a>
+      </form>
+      <form @submit.prevent="changePassword()" v-if="user.step3">
+        <h1>Atech acadmey</h1>
+        <div class="input">
+          <label for="userEmail">email:</label>
+          <input
+            type="email"
+            name="userEmail"
+            id="userEmail"
+            v-model="user.userEmail"
+            placeholder="Enter email.."
+            required
+          />
+        </div>
+        <div class="input">
           <label for="password">new Password:</label>
           <input
             type="password"
@@ -47,6 +83,7 @@
 </template>
 <script>
 import axios from "axios";
+import { useRouter } from "vue-router";
 import { reactive } from "vue";
 import Header from "./header.vue";
 export default {
@@ -57,23 +94,110 @@ export default {
   setup() {
     let user = reactive({
       email: "",
+      token: "",
       new_password: "",
+      userEmail: "",
+      count: 1,
       msg: "",
-      isChange: false,
+      step1: true,
+      step2: false,
+      step3: false,
       success: false,
       failed: false,
     });
 
+    const router = useRouter();
+
+    let config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
     function updatePassword() {
       axios
-        .post("api/forget_password", user.email, {
-          headers: { "Content-Type": "application/json" },
+        .post("api/forget_password", { email: user.email }, config)
+        .then((res) => {
+          console.log(res);
+          if (res.statusText === "OK") {
+            localStorage.setItem("updateToken", res.data.updateToken);
+            user.step1 = false;
+            user.step2 = true;
+            countdown();
+          }
         })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          user.failed = true;
+          setTimeout(post_error, 3000);
+        });
     }
 
-    return { user, updatePassword };
+    function verifyToken() {
+      axios
+        .post(
+          "api/forget_password/token",
+          { token: user.token, userToken: localStorage.getItem("updateToken") },
+          config
+        )
+        .then((res) => {
+          if (res.statusText === "OK") {
+            user.step2 = false;
+            user.step3 = true;
+          }
+        })
+        .catch((err) => {
+          user.failed = true;
+          user.msg = err.response.data.msg;
+          setTimeout(post_error, 3000);
+        });
+    }
+
+    function changePassword() {
+      axios
+        .post(
+          "api/forget_password/update",
+          {
+            password: user.new_password,
+            email: user.userEmail,
+          },
+          config
+        )
+        .then((res) => {
+          console.log(res);
+          if (res.statusText === "OK") {
+            user.success = true;
+            user.msg = res.data.msg;
+            setTimeout(pop, 3000);
+          }
+        })
+        .catch((err) => {
+          user.failed = true;
+          user.msg = err.response.data.msg;
+          setTimeout(post_error, 3000);
+        });
+    }
+
+    function countdown() {
+      let counting = setInterval(() => {
+        user.count += 1;
+
+        if (user.count === 60) {
+          clearInterval(counting);
+        }
+      }, 1000);
+    }
+
+    function pop() {
+      user.success = false;
+
+      router.push("/login");
+    }
+
+    function post_error() {
+      user.failed = false;
+    }
+
+    return { user, updatePassword, verifyToken, changePassword };
   },
 };
 </script>
@@ -113,6 +237,10 @@ main {
       background: white;
       margin: auto;
 
+      span {
+        color: $SecondaryColor;
+      }
+
       .input {
         width: 100%;
         margin: 20px auto;
@@ -144,6 +272,10 @@ main {
         border-radius: 3px;
         background: $SecondaryColor;
         color: white;
+      }
+
+      .a {
+        color: $col;
       }
     }
 
