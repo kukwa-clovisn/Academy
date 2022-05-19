@@ -4,6 +4,7 @@ let debug = require("debug")("portfolio-server:server");
 let http = require("http");
 const fs = require("fs");
 const path = require("path");
+const express = require('express');
 
 /**
  * normalizing a port into a number, string or false
