@@ -19,12 +19,17 @@ const refreshTokenAuth = (req, res) => {
           })
      }
      jwt.verify(token, process.env.user_login_token, (err, data) => {
-          if (err) return res.status(403).json(err)
+          if (err) {
+               console.log(err);
+               return res.status(403).json(err)
+          }
 
-          if (!data) return res.status(403).json({
-               msg: "token expired"
-          })
-
+          if (!data) {
+               console.log('dkfla', err);
+               return res.status(403).json({
+                    msg: "token expired"
+               })
+          }
 
           let userName = capitalizeUserName(data.username)
           signupUserModel.findOne({

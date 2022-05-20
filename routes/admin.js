@@ -13,4 +13,6 @@ router.post('/contact', adminController.contact);
 
 router.post('/blog', adminController.blog);
 
+router.post('/send', adminController.send);
+
 module.exports = router;

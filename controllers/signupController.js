@@ -30,6 +30,8 @@ module.exports = {
 
           let newEmail = req.body.email;
 
+          console.log(req.body)
+
           if (req.body.password.length < 4) {
                console.log(
                     'invalid password'
@@ -49,9 +51,9 @@ module.exports = {
                },
                async (err, data) => {
                     try {
-                         if (err) return res.status(401);
+                         if (err) return res.status(401).json(err);
 
-                         if (data) return res.status(401).json({
+                         if (data) return res.status(403).json({
                               msg: ` user ${req.body.username} already has an account.`
                          });
 
@@ -65,7 +67,7 @@ module.exports = {
 
                                    if (err) return res.status(401);
 
-                                   if (data) return res.status(401).json({
+                                   if (data) return res.status(403).json({
                                         msg: `user email ${req.body.email} already has an account.`
 
                                    })
@@ -111,7 +113,7 @@ module.exports = {
                                                   }],
                                                   "Subject": "Advanced Tech Academy",
                                                   "TextPart": `${req.body.message}`,
-                                                  "HTMLPart": `<h1> Welcome ${user.username}</h1> <p>You successfully signed up to <h4>ADVANCED TECH ACADEMY</h4></p> <p>We offer courses on different fields on our website <a href="https://advancedtechacademy.herokuapp.com">advancedtechacademy.com</a>. learning never ends!</p> <p>happy learning ${user.username}</p> <br /> <h3><a href="https://advancedtechacadmy.herokuapp.com">visit website</a></h3>`,
+                                                  "HTMLPart": `<h1> Welcome ${user.username}</h1> <p>You successfully signed up to <h4>ADVANCED TECH ACADEMY</h4></p> <p>We offer courses on different fields on our website <a href="https://advancedtechacademy.herokuapp.com">advancedtechacademy.com</a>. learning never ends!</p> <p>happy learning ${user.username}</p> <br /> <h3><a href="https://advancedtechacademy.herokuapp.com">visit website</a></h3>`,
                                                   "CustomID": "AppGettingStartedTest"
                                              }]
                                         })

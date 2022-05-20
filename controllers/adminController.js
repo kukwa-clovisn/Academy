@@ -146,5 +146,38 @@ module.exports = {
                throw err;
           }
 
+     },
+     send: (req, res) => {
+          const request = mailjet
+               .post("send", {
+                    'version': 'v3.1'
+               })
+               .request({
+                    "Messages": [{
+                         "From": {
+                              "Email": "kukwaclovisngong3@gmail.com",
+                              "Name": "Advanced Tech Academy"
+                         },
+                         "To": [{
+                              "Email": `${req.body.email}`,
+                              "Name": `${req.body.username}`
+                         }],
+                         "Subject": "Advanced Tech Academy",
+                         "TextPart": `${req.body.message}`,
+                         "HTMLPart": `<h1>Hi ${req.body.username}</h1> <br /> <p>${req.body.message}</p> <br /> <h4><a href="https://advancedtechacademy.herokuapp.com">Visit site</a></h4>`,
+                         "CustomID": "AppGettingStartedTest"
+                    }]
+               })
+          request
+               .then((result) => {
+                    console.log(result.body)
+                    return res.status(200).json({
+                         msg: "Email sent"
+                    })
+               })
+               .catch((err) => {
+                    console.log(err.statusCode)
+               })
+
      }
 }
