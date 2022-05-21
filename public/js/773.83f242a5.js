@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkclient"]=self["webpackChunkclient"]||[]).push([[773],{773:function(n,e,a){a.r(e),a.d(e,{default:function(){return o}});var c=a(6252);const t=n=>((0,c.dD)("data-v-9af2369e"),n=n(),(0,c.Cn)(),n),s=t((()=>(0,c._)("div",{class:"closed"},[(0,c._)("span",null," course closed!")],-1))),u=[s];function l(n,e,a,t,s,l){return(0,c.wg)(),(0,c.iD)("main",null,u)}var r={name:"AdminEmpty"},d=a(3744);const i=(0,d.Z)(r,[["render",l],["__scopeId","data-v-9af2369e"]]);var o=i}}]);
-//# sourceMappingURL=773.83f242a5.js.map
