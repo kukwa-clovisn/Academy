@@ -28,6 +28,8 @@ const verifyUserToken = async (userToken) => {
                if (err) {
                     return res.status(500).json(err)
                }
+               if (!data) return res.status(401);
+
                console.log(data)
                return data;
           })
