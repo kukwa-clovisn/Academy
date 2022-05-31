@@ -17,7 +17,8 @@ const signupUserSchema = new mongoose.Schema({
      token: {
           type: String,
           required: true
-     }
+     },
+     todos: Array
 
 }, {
      collection: 'signup_clients'

@@ -36,9 +36,9 @@ module.exports = {
 
                     return res.status(200).json({
                          username: data.username,
+                         accessId: data._id,
                          msg: "redirecting to course page...",
-                         accessToken,
-                         refreshToken: data.token
+                         accessToken
                     })
 
                } catch (err) {

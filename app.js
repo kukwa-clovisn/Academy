@@ -43,6 +43,7 @@ const courseRoute = require('./routes/course')
 const tokenRoute = require('./routes/token')
 const adminRoute = require('./routes/admin')
 const postRoute = require('./routes/post')
+const todoRoute = require('./routes/todo')
 const forget_passwordRoute = require('./routes/forget_password')
 
 // getting Routes
@@ -52,6 +53,7 @@ app.use('/api/course', courseRoute);
 app.use('/api/token', tokenRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/post', postRoute);
+app.use('/api/todo', todoRoute);
 app.use('/api/forget_password', forget_passwordRoute);
 
 /**

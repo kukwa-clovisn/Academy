@@ -92,7 +92,6 @@ module.exports = {
                                         password: userKey,
                                         token: refreshToken
                                    }
-                                   console.log(user);
 
                                    //     storing user in database
                                    await signupUserModel.create(user);
@@ -129,19 +128,14 @@ module.exports = {
                                              console.log(err.statusCode)
                                         })
 
-                                   /**
-                                    * return a response with the user data
-                                    */
-
 
                               } catch (err) {
 
-                                   console.log(err)
                                    return res.status(403).json(err);
                               }
                          }).select('-password')
                     } catch (err) {
-                         return console.log(err)
+                         return err
                     }
 
 
