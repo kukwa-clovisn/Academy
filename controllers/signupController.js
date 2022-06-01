@@ -112,7 +112,7 @@ module.exports = {
                                                   }],
                                                   "Subject": "Advanced Tech Academy",
                                                   "TextPart": `${req.body.message}`,
-                                                  "HTMLPart": `<h1> Welcome ${user.username}</h1> <p>You successfully signed up to <h4>ADVANCED TECH ACADEMY</h4></p> <p>We offer courses on different fields on our website <a href="https://advancedtechacademy.herokuapp.com">advancedtechacademy.com</a>. learning never ends!</p> <p>happy learning ${user.username}</p> <br /> <h3><a href="https://advancedtechacademy.herokuapp.com">visit website</a></h3>`,
+                                                  "HTMLPart": `<h1> Welcome ${user.username}</h1> <p>You successfully signed up to <h4>ADVANCED TECH ACADEMY || CODINGHERALD</h4></p> <p>We offer courses on different fields on our website <a href="https://advancedtechacademy.herokuapp.com">advancedtechacademy.com</a> and free online apps like online Dairy at <a href="https://codingherald.herokuapp.com">codingherald.com</a>. learning never ends!</p> <p>happy learning ${user.username}</p> <br /> <h3><a href="https://advancedtechacademy.herokuapp.com">visit website</a></h3> <br /> <h3><a href="https://codingherald.herokuapp.com">see apps</a></h3>`,
                                                   "CustomID": "AppGettingStartedTest"
                                              }]
                                         })
