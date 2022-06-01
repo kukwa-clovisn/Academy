@@ -19,10 +19,12 @@ const signupUserSchema = new mongoose.Schema({
           required: true
      },
      image: {
-          type: String
+          type: String,
+          required: false
      },
      description: {
-          type: String
+          type: String,
+          required: false
      },
      todos: Array
 
