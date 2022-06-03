@@ -10,13 +10,9 @@ const verifyToken = async (token, hash, nameCheck) => {
 
      if (result === true) {
 
-          console.log('TOKENCKECK: token verified')
-
           return true;
 
      } else {
-
-          console.log(`login denied. User ${nameCheck} logging in with a wrong password....`)
 
           return false;
      }

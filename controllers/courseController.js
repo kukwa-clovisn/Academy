@@ -6,8 +6,6 @@ const mailjet = require('node-mailjet')
 
 const get = (req, res) => {
 
-     console.log(req.params)
-
      let data = {
           id: req.params.ida,
           name: 'cryptocurrency',
@@ -22,7 +20,6 @@ const get = (req, res) => {
 }
 
 const post = (req, res) => {
-     console.log(req.body)
 
      return res.status(200).json({
           msg: "course uploaded"

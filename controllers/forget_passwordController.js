@@ -36,8 +36,6 @@ module.exports = {
                     verificationToken += verificationTokenList[2][i];
                }
 
-               console.log(verificationToken)
-
                const request = mailjet
                     .post("send", {
                          'version': 'v3.1'
@@ -60,7 +58,6 @@ module.exports = {
                     })
                request
                     .then((result) => {
-                         console.log(result.body)
                          return res.status(200).json({
                               username: data.username,
                               msg: "password successfully updated",
@@ -68,7 +65,7 @@ module.exports = {
                          });
                     })
                     .catch((err) => {
-                         console.log(err.statusCode)
+                         return err.statusCode
                     })
 
           }).select('-password').select('-token')
@@ -83,9 +80,6 @@ module.exports = {
           let receivedToken = tokenList[2];
 
           let sentBackToken = "";
-
-          console.log(req.body)
-          console.log(receivedToken)
 
           for (let i = 0; i < 5; i++) {
                sentBackToken += receivedToken[i];
@@ -123,8 +117,6 @@ module.exports = {
 
 
                     let user = await userModel.findOneAndUpdate(filter, update, opts);
-
-                    console.log(user);
 
                     return res.status(200).json({
                          user,

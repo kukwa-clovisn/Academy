@@ -5,7 +5,6 @@ let {
 
 const sanitizeData = async (req, res, next) => {
      try {
-          console.log(req.body)
           await [
                check('username').not().isEmpty().withMessage('username can not be empty or only numbers').trim().escape(),
                check('password').isLength({
@@ -15,8 +14,6 @@ const sanitizeData = async (req, res, next) => {
           ]
 
           let checkError = validationResult(req);
-
-          console.log(checkError);
 
 
           if (!checkError.isEmpty()) {
@@ -29,7 +26,7 @@ const sanitizeData = async (req, res, next) => {
           }
           next()
      } catch (err) {
-          console.log(err)
+          return err;
      }
 
 }

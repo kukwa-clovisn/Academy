@@ -21,7 +21,8 @@ module.exports = {
                });
 
 
-               return res.status(200).json(data);
+               res.status(200).json(data);
+
 
           }).select('-password').select('-token')
 

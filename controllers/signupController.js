@@ -22,7 +22,7 @@ module.exports = {
                for (let i = 0; i < checkError.errors.length; i++) {
                     msg += checkError.errors[i].msg;
                }
-               console.log(checkError.errors);
+
                res.status(401).json({
                     msg,
                });
@@ -30,16 +30,9 @@ module.exports = {
 
           let newEmail = req.body.email;
 
-          console.log(req.body)
-
-          if (req.body.password.length < 4) {
-               console.log(
-                    'invalid password'
-               )
-               return res.status(401).json({
-                    msg: "invalid password"
-               })
-          }
+          if (req.body.password.length < 4) return res.status(401).json({
+               msg: "invalid password"
+          });
 
           let newUser = capitalizeUserName(req.body.username);
 
@@ -118,15 +111,12 @@ module.exports = {
                                         })
                                    request
                                         .then((result) => {
-                                             console.log(result.body)
                                              return res.status(200).json({
                                                   username: user.username,
                                                   msg: "user successfully signed up. signup successful",
                                              });
                                         })
-                                        .catch((err) => {
-                                             console.log(err.statusCode)
-                                        })
+                                        .catch((err) => err.statusCode)
 
 
                               } catch (err) {

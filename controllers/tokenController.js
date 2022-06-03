@@ -5,7 +5,7 @@ const capitalizeUserName = require('../middlewares/capitalize')
 const jwt = require('jsonwebtoken')
 
 
-const refreshTokenAuth = (req, res) => {
+const refreshTokenAuth = (req, res, next) => {
 
      let authHeader = req.headers['authorization']
      let [
@@ -18,21 +18,12 @@ const refreshTokenAuth = (req, res) => {
                msg: "Unauthorized user!"
           })
      }
-     console.log(token);
      jwt.verify(token, process.env.user_login_token, (err, data) => {
-          if (err) {
-               console.log(err);
-               return res.status(403).json(err)
-          }
+          if (err) return res.status(403).json(err)
 
-          if (!data) {
-               console.log('dkfla');
-               return res.status(403).json({
-                    msg: "token expired"
-               })
-          }
-
-          console.log(data);
+          if (!data) return res.status(403).json({
+               msg: "token expired"
+          })
 
           let userName = capitalizeUserName(data.username)
           signupUserModel.findOne({
@@ -40,9 +31,7 @@ const refreshTokenAuth = (req, res) => {
           }, (err, user) => {
                if (err) return res.status(500).json(err);
 
-               return res.status(200).json({
-                    user
-               });
+               next();
           }).select('-password')
 
      })

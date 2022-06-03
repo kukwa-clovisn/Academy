@@ -30,12 +30,11 @@ const verifyUserToken = async (userToken) => {
                }
                if (!data) return res.status(401);
 
-               console.log(data)
                return data;
           })
 
      } catch (err) {
-          console.log(err);
+          return err;
      }
 }
 

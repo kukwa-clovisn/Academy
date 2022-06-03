@@ -22,16 +22,12 @@ module.exports = {
                     msg: `no posts`
                })
 
-               console.log(data)
-
                let lists = []
 
                let posts = data.map(post => {
                     if (post.title.includes(req.params.title)) return lists.push(post);
 
                })
-
-               console.log(lists)
 
                return res.status(200).json(lists)
 

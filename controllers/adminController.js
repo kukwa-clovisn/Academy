@@ -32,7 +32,7 @@ module.exports = {
                res.status(200).json(admin);
 
           } catch (err) {
-               console.log(err)
+               return err;
           }
 
 
@@ -46,10 +46,6 @@ module.exports = {
      ], (req, res) => {
 
           let checkError = validationResult(req);
-
-          console.log(checkError.errors);
-
-
 
           if (!checkError.isEmpty()) {
                for (let i = 0; i < checkError.errors.length; i++) {
@@ -89,7 +85,6 @@ module.exports = {
           })
      }),
      contact: (req, res) => {
-          console.log(req.body)
           const request = mailjet
                .post("send", {
                     'version': 'v3.1'
@@ -112,18 +107,14 @@ module.exports = {
                })
           request
                .then((result) => {
-                    console.log(result.body)
                     return res.status(200).json({
                          msg: "success"
                     })
                })
-               .catch((err) => {
-                    console.log(err.statusCode)
-               })
+               .catch((err) => err.statusCode)
      },
      blog: async (req, res) => {
           try {
-               console.log(req.body);
                let author = capitalizeName(req.body.author)
                let tags = req.body.tags;
                tags = tags.split(',');
@@ -136,8 +127,6 @@ module.exports = {
                     tags,
                     date: new Date()
                }
-
-               console.log(post)
 
                await postModel.create(post)
 
@@ -170,14 +159,11 @@ module.exports = {
                })
           request
                .then((result) => {
-                    console.log(result.body)
                     return res.status(200).json({
                          msg: "Email sent"
                     })
                })
-               .catch((err) => {
-                    console.log(err.statusCode)
-               })
+               .catch((err) => err.statusCode)
 
      }
 }
