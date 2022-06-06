@@ -2,6 +2,8 @@ const userModel = require('../models/signupModel');
 
 const capitalizeUserName = require('../middlewares/capitalize');
 
+
+
 module.exports = {
      get: (req, res) => {
 
@@ -51,7 +53,7 @@ module.exports = {
 
           })
      },
-     image: (req, res) => {
+     upload: (req, res) => {
           val = req.body.image;
 
           userModel.findByIdAndUpdate(req.params.id, {
