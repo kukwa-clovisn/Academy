@@ -194,7 +194,7 @@ module.exports = {
       if (!data) return res.status(200).json({ msg: "no clients found" });
 
       let emailArr = [];
-      
+
       for (let i = 0; i < data.length; i++) {
         let client = {
           Name: data[i].username,
@@ -202,7 +202,6 @@ module.exports = {
         };
         emailArr.push(client);
       }
-
 
     const request = mailjet
       .post("send", {
