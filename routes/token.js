@@ -5,8 +5,6 @@ const tokenController = require("../controllers/tokenController");
 
 const router = express.Router();
 
-router.get("/", tokenController, (req, res) => {
-  return res;
-});
+router.get("/", tokenController);
 
 module.exports = router;
