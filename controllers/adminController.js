@@ -1,6 +1,7 @@
 const adminModel = require("../models/adminModel");
 const postModel = require("../models/postModel");
-const singupModel = require("../models/signupModel");
+const signupModel = require("../models/signupModel");
+const courseModel = require("../models/courseModel");
 
 require("dotenv").config();
 
@@ -188,7 +189,7 @@ module.exports = {
       .catch((err) => err.statusCode);
   },
   sendAll: (req, res) => {
-    singupModel.find({}, (err, data) => {
+    signupModel.find({}, (err, data) => {
       if (err) return res.status(500).json(err);
 
       if (!data) return res.status(200).json({ msg: "no clients found" });
@@ -230,5 +231,20 @@ module.exports = {
         })
         .catch((err) => err.statusCode);
     });
+  },
+  course: (req, res) => {
+    courseModel.create(req.body);
+
+    return res.status(200).json(req.body);
+  },
+  getAllCourses: (req, res) => {
+    courseModel.find({}, (err, data) => {
+      if (err) return res.status(403).json(err);
+      if (!data) return res.status(200).json({ msg: "no courses found" });
+      return res.status(200).json(data);
+    });
+  },
+  getCourse: (req, res) => {
+    return res.status(200).json("getting course");
   },
 };

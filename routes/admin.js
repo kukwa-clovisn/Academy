@@ -12,6 +12,12 @@ router.post("/contact", adminController.contact);
 
 router.post("/blog", adminController.blog);
 
+router.get("/course/all", adminController.getAllCourses);
+
+router.get("/course/:id", adminController.getCourse);
+
+router.post("/course", adminController.course);
+
 router.post("/send", adminController.send);
 
 router.post("/sendAll", adminController.sendAll);
