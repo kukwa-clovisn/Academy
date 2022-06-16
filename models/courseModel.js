@@ -14,9 +14,17 @@ const courseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    description: {
+      type: String,
+      required: false,
+    },
+    objectives: {
+      type: Array,
+      required: false,
+    },
     videoUrl: {
       type: String,
-      required: true,
+      required: false,
     },
     free: {
       type: Boolean,

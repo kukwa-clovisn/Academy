@@ -12,7 +12,7 @@ router.post("/contact", adminController.contact);
 
 router.post("/blog", adminController.blog);
 
-router.get("/course/all", adminController.getAllCourses);
+router.get("/course/all/:name", adminController.getAllCourses);
 
 router.get("/course/:id", adminController.getCourse);
 

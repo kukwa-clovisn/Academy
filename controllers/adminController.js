@@ -238,13 +238,20 @@ module.exports = {
     return res.status(200).json(req.body);
   },
   getAllCourses: (req, res) => {
-    courseModel.find({}, (err, data) => {
+    courseModel.find({ name: req.params.name }, (err, data) => {
       if (err) return res.status(403).json(err);
-      if (!data) return res.status(200).json({ msg: "no courses found" });
+      if (!data) return res.status(200).json({ msg: "no course found" });
       return res.status(200).json(data);
     });
   },
   getCourse: (req, res) => {
-    return res.status(200).json("getting course");
+    console.log(req.params.id);
+
+    courseModel.findOne({ _id: req.params.id }, (err, data) => {
+      if (err) return res.status(403).json(err);
+      if (!data) return res.status(200).json({ msg: "no courses found" });
+
+      return res.status(200).json(data);
+    });
   },
 };
