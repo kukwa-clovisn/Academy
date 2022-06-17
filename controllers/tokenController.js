@@ -29,7 +29,6 @@ const refreshTokenAuth = (req, res, next) => {
         },
         (err, user) => {
           if (err) return res.status(500).json(err);
-          res.status(200).json(user);
           next();
         }
       )
