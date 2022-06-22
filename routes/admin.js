@@ -16,7 +16,9 @@ router.get("/course/all/:name", adminController.getAllCourses);
 
 router.get("/course/:id", adminController.getCourse);
 
-router.post("/course", adminController.course);
+router.post("/course/:id", adminController.course);
+
+router.post("/course/create/:name", adminController.createCourse);
 
 router.post("/send", adminController.send);
 

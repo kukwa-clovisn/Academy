@@ -30,6 +30,10 @@ const courseSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
+    Bookmarks: {
+      type: Array,
+      required: false,
+    },
   },
   {
     collection: "courses",

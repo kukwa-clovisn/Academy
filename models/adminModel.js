@@ -1,28 +1,33 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
+const adminSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    admin: {
+      type: String,
+      required: true,
+    },
+    course: {
+      type: Array,
+      required: true,
+    },
+  },
+  {
+    collection: "admins",
+  }
+);
 
-const adminSchema = new mongoose.Schema({
-     username: {
-          type: String,
-          required: true
-     },
-     email: {
-          type: String,
-          required: true
-     },
-     password: {
-          type: String,
-          required: true
-     },
-     admin: {
-          type: String,
-          required: true
-     }
-
-}, {
-     collection: 'admins'
-})
-
-const adminModel = mongoose.model('adminSchema', adminSchema)
+const adminModel = mongoose.model("adminSchema", adminSchema);
 
 module.exports = adminModel;

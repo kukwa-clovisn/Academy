@@ -2,6 +2,11 @@ const adminModel = require("../models/adminModel");
 const postModel = require("../models/postModel");
 const signupModel = require("../models/signupModel");
 const courseModel = require("../models/courseModel");
+const designModel = require("../models/designModel");
+const musicModel = require("../models/musicModel");
+const blockchainModel = require("../models/blockchainModel");
+const forexModel = require("../models/forexModel");
+const cryptocurrencyModel = require("../models/cryptocurrencyModel");
 
 require("dotenv").config();
 
@@ -15,6 +20,7 @@ const verifyToken = require("../middlewares/verifyHash");
 const hashFunc = require("../middlewares/hash");
 
 const { check, validationResult } = require("express-validator");
+const webModel = require("../models/webModel");
 
 module.exports = {
   add: async (req, res) => {
@@ -65,7 +71,6 @@ module.exports = {
       }
 
       let adminName = capitalizeName(req.body.username);
-
       adminModel.findOne(
         {
           username: adminName,
@@ -91,11 +96,19 @@ module.exports = {
 
           if (!response) return res.status(403);
 
-          return res.status(200).json({
-            id: data._id,
-            username: data.username,
-            email: data.email,
-            admin: data.admin,
+          for (let i = 0; i < data.course.length; i++) {
+            if (data.course[i] === req.body.course) {
+              return res.status(200).json({
+                id: data._id,
+                username: data.username,
+                email: data.email,
+                admin: data.admin,
+                course: data.course[i],
+              });
+            }
+          }
+          return res.status(403).json({
+            msg: `Access Denied. You don't have access to the ${req.body.course} course.`,
           });
         }
       );
@@ -233,25 +246,108 @@ module.exports = {
     });
   },
   course: (req, res) => {
-    courseModel.create(req.body);
+    let bookmarkArr = [];
+    bookmarkArr.push(req.body);
+
+    courseModel.findByIdAndUpdate(
+      req.params.id,
+      {
+        Bookmarks: [...bookmarkArr],
+      },
+      (err, info) => {
+        if (err) {
+          return res.status(400).json(err);
+        }
+      }
+    );
+
+    let courseUserArr = [];
+    courseUserArr.push(req.body.courseId);
+
+    signupModel.findByIdAndUpdate(
+      req.body.userId,
+      {
+        Bookmarks: [...courseUserArr],
+      },
+      (err, data) => {
+        if (err) return res.status(400).json(err);
+        return res.status(201).json(data);
+      }
+    );
+  },
+  createCourse: (req, res) => {
+    if (req.params.name === "Design") {
+      designModel.create(req.body);
+    }
+    if (req.params.name === "Web Development") {
+      webModel.create(req.body);
+    }
+    if (req.params.name === "Forex") {
+      forexModel.create(req.body);
+    }
+    if (req.params.name === "Blockchain") {
+      blockchainModel.create(req.body);
+    }
+    if (req.params.name === "Cryptocurrency") {
+      cryptocurrencyModel.create(req.body);
+    }
+    if (req.params.name === "Music") {
+      musicModel.create(req.body);
+    }
 
     return res.status(200).json(req.body);
   },
   getAllCourses: (req, res) => {
-    courseModel.find({ name: req.params.name }, (err, data) => {
-      if (err) return res.status(403).json(err);
-      if (!data) return res.status(200).json({ msg: "no course found" });
-      return res.status(200).json(data);
+    let courseName = req.params.name;
+    let accessId = req.headers.accessid;
+    signupModel.findOne({ _id: accessId }, async (err, data) => {
+      try {
+        if (err) return res.status(500).json(err);
+
+        for (let i = 0; i < data.subscription.length; i++) {
+          if (data.subscription[i].course === courseName) {
+            await courseModel.find({ name: courseName }, (err, info) => {
+              if (err) return res.status(403).json(err);
+              if (!info)
+                return res.status(200).json({ msg: "no course found" });
+              return res.status(200).json(info);
+            });
+          }
+        }
+        return res.status(401).json({
+          msg: "You're not registered for this course!",
+        });
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
     });
   },
   getCourse: (req, res) => {
-    console.log(req.params.id);
+    let courseName = req.params.id;
+    let accessId = req.headers["accessId"];
+    signupModel.find({ id: accessId }, async (err, data) => {
+      try {
+        if (err) return res.status(500).json(err);
+        if (!data) return res.status(401);
 
-    courseModel.findOne({ _id: req.params.id }, (err, data) => {
-      if (err) return res.status(403).json(err);
-      if (!data) return res.status(200).json({ msg: "no courses found" });
+        for (let i = 0; i < data.subscription.length; i++) {
+          if (data.subscription[i].course !== courseName) {
+            return res.status(401).json({
+              msg: "You're not registered for this course!",
+            });
+          }
+        }
 
-      return res.status(200).json(data);
+        courseModel.findOne({ _id: req.params.id }, (err, data) => {
+          if (err) return res.status(403).json(err);
+          if (!data) return res.status(200).json({ msg: "no courses found" });
+
+          return res.status(200).json(data);
+        });
+      } catch (error) {
+        return err;
+      }
     });
   },
 };
