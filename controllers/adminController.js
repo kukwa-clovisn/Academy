@@ -113,6 +113,15 @@ module.exports = {
         }
       );
     }),
+  getAdmin: (req, res) => {
+    let id = req.params.id;
+    adminModel
+      .findById(id, (err, data) => {
+        if (err) return res.status(500).json(err);
+        res.status(200).json(data);
+      })
+      .select("-password");
+  },
   contact: (req, res) => {
     const request = mailjet
       .post("send", {
@@ -297,30 +306,30 @@ module.exports = {
 
     return res.status(200).json(req.body);
   },
-  getAllCourses: (req, res) => {
+  getAllCourses: async (req, res) => {
     let courseName = req.params.name;
     let accessId = req.headers.accessid;
-    signupModel.findOne({ _id: accessId }, async (err, data) => {
-      try {
-        if (err) return res.status(500).json(err);
-
-        for (let i = 0; i < data.subscription.length; i++) {
-          if (data.subscription[i].course === courseName) {
-            await courseModel.find({ name: courseName }, (err, info) => {
-              if (err) return res.status(403).json(err);
-              if (!info)
-                return res.status(200).json({ msg: "no course found" });
-              return res.status(200).json(info);
-            });
-          }
+    console.log(courseName, accessId);
+    signupModel.findOne({ _id: accessId }, (err, data) => {
+      if (err) return res.status(500).json(err);
+      let dataArr = [];
+      console.log(data);
+      for (let i = 0; i < data.subscription.length; i++) {
+        if (data.subscription[i].course === courseName) {
+          dataArr.push(data.subscription[i]);
         }
+      }
+      console.log(dataArr);
+      if (!dataArr.length) {
         return res.status(401).json({
           msg: "You're not registered for this course!",
         });
-      } catch (error) {
-        console.log(error);
-        return error;
       }
+    });
+
+    courseModel.find({ name: courseName }, (err, info) => {
+      if (err) return res.status(403).json(err);
+      return res.status(200).json(info);
     });
   },
   getCourse: (req, res) => {

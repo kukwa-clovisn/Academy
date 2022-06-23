@@ -8,6 +8,8 @@ router.post("/add", adminController.add);
 
 router.post("/auth", adminController.auth);
 
+router.get("/getAdmin/:id", adminController.getAdmin);
+
 router.post("/contact", adminController.contact);
 
 router.post("/blog", adminController.blog);
