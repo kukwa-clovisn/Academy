@@ -29,6 +29,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "*",
+    optionsSuccessStatus: 200,
   })
 );
 
@@ -46,6 +47,7 @@ const postRoute = require("./routes/post");
 const todoRoute = require("./routes/todo");
 const forget_passwordRoute = require("./routes/forget_password");
 const registerRoute = require("./routes/register");
+const colorRoute = require("./routes/color");
 
 // getting Routes
 app.use("/api/signup", signupRoute);
@@ -57,6 +59,7 @@ app.use("/api/post", postRoute);
 app.use("/api/todo", todoRoute);
 app.use("/api/forget_password", forget_passwordRoute);
 app.use("/api/register", registerRoute);
+app.use("/api/color", colorRoute);
 
 // utils or plugin for adding collections to the database;
 const dbUpdate = require("./utils/DB");

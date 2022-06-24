@@ -2,6 +2,8 @@ const express = require("express");
 
 const adminController = require("../controllers/adminController");
 
+const adminAuth = require("../middlewares/adminAuth");
+
 const router = express.Router();
 
 router.post("/add", adminController.add);
@@ -14,9 +16,19 @@ router.post("/contact", adminController.contact);
 
 router.post("/blog", adminController.blog);
 
-router.get("/course/all/:name", adminController.getAllCourses);
+router.get("/course/all/:name", adminAuth, adminController.getAllCourses);
 
-router.get("/course/:id", adminController.getCourse);
+router.options("/course/all/:name", (req, res) => {
+  console.log("this is wandas mehn", req.params);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, Content-Length, X-Requested-With"
+  );
+});
+
+router.get("/course/:id", adminAuth, adminController.getCourse);
 
 router.post("/course/:id", adminController.course);
 

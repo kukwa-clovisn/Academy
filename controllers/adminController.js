@@ -76,7 +76,10 @@ module.exports = {
           username: adminName,
         },
         async (err, data) => {
-          if (err) return res.status(401).json(err);
+          if (err) {
+            console.log(err);
+            return res.status(401).json(err);
+          }
 
           if (!data)
             return res.status(403).json({
@@ -306,26 +309,8 @@ module.exports = {
 
     return res.status(200).json(req.body);
   },
-  getAllCourses: async (req, res) => {
+  getAllCourses: (req, res) => {
     let courseName = req.params.name;
-    let accessId = req.headers.accessid;
-    console.log(courseName, accessId);
-    signupModel.findOne({ _id: accessId }, (err, data) => {
-      if (err) return res.status(500).json(err);
-      let dataArr = [];
-      console.log(data);
-      for (let i = 0; i < data.subscription.length; i++) {
-        if (data.subscription[i].course === courseName) {
-          dataArr.push(data.subscription[i]);
-        }
-      }
-      console.log(dataArr);
-      if (!dataArr.length) {
-        return res.status(401).json({
-          msg: "You're not registered for this course!",
-        });
-      }
-    });
 
     courseModel.find({ name: courseName }, (err, info) => {
       if (err) return res.status(403).json(err);
@@ -333,30 +318,11 @@ module.exports = {
     });
   },
   getCourse: (req, res) => {
-    let courseName = req.params.id;
-    let accessId = req.headers["accessId"];
-    signupModel.find({ id: accessId }, async (err, data) => {
-      try {
-        if (err) return res.status(500).json(err);
-        if (!data) return res.status(401);
+    courseModel.findOne({ _id: req.params.id }, (err, data) => {
+      if (err) return res.status(403).json(err);
+      if (!data) return res.status(200).json({ msg: "no courses found" });
 
-        for (let i = 0; i < data.subscription.length; i++) {
-          if (data.subscription[i].course !== courseName) {
-            return res.status(401).json({
-              msg: "You're not registered for this course!",
-            });
-          }
-        }
-
-        courseModel.findOne({ _id: req.params.id }, (err, data) => {
-          if (err) return res.status(403).json(err);
-          if (!data) return res.status(200).json({ msg: "no courses found" });
-
-          return res.status(200).json(data);
-        });
-      } catch (error) {
-        return err;
-      }
+      return res.status(200).json(data);
     });
   },
 };
