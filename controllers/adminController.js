@@ -1,12 +1,6 @@
 const adminModel = require("../models/adminModel");
 const postModel = require("../models/postModel");
 const signupModel = require("../models/signupModel");
-const courseModel = require("../models/courseModel");
-const designModel = require("../models/designModel");
-const musicModel = require("../models/musicModel");
-const blockchainModel = require("../models/blockchainModel");
-const forexModel = require("../models/forexModel");
-const cryptocurrencyModel = require("../models/cryptocurrencyModel");
 
 require("dotenv").config();
 
@@ -20,7 +14,6 @@ const verifyToken = require("../middlewares/verifyHash");
 const hashFunc = require("../middlewares/hash");
 
 const { check, validationResult } = require("express-validator");
-const webModel = require("../models/webModel");
 
 module.exports = {
   add: async (req, res) => {
@@ -255,74 +248,6 @@ module.exports = {
           });
         })
         .catch((err) => err.statusCode);
-    });
-  },
-  course: (req, res) => {
-    let bookmarkArr = [];
-    bookmarkArr.push(req.body);
-
-    courseModel.findByIdAndUpdate(
-      req.params.id,
-      {
-        Bookmarks: [...bookmarkArr],
-      },
-      (err, info) => {
-        if (err) {
-          return res.status(400).json(err);
-        }
-      }
-    );
-
-    let courseUserArr = [];
-    courseUserArr.push(req.body.courseId);
-
-    signupModel.findByIdAndUpdate(
-      req.body.userId,
-      {
-        Bookmarks: [...courseUserArr],
-      },
-      (err, data) => {
-        if (err) return res.status(400).json(err);
-        return res.status(201).json(data);
-      }
-    );
-  },
-  createCourse: (req, res) => {
-    if (req.params.name === "Design") {
-      designModel.create(req.body);
-    }
-    if (req.params.name === "Web Development") {
-      webModel.create(req.body);
-    }
-    if (req.params.name === "Forex") {
-      forexModel.create(req.body);
-    }
-    if (req.params.name === "Blockchain") {
-      blockchainModel.create(req.body);
-    }
-    if (req.params.name === "Cryptocurrency") {
-      cryptocurrencyModel.create(req.body);
-    }
-    if (req.params.name === "Music") {
-      musicModel.create(req.body);
-    }
-
-    return res.status(200).json(req.body);
-  },
-  getAllCourses: (req, res) => {
-    let courseName = req.params.name;
-
-    courseModel.find({ name: courseName }, (err, info) => {
-      if (err) return res.status(403).json(err);
-      return res.status(200).json(info);
-    });
-  },
-  getCourse: (req, res) => {
-    courseModel.findOne({ _id: req.params.id }, (err, data) => {
-      if (err) return res.status(403).json(err);
-      if (!data) return res.status(200).json({ msg: "no courses found" });
-
-      return res.status(200).json(data);
     });
   },
 };

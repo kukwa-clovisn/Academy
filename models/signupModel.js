@@ -32,6 +32,18 @@ const signupUserSchema = new mongoose.Schema(
     },
     todos: Array,
     Bookmarks: Array,
+    likes: {
+      type: Array,
+      required: false,
+    },
+    dislikes: {
+      type: Array,
+      required: false,
+    },
+    comments: {
+      type: Array,
+      required: false,
+    },
   },
   {
     collection: "signup_clients",

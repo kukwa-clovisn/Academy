@@ -40,26 +40,24 @@ connectDb(mongo_uri);
 //  Route paths
 const signupRoute = require("./routes/signup");
 const signinRoute = require("./routes/signin");
-const courseRoute = require("./routes/course");
+const userRoute = require("./routes/user");
 const tokenRoute = require("./routes/token");
 const adminRoute = require("./routes/admin");
 const postRoute = require("./routes/post");
 const todoRoute = require("./routes/todo");
 const forget_passwordRoute = require("./routes/forget_password");
 const registerRoute = require("./routes/register");
-const colorRoute = require("./routes/color");
 
 // getting Routes
 app.use("/api/signup", signupRoute);
 app.use("/api/signin", signinRoute);
-app.use("/api/course", courseRoute);
+app.use("/api/user", userRoute);
 app.use("/api/token", tokenRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/post", postRoute);
 app.use("/api/todo", todoRoute);
 app.use("/api/forget_password", forget_passwordRoute);
 app.use("/api/register", registerRoute);
-app.use("/api/color", colorRoute);
 
 // utils or plugin for adding collections to the database;
 const dbUpdate = require("./utils/DB");

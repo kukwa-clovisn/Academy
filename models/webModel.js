@@ -2,6 +2,10 @@ var mongoose = require("mongoose");
 
 const webSchema = new mongoose.Schema(
   {
+    author: {
+      type: String,
+      required: false,
+    },
     name: {
       type: String,
       required: true,
@@ -12,6 +16,10 @@ const webSchema = new mongoose.Schema(
     },
     description: {
       type: String,
+      required: false,
+    },
+    views: {
+      type: Array,
       required: false,
     },
     objectives: {
@@ -55,6 +63,18 @@ const webSchema = new mongoose.Schema(
       required: true,
     },
     Bookmarks: {
+      type: Array,
+      required: false,
+    },
+    likes: {
+      type: Array,
+      required: false,
+    },
+    dislikes: {
+      type: Array,
+      required: false,
+    },
+    comments: {
       type: Array,
       required: false,
     },
