@@ -236,7 +236,7 @@ module.exports = {
               To: emailArr,
               Subject: "Advanced Tech Academy",
               TextPart: `${req.body.message}`,
-              HTMLPart: `<h1 style="text-transform:capitalize;"> ${req.body.subject}</h1> <br /><h3>${req.body.aim}</h3> <p style="color:white; background:rgb(19, 37, 62); border-radius:5px; padding:20px; font-size: 17px;">${req.body.message} <button style="border:none; width: 80%; height: 40px; border-radius:5px; margin: 5px auto; display:block; background:white; color: white;"> <a href="https://advancedtechacademy.herokuapp.com" style="text-decoration:none; color: rgba(230, 101, 129, 1); width: 100%; height:fit-content; display:flex; justify-content:center; align-items:center; flex-direction:row; text-transform:capitalize; padding:0; font-weight:600;">visite site</a> </button></p> <br /> <h4><a href="https://advancedtechacademy.herokuapp.com">Visit site</a></h4><h4><a href="https://codingherald.herokuapp.com">codingheraldapps</a></h4>`,
+              HTMLPart: `<h1 style="text-transform:capitalize;"> ${req.body.subject}</h1> <br /><h3>${req.body.aim}</h3> <p>${req.body.message}</p> <br /> <h4><a href="https://advancedtechacademy.herokuapp.com">Visit site</a></h4><h4><a href="https://codingherald.herokuapp.com">codingheraldapps</a></h4>`,
               CustomID: "AppGettingStartedTest",
             },
           ],

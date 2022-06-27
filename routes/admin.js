@@ -17,19 +17,26 @@ router.post("/contact", adminController.contact);
 
 router.post("/blog", adminController.blog);
 
-router.get("/course/all/:name", adminAuth, adminCourseController.getAllCourses);
-
-// router.options("/course/all/:name", (req, res) => {
-//   console.log("this is wandas mehn", req.params);
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Content-Type, Authorization, Content-Length, X-Requested-With"
-//   );
-// });
-
-router.get("/course/:id", adminAuth, adminCourseController.getCourse);
+router.get("/course/all/:name", adminCourseController.getAllCourses);
+router.get("/course/:id", adminCourseController.getCourse);
+router.options("/course/all/:name", (req, res) => {
+  console.log("this is wandas mehn", req.params);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, Content-Length, X-Requested-With"
+  );
+});
+router.options("/course/:id", (req, res) => {
+  console.log("this is wandas mehn", req.params);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, Content-Length, X-Requested-With"
+  );
+});
 
 router.post(
   "/search/course/:id",
