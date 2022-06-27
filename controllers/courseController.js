@@ -151,6 +151,18 @@ module.exports = {
               }
             );
             return;
+          } else if (req.body.feedback) {
+            designModel.findByIdAndUpdate(
+              id,
+              {
+                comments: [...data.comments, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
           }
         }
       });
@@ -199,6 +211,18 @@ module.exports = {
               id,
               {
                 Bookmarks: [...data.Bookmarks, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
+          } else if (req.body.feedback) {
+            webModel.findByIdAndUpdate(
+              id,
+              {
+                comments: [...data.comments, ...statusArr],
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
@@ -261,6 +285,18 @@ module.exports = {
               }
             );
             return;
+          } else if (req.body.feedback) {
+            forexModel.findByIdAndUpdate(
+              id,
+              {
+                comments: [...data.comments, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
           }
         }
       });
@@ -309,6 +345,18 @@ module.exports = {
               id,
               {
                 Bookmarks: [...data.Bookmarks, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
+          } else if (req.body.feedback) {
+            cryptocurrencyModel.findByIdAndUpdate(
+              id,
+              {
+                comments: [...data.comments, ...statusArr],
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
@@ -371,6 +419,18 @@ module.exports = {
               }
             );
             return;
+          } else if (req.body.feedback) {
+            blockchainModel.findByIdAndUpdate(
+              id,
+              {
+                comments: [...data.comments, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
           }
         }
       });
@@ -426,9 +486,23 @@ module.exports = {
               }
             );
             return;
+          } else if (req.body.feedback) {
+            musicModel.findByIdAndUpdate(
+              id,
+              {
+                comments: [...data.comments, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
           }
         }
       });
+    } else {
+      return res.status(404);
     }
   },
 };

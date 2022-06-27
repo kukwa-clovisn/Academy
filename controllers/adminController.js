@@ -119,6 +119,10 @@ module.exports = {
       .select("-password");
   },
   contact: (req, res) => {
+    if (!req.body.email && !req.body.number) {
+      req.body.email = "From Admin";
+      req.body.number = "Admin issue(s)";
+    }
     const request = mailjet
       .post("send", {
         version: "v3.1",
