@@ -70,7 +70,6 @@ module.exports = {
         },
         async (err, data) => {
           if (err) {
-            console.log(err);
             return res.status(401).json(err);
           }
 

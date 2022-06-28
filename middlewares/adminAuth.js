@@ -5,14 +5,12 @@ function admin(req, res, next) {
   let courseName = req.headers.coursename;
   adminModel.findOne({ _id: accessId }, (err, data) => {
     if (err) return res.status(500).json(err);
-    console.log(data, courseName);
     let courseArr = [];
     for (let i = 0; i < data.course.length; i++) {
       if (data.course[i] === courseName) {
         courseArr.push(data.course[i]);
       }
     }
-    console.log(courseArr);
     if (!courseArr.length) {
       return res.status(401).json({
         msg: "You're not registered for this course!",

@@ -8,8 +8,6 @@ const refreshTokenAuth = (req, res, next) => {
   let authHeader = req.headers["authorization"];
   let [bearer, token] = authHeader.split(" ");
 
-  console.log(token);
-
   if (token === null) {
     return res.status(401).json({
       msg: "Unauthorized user!",

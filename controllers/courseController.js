@@ -53,7 +53,6 @@ module.exports = {
   getCourse: (req, res) => {
     let courseName = req.headers["coursename"];
     let id = req.params.id;
-    console.log(id, courseName);
     if (courseName === "Design") {
       designModel.findById(id, (err, data) => {
         if (err) return res.status(500).json(err);
@@ -64,10 +63,8 @@ module.exports = {
       webModel.findById(id, (err, data) => {
         if (err) return res.status(500).json(err);
         if (!data) {
-          console.log("no data");
           return res.status(200).json({ data: [], msg: "not data found" });
         }
-        console.log(data);
         res.status(200).json(data);
       });
       return;
@@ -75,10 +72,8 @@ module.exports = {
       forexModel.findById(id, (err, data) => {
         if (err) return res.status(500).json(err);
         if (!data) {
-          console.log("no data");
           return res.status(200).json({ data: [], msg: "not data found" });
         }
-        console.log(data);
         res.status(200).json(data);
       });
       return;
