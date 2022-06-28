@@ -4,6 +4,8 @@ const router = express.Router();
 
 const courseController = require("../controllers/courseController");
 
+const addBookmark = require("../middlewares/user");
+
 router.options("/course/all/:name", (req, res) => {
   console.log("this is wandas mehn", req.params);
   res.header("Access-Control-Allow-Origin", "*");
@@ -18,6 +20,6 @@ router.get("/course/all/:name", courseController.getAllCourses);
 
 router.get("/course/:id", courseController.getCourse);
 
-router.post("/status/:id", courseController.setStatus);
+router.post("/status/:id", addBookmark, courseController.setStatus);
 
 module.exports = router;

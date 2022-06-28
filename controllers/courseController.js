@@ -1,6 +1,4 @@
-const adminModel = require("../models/adminModel");
 const signupModel = require("../models/signupModel");
-const courseModel = require("../models/courseModel");
 const designModel = require("../models/designModel");
 const musicModel = require("../models/musicModel");
 const blockchainModel = require("../models/blockchainModel");
@@ -107,6 +105,7 @@ module.exports = {
   setStatus: (req, res) => {
     let id = req.body.id;
     let courseName = req.params.id;
+    let username = req.body.name;
     let statusArr = [];
     statusArr.push(req.body);
     if (courseName === "Design") {
@@ -147,7 +146,9 @@ module.exports = {
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
-                res.status(200).json(data);
+                if (data) {
+                  res.status(200).json(data);
+                }
               }
             );
             return;
@@ -214,7 +215,25 @@ module.exports = {
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
-                res.status(200).json(data);
+                if (data) {
+                  signupModel.findOne({ name: username }, (err, data) => {
+                    if (err) return res.status(500).json(err);
+                    if (data) {
+                      signupModel.findOneAndUpdate(
+                        { name: username },
+                        {
+                          Bookmarks: [...data.Bookmarks, ...statusArr],
+                        },
+                        (err, data) => {
+                          if (err) return res.status(500);
+                          if (data) {
+                            res.status(200).json(data);
+                          }
+                        }
+                      );
+                    }
+                  });
+                }
               }
             );
             return;
@@ -281,7 +300,25 @@ module.exports = {
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
-                res.status(200).json(data);
+                if (data) {
+                  signupModel.findOne({ name: username }, (err, data) => {
+                    if (err) return res.status(500).json(err);
+                    if (data) {
+                      signupModel.findOneAndUpdate(
+                        { name: username },
+                        {
+                          Bookmarks: [...data.Bookmarks, ...statusArr],
+                        },
+                        (err, data) => {
+                          if (err) return res.status(500);
+                          if (data) {
+                            res.status(200).json(data);
+                          }
+                        }
+                      );
+                    }
+                  });
+                }
               }
             );
             return;
@@ -348,7 +385,9 @@ module.exports = {
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
-                res.status(200).json(data);
+                if (data) {
+                  res.status(200).json(data);
+                }
               }
             );
             return;
@@ -415,7 +454,9 @@ module.exports = {
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
-                res.status(200).json(data);
+                if (data) {
+                  res.status(200).json(data);
+                }
               }
             );
             return;
@@ -482,7 +523,9 @@ module.exports = {
               },
               (err, data) => {
                 if (err) return res.status(500).json(err);
-                res.status(200).json(data);
+                if (data) {
+                  res.status(200).json(data);
+                }
               }
             );
             return;

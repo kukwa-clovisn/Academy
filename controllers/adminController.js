@@ -150,7 +150,7 @@ module.exports = {
     request
       .then((result) => {
         return res.status(200).json({
-          msg: "success",
+          msg: "send successful",
         });
       })
       .catch((err) => err.statusCode);

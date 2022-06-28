@@ -141,4 +141,32 @@ module.exports = {
       )
       .select("-password");
   },
+  subscription: (req, res) => {
+    let courseName = req.params.name;
+    let id = req.headers["accessid"];
+    console.log(courseName);
+
+    signupUserModel.findById(id, (err, data) => {
+      if (err) return res.status(500).json(err);
+
+      if (!data)
+        return res.status(401).json({
+          msg: "Access Denied. You're not registered for this course",
+        });
+      console.log(data);
+      let status = data.subscription.map(
+        (subscription) => subscription.course === courseName
+      );
+      console.log(status);
+      if (!status.includes(true)) {
+        return res.status(401).json({
+          msg: "Access Denied. You're not registered for this course",
+        });
+      }
+      return res.status(200).json({ msg: "Access Granted." });
+    });
+
+    console.log(req.headers);
+    return res.status(200);
+  },
 };
