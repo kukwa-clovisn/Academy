@@ -18,6 +18,10 @@ const forexSchema = new mongoose.Schema(
       type: Array,
       required: false,
     },
+    course: {
+      type: String,
+      required: false,
+    },
     description: {
       type: String,
       required: false,
@@ -80,7 +84,7 @@ const forexSchema = new mongoose.Schema(
     },
   },
   {
-    collection: "Blockchain",
+    collection: "Forex",
   }
 );
 
