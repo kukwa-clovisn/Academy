@@ -133,6 +133,17 @@ module.exports = {
             );
             return;
           } else if (req.body.viewed) {
+            designModel.findByIdAndUpdate(
+              id,
+              {
+                views: [...data.views, ...statusArr],
+              },
+              (err, data) => {
+                if (err) return res.status(500).json(err);
+                res.status(200).json(data);
+              }
+            );
+            return;
           } else if (req.body.bookmarked) {
             designModel.findByIdAndUpdate(
               id,

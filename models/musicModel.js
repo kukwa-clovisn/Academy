@@ -30,6 +30,7 @@ const musicSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    course: { type: String, required: false },
     firstdescription: {
       type: String,
       required: false,

@@ -14,6 +14,7 @@ const blockchainSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    course: { type: String, required: false },
     description: {
       type: String,
       required: false,
@@ -60,7 +61,7 @@ const blockchainSchema = new mongoose.Schema(
     },
     views: {
       type: Array,
-      required:false
+      required: false,
     },
     Bookmarks: {
       type: Array,

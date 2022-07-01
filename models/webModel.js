@@ -41,6 +41,9 @@ const webSchema = new mongoose.Schema(
     thirddescription: {
       type: String,
       required: false,
+    }, course: {
+      type: String,
+      required:false
     },
     conclusion: {
       type: String,

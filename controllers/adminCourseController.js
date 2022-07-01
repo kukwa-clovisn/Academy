@@ -65,6 +65,7 @@ module.exports = {
   },
   editCourse: (req, res) => {
     let id = req.params.id;
+    console.log(req.body);
     if (req.headers["coursename"] === "Design") {
       designModel.findByIdAndUpdate(
         id,
@@ -72,6 +73,7 @@ module.exports = {
           title: req.body.title,
           description: req.body.description,
           intro: req.body.intro,
+          course: req.body.course,
           firstdescription: req.body.firstdescription,
           seconddescription: req.body.seconddescription,
           thirddescription: req.body.thirddescription,
@@ -85,17 +87,20 @@ module.exports = {
         },
         (err, data) => {
           if (err) return res.status(500).json(err);
+          console.log(data);
           return res.status(200).json(data);
         }
       );
     }
     if (req.headers["coursename"] === "Web Development") {
+      console.log(req.body);
       webModel.findByIdAndUpdate(
         id,
         {
           title: req.body.title,
           description: req.body.description,
           intro: req.body.intro,
+          course: req.body.course,
           firstdescription: req.body.firstdescription,
           seconddescription: req.body.seconddescription,
           thirddescription: req.body.thirddescription,
@@ -120,6 +125,7 @@ module.exports = {
           title: req.body.title,
           description: req.body.description,
           intro: req.body.intro,
+          course: req.body.course,
           firstdescription: req.body.firstdescription,
           seconddescription: req.body.seconddescription,
           thirddescription: req.body.thirddescription,
@@ -144,6 +150,7 @@ module.exports = {
           title: req.body.title,
           description: req.body.description,
           intro: req.body.intro,
+          course: req.body.course,
           firstdescription: req.body.firstdescription,
           seconddescription: req.body.seconddescription,
           thirddescription: req.body.thirddescription,
@@ -168,6 +175,7 @@ module.exports = {
           title: req.body.title,
           description: req.body.description,
           intro: req.body.intro,
+          course: req.body.course,
           firstdescription: req.body.firstdescription,
           seconddescription: req.body.seconddescription,
           thirddescription: req.body.thirddescription,
@@ -192,6 +200,7 @@ module.exports = {
           title: req.body.title,
           description: req.body.description,
           intro: req.body.intro,
+          course: req.body.course,
           firstdescription: req.body.firstdescription,
           seconddescription: req.body.seconddescription,
           thirddescription: req.body.thirddescription,

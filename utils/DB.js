@@ -1,4 +1,4 @@
-const signupCollection = require("../models/adminModel");
+const signupCollection = require("../models/forexModel");
 
 async function addCollection() {
   try {
@@ -6,7 +6,7 @@ async function addCollection() {
       {},
       {
         $set: {
-          course: [],
+          author: "Atech",
         },
       }
     );

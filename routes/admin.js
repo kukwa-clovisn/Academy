@@ -20,7 +20,6 @@ router.post("/blog", adminController.blog);
 router.get("/course/all/:name", adminCourseController.getAllCourses);
 router.get("/course/:id", adminCourseController.getCourse);
 router.options("/course/all/:name", (req, res) => {
-  console.log("this is wandas mehn", req.params);
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header(
@@ -29,7 +28,6 @@ router.options("/course/all/:name", (req, res) => {
   );
 });
 router.options("/course/:id", (req, res) => {
-  console.log("this is wandas mehn", req.params);
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header(

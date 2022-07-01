@@ -14,6 +14,7 @@ const cryptocurrencySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    course: { type: String, required: false },
     description: {
       type: String,
       required: false,
