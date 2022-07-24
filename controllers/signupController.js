@@ -165,4 +165,10 @@ module.exports = {
 
     return res.status(200);
   },
+  update_user: (req, res) => {
+    cnsole.log(req.body);
+    console.log(req.header.id);
+    console.log(req.header.accessid);
+    return res.json(req.body);
+  },
 };

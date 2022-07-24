@@ -4,6 +4,8 @@ const router = express.Router();
 
 const courseController = require("../controllers/courseController");
 
+const userDataController = require("../controllers/todoController");
+
 const addBookmark = require("../middlewares/user");
 
 router.options("/course/all/:name", (req, res) => {
@@ -30,4 +32,5 @@ router.options("/status/:id", (req, res) => {
 
 router.post("/status/:id", addBookmark, courseController.setStatus);
 
+router.post("/update/:id", userDataController.update_user);
 module.exports = router;

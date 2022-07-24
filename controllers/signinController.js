@@ -12,6 +12,8 @@ module.exports = {
   post: (req, res) => {
     let findUser = capitalizeUserName(req.body.username);
 
+    console.log(findUser);
+
     signupUserModel.findOne(
       {
         username: findUser,
@@ -25,6 +27,7 @@ module.exports = {
             return res.status(403).json({
               msg: `user ${findUser} has no account.`,
             });
+          console.log(data);
 
           // if data, compare password,
           let result = await verifyToken(
