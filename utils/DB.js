@@ -1,12 +1,12 @@
-const signupCollection = require("../models/forexModel");
+const signupModel = require("../models/signupModel");
 
 async function addCollection() {
   try {
-    await signupCollection.updateMany(
+    await signupModel.updateMany(
       {},
       {
         $set: {
-          author: "Atech",
+          // school_company: null,
         },
       }
     );

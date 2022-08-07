@@ -60,31 +60,27 @@ module.exports = {
       }
     );
   },
-  update_user: async (req, res) => {
-    try {
-      let id = req.headers.accessid;
+  update_user: (req, res) => {
+    let id = req.headers.accessid;
+    let newUser = capitalizeUserName(req.body.name);
 
-      let userKey = await hashFunc(req.body.password);
-      let newUser = capitalizeUserName(req.body.name);
-
-      userModel
-        .findByIdAndUpdate(
-          id,
-          {
-            username: newUser,
-            email: req.body.email,
-            password: userKey,
-          },
-          (err, data) => {
-            if (err) return res.status(401).json(err);
-
-            return res.status(200).json(data);
-          }
-        )
-        .select("-password");
-    } catch (err) {
-      return res.status(500);
-    }
+    userModel
+      .findByIdAndUpdate(
+        id,
+        {
+          username: newUser,
+          location: req.body.location,
+          profession: req.body.profession,
+          dob: req.body.dob,
+          school_company: req.body.school_company,
+        },
+        { new: true },
+        (err, data) => {
+          if (err) return res.status(401).json(err);
+          return res.status(200).json(data);
+        }
+      )
+      .select("-password");
   },
   upload: (req, res) => {
     val = req.body.image;
@@ -94,6 +90,7 @@ module.exports = {
       {
         image: val,
       },
+      { new: true },
       (err, data) => {
         if (err) return res.status(404).json(err);
 

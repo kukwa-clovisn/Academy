@@ -18,6 +18,10 @@ const signupUserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    signupDate: {
+      type: Date,
+      required: false,
+    },
     image: {
       type: String,
       required: false,
@@ -42,6 +46,26 @@ const signupUserSchema = new mongoose.Schema(
     },
     comments: {
       type: Array,
+      required: false,
+    },
+    profession: {
+      type: String,
+      required: false,
+    },
+    dob: {
+      type: Date,
+      required: false,
+    },
+    location: {
+      type: String,
+      required: false,
+    },
+    public: {
+      type: Boolean,
+      required: false,
+    },
+    school_company: {
+      type: String,
       required: false,
     },
   },
