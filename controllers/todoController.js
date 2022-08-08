@@ -82,4 +82,20 @@ module.exports = {
       )
       .select("-password");
   },
+  upload: (req, res) => {
+    val = req.body.image;
+
+    userModel.findByIdAndUpdate(
+      req.params.id,
+      {
+        image: val,
+      },
+      { new: true },
+      (err, data) => {
+        if (err) return res.status(404).json(err);
+
+        return res.status(200).json(data);
+      }
+    );
+  },
 };
