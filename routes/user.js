@@ -13,7 +13,7 @@ const addBookmark = require("../middlewares/user");
 const multer = require("multer");
 
 const Storage = multer.diskStorage({
-  destination: "../uploads",
+  // destination: "../server/uploads",
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
