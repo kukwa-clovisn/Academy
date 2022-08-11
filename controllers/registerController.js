@@ -26,7 +26,7 @@ module.exports = {
           if (data.email !== req.body.email) {
             return res
               .status(403)
-              .json({ msg: "Registration failed. Wrong Email!" });
+              .json({ msg: "Registration failed. invalid credentials!" });
           }
           // if data, compare password,
           let result = await verifyToken(
@@ -37,7 +37,7 @@ module.exports = {
 
           if (!result)
             return res.status(401).json({
-              msg: "unauthorized user. User not registered",
+              msg: "unauthorized user. Be sure you're signed up first",
             });
 
           let subs = data.subscription;
