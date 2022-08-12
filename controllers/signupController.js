@@ -160,7 +160,10 @@ module.exports = {
           msg: "Access Denied. You're not registered for this course",
         });
       }
-      return res.status(200).json({ msg: "Access Granted." });
+
+      return res
+        .status(200)
+        .json({ msg: "Access Granted.", data: data.subscription });
     });
 
     return res.status(200);

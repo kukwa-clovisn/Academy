@@ -8,44 +8,71 @@ const webModel = require("../models/webModel");
 
 const capitalizeName = require("../middlewares/capitalize");
 
+function filterCourses(courses, plan) {
+  console.log(plan);
+  let freeCourses;
+  if (plan === "free") {
+    freeCourses = courses.map((course) => {
+      return course.plan === "free";
+    });
+
+    return freeCourses;
+  } else {
+    return courses;
+  }
+}
+
 module.exports = {
   getAllCourses: (req, res) => {
     let courseName = req.params.name;
+    let plan = req.headers.plan;
 
     if (courseName === "Design") {
       designModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
-        res.status(200).json(info);
+        let result = filterCourses(info, plan);
+
+        res.status(200).json(result);
       });
       return;
     } else if (courseName === "Web Development") {
       webModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
-        res.status(200).json(info);
+        let result = filterCourses(info, plan);
+        console.log(result);
+        res.status(200).json(result);
       });
       return;
     } else if (courseName === "Forex") {
       forexModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
-        res.status(200).json(info);
+        let result = filterCourses(info, plan);
+
+        res.status(200).json(result);
       });
       return;
     } else if (courseName === "Cryptocurrency") {
       cryptocurrencyModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
-        res.status(200).json(info);
+        let result = filterCourses(info, plan);
+
+        res.status(200).json(result);
       });
       return;
     } else if (courseName === "Blockchain") {
       blockchainModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
-        res.status(200).json(info);
+        let result = filterCourses(info, plan);
+
+        res.status(200).json(result);
       });
       return;
     } else if (courseName === "Music") {
       musicModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
-        res.status(200).json(info);
+        let result = filterCourses(info, plan);
+
+        res.status(200).json(result);
       });
       return;
     }
