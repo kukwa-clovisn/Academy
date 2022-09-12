@@ -76,6 +76,16 @@ router.post("/status/:id", addBookmark, courseController.setStatus);
 
 router.post("/update/:id", userDataController.update_user);
 
-router.post("/upload", upload.single("image"), imageUploadController.upload);
+router.post(
+  "/upload/store",
+  upload.single("image"),
+  imageUploadController.upload
+);
+
+router.post(
+  "/upload/compress",
+  upload.single("image"),
+  imageUploadController.compress
+);
 
 module.exports = router;

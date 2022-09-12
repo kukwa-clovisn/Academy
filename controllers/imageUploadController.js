@@ -2,6 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
+const sharp = require("sharp");
+
+const path = require("path");
+
 const userModel = require("../models/signupModel");
 
 const fs = require("fs");
@@ -28,5 +32,19 @@ module.exports = {
         return res.status(200).json(data);
       }
     );
+  },
+  compress: (req, res) => {
+    let compressedImageFile = path.join(
+      __dirname,
+      "../",
+      "public",
+      "compressed-images",
+      new Date().getTime() + ".jpeg"
+    );
+
+    sharp(req.file.path).resize().jpeg({
+      quality: 80,
+      chromaSubsampling: "4:4:4",
+    });
   },
 };
