@@ -82,6 +82,7 @@ const connectDb = async (url) => {
       .then((res) => {
         console.log("mongodb connected.....")
       server.listen(port);
+      server.on("error", onError);
       })
       .catch((err) => console.log(err));
   } catch (error) {
@@ -93,7 +94,7 @@ const connectDb = async (url) => {
 connectDb(mongo_uri);
 
 
-server.on("error", onError);
+
 
 
 
