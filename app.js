@@ -70,12 +70,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + "/public/"));
 
   // handling client page routing
-  app.get(/.*/, (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
-  });
+  if (
+    app.get(/.*/, (req, res) => {
+      res.sendFile(__dirname + "/public/index.html");
+    })
+  ) {
+    console.log("the pages routing is working");
+  } else {
+    console.log("the pages routing is not working alright.");
+  }
 }
-
-
 
 // const connectDb = async (url) => {
 //   try {
@@ -86,7 +90,7 @@ if (process.env.NODE_ENV === "production") {
 //       })
 //       .then((res) => {
 //         console.log("mongodb connected.....")
-      
+
 //       })
 //       .catch((err) => console.log(err));
 //   } catch (error) {
@@ -97,5 +101,4 @@ if (process.env.NODE_ENV === "production") {
 
 // connectDb(mongo_uri);
 
-  module.exports = app;
-
+module.exports = app;
