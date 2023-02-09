@@ -70,15 +70,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + "/public/"));
 
   // handling client page routing
-  if (
-    app.get(/.*/, (req, res) => {
-      res.sendFile(__dirname + "/public/index.html");
-    })
-  ) {
-    console.log("the pages routing is working");
-  } else {
-    console.log("the pages routing is not working alright.");
-  }
+  app.get(/.*/, (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+  });
 }
 
 // const connectDb = async (url) => {
