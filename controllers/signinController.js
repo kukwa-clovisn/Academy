@@ -39,7 +39,6 @@ module.exports = {
             });
 
           let accessToken = userToken.createUserToken(req.body);
-          console.log("before sucess:", req.body);
 
           return res.status(200).json({
             username: data.username,
