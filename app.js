@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 
 const app = express();
 
@@ -33,6 +34,21 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
+
+app.use(
+  expressCspHeader({
+    directives: {
+      "default-src": [SELF],
+      "script-src": [SELF, INLINE, "somehost.com"],
+      "style-src": [SELF, "mystyles.net"],
+      "img-src": ["data:", "images.com"],
+      "worker-src": [NONE],
+      "block-all-mixed-content": true,
+    },
+  })
+);
+
+// express will send header "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' somehost.com; style-src 'self' mystyles.net; img-src data: images.com; workers-src 'none'; block-all-mixed-content; report-uri https://cspreport.com/send;'
 
 // database connect and models
 // const connectDb = require("./connectDB/connectDB");
