@@ -38,12 +38,12 @@ app.use(
 app.use(
   expressCspHeader({
     directives: {
-      "default-src": [SELF],
-      "script-src": [SELF, INLINE, "somehost.com"],
-      "style-src": [SELF, "mystyles.net"],
-      "img-src": ["data:", "images.com"],
+      "default-src": [NONE],
+      "script-src": [SELF, INLINE],
+      "style-src": [SELF],
+      "img-src": [SELF],
       "worker-src": [NONE],
-      "block-all-mixed-content": true,
+      // "block-all-mixed-content": true,
     },
   })
 );
