@@ -1,5 +1,6 @@
 // getting dependencies
 const express = require("express");
+const compression = require("compression");
 require("dotenv").config();
 
 const cookieParser = require("cookie-parser");
@@ -10,6 +11,8 @@ const mongoose = require("mongoose");
 const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 
 const app = express();
+// compressing the app into smalle chunks
+app.use(compression());
 
 // getting the enviroment variables
 const port = process.env.PORT || 9002;
