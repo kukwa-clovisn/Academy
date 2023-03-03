@@ -1,7 +1,7 @@
 {
-  "name": "advancedtechacadmey-api",
+  "name": "advancedtechacademy-api",
   "version": "1.0.0",
-  "description": "advancedtechacadmey backend api",
+  "description": "advancedtechacademy backend api",
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
