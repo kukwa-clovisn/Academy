@@ -46,7 +46,6 @@ app.use(
       "style-src": [SELF],
       "img-src": [SELF],
       "worker-src": [NONE],
-      // "block-all-mixed-content": true,
     },
   })
 );
