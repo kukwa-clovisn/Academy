@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("morgan");
-const mongoose = require("mongoose");
 const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 
 const app = express();
@@ -92,25 +91,5 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(__dirname, "/public/index.html");
   });
 }
-
-// const connectDb = async (url) => {
-//   try {
-//     await mongoose
-//       .connect(url, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//       })
-//       .then((res) => {
-//         console.log("mongodb connected.....")
-
-//       })
-//       .catch((err) => console.log(err));
-//   } catch (error) {
-//     console.log(error);
-//     process.exit(1);
-//   }
-// };
-
-// connectDb(mongo_uri);
 
 module.exports = app;
