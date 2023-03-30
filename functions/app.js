@@ -55,15 +55,15 @@ app.use(
 // const connectDb = require("./connectDB/connectDB");
 
 //  Route paths
-const signupRoute = require("./routes/signup");
-const signinRoute = require("./routes/signin");
-const userRoute = require("./routes/user");
-const tokenRoute = require("./routes/token");
-const adminRoute = require("./routes/admin");
-const postRoute = require("./routes/post");
-const todoRoute = require("./routes/todo");
-const forget_passwordRoute = require("./routes/forget_password");
-const registerRoute = require("./routes/register");
+const signupRoute = require("../routes/signup");
+const signinRoute = require("../routes/signin");
+const userRoute = require("../routes/user");
+const tokenRoute = require("../routes/token");
+const adminRoute = require("../routes/admin");
+const postRoute = require("../routes/post");
+const todoRoute = require("../routes/todo");
+const forget_passwordRoute = require("../routes/forget_password");
+const registerRoute = require("../routes/register");
 
 // getting Routes
 app.use("/api/signup", signupRoute);
@@ -77,7 +77,7 @@ app.use("/api/forget_password", forget_passwordRoute);
 app.use("/api/register", registerRoute);
 
 // utils or plugin for adding collections to the database;
-const dbUpdate = require("./utils/DB");
+const dbUpdate = require("../utils/DB");
 // dbUpdate();
 /**
  * for app production
