@@ -1,9 +1,5 @@
 const signupModel = require("../models/signupModel");
-const designModel = require("../models/designModel");
 const musicModel = require("../models/musicModel");
-const blockchainModel = require("../models/blockchainModel");
-const forexModel = require("../models/forexModel");
-const cryptocurrencyModel = require("../models/cryptocurrencyModel");
 const webModel = require("../models/webModel");
 
 const capitalizeName = require("../middlewares/capitalize");

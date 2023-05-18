@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const mongoose = require("mongoose");
 mongo_uri = process.env.MONGO_URI;
-const app = require("../functions/app");
+const app = require("../../app");
 /**
  * normalizing a port into a number, string or false
  */
@@ -69,27 +69,6 @@ const onError = (error) => {
 /**
  * listening on provided port , on all network interfaces.
  */
-
-const connectDb = async (url) => {
-  try {
-    await mongoose
-      .connect(url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
-      .then((res) => {
-        console.log("mongodb connected.....");
-        server.listen(port);
-        server.on("error", onError);
-      })
-      .catch((err) => console.log(err));
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
-};
-
-connectDb(mongo_uri);
 
 /**
  * Event listerner for a successful HTTP server "listening" event.
