@@ -1,11 +1,7 @@
 const adminModel = require("../models/adminModel");
 const signupModel = require("../models/signupModel");
 const courseModel = require("../models/courseModel");
-const designModel = require("../models/designModel");
 const musicModel = require("../models/musicModel");
-const blockchainModel = require("../models/blockchainModel");
-const forexModel = require("../models/forexModel");
-const cryptocurrencyModel = require("../models/cryptocurrencyModel");
 const webModel = require("../models/webModel");
 
 const capitalizeName = require("../middlewares/capitalize");
@@ -42,21 +38,10 @@ module.exports = {
     );
   },
   createCourse: (req, res) => {
-    if (req.params.name === "Design") {
-      designModel.create(req.body);
-    }
     if (req.params.name === "Web Development") {
       webModel.create(req.body);
     }
-    if (req.params.name === "Forex") {
-      forexModel.create(req.body);
-    }
-    if (req.params.name === "Blockchain") {
-      blockchainModel.create(req.body);
-    }
-    if (req.params.name === "Cryptocurrency") {
-      cryptocurrencyModel.create(req.body);
-    }
+
     if (req.params.name === "Music") {
       musicModel.create(req.body);
     }
@@ -66,32 +51,7 @@ module.exports = {
   editCourse: (req, res) => {
     let id = req.params.id;
     console.log(req.body);
-    if (req.headers["coursename"] === "Design") {
-      designModel.findByIdAndUpdate(
-        id,
-        {
-          title: req.body.title,
-          description: req.body.description,
-          intro: req.body.intro,
-          course: req.body.course,
-          firstdescription: req.body.firstdescription,
-          seconddescription: req.body.seconddescription,
-          thirddescription: req.body.thirddescription,
-          firstvideolist: req.body.firstvideolist,
-          secondvideolist: req.body.secondvideolist,
-          thirdvideolist: req.body.thirdvideolist,
-          free: req.body.free,
-          videoUrl: req.body.videoUrl,
-          objectives: req.body.objectives,
-          conclusion: req.body.conclusion,
-        },
-        (err, data) => {
-          if (err) return res.status(500).json(err);
-          console.log(data);
-          return res.status(200).json(data);
-        }
-      );
-    }
+
     if (req.headers["coursename"] === "Web Development") {
       console.log(req.body);
       webModel.findByIdAndUpdate(
@@ -118,81 +78,7 @@ module.exports = {
         }
       );
     }
-    if (req.headers["coursename"] === "Forex") {
-      forexModel.findByIdAndUpdate(
-        id,
-        {
-          title: req.body.title,
-          description: req.body.description,
-          intro: req.body.intro,
-          course: req.body.course,
-          firstdescription: req.body.firstdescription,
-          seconddescription: req.body.seconddescription,
-          thirddescription: req.body.thirddescription,
-          firstvideolist: req.body.firstvideolist,
-          secondvideolist: req.body.secondvideolist,
-          thirdvideolist: req.body.thirdvideolist,
-          free: req.body.free,
-          videoUrl: req.body.videoUrl,
-          objectives: req.body.objectives,
-          conclusion: req.body.conclusion,
-        },
-        (err, data) => {
-          if (err) return res.status(500).json(err);
-          return res.status(200).json(data);
-        }
-      );
-    }
-    if (req.headers["coursename"] === "Cryptocurrency") {
-      cryptocurrencyModel.findByIdAndUpdate(
-        id,
-        {
-          title: req.body.title,
-          description: req.body.description,
-          intro: req.body.intro,
-          course: req.body.course,
-          firstdescription: req.body.firstdescription,
-          seconddescription: req.body.seconddescription,
-          thirddescription: req.body.thirddescription,
-          firstvideolist: req.body.firstvideolist,
-          secondvideolist: req.body.secondvideolist,
-          thirdvideolist: req.body.thirdvideolist,
-          free: req.body.free,
-          videoUrl: req.body.videoUrl,
-          objectives: req.body.objectives,
-          conclusion: req.body.conclusion,
-        },
-        (err, data) => {
-          if (err) return res.status(500).json(err);
-          return res.status(200).json(data);
-        }
-      );
-    }
-    if (req.headers["coursename"] === "Blockchain") {
-      blockchainModel.findByIdAndUpdate(
-        id,
-        {
-          title: req.body.title,
-          description: req.body.description,
-          intro: req.body.intro,
-          course: req.body.course,
-          firstdescription: req.body.firstdescription,
-          seconddescription: req.body.seconddescription,
-          thirddescription: req.body.thirddescription,
-          firstvideolist: req.body.firstvideolist,
-          secondvideolist: req.body.secondvideolist,
-          thirdvideolist: req.body.thirdvideolist,
-          free: req.body.free,
-          videoUrl: req.body.videoUrl,
-          objectives: req.body.objectives,
-          conclusion: req.body.conclusion,
-        },
-        (err, data) => {
-          if (err) return res.status(500).json(err);
-          return res.status(200).json(data);
-        }
-      );
-    }
+
     if (req.headers["coursename"] === "Music") {
       musicModel.findByIdAndUpdate(
         id,
@@ -222,13 +108,6 @@ module.exports = {
   getAllCourses: (req, res) => {
     let courseName = req.params.name;
 
-    if (courseName === "Design") {
-      designModel.find({ name: courseName }, (err, info) => {
-        if (err) return res.status(403).json(err);
-        res.status(200).json(info);
-      });
-      return;
-    }
     if (courseName === "Web Development") {
       webModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
@@ -236,27 +115,7 @@ module.exports = {
       });
       return;
     }
-    if (courseName === "Forex") {
-      forexModel.find({ name: courseName }, (err, info) => {
-        if (err) return res.status(403).json(err);
-        res.status(200).json(info);
-      });
-      return;
-    }
-    if (courseName === "Cryptocurrency") {
-      cryptocurrencyModel.find({ name: courseName }, (err, info) => {
-        if (err) return res.status(403).json(err);
-        res.status(200).json(info);
-      });
-      return;
-    }
-    if (courseName === "Blockchain") {
-      blockchainModel.find({ name: courseName }, (err, info) => {
-        if (err) return res.status(403).json(err);
-        res.status(200).json(info);
-      });
-      return;
-    }
+
     if (req.headers["coursename"] === "Music") {
       musicModel.find({ name: courseName }, (err, info) => {
         if (err) return res.status(403).json(err);
@@ -268,13 +127,7 @@ module.exports = {
   getCourse: (req, res) => {
     let id = req.headers["editid"];
     let courseName = req.params.id;
-    if (courseName === "Design") {
-      designModel.findById(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        res.status(200).json(data);
-      });
-      return;
-    }
+
     if (courseName === "Web Development") {
       webModel.findById(id, (err, data) => {
         if (err) return res.status(500).json(err);
@@ -285,30 +138,7 @@ module.exports = {
       });
       return;
     }
-    if (courseName === "Forex") {
-      forexModel.findById(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        if (!data) {
-          return res.status(200).json({ data: [], msg: "not data found" });
-        }
-        res.status(200).json(data);
-      });
-      return;
-    }
-    if (courseName === "Cryptocurrency") {
-      cryptocurrencyModel.findById(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        res.status(200).json(data);
-      });
-      return;
-    }
-    if (courseName === "Blockchain") {
-      blockchainModel.findById(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        res.status(200).json(data);
-      });
-      return;
-    }
+
     if (courseName === "Music") {
       musicModel.findById(id, (err, data) => {
         if (err) return res.status(500).json(err);
@@ -321,17 +151,6 @@ module.exports = {
     let courseName = req.headers.coursename;
     findCourse = req.body.title;
 
-    if (req.headers["coursename"] === "Design") {
-      designModel.find({ name: courseName }, (err, data) => {
-        if (err) return res.status(500).json(err);
-        let newArr = [];
-        data.map((course) => {
-          if (course.title.includes(findCourse)) return newArr.push(course);
-        });
-
-        return res.status(200).json(newArr);
-      });
-    }
     if (req.headers["coursename"] === "Web Development") {
       webModel.find({ name: courseName }, (err, data) => {
         if (err) return res.status(500).json(err);
@@ -343,39 +162,7 @@ module.exports = {
         return res.status(200).json(newArr);
       });
     }
-    if (req.headers["coursename"] === "Forex") {
-      forexModel.find({ name: courseName }, (err, data) => {
-        if (err) return res.status(500).json(err);
-        let newArr = [];
-        data.map((course) => {
-          if (course.title.includes(findCourse)) return newArr.push(course);
-        });
 
-        return res.status(200).json(newArr);
-      });
-    }
-    if (req.headers["coursename"] === "Cryptocurrency") {
-      cryptocurrencyModel.find({ name: courseName }, (err, data) => {
-        if (err) return res.status(500).json(err);
-        let newArr = [];
-        data.map((course) => {
-          if (course.title.includes(findCourse)) return newArr.push(course);
-        });
-
-        return res.status(200).json(newArr);
-      });
-    }
-    if (req.headers["coursename"] === "Blockchain") {
-      blockchainModel.find({ name: courseName }, (err, data) => {
-        if (err) return res.status(500).json(err);
-        let newArr = [];
-        data.map((course) => {
-          if (course.title.includes(findCourse)) return newArr.push(course);
-        });
-
-        return res.status(200).json(newArr);
-      });
-    }
     if (req.headers["coursename"] === "Music") {
       musicModel.find({ name: courseName }, (err, data) => {
         if (err) return res.status(500).json(err);
@@ -390,36 +177,14 @@ module.exports = {
   },
   deleteCourse: (req, res) => {
     let id = req.body.id;
-    if (req.headers["coursename"] === "Design") {
-      designModel.findByIdAndDelete(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        return res.status(200).json(data);
-      });
-    }
+
     if (req.headers["coursename"] === "Web Development") {
       webModel.findByIdAndDelete(id, (err, data) => {
         if (err) return res.status(500).json(err);
         return res.status(200).json(data);
       });
     }
-    if (req.headers["coursename"] === "Forex") {
-      forexModel.findByIdAndDelete(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        return res.status(200).json(data);
-      });
-    }
-    if (req.headers["coursename"] === "Cryptocurrency") {
-      cryptocurrencyModel.findByIdAndDelete(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        return res.status(200).json(data);
-      });
-    }
-    if (req.headers["coursename"] === "Blockchain") {
-      blockchainModel.findByIdAndDelete(id, (err, data) => {
-        if (err) return res.status(500).json(err);
-        return res.status(200).json(data);
-      });
-    }
+
     if (req.headers["coursename"] === "Music") {
       musicModel.findByIdAndDelete(id, (err, data) => {
         if (err) return res.status(500).json(err);

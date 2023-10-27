@@ -1,5 +1,6 @@
 // getting dependencies
 const express = require("express");
+const serverless = require("serverless-http");
 const compression = require("compression");
 require("dotenv").config();
 
@@ -16,7 +17,7 @@ app.use(compression());
 
 // getting the enviroment variables
 const port = process.env.PORT || 9002;
-mongo_uri = process.env.MONGO_URI;
+const mongo_uri = process.env.MONGO_URI;
 
 // database connect and models
 
@@ -56,16 +57,16 @@ app.use(
 // const connectDb = require("./connectDB/connectDB");
 
 //  Route paths
-const signupRoute = require("./routes/signup");
-const signinRoute = require("./routes/signin");
-const userRoute = require("./routes/user");
-const tokenRoute = require("./routes/token");
-const adminRoute = require("./routes/admin");
-const postRoute = require("./routes/post");
-const todoRoute = require("./routes/todo");
-const forget_passwordRoute = require("./routes/forget_password");
-const registerRoute = require("./routes/register");
-const chatgptRoute = require("./routes/chatGPT");
+const signupRoute = require("../routes/signup");
+const signinRoute = require("../routes/signin");
+const userRoute = require("../routes/user");
+const tokenRoute = require("../routes/token");
+const adminRoute = require("../routes/admin");
+const postRoute = require("../routes/post");
+const todoRoute = require("../routes/todo");
+const forget_passwordRoute = require("../routes/forget_password");
+const registerRoute = require("../routes/register");
+const chatgptRoute = require("../routes/chatGPT");
 
 // getting Routes
 app.use("/api/signup", signupRoute);
@@ -96,16 +97,18 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose
-  .connect(url, {
+  .connect(mongo_uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then((res) => {
     console.log("Database connected");
-    app.listen(port, () => {
-      console.log(
-        `Advanced Tech Academy server up and running on http://localhost:${port}...`
-      );
-    });
+    // app.listen(port, () => {
+    //   console.log(
+    //     `Advanced Tech Academy server up and running on http://localhost:${port}...`
+    //   );
+    // });
+    module.exports = app;
+    module.exports.handler = serverless(app);
   })
   .catch((err) => console.log(err));
