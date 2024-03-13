@@ -1,0 +1,51 @@
+{
+  "name": "advancedtechacademy-api",
+  "version": "1.0.0",
+  "description": "advancedtechacademy backend api",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kukwa-clovisn/Academy.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "crypto",
+    "Forex",
+    "trading"
+  ],
+  "author": "Kukwa Clovis Ngong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kukwa-clovisn/Academy/issues"
+  },
+  "homepage": "https://github.com/kukwa-clovisn/Academy#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "chatgpt": "^5.2.2",
+    "compression": "^1.7.4",
+    "connect-mongodb-session": "^3.1.1",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-csp-header": "^5.1.0",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.4",
+    "node-mailjet": "^3.4.1",
+    "openai": "^3.2.1",
+    "serverless-http": "^3.2.0",
+    "sharp": "^0.30.7"
+  }
+}

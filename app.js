@@ -1,6 +1,6 @@
 // getting dependencies
+
 const express = require("express");
-const serverless = require("serverless-http");
 const compression = require("compression");
 require("dotenv").config();
 
@@ -12,7 +12,6 @@ const logger = require("morgan");
 const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 
 const app = express();
-const router = express.Router();
 // compressing the app into smalle chunks
 app.use(compression());
 
@@ -49,11 +48,6 @@ app.use(
     },
   })
 );
-
-// express will send header "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' somehost.com; style-src 'self' mystyles.net; img-src data: images.com; workers-src 'none'; block-all-mixed-content; report-uri https://cspreport.com/send;'
-
-// database connect and models
-// const connectDb = require("./connectDB/connectDB");
 
 //  Route paths
 const signupRoute = require("./routes/signup");
