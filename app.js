@@ -77,14 +77,14 @@ app.use("/api/chatgpt", chatgptRoute);
  * for app production
  */
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(__dirname, "/public/"));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(__dirname, "/public/"));
 
-  // handling client page routing
-  app.get(/.*/, (req, res) => {
-    res.sendFile(__dirname, "/public/index.html");
-  });
-}
+//   // handling client page routing
+//   app.get(/.*/, (req, res) => {
+//     res.sendFile(__dirname, "/public/index.html");
+//   });
+// }
 
 mongoose
   .connect(mongo_uri, {
