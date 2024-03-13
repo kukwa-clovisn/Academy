@@ -16,7 +16,7 @@ const app = express();
 app.use(compression());
 
 // getting the enviroment variables
-const port = process.env.PORT || 9002;
+// const port = process.env.PORT || 9002;
 const mongo_uri = process.env.MONGO_URI;
 
 // custom middlewares
@@ -86,17 +86,9 @@ app.use("/api/chatgpt", chatgptRoute);
 //   });
 // }
 
-mongoose
-  .connect(mongo_uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then((res) => {
-    console.log("Database connected");
-    app.listen(port, () => {
-      console.log(
-        `Advanced Tech Academy server up and running on http://localhost:${port}...`
-      );
-    });
-  })
-  .catch((err) => console.log(err));
+mongoose.connect(mongo_uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+app.listen();
