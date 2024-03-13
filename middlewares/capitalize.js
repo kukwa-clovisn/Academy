@@ -1,21 +1,18 @@
-/**
- * capitalizing the username.
- */
+//  * capitalizing the username.
 
 const capitalizeUserName = (username) => {
-     let nameArr = username.split(" ");
+  let nameArr = username.split(" ");
 
-     let capitalizedName = "";
+  let capitalizedName = "";
 
-     let registeredName = "";
+  let registeredName = "";
 
-     for (let i = 0; i < nameArr.length; i++) {
+  for (let i = 0; i < nameArr.length; i++) {
+    capitalizedName +=
+      nameArr[i].charAt(0).toUpperCase() + nameArr[i].slice(1) + " ";
 
-          capitalizedName += nameArr[i].charAt(0).toUpperCase() + nameArr[i].slice(1) + " ";
-
-          registeredName = capitalizedName.slice(0, -1);
-
-     }
-     return registeredName;
-}
+    registeredName = capitalizedName.slice(0, -1);
+  }
+  return registeredName;
+};
 module.exports = capitalizeUserName;

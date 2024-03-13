@@ -12,14 +12,13 @@ const logger = require("morgan");
 const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 
 const app = express();
+const router = express.Router();
 // compressing the app into smalle chunks
 app.use(compression());
 
 // getting the enviroment variables
 const port = process.env.PORT || 9002;
 const mongo_uri = process.env.MONGO_URI;
-
-// database connect and models
 
 // custom middlewares
 app.use(bodyParser.json());
@@ -57,16 +56,16 @@ app.use(
 // const connectDb = require("./connectDB/connectDB");
 
 //  Route paths
-const signupRoute = require("../routes/signup");
-const signinRoute = require("../routes/signin");
-const userRoute = require("../routes/user");
-const tokenRoute = require("../routes/token");
-const adminRoute = require("../routes/admin");
-const postRoute = require("../routes/post");
-const todoRoute = require("../routes/todo");
-const forget_passwordRoute = require("../routes/forget_password");
-const registerRoute = require("../routes/register");
-const chatgptRoute = require("../routes/chatGPT");
+const signupRoute = require("./routes/signup");
+const signinRoute = require("./routes/signin");
+const userRoute = require("./routes/user");
+const tokenRoute = require("./routes/token");
+const adminRoute = require("./routes/admin");
+const postRoute = require("./routes/post");
+const todoRoute = require("./routes/todo");
+const forget_passwordRoute = require("./routes/forget_password");
+const registerRoute = require("./routes/register");
+const chatgptRoute = require("./routes/chatGPT");
 
 // getting Routes
 app.use("/api/signup", signupRoute);
@@ -80,9 +79,6 @@ app.use("/api/forget_password", forget_passwordRoute);
 app.use("/api/register", registerRoute);
 app.use("/api/chatgpt", chatgptRoute);
 
-// utils or plugin for adding collections to the database;
-// const dbUpdate = require("./utils/DB");
-// dbUpdate();
 /**
  * for app production
  */
@@ -103,12 +99,10 @@ mongoose
   })
   .then((res) => {
     console.log("Database connected");
-    // app.listen(port, () => {
-    //   console.log(
-    //     `Advanced Tech Academy server up and running on http://localhost:${port}...`
-    //   );
-    // });
-    module.exports = app;
-    module.exports.handler = serverless(app);
+    app.listen(port, () => {
+      console.log(
+        `Advanced Tech Academy server up and running on http://localhost:${port}...`
+      );
+    });
   })
   .catch((err) => console.log(err));
