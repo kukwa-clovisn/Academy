@@ -61,18 +61,18 @@ app.use("/api/signin", signinRoute);
 app.use("/api/token", tokenRoute);
 app.use("/api/forget_password", forget_passwordRoute);
 
-app.listen(port, () => console.log(port));
-// mongoose
-//   .connect(mongo_uri, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then((res) => {
-//     console.log("Database connected");
-//     app.listen(port, () => {
-//       console.log(
-//         `Advanced Tech Academy server up and running on http://localhost:${port}...`
-//       );
-//     });
-//   })
-//   .catch((err) => console.log(err));
+// app.listen(port, () => console.log(port));
+mongoose
+  .connect(mongo_uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((res) => {
+    console.log("Database connected");
+    app.listen(port, () => {
+      console.log(
+        `Advanced Tech Academy server up and running on http://localhost:${port}...`
+      );
+    });
+  })
+  .catch((err) => console.log(err));
