@@ -54,12 +54,14 @@ const signupRoute = require("./routes/signup");
 const signinRoute = require("./routes/signin");
 const tokenRoute = require("./routes/token");
 const forget_passwordRoute = require("./routes/forget_password");
+const userRoute = require("./routes/user");
 
 // getting Routes
 app.use("/api/signup", signupRoute);
 app.use("/api/signin", signinRoute);
 app.use("/api/token", tokenRoute);
 app.use("/api/forget_password", forget_passwordRoute);
+app.use("/api/user", userRoute);
 
 // app.listen(port, () => console.log(port));
 mongoose
